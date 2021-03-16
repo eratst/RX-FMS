@@ -1,0 +1,227 @@
+<!--增加/返回按钮开始-->
+<div style="margin: 0px 0 5px 5px;">
+	<div style="display:inline-block;height: 50px;line-height: 50px;">
+		<span style="font-size: 18px;">工厂模型控制台&nbsp;|</span>
+		<span style="font-size: 16px;">{{main.vMember.sapc.tableType.jsonObj.tableName}}</span>
+	</div>
+
+	<nav class="text-right" style="float:right;height: 50px; font-size: 10px;">
+		<div style="margin: 0 15px 5px 0">
+			<!--<a type="button" ng-click=main.vfunc.onclick.logout()>
+				<span class="glyphicon glyphicon-off"></span>&nbsp;安全退出
+			</a>-->
+		</div>
+		<div>
+			<button type="button" class="btn clude add buuttn" ng-click=main.vfunc.onclick.addButton() data-target="#insertWindow" ng-if="authModfiy&&BntShow&&orgBtnShow&&removeBnt&&rentBtnShow" data-toggle="modal">
+      <span class="glyphicon glyphicon-plus buttn "></span>增加</button>
+			<button type="button" class="btn clude delet buuttn" data-target="#deleteWindow" data-toggle="modal" ng-if="authModfiy&&BntShow&&updateShow&&removeBnt&&rentBtnShow" ng-disabled="gridApi.grid.selection.selectedCount<1">
+      <span class="glyphicon glyphicon-remove buttn"></span>删除</button>
+			<!--多条引入，OUM机构单元表-->
+			<button type="button" style="background-color:#0ac8f2;" class="btn clude delet buuttn" ng-click=main.vfunc.onclick.addButton() data-target="#multiInsertWindow" data-toggle="modal" ng-mouseover=main.vfunc.onclick.multiInsertOrg() data-toggle="modal" ng-if="authModfiy&&!removeBnt" ng-disabled="gridApi.grid.selection.selectedCount<1||insertOumOrg">
+      <span class="glyphicon glyphicon-check buttn"></span>引入</button>
+			<!--单条引入，内部组织机构表-->
+			<button type="button" style="background-color:#0ac8f2;" class="btn clude delet buuttn" ng-click=main.vfunc.onclick.addButton() data-target="#insWindow" data-toggle="modal" ng-if=false ng-disabled="!authModfiy">
+      <span class="glyphicon glyphicon-check buttn"></span>引入</button>
+			<!--多条加入班组，用户表-->
+			<button type="button" style="background-color:#695de8;" class="btn clude delet buuttn" ng-click=main.vfunc.onclick.addButtonS() data-target="#multiInsertTeam" data-toggle="modal" ng-mouseover=main.vfunc.onclick.multiInsertTeam() data-toggle="modal" ng-if="authModfiy&&!userBtnShow" ng-disabled="gridApi.grid.selection.selectedCount<1">
+      <span class="glyphicon glyphicon-check buttn"></span>加入班组</button>
+			<button type="button" class="btn clude import buuttn" data-target="#tableImport" data-toggle="modal" aria-expanded="false" ng-if="authModfiy&&rentBtnShow&&BntShow&&removeBnt&&orgBtnShow" data-toggle="modal">
+		<span class="glyphicon glyphicon-save buttn" ></span>导入</button>
+			<!-- Split button -->
+			<div class="btn-group" ng-if="downloadBntShow&&removeBnt">
+				<button type="button" class="btn clude download buuttn" ng-click="main.vfunc.onclick.downloadExl('allData',0,0)" style="margin: 0 -10px 0 0;">
+		<span class="glyphicon glyphicon-open buttn"></span>导出</button>
+				<button type="button" class="btn clude download buuttn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+				<ul class="dropdown-menu">
+					<li>
+						<a ng-click="main.vfunc.onclick.downloadExl('allData',0,0)">全部数据</a>
+					</li>
+					<li>
+						<a ng-click="main.vfunc.onclick.downloadExl('currentPage',gridOptions.paginationCurrentPage,gridOptions.paginationPageSize)">当前页数据</a>
+					</li>
+					<li>
+						<a ng-click="main.vfunc.onclick.downloadSelected()">选中数据</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+	</nav>
+</div>
+<hr />
+<div>
+	<!--页面查询方法-->
+	<div class="row" id="action">
+		<div ng-init='isNull=true' style="margin: 0;padding: 0;">
+			<span ng-repeat="(key,value) in main.vMember.sapc.tableType.attribute" ng-if="main.vMember.sapc.tableType.attribute[key].proSearch.show">
+				<div ng-init='isNull=false' style="margin: 5px 13px 0 10px;padding: 0;display: inline-block;">
+					<div style="display: inline-block;">
+						<span class="title" style="text-align: right;font-size: 11px;margin: 0;line-height: 30px;">{{value.display}}:</span>
+		</div>
+		<div style="display: inline-block;">
+			<div ng-if="value.display!='组织机构'&&value.display!='用户所属机构'&&value.orgTree!=true&&value.dropBiz!=true&&value.searchInput!=true&&value.parTree!=true&&value.chilTree!=true&&value.type!='boolean'">
+				<input type="text" class="form-control" ng-model="value.proSearch.data" style="width: 105px;display: inline-block;">
+			</div>
+			<!--<div ng-if="(value.display=='组织机构'&&value.parTree!=true&&value.chilTree!=true)||value.display=='用户所属机构'">
+				<input type="text" class="form-control" ng-model="value.proSearch.data" style="width: 105px;display: inline-block;margin-bottom: 10px;">
+				<div class="input-group-btn" style="display: inline-block;">
+					<button type="button" class="btn btn-default dropdown-toggle buuttn" ng-click="main.vfunc.onclick.treeButton(value.proSearch,'proSearch')" data-target="#orgTree" data-toggle="modal" style="padding: 2px 4px;margin-left: -25px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-tree-conifer buttn" style="font-size: 12px;"></span></span></button>
+				</div>
+			</div>-->
+			<!--parTree与chilTree属性是为了判断“多业务层次明细表”上级组织机构和本级组织机构编码-->
+			<div ng-if="value.parTree==true">
+				<input type="text" class="form-control" ng-model="value.proSearch.data" style="width: 105px;display: inline-block;margin-bottom: 10px;">
+				<div class="input-group-btn" style="display: inline-block;">
+					<button type="button" class="btn btn-default dropdown-toggle buuttn" data-target="#orgTreeStd" ng-click="main.vfunc.onclick.treeButtonStd(value.proSearch,'proSearch','parTree')" data-toggle="modal" style="padding: 2px 4px;margin-left: -25px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-tree-conifer buttn"style="font-size: 12px;"></span></button>
+				</div>
+				<span>是否包含下级</span>
+				<input type="radio" ng-model="levelOrg" ng-value='true' ng-change="main.vfunc.onclick.selectLevel(true)">
+				<span>是</span>
+				<input type="radio" ng-model="levelOrg" ng-value='false' ng-change="main.vfunc.onclick.selectLevel(false)">
+				<span>否</span>
+			</div>
+			<div ng-if="value.chilTree==true">
+				<input type="text" class="form-control" ng-model="value.proSearch.data" style="width: 105px;display: inline-block;margin-bottom: 10px;">
+				<div class="input-group-btn" style="display: inline-block;">
+					<button type="button" class="btn btn-default dropdown-toggle buuttn" data-target="#orgTreeStd" ng-click="main.vfunc.onclick.treeButtonStd(value.proSearch,'proSearch','chilTree')" data-toggle="modal" style="padding: 2px 4px;margin-left: -25px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-tree-conifer buttn"style="font-size: 12px;"></span></button>
+				</div>
+				<span>是否包含下级</span>
+				<input type="radio" ng-model="levelOrg" ng-value='true' ng-change="main.vfunc.onclick.selectLevel(true)">
+				<span>是</span>
+				<input type="radio" ng-model="levelOrg" ng-value='false' ng-change="main.vfunc.onclick.selectLevel(false)">
+				<span>否</span>
+			</div>
+			<div ng-if="value.chilUserTree==true">
+				<input type="text" class="form-control" ng-model="value.proSearch.data" style="width: 105px;display: inline-block;margin-bottom: 10px;">
+				<div class="input-group-btn" style="display: inline-block;">
+					<button type="button" class="btn btn-default dropdown-toggle buuttn" data-target="#orgTreeStd" ng-click="main.vfunc.onclick.treeButtonStd(value.proSearch,'proSearch','chilUserTree')" data-toggle="modal" style="padding: 2px 4px;margin-left: -25px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-tree-conifer buttn"style="font-size: 12px;"></span></button>
+				</div>
+				<span>是否包含下级</span>
+				<input type="radio" ng-model="levelOrg" ng-value='true' ng-change="main.vfunc.onclick.selectLevel(true)">
+				<span>是</span>
+				<input type="radio" ng-model="levelOrg" ng-value='false' ng-change="main.vfunc.onclick.selectLevel(false)">
+				<span>否</span>
+			</div>
+
+			<!--<div ng-if="value.orgTree==true">
+				<input type="text" class="form-control" ng-model="value.proSearch.data" style="width: 105px;display: inline-block;margin-bottom: 10px;">
+				<div class="input-group-btn" style="display: inline-block;">
+					<button type="button" class="btn btn-default dropdown-toggle buuttn" ng-click="main.vfunc.onclick.areaOnClick('proSearch')" style="padding: 2px 10px;margin-left: -33px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+					<ul class="dropdown-menu dropdown-menu-right" style="min-width: 135px;margin-right: 6px;">
+						<li ng-repeat="pData in areaAlias">
+							<a ng-click="value.proSearch.data=pData['value']">{{pData['value']}}</a>
+						</li>
+					</ul>
+				</div>
+			</div>-->
+			<div ng-if="value.orgTree==true">
+				<input type="text" class="form-control" ng-model="value.proSearch.data" style="width: 105px;display: inline-block;margin-bottom: 10px;">
+				<div class="input-group-btn" style="display: inline-block;">
+					<button type="button" class="btn btn-default dropdown-toggle buuttn" ng-click="main.vfunc.onclick.areaOnClick('proSearch')" style="padding: 2px 10px;margin-left: -33px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+					<ul class="dropdown-menu dropdown-menu-right" style="min-width: 135px;margin-right: 6px;">
+						<li class="dropdown-submenu" ng-repeat="pData in areaAlias" ng-if="pData.value.length>0">
+							<a tabindex="-1" href="javascript:;">{{pData['typeName']}}</a>
+							<ul class="dropdown-menu menu-overflow">
+								<li ng-repeat="pcData in pData.value">
+									<a ng-click="value.proSearch.data=pcData['areaAlias']">{{pcData['areaAlias']}}</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div ng-if="value.dropBiz==true">
+				<input type="text" class="form-control" ng-model="value.proSearch.data" ng-disabled="true" style="width: 105px;display: inline-block;margin-bottom: 10px;">
+				<div class="input-group-btn" style="display: inline-block;">
+					<button type="button" class="btn btn-default dropdown-toggle buuttn" ng-click="main.vfunc.onclick.bizCodeOnClick('proSearch')" style="padding: 2px 10px;margin-left: -33px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+					<ul class="dropdown-menu dropdown-menu-right menu-overflow" style="min-width: 135px;margin-right: 6px;" ng-model="value.proSearch.data">
+						<li ng-repeat="bizData in bizCodeList">
+							<a ng-click="value.proSearch.data=bizData['bizCode']">{{bizData['bizCode']}}</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div ng-if="value.searchInput==true">
+				<input type="text" class="form-control" ng-model="value.proSearch.data" style="width: 105px;display: inline-block;margin-bottom: 10px;">
+				<div class="input-group-btn" style="display: inline-block;">
+					<button type="button" class="btn btn-default dropdown-toggle buuttn" data-target="#connectTable" ng-click="main.vfunc.onclick.tableSearchOnClick(value,key)" data-toggle="modal" style="padding: 2px 5px;margin-left: -33px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-tree-conifer buttn"></span></button>
+				</div>
+			</div>
+			<!--<div ng-if="value.valueShowOrg">
+				<input type="text" class="form-control" ng-disabled="true" value="全部" ng-if="value.proSearch.data===''" style="width: 105px;display: inline-block;margin-bottom: 10px;">
+				<input type="text" class="form-control" ng-disabled="true" value="扩展组织机构" ng-if="value.proSearch.data==1" style="width: 105px;display: inline-block;margin-bottom: 10px;">
+				<input type="text" class="form-control" ng-disabled="true" value="标准组织机构" ng-if="value.proSearch.data===0" style="width: 105px;display: inline-block;margin-bottom: 10px;">
+				<input type="text" class="form-control" ng-disabled="true" ng-model="value.proSearch.data" ng-if="value.proSearch.data!=1&&value.proSearch.data!==0&&value.proSearch.data!==''" style="width: 105px;display: inline-block;margin-bottom: 10px;">
+				<div class="input-group-btn" style="display: inline-block;">
+					<button type="button" class="btn btn-default dropdown-toggle buuttn" style="padding: 2px 10px;margin-left: -33px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li>
+							<a ng-click="value.proSearch.data=''">全部</a>
+						</li>
+						<li>
+							<a ng-click="value.proSearch.data=1">扩展组织机构</a>
+						</li>
+						<li>
+							<a ng-click="value.proSearch.data=0">标准组织机构</a>
+						</li>
+					</ul>
+				</div>
+			</div>-->
+			<div ng-if="value.type=='boolean'">
+				<input type="text" class="form-control" ng-disabled="true" value="全部" ng-if="value.proSearch.data===''" style="width: 105px;display: inline-block;margin-bottom: 10px;">
+				<input type="text" class="form-control" ng-disabled="true" value="是" ng-if="value.proSearch.data==1" style="width: 105px;display: inline-block;margin-bottom: 10px;">
+				<input type="text" class="form-control" ng-disabled="true" value="否" ng-if="value.proSearch.data===0" style="width: 105px;display: inline-block;margin-bottom: 10px;">
+				<input type="text" class="form-control" ng-disabled="true" ng-model="value.proSearch.data" ng-if="value.proSearch.data!=1&&value.proSearch.data!==0&&value.proSearch.data!==''" style="width: 105px;display: inline-block;margin-bottom: 10px;">
+				<div class="input-group-btn" style="display: inline-block;">
+					<button type="button" class="btn btn-default dropdown-toggle buuttn " style="padding: 2px 10px;margin-left: -33px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+					<ul class="dropdown-menu dropdown-menu-right menu-overflow">
+						<li>
+							<a ng-click="value.proSearch.data=''">全部</a>
+						</li>
+						<li>
+							<a ng-click="value.proSearch.data=1">是</a>
+						</li>
+						<li>
+							<a ng-click="value.proSearch.data=0">否</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	</span>
+	<div style="display: inline-block;" ng-if='main.vMember.sapc.tableType.searchCount'>
+		<button type="button" class="btn clude search buuttn" data-dismiss="modal" ng-click="main.vfunc.onclick.serchEnsure()" ng-mouseover='main.vfunc.onclick.serchOver()'>
+				<span class="glyphicon glyphicon-search buttn"></span>查询</button>
+	</div>
+</div>
+</div>
+</div>
+
+<!--增删改查导入模态框--- 查询模态框目前不用-->
+<div ng-include="'uiGrid/window_add.html'"></div>
+<div ng-include="'uiGrid/window_delete.html'"></div>
+<div ng-include="'uiGrid/window_update.html'"></div>
+<div ng-include="'uiGrid/window_search.html'"></div>
+<div ng-include="'uiGrid/window_import.html'"></div>
+<div ng-include="'uiGrid/conditionalQuery.html'"></div>
+
+<!--组织机构树，标准组织机构树，公式编辑器-->
+<div ng-include="'uiGrid/org_tree.html'"></div>
+<div ng-include="'uiGrid/org_tree_std.html'"></div>
+<div ng-include="'uiGrid/formulaEdit.html'"></div>
+
+<!--OUM引入，加入班组-->
+<div ng-include="'uiGrid/window_insert.html'"></div>
+<div ng-include="'uiGrid/multiInsertOumOrg.html'"></div>
+<div ng-include="'uiGrid/multiInsertTeam.html'"></div>
+
+<!--用户查询-->
+<div ng-include="'uiGrid/user_model_add.html'"></div>
+<div ng-include="'uiGrid/user_model_update.html'"></div>
+
+<!--点击放大镜，关联表查询-->
+<div ng-include="'uiGrid/parentSearch.html'"></div>

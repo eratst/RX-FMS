@@ -1,0 +1,420 @@
+{
+	"alterKey": "deUpDownLimitId",
+	"attribute": {
+		"deUpDownLimitId": {
+			"display": "默认上下限ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"uniqueId": {
+			"display": "唯一性标识",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "80"
+		},
+		"opeIndexId": {
+			"display": "操作指标ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"opeIndexName": {
+			"display": "操作指标名称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "180",
+			"parentModel": "T_OPM_OPEINDEX"
+		},
+		"monLevelId": {
+			"display": "监控级别ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"monLevelName": {
+			"display": "监控级别名称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "180",
+			"parentModel": "T_OPM_MONLEVEL"
+		},
+		"craftSchemeId": {
+			"display": "工艺方案ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"craftSchemeName": {
+			"display": "工艺方案名称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "180",
+			"parentModel": "T_OPM_CRAFTSCHEME"
+		},
+		"craftSchemeStdCode": {
+			"display": "工艺方案标准编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true
+		},
+		"upLimitValue": {
+			"display": "上限值",
+			"type": "number",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "70"
+		},
+		"downLimitValue": {
+			"display": "下限值",
+			"type": "number",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "70"
+		},
+		"attentionValue": {
+			"display": "关注值",
+			"type": "number",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "70"
+		},
+		"thresholdValue": {
+			"display": "阈值",
+			"type": "number",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "70"
+		},
+		"minDvtTime": {
+			"display": "最小偏差时间",
+			"type": "number",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "130"
+		},
+		"maxChangeRate": {
+			"display": "最大变化率",
+			"type": "number",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "80"
+		},
+		"techcardCtlFlag": {
+			"display": "是否工艺卡片控制项",
+			"type": "boolean",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "120"
+		},
+		"monFlag": {
+			"display": "是否监控",
+			"type": "boolean",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "70"
+		},
+		"ptrlFlag": {
+			"display": "是否巡检",
+			"type": "boolean",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "70"
+		},
+		"inUse": {
+			"display": "是否启用",
+			"type": "boolean",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "70"
+		},
+		"mntFlag": {
+			"display": "修改标识",
+			"type": "number",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "70"
+		},
+		"applyReason": {
+			"display": "申请原因",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130"
+		},
+		"riskAndSolution": {
+			"display": "风险评估及相应措施",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "120"
+		},
+		"upLimitFormula": {
+			"display": "上限值公式",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "80"
+		},
+		"downLimitFormula": {
+			"display": "下限值公式",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "80"
+		},
+		"attentionFormula": {
+			"display": "关注值公式",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "80"
+		},
+		"rlsUserId": {
+			"display": "发布人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true
+		},
+		"rlsUserName": {
+			"display": "发布人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "70",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"rlsDate": {
+			"display": "发布时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "150",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"cmtUserId": {
+			"display": "提交人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true
+		},
+		"cmtUserName": {
+			"display": "提交人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "70",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"cmtDate": {
+			"display": "提交时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "150",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"crtUserId": {
+			"display": "创建人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"crtUserName": {
+			"display": "创建人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "left",
+			"width": "70",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"crtDate": {
+			"display": "创建时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"width": "150",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntUserId": {
+			"display": "最后维护人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"mntUserName": {
+			"display": "维护人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "left",
+			"width": "70",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntDate": {
+			"display": "维护时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"width": "150",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"des": {
+			"display": "描述",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "180"
+		},
+		"sortNum": {
+			"display": "排序",
+			"type": "number",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "50",
+			"class": "right"
+		},
+		"status": {
+			"display": "状态",
+			"type": "number",
+			"required": true,
+			"hide": false,
+			"inOut": true
+		},
+		"startTime": {
+			"display": "起效时间",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "130"
+		},
+
+		"version": {
+			"display": "乐观锁版本",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		}
+	}
+}

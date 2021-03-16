@@ -1,0 +1,223 @@
+{
+	"alterKey": "associativeId",
+	"nodeA": "nodeCode",
+	"nodeB": "mtrlCode",
+	"mainKey": "associativeId",
+	"attribute": {
+		"associativeId": {
+			"display": "关联ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"nodeId": {
+			"display": "节点ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"nodeName": {
+			"display": "节点名称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "180",
+			"parentModel": "T_PM_NODE"
+		},
+		"nodeCode": {
+			"display": "节点编码",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"proUpdate": {
+				"show": true,
+				"edit": false
+			},
+			"proAdd": {
+				"show": true,
+				"edit": false
+			}
+		},
+		"nodeTypeId": {
+			"display": "节点类型ID",
+			"type": "number",
+			"required": false,
+			"inOut": false,
+			"hide": true
+		},
+		"nodeTypeName": {
+			"display": "节点类型名称",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "180",
+			"class": "left",
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			},
+			"proAdd": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mtrlName": {
+			"display": "物料名称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "180",
+			"parentModel": "T_PM_MTRL"
+		},
+		"mtrlCode": {
+			"display": "物料编码",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"proUpdate": {
+				"show": true,
+				"edit": false
+			},
+			"proAdd": {
+				"show": true,
+				"edit": false
+			}
+		},
+		"mtrlId": {
+			"display": "物料ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"dataStatus": {
+			"display": "是否启用",
+			"type": "boolean",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "center",
+			"width": "70"
+		},
+		"sortNum": {
+			"display": "排序",
+			"type": "number",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "50",
+			"class": "right"
+		},
+		"crtUserId": {
+			"display": "创建人ID",
+			"type": "string",
+			"required": false,
+			"inOut": false,
+			"hide": true
+		},
+		"crtUserName": {
+			"display": "创建人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "left",
+			"width": "70",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"crtDate": {
+			"display": "创建时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"width": "150",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntUserId": {
+			"display": "最后维护人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"mntUserName": {
+			"display": "维护人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "left",
+			"width": "70",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntDate": {
+			"display": "维护时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"width": "150",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+
+		"version": {
+			"display": "乐观锁版本",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"des": {
+			"display": "描述",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "180"
+		}
+	}
+}
+

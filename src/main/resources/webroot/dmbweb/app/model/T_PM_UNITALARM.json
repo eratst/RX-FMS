@@ -1,0 +1,263 @@
+{
+	"alterKey": "unitAlarmCode",
+	"attribute": {
+		"unitAlarmId": {
+			"display": "装置告警ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"unitAlarmCode": {
+			"display": "装置告警编码",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"proUpdate": {
+				"show": true,
+				"edit": false
+			}
+		},
+		"unitAlarmName": {
+			"display": "名称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "180"
+		},
+		"unitAlarmShortName": {
+			"display": "简称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130"
+		},
+		"areaId": {
+			"display": "装置ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"areaCode": {
+			"display": "装置编码",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"parentModel": "T_PM_UNIT"
+		},
+		"idxId": {
+			"display": "度量指标ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"idxName": {
+			"display": "度量指标名称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "180",
+			"class": "left",
+			"parentModel": "T_PM_MEASINDEX"
+		},
+		"idxAlias": {
+			"display": "度量指标简称",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "130",
+			"class": "left",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"idxType": {
+			"display": "度量指标类型",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "90"
+		},
+		"itemNo": {
+			"display": "位号",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "70"
+		},
+		"upLimitValue": {
+			"display": "上限",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "70"
+		},
+		"upperLimitValue": {
+			"display": "上上限",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "70"
+		},
+		"downLimitValue": {
+			"display": "下限",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "70"
+		},
+		"lowerLimitValue": {
+			"display": "下下限",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "70"
+		},
+		"inUse": {
+			"display": "是否启用",
+			"type": "boolean",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "70"
+		},
+		"sortNum": {
+			"display": "排序",
+			"type": "number",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "50",
+			"class": "right"
+		},
+		"crtUserId": {
+			"display": "创建人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"crtUserName": {
+			"display": "创建人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"width": "70",
+			"class": "left",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"crtDate": {
+			"display": "创建时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"width": "150",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntUserId": {
+			"display": "最后维护人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"mntUserName": {
+			"display": "维护人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"width": "70",
+			"class": "left",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntDate": {
+			"display": "维护时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"width": "150",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+
+		"des": {
+			"display": "描述",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "180"
+		},
+
+		"version": {
+			"display": "乐观锁版本",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		}
+	}
+}

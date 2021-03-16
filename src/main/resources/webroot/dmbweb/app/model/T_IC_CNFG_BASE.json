@@ -1,0 +1,314 @@
+{
+	"alterKey": "cnfgBaseId",
+	"mainKey": "cnfgBaseId",
+	"attribute": {
+		"cnfgBaseId": {
+			"display": "罐量计算基础配置Id",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"orgAlias": {
+			"display": "组织机构",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "130",
+			"class": "left",
+			"treeIsUpdate": true,
+			"chilTree": true
+		},
+		"orgCode": {
+			"display": "组织机构编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true
+		},
+		"orgName": {
+			"display": "组织机构名称",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"areaCode": {
+			"display": "区域编码",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "90",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"areaName": {
+			"display": "区域名称",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"areaAlias": {
+			"display": "所属罐区",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"orgTree": true
+		},
+		"areaId": {
+			"display": "罐区ID",
+			"type": "number",
+			"required": false,
+			"inOut": false,
+			"hide": true
+		},
+		"cnfgClassId": {
+			"display": "基础分类Id",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"cnfgClassCode": {
+			"display": "基础分类编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true
+		},
+		"cnfgClassName": {
+			"display": "基础分类",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "150",
+			"parent": "T_IC_CNFG_CLASS"
+		},
+
+		"tankType": {
+			"display": "适用罐类型",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false,
+			"class": "left"
+		},
+		"cnfgParaValue": {
+			"display": "配置参数值",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true,
+			"class": "left"
+		},
+		"cnfgParaShowValue": {
+			"display": "配置参数显示值",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false,
+			"class": "left"
+		},
+		"cnfgParaNote": {
+			"display": "配置参数说明",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false,
+			"class": "left"
+		},
+		"classParaId": {
+			"display": "计算方法",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"cnfgParaShowvalue": {
+			"display": "计算方法",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "180",
+			"linkKeys": {
+				"cnfgParaShowvalue": "cnfgParaShowvalue",
+				"cnfgParaValue": "cnfgParaValue",
+				"isUseFormula": "isUseFormula",
+				"formula": "formula",
+				"classParaId": "classParaId"
+			},
+			"parentModel": "T_IC_CNFG_CLASS_PARA"
+		},
+		"isUseFormula": {
+			"display": "是否自定义公式",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "90",
+			"proAdd": {
+				"show": true,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": true,
+				"edit": false
+			}
+		},
+		"paraFormula": {
+			"display": "计算公式",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false,
+			"class": "left"
+		},
+		"formula": {
+			"display": "公式",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "150",
+			"proAdd": {
+				"show": true,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": true,
+				"edit": false
+			}
+		},
+		"crtUserId": {
+			"display": "创建人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"crtUserName": {
+			"display": "创建人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "left",
+			"width": "70",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"crtDate": {
+			"display": "创建时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "center",
+			"width": "150",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntUserId": {
+			"display": "最后维护人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"mntUserName": {
+			"display": "维护人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "left",
+			"width": "70",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntDate": {
+			"display": "维护时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "center",
+			"width": "150",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"inUse": {
+			"display": "是否启用",
+			"type": "boolean",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "70",
+			"class": "center"
+		},
+		"sortNum": {
+			"display": "排序",
+			"type": "number",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "50",
+			"class": "right"
+		},
+		"version": {
+			"display": "乐观锁版本",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false 
+		},
+		"des": {
+			"display": "描述",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "180",
+			"class": "left"
+		}
+	}
+}

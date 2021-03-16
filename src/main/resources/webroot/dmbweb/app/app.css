@@ -1,0 +1,738 @@
+/* SCROLLBAR STYLE, only for chrome or safari */
+
+::-webkit-scrollbar {
+	width: 0.8rem;
+	height: 0.8rem;
+}
+
+::-webkit-scrollbar-track {
+	-webkit-border-radius: 2.4rem;
+	border-radius: .4rem;
+}
+
+::-webkit-scrollbar-thumb {
+	-webkit-border-radius: .4rem;
+	border-radius: .4rem;
+	min-height: 2rem;
+	background: rgba(202, 202, 202, 0.8);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(202, 202, 202, 0.4);
+}
+
+
+/* SCROLLBAR STYLE END */
+
+
+/*初始化配置*/
+
+html {
+	height: 100%;
+	overflow: hidden;
+	font-size: 12px;
+}
+
+body {
+	height: 100%;
+	margin: 5px 0;
+	font-size: 12px;
+	font-family: "Microsoft YaHei", Arial, 微软雅黑, 黑体, 宋体, sans-serif;
+}
+
+body a {
+	cursor: pointer;
+	color: black;
+}
+
+body a:hover {
+	text-decoration: none;
+}
+
+li {
+	list-style-type: none;
+}
+
+.ui-view {
+	height: 100%;
+}
+
+.view-main {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	overflow: auto;
+}
+
+
+/*多业务层次明细表删除上级组织机构*/
+
+.removeOrg {
+	position: absolute;
+	top: 7px;
+	color: red;
+}
+
+
+/*下拉选择列表*/
+
+#serchWindow .dropdown-menu {
+	min-width: 153px;
+}
+
+.dropdown-menu {
+	/*min-width: 130px;
+	max-width: 105px;
+	max-height: 150px;
+	font-size: 12px;*/
+	/*overflow: auto;*/
+}
+.menu-overflow{
+	min-width: 130px;
+	max-width: 105px;
+	max-height: 150px;
+	font-size: 12px;
+	overflow: scroll;
+}
+.dropdown-submenu {
+	position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+	top: 0;
+	left: 100%;
+	margin-top: -6px;
+	margin-left: -1px;
+	-webkit-border-radius: 0 6px 6px 6px;
+	-moz-border-radius: 0 6px 6px;
+	border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+	display: block;
+}
+
+.dropdown-submenu>a:after {
+	display: block;
+	content: " ";
+	float: right;
+	width: 0;
+	height: 0;
+	border-color: transparent;
+	border-style: solid;
+	border-width: 5px 0 5px 5px;
+	border-left-color: #ccc;
+	margin-top: 5px;
+	margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+	border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+	float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+	left: -100%;
+	margin-left: 10px;
+	-webkit-border-radius: 6px 0 6px 6px;
+	-moz-border-radius: 6px 0 6px 6px;
+	border-radius: 6px 0 6px 6px;
+}
+
+
+/*左侧菜单栏样式   begin*/
+
+.table-selector {
+	height: 100%;
+}
+
+.leftSide {
+	height: 700px;
+	overflow: auto;
+	margin: 10px 0 10px 5px;
+	border: none;
+	background: #fafafa;
+}
+
+.clearPadding {
+	padding: 0;
+	margin: 0 !important;
+}
+
+.tableType {
+	border-bottom: #f0f0f0 1px solid;
+	display: block;
+	width: 255px;
+	height: 43px;
+	line-height: 43px;
+	text-indent: 25px;
+	margin: 0;
+	font-size: 12px;
+}
+
+#sideLeft .tableTitle {
+	color: rgb(42, 42, 47) !important;
+	display: block;
+	width: 255px;
+	height: 36px;
+	line-height: 36px;
+	text-indent: 45px;
+	font-size: 10px;
+	text-decoration: none;
+	margin: 0;
+}
+
+#sideLeft .tableTitle:hover {
+	color: #00a0e9 !important;
+	border-left: #00a0e9 2px solid;
+	font-weight: bold;
+	background: #fff url(style/img/listStyle.png) no-repeat 10% center;
+	background-size: 6px 6px;
+}
+
+
+/*左侧菜单栏样式   end*/
+
+
+/*模态框样式  begin*/
+
+.modal-title {
+	font-weight: 700;
+	text-align: left;
+	height: 40px;
+	line-height: 40px;
+	padding-left: 10px;
+}
+
+.modal-header {
+	margin: 0 auto;
+	background-color: #eee;
+	height: 40px;
+	border-bottom: 1px solid #999;
+	padding: 0;
+	/*border: none;*/
+}
+
+.modal-header .close {
+	margin: 7px 10px 0 0;
+	color: #000000;
+}
+
+.modal-footer {
+	padding: 9px 15px 9px 15px;
+}
+
+
+/*模态框样式  end*/
+
+.footer-content {
+	text-align: center;
+}
+
+.col-xs-5 {
+	width: auto;
+}
+
+.col-xs-6 {
+	padding: 0 2px;
+}
+
+.col-xs-7 {
+	text-align: right;
+	margin-top: 1px;
+	width: auto;
+	padding: 0px 0 0 5px;
+}
+
+.elem {
+	font-size: 1.5rem;
+}
+
+.row {
+	margin: 5px 0 5px 0;
+}
+
+.overflow {
+	border: 1px;
+	width: auto;
+	height: 350px;
+	overflow: auto
+}
+
+
+/*右侧表格 begin*/
+
+.content-tabs {
+	border-bottom: solid 2px #2f4050;
+}
+
+.content-tabs .roll-left {
+	left: 0;
+	border-right: solid 1px #eee;
+}
+
+.content-tabs .roll-nav {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	color: #999;
+	z-index: 2;
+	top: 0;
+}
+
+
+/*按钮样式*/
+
+button.add,
+button.delet,
+button.edit,
+button.search,
+button.import,
+button.download {
+	color: white;
+	font-size: 12px;
+	background-color: #00acac;
+}
+
+button.add {
+	background-color: #00acac;
+}
+
+button.delet {
+	background-color: #ff5b57;
+}
+
+button.edit {
+	background-color: #f59c1a;
+}
+
+button.search {
+	background-color: #00a0e9;
+}
+
+button.import {
+	background-color: rgb(107, 206, 109);
+}
+
+button.download {
+	background-color: rgb(245, 156, 26);
+}
+
+.container {
+	padding: 10px 0 10px 15px;
+}
+
+.table>thead>tr>th {
+	border: none;
+}
+
+
+/*文本输入框样式*/
+
+#action .form-control,
+#orgTree .form-control,
+#orgTreeStd .form-control,
+#parentSearchModel .form-control,
+#insertWindow .form-control,
+#insWindow .form-control,
+#multiInsertWindow .form-control,
+#multiInsertTeam .form-control,
+#updateWindow .form-control,
+#editWindow .form-control,
+#serchWindow .form-control {
+	height: 26px;
+	padding: 0;
+	font-size: 12px;
+}
+
+#action .form-control {
+	margin: 0 0 0 3px;
+	width: 135px;
+}
+
+#serchWindow .input-group {
+	width: 230px;
+}
+
+.input-group-addon {
+	padding: 3px 8px;
+	font-size: 12px;
+}
+
+.search-select {
+	border: 1px solid #ccc;
+}
+
+.btn-sm,
+.btn-group-sm>.btn {
+	padding: 2px 14px;
+}
+
+th.dropdown {
+	width: 152px;
+}
+
+.buttn {
+	margin-right: 5px;
+}
+
+#uiGrid,
+#userGrid {
+	/*width: 99%;*/
+	/*width: calc(99%-1px);*/
+	height: auto !important;
+	text-align: center;
+	margin: auto;
+	padding: 0;
+	margin-top: 5px;
+}
+
+.ui-grid-header-cell:last-child .ui-grid-column-resizer.right {
+	border: none;
+}
+
+#uiGrid .tableHeader,
+#userGrid .tableHeader {
+	height: 38px;
+	line-height: 38px;
+	vertical-align: top;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-weight: normal;
+	font-size: 12px;
+	font-family: "微软雅黑";
+	background: #fafafa;
+	color: #000000;
+}
+
+#uiGrid .cellClass,
+#userGrid .cellClass {
+	padding: 8px;
+	line-height: 12px;
+	vertical-align: top;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-weight: normal;
+	font-size: 12px;
+}
+
+.blue {
+	color: #23B7E5;
+}
+
+.form-group {
+	margin: 0;
+	/*background: rgb(243, 243, 243);
+	position: absolute;*/
+	/*margin-top: 9px;*/
+	/*width: 109px;*/
+	/*border-bottom: dashed 1px rgb(243,243,243);*/
+}
+
+.ui-grid-menu-button {
+	height: 38px;
+}
+
+.ui-grid-menu-button .ui-grid-menu .ui-grid-menu-mid {
+	/*overflow: hidden;*/
+	overflow: inherit;
+}
+
+.ui-grid-menu .ui-grid-menu-inner {
+	background: white;
+	max-height: 300px;
+	overflow: auto;
+}
+
+.ui-grid-icon-ok {
+	color: #449d44;
+}
+
+label {
+	margin-bottom: 0 !important;
+}
+
+.ui-grid-cell-contents {
+	padding: 0;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+	margin: 2px 0px 0px 15px;
+}
+
+.inputbutton {
+	/*position: relative;*/
+	display: inline-block;
+	background: #D0EEEF;
+	border: 1px solid #99D3F5;
+	border-radius: 4px;
+	padding: 4px 12px;
+	overflow: hidden;
+	color: #1E88c7;
+	text-decoration: none;
+	text-indent: 0;
+	line-height: 20px;
+}
+
+.file {
+	position: absolute;
+	width: 100px;
+	height: 28px;
+	opacity: 0;
+}
+
+.menu-list-button-follow {
+	border: none;
+	background-color: transparent;
+	display: inline-block;
+	padding: 0;
+	height: 1em;
+	margin-top: 7px;
+}
+
+.pagination {
+	margin: 8px;
+}
+
+.ui-grid-header-cell-wrapper .ui-grid-invisible {
+	visibility: hidden;
+	display: none;
+}
+
+.ui-grid-icon-container {
+	height: 36px;
+	margin: 0px -1px 0px -1px;
+	padding-top: 6px;
+	/*	background: red;*/
+}
+
+.ui-grid-menu-button .ui-grid-icon-container {
+	margin: 0;
+}
+
+.title {
+	font-size: 12px;
+	line-height: 26px;
+}
+
+.sure {
+	color: #FFF;
+	background: #348FE2;
+	border: 2px #348FE2 solid;
+	padding: 3px 14px;
+}
+
+.remove {
+	color: #A3AFB7;
+	border: 1px #A3AFB7 solid;
+	padding: 4px 14px;
+}
+
+.modal-backdrop {
+	display: none;
+}
+
+#searchResult .modal-header {
+	width: 100%;
+	position: fixed;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+#searchResult .modal-content {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+.search-btn {
+	padding: 2px 5px 2px 6px;
+	border-bottom-right-radius: 4px;
+	border-top-right-radius: 4px;
+	background: #FFF;
+	border: 1px solid #CCC;
+	color: #348FE2;
+}
+
+hr {
+	border-top: 2px solid #eee;
+	margin: 0 0 10px 0;
+}
+
+.pagination>li>a,
+.pagination>li>span {
+	color: #000000;
+}
+
+.ui-grid-viewport {
+	height: auto !important;
+}
+
+.bttn {
+	margin: 0;
+	padding: 0;
+	border: none;
+	background-color: transparent;
+	color: deepskyblue;
+	text-align: center;
+	text-decoration: none;
+	line-height: 30px;
+	font-size: 12px;
+}
+
+div.ui-grid-cell input[type="checkbox"] {
+	margin: 9px 0 0 0;
+}
+
+.buuttn {
+	padding: 4px 12px;
+	margin: 0 10px 3px 9px;
+}
+
+
+/*树*/
+
+.menu-list {
+	z-index: 0;
+	position: relative;
+	width: 100%;
+	margin-top: 0;
+	padding-top: 10px;
+	overflow-y: auto;
+	height: calc(100% - 60px);
+	margin-left: 0;
+	background-color: #fbfbfb;
+}
+
+.menu-list p {
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 0.3em 0;
+	/*height: 2em;*/
+}
+
+.menu-list a {
+	text-overflow: ellipsis;
+	/*
+    word-break: keep-all;
+    white-space: nowrap;*/
+	height: 1em;
+	overflow: hidden;
+}
+
+.menu-list ul,
+ol {
+	user-select: none;
+	padding-left: 25px;
+	list-style-type: none;
+}
+
+.menu-list-button {
+	horiz-align: center;
+	border: none;
+	background-color: transparent;
+	padding: 2px 0;
+	margin-right: 0.5rem;
+	display: inline-block;
+	float: left;
+	font-size: 80%;
+	width: 1em;
+}
+
+.menu-list-button-follow {
+	border: none;
+	background-color: transparent;
+	display: inline-block;
+	padding: 0;
+	height: 1em;
+}
+
+.menu-list-button-right {
+	border: none;
+	background-color: transparent;
+	display: inline-block;
+	margin-right: 1rem;
+	padding: 0;
+	height: 1em;
+	float: right;
+}
+
+.menu-list-button-flow {
+	z-index: 1000;
+	border: none;
+	background-color: transparent;
+	padding: 0;
+	font-size: 2.5rem;
+	position: absolute;
+	top: 6rem;
+	right: 2rem;
+}
+
+.left {
+	text-align: left;
+}
+
+.center {
+	text-align: center;
+}
+
+.right {
+	text-align: right;
+}
+
+.container-fluid {
+	padding: 0;
+}
+
+.pagination>li>a,
+.pagination>li>span {
+	line-height: 1.7;
+}
+
+#show input {
+	width: 280px;
+}
+
+#b {
+	margin-top: 2%;
+}
+
+#but {
+	width: 69px;
+	margin: 5px 1px;
+	background-color: #E0E0E0;
+	border: solid 1px #000000;
+	padding: 2px 12px;
+}
+
+.tablediv {
+	width: 272px;
+	height: 320px;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.tableLeft {
+	border: solid 1px #262626;
+	text-align: center;
+	width: 136px;
+	height: 25px;
+}
+
+.tableRight {
+	border: solid 1px #262626;
+	text-align: center;
+	width: 127px;
+	height: 25px;
+}
