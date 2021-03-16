@@ -1,0 +1,215 @@
+{
+	"alterKey": "nodeCode",
+	"attribute": {
+		"nodeId": {
+			"display": "节点ID",
+			"type": "number",
+			"max": 6,
+			"required": false,
+			"hide": true,
+			"outPutN": false,
+			"editable": false,
+			"width": "10%",
+			"flag":  []
+		}, 
+		"nodeCode": {
+			"display": "排放口编码",
+			"type": "string",
+			"max": 36,
+			"required": true,
+			"editable": false,
+			"width": "10%",
+			"flag": [0,1,2]
+		},
+		"nodeName": {
+			"display": "排放口名称",
+			"type": "string",
+			"required": true,
+			"editable": false,
+			"width": "10%",
+			"flag":  [0,1,2]
+		},
+		"nodeAlias": {
+			"display": "排放口简称",
+			"type": "string",
+			"required": true,
+			"editable": false,
+			"width": "10%",
+			"flag": [0,1,2]
+		},
+		"nodeTypeId": {
+			"display": "节点类型ID ",
+			"type": "number",
+			"required": true,
+			"hide": true,
+			"editable": false,
+			"width": "10%",
+			"flag": []
+		},
+		"nodeTypeName": {
+			"display": "节点类型名称",
+			"type": "string",
+			"required": true,
+			"editable": false,
+			"width": "10%",
+			"parent": "T_PM_NODETYPE",
+			"flag": []
+		},
+		"areaCode": {
+			"display": "区域编码",
+			"type": "string",
+			"required": true,
+			"editable": true,
+			"width": "10%",
+			"max": 36,
+			"pos": 0,
+			"flag":[]
+		},
+		"formula": {
+			"display": "公式",
+			"type": "string",
+			"required": true,
+			"editable": false,
+			"width": "10%",
+			"flag": [0,1]
+		},
+		"nodeAltitude": {
+			"display": "位置海拔",
+			"type": "number",
+			"dataType": "number",
+			"required": true,
+			"editable": false,
+			"width": "10%",
+			"flag": [0,1,2]
+		},
+		"nodeLongitude": {
+			"display": "位置经度",
+			"type": "number",
+			"dataType": "number",
+			"required": true,
+			"editable": false,
+			"width": "10%",
+			"flag": [0,1,2]
+		},
+		"nodeLatitude": {
+			"display": "位置纬度",
+			"type": "number",
+			"dataType": "number",
+			"required": true,
+			"editable": false,
+			"width": "10%",
+			"flag": [0,1,2]
+		},
+		"crtUserId": {
+			"display": "创建人ID",
+			"type": "string",
+			"max": 36,
+			"required": false,
+			"hide": true,
+			"outPutN": false,
+			"editable": false,
+			"width": "10%",
+			"flag": []
+		},
+		"crtUserName": {
+			"display": "创建人名称",
+			"type": "string",
+			"max": 36,
+			"required": false,
+			"hide": true,
+			"outPutN": false,
+			"editable": false,
+			"width": "10%",
+			"flag": []
+		},
+		"crtDate": {
+			"display": "创建时间",
+			"type": "date",
+			"max": 20,
+			"required": false,
+			"hide": true,
+			"outPutN": false,
+			"editable": false,
+			"width": "10%",
+			"flag": []
+		},
+		"mntUserId": {
+			"display": "最后维护人ID",
+			"type": "string",
+			"max": 20,
+			"required": false,
+			"hide": true,
+			"outPutN": false,
+			"editable": false,
+			"width": "10%",
+			"flag": []
+		},
+		"mntUserName": {
+			"display": "最后维护人名称",
+			"type": "string",
+			"max": 50,
+			"required": false,
+			"hide": true,
+			"outPutN": false,
+			"editable": false,
+			"width": "10%",
+			"flag": []
+		},
+		"mntDate": {
+			"display": "维护日期",
+			"type": "date",
+			"required": false,
+			"hide": true,
+			"outPutN": false,
+			"editable": false,
+			"width": "10%",
+			"flag": []
+		},
+		"version": {
+			"display": "乐观锁版本",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"outPutN": false,
+			"editable": false,
+			"width": "10%",
+			"flag": []
+		},
+		"dataStatus": {
+			"hide": true,
+			"display": "状态",
+			"type": "number",
+			"required": false,
+			"editable": false,
+			"width": "10%",
+			"flag": []
+		},
+		"des": {
+			"display": "描述",
+			"type": "string",
+			"required": false,
+			"editable": false,
+			"width": "10%",
+			"flag": []
+		},
+		"signboardTypeId": {
+			"display": "标志牌类别id",
+			"type": "string",
+			"required": false,
+			"editable": false,
+			"width": "10%",
+			"flag": [0]
+		},
+		"signboardTypeName": {
+			"display": "标志牌类别",
+			"type": "string",
+			"required": true,
+			"editable": false,
+			"dis":true,
+			"inputType":"option_outlet",
+			"width": "10%",
+			"flag": [0,1,2]
+		}
+	},
+	"apiUrl": ""
+}

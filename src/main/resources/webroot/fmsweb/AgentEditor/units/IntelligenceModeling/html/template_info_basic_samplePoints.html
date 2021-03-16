@@ -1,0 +1,44 @@
+<div class="panel-component-heading panel-heading">
+    <p>基本信息</p>
+    <!--<i class="fa fa-pencil-square" aria-hidden="true" ng-click="nodeUpdataOnClick()"></i>-->
+</div>
+<div class="row info-table">
+    <div class="col-md-4 info-table-col">
+        <div class="row info-table-row">
+            <div class="attribute-name col-xs-5">采样点编码：</div>
+            <div class="attribute-value col-xs-7" title="{{obj['nodeCode']}}">{{obj['nodeCode']}}</div>
+        </div>
+        <div class="row info-table-row">
+            <div class="attribute-name col-xs-5">采样点名称：</div>
+            <div class="attribute-value col-xs-7" title="{{obj['nodeName']}}">{{obj['nodeName']}}</div>
+        </div>
+        <div class="row info-table-row">
+            <div class="attribute-name col-xs-5">采样点简称：</div>
+            <div class="attribute-value col-xs-7" title="{{obj['nodeAlias']}}">{{obj['nodeAlias']}}</div>
+        </div>
+    </div>
+    <div class="col-md-4 info-table-col">
+        <div class="row info-table-row">
+            <div class="attribute-name col-xs-5">采样点类型ID：</div>
+            <div class="attribute-value col-xs-7" title="{{obj['samplepointTypeId']}}">{{obj['samplepointTypeId']}}</div>
+        </div>
+        <div class="row info-table-row">
+            <div class="attribute-name col-xs-5">采样点类型名称：</div>
+            <div class="attribute-value col-xs-7" title="{{obj['samplepointTypeName']}}">{{obj['samplepointTypeName']}}</div>
+        </div>
+    </div>
+    <div class="col-md-4 info-table-col">
+        <div class="row info-table-row">
+            <div class="attribute-name col-xs-5">位置经度：</div>
+            <div class="attribute-value col-xs-7" title="{{obj['nodeLatitude']}}">{{obj['nodeLatitude']}}</div>
+        </div>
+        <div class="row info-table-row">
+            <div class="attribute-name col-xs-5">位置纬度：</div>
+            <div class="attribute-value col-xs-7" title="{{obj['nodeAltitude']}}">{{obj['nodeAltitude']}}</div>
+        </div>
+        <div class="row info-table-row">
+            <div class="attribute-name col-xs-5">位置高度：</div>
+            <div class="attribute-value col-xs-7" title="{{obj['nodeLongitude']}}">{{obj['nodeLongitude']}}</div>
+        </div>
+    </div>
+</div>

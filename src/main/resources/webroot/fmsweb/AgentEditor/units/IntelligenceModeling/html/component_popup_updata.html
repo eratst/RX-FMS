@@ -1,0 +1,115 @@
+<div class="popup-edit">
+    <div class="">
+        <div class="col-sm-6 div_mar" ng-repeat="elem in popupUpdata | orderBy:'position'">
+            <div class="">
+                <div class="col-xs-4 input-name">
+                    <p><span ng-show="elem['required']" style="color:red">*</span>{{elem['display']}}:</p>
+                </div>
+                <div class="col-xs-8 input-value" ng-switch="elem['inputType']">
+                    <div ng-switch-default>
+                        <input type="text" class="form-control" ng-model="elem['value']"/>
+                    </div>
+                    <div ng-switch-when="option" class="input-group">
+                        <input type="text" class="form-control" ng-model="elem['value']">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li ng-repeat="key in deviceType"><a href="#" ng-click="elem['value']=key['deviceTypeName'];getDeviceId(key['deviceTypeId'])">{{key['deviceTypeName']}}</a></li>
+                            </ul>
+                        </div><!-- /btn-group -->
+                    </div><!-- /input-group -->
+                    <!--罐类型选择显示-->
+                    <div ng-switch-when="option_tank" class="input-group">
+                        <input type="text" class="form-control" ng-model="elem['value']" ng-disabled="elem['dis']">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="loadTankMessType()"><span class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li ng-repeat="key in allTankType"><a href="#" ng-click="elem['value']=key['deviceTypeName'];getDeviceId(key['deviceTypeId'])">{{key['deviceTypeName']}}</a></li>
+                            </ul>
+                        </div><!-- /btn-group -->
+                    </div><!-- /input-group -->
+                    <!--用于显示进出厂点运输类型-->
+                    <div ng-switch-when="option_e" class="input-group">
+                        <input type="text" class="form-control" ng-model="elem['value']" ng-disabled="elem['dis']">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="loadTransMessType()"><span class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li ng-repeat="key in allTransType"><a href="#" ng-click="elem['value']=key['deviceTypeName'];getDeviceId(key['deviceTypeId'])">{{key['deviceTypeName']}}</a></li>
+                            </ul>
+                        </div><!-- /btn-group -->
+                    </div><!-- /input-group -->
+                    <!--下面是用于判断进出厂节点的进出厂类型-->
+                    <div ng-switch-when="options" class="input-group">
+                        <input type="text" class="form-control" ng-model="elem['value']" ng-disabled="elem['dis']" >
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li ng-repeat="key in elem['values']"><a href="#" ng-click="elem['value']=key['type']">{{key['type']}}</a></li>
+                            </ul>
+                        </div><!-- /btn-group -->
+                    </div><!-- /input-group -->
+                    <!--判断侧线类型-->
+                    <div ng-switch-when="option_sideLine" class="input-group">
+                        <input type="text" class="form-control" ng-model="elem['value']" ng-disabled="elem['dis']">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="loadsidelineMessType()"><span class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li ng-repeat="key in allsideLineType"><a href="#" ng-click="elem['value']=key['deviceTypeName'];getDeviceId(key['deviceTypeId'])">{{key['deviceTypeName']}}</a></li>
+                            </ul>
+                        </div><!-- /btn-group -->
+                    </div><!-- /input-group -->
+                     <!--侧线物料类型-->
+                    <div ng-switch-when="option_sideMtrl" class="input-group">
+                        <input type="text" class="form-control" ng-model="elem['value']" ng-disabled="elem['dis']" >
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="loadsideMtrlMessType()"><span class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li ng-repeat="key in allsideMtrlType"><a href="#" ng-click="elem['value']=key['deviceTypeName'];getSideMtrlId(key['deviceTypeId'])">{{key['deviceTypeName']}}</a></li>
+                            </ul>
+                        </div><!-- /btn-group -->
+                    </div><!-- /input-group -->
+                    <!--判断料仓类型-->
+                    <div ng-switch-when="option_silo" class="input-group">
+                        <input type="text" class="form-control" ng-model="elem['value']" ng-disabled="elem['dis']">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="loadsiloMessType()"><span class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li ng-repeat="key in allsiloType"><a href="#" ng-click="elem['value']=key['deviceTypeName'];getDeviceId(key['deviceTypeId'])">{{key['deviceTypeName']}}</a></li>
+                            </ul>
+                        </div><!-- /btn-group -->
+                    </div><!-- /input-group -->
+                    <!--判断设备类型-->
+                    <div ng-switch-when="option_technic" class="input-group">
+                        <input type="text" class="form-control" ng-model="elem['value']" ng-disabled="elem['dis']" >
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="loadequipmentMessType()"><span class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li ng-repeat="key in allequipmentType"><a href="#" ng-click="elem['value']=key['deviceTypeName'];getDeviceId(key['deviceTypeId'])">{{key['deviceTypeName']}}</a></li>
+                            </ul>
+                        </div><!-- /btn-group -->
+                    </div><!-- /input-group -->
+                    <!--判断标志牌类型-->
+                    <div ng-switch-when="option_outlet" class="input-group">
+                        <input type="text" class="form-control" ng-model="elem['value']" ng-disabled="elem['dis']" >
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="loadoutletMessType()"><span class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li ng-repeat="key in alloutletType"><a href="#" ng-click="elem['value']=key['deviceTypeName'];getDeviceId(key['deviceTypeId'])">{{key['deviceTypeName']}}</a></li>
+                            </ul>
+                        </div><!-- /btn-group -->
+                    </div><!-- /input-group -->
+                    <!--判断采样点类型-->
+                    <div ng-switch-when="option_samplePoint" class="input-group">
+                        <input type="text" class="form-control" ng-model="elem['value']" ng-disabled="elem['dis']">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="loadsamplePointMessType()"><span class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li ng-repeat="key in allsamplePointType"><a href="#" ng-click="elem['value']=key['deviceTypeName'];getDeviceId(key['deviceTypeId'])">{{key['deviceTypeName']}}</a></li>
+                            </ul>
+                        </div><!-- /btn-group -->
+                    </div><!-- /input-group -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

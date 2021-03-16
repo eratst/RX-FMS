@@ -1,0 +1,67 @@
+<div class="menu-heading">
+    <div class="menu-heading-left"><span class="fa fa-2x fa-file-text-o"></span> 节点机构详细信息</div>
+</div>
+<div class="panel-basic-info panel-block">
+        <div class="panel-component-heading">
+            <p>基本信息</p>
+        </div>
+        <div class="row info-table">
+            <div class="col-md-6 info-table-col">
+                <div class="row info-table-row">
+                    <div class="attribute-name col-xs-4">区域名称：</div>
+                    <div class="attribute-value col-xs-8" title="{{node['areaName']}}">{{node['areaName']}}</div>
+                </div>
+                <div class="row info-table-row">
+                    <div class="attribute-name col-xs-4">区域简称：</div>
+                    <div class="attribute-value col-xs-8" title="{{node['areaAlias']}}">{{node['areaAlias']}}</div>
+                </div>
+            </div>
+            <div class="col-md-6 info-table-col">
+                <div class="row info-table-row">
+                    <div class="attribute-name col-xs-4">区域编码：</div>
+                    <div class="attribute-value col-xs-8" title="{{node['areaCode']}}">{{node['areaCode']}}</div>
+                </div>
+                <div class="row info-table-row">
+                    <div class="attribute-name col-xs-4">区域类型：</div>
+                    <div class="attribute-value col-xs-8" title="{{node['areaTypeName']}}">{{node['areaTypeName']}}</div>
+                </div>
+            </div>
+        </div>
+</div>
+<div class="panel-body-info" style="height: calc(100% - 170px)">
+    <div class="panel-block">
+        <div class="panel-component-heading">
+            <p>下级节点</p>
+        </div>
+        <div class="panel-component-body">
+            <div ng-repeat="nodeInfo in nodesInfo" class="panel-component-area-node">
+                <button class="panel-component-node-icon" type="button" ng-click="showSecondMenu(nodeInfo['nodeNameCN'])">
+                    <img ng-src="{{nodeInfo['imgUrl']}}" />
+                    <span class="badge" ng-if="nodeInfo['count']">{{nodeInfo['count']}}</span>
+                    <span class="badge" ng-if="!nodeInfo['count']">0</span>
+                </button>
+                <p>{{nodeInfo['nodeNameCN']}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="panel-block panel-component-map">
+        <div class="panel-component-heading">
+            <p>当前位置</p>
+        </div>
+        <div class="panel-component-body" id="node-panel-map">
+            <iframe src="../html/component_map.html"></iframe>
+        </div>
+    </div>
+</div>
+
+<!--
+* areaCode:"Z6MP7023"
+areaDictionaryId:1200
+areaTypeId:2
+des:"lzp"
+enabled:0 (1 == true, 0 == false)
+factoryId:2010
+* name:"茂名分公司化工储运罐区"
+* shortName:"化工储运罐区"
+* type:"tankArea"
+-->

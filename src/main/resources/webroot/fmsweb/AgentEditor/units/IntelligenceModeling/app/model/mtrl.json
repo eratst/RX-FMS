@@ -1,0 +1,301 @@
+{
+	"alterKey": "mtrlCode",
+	"attribute": {
+		"mtrlId": {
+			"display": "物料ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"outPutN": false,
+			"editable": false,
+			"width": "",
+			"flag":[]
+		},
+		"mtrlCode": {
+			"display": "物料编码",
+			"type": "string",
+			"max": 20,
+			"required": true,
+			"editable": true,
+			"width": "",
+			"flag":[1]
+		},
+		"mtrlName": {
+			"display": "物料名称",
+			"type": "string",
+			"max": 400,
+			"required": true,
+			"editable": true,
+			"width": "",
+			"flag":[1]
+		},
+		"mtrlAlias": {
+			"display": "物料别名",
+			"type": "string",
+			"max": 400,
+			"required": true,
+			"editable": true,
+			"width": "",
+			"flag":[1]
+		},
+		"mtrlTypeId": {
+			"display": "物料类型ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"editable": true,
+			"width": "",
+			"flag":[]
+		},
+		"mtrlTypeName": {
+			"display": "物料类型",
+			"type": "string",
+			"max": 400,
+			"required": true,
+			"editable": true,
+			"width": "",
+			"parent": "T_PM_MTRL_TYPE",
+			"inputType":"option",
+			"flag":[1]
+		},
+		"upperMtrlCode": {
+			"display": "上级物料编码",
+			"type": "string",
+			"max": 20,
+			"required": true,
+			"editable": true,
+			"width": "",
+			"flag":[]
+		},
+		"tankIdt": {
+			"display": "罐物料标识",
+			"type": "number",
+			"dataType": "number",
+			"max": 2000,
+			"required": true,
+			"editable": true,
+			"width": "",
+			"flag":[]
+		},
+		"vcfTypeId": {
+			"display": "VCF类别ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"editable": true,
+			"width": "",
+			"flag":[]
+		},
+		"vcfTypeName": {
+			"display": "VCF类别名称",
+			"type": "string",
+			"required": true,
+			"editable": true,
+			"width": "",
+			"parent": "T_PM_VCFTYPE",
+			"flag":[]
+		},
+		"dec": {
+			"display": "数据精度",
+			"type": "number",
+			"dataType": "number",
+			"required": true,
+			"editable": true,
+			"width": "",
+			"flag":[]
+		},
+		"dimensionCode": {
+			"display": "量纲编码",
+			"type": "string",
+			"max": "36",
+			"required": true,
+			"editable": false,
+			"width": "10%",
+			"flag":[]
+		},
+		"dimensionName": {
+			"display": "量纲名称",
+			"type": "string",
+			"max": 400,
+			"required": true,
+			"editable": true,
+			"width": "",
+			"flag":[]
+		},
+		"dimensionAlias": {
+			"display": "量纲别名",
+			"type": "string",
+			"max": 400,
+			"required": true,
+			"editable": true,
+			"width": "",
+			"flag":[]
+		},
+		"nodeCode": {
+			"display": "节点编码",
+			"type": "string",
+			"max": 36,
+			"required": true,
+			"editable": false,
+			"width": "10%",
+			"flag":[]
+		},
+		"dataStatus": {
+			"hide": true,
+			"display": "状态",
+			"type": "number",
+			"required": false,
+			"editable": false,
+			"width": "",
+			"flag":[]
+		},
+		"crtUserId": {
+			"display": "创建人ID",
+			"type": "string",
+			"max": 20,
+			"required": false,
+			"hide": false,
+			"outPutN": false,
+			"editable": true,
+			"width": "",
+			"flag":[]
+		},
+		"crtUserName": {
+			"display": "创建人名称",
+			"type": "string",
+			"max": 50,
+			"required": false,
+			"hide": false,
+			"outPutN": false,
+			"editable": true,
+			"width": "",
+			"flag":[]
+		},
+		"crtDate": {
+			"display": "创建时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"outPutN": false,
+			"editable": true,
+			"width": "",
+			"flag":[]
+		},
+		"mntUserId": {
+			"display": "最后维护人ID",
+			"type": "string",
+			"max": 20,
+			"required": false,
+			"hide": false,
+			"outPutN": false,
+			"editable": true,
+			"width": "",
+			"flag":[]
+		},
+		"mntUserName": {
+			"display": "最后维护人名称",
+			"type": "string",
+			"max": 50,
+			"required": false,
+			"hide": false,
+			"outPutN": false,
+			"editable": true,
+			"width": "",
+			"flag":[]
+		},
+		"mntDate": {
+			"display": "维护日期",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"outPutN": false,
+			"editable": true,
+			"width": "",
+			"flag":[]
+		},
+		"des": {
+			"display": "描述",
+			"type": "string",
+			"max": 200,
+			"required": false,
+			"editable": true,
+			"width": "",
+			"flag":[]
+		},
+		"sortNum": {
+			"display": "排序",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"outPutN": false,
+			"editable": true,
+			"width": "",
+			"flag":[]
+		},
+		"version": {
+			"hide": true,
+			"display": "乐观锁版本",
+			"type": "number",
+			"required": false,
+			"outPutN": false,
+			"editable": true,
+			"width": "10%",
+			"flag":[]
+		},
+		"vcfType": {
+			"display": "VCF类别",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"editable": true,
+			"width": "",
+			"flag":[1]
+		},
+		"dimensionId": {
+			"display": "量纲ID",
+			"type": "string",
+			"max": 400,
+			"required": true,
+			"editable": true,
+			"width": "",
+			"flag":[]
+		},
+		"dataStatus": {
+			"display": "启用标识",
+			"type": "number",
+			"max": 400,
+			"required": true,
+			"editable": true,
+			"width": "",
+			"flag":[1]
+		},
+		"nodeId": {
+			"display": "节点ID",
+			"type": "number",
+			"max": 400,
+			"required": true,
+			"editable": true,
+			"width": "",
+			"flag":[]
+		},
+		"vcfTypeName": {
+			"display": "算法类型名称",
+			"type": "string",
+			"max": 400,
+			"required": true,
+			"editable": true,
+			"width": "",
+			"flag":[]
+		},
+		"nodeTypeName": {
+			"display": "节点类型名称",
+			"type": "string",
+			"max": 400,
+			"required": true,
+			"editable": true,
+			"width": "",
+			"flag":[]
+		}
+	},
+	"apiUrl": ""
+}

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css"/>
+    <style type="text/css">
+        body, html{
+            margin: 0px;
+            padding:0px;
+        }
+        #allmap {width: 100%;
+            top:0px;
+            bottom:0px;
+            position: absolute;
+            z-index:0 ;
+            overflow: hidden;margin:0;padding:0;font-family:"微软雅黑";}
+        .ol-popup {
+            position: absolute;
+            background-color: white;
+            -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+            filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #cccccc;
+            bottom: 12px;
+            left: -50px;
+            min-width: 100px;
+        }
+        .ol-popup:after, .ol-popup:before {
+            top: 100%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+        }
+        .ol-popup:after {
+            border-top-color: white;
+            border-width: 10px;
+            left: 48px;
+            margin-left: -10px;
+        }
+        .ol-popup:before {
+            border-top-color: #cccccc;
+            border-width: 11px;
+            left: 48px;
+            margin-left: -11px;
+        }
+        .ol-popup-closer {
+            text-decoration: none;
+            position: absolute;
+            top: 2px;
+            right: 8px;
+        }
+        .ol-popup-closer:after {
+            content: "";
+        }
+    </style>
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel="stylesheet" type="text/css" href="../css/ol.css"/>
+    <script src="../js/ol.js"></script>
+    <title>GIS地图</title>　
+    <style>
+    .ol-popup {
+    position: absolute;
+    background-color: #cdebff ;
+    -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+    filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+    padding: 15px;
+    border-radius: 16px;
+    border: 3px solid #3483b7;
+    bottom: 12px;
+    left: -50px;
+    min-width: 100px;
+    }
+    .ol-popup:after, .ol-popup:before {
+    top: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    }
+    .ol-popup:after {
+    border-top-color: white;
+    border-width: 10px;
+    left: 48px;
+    margin-left: -10px;
+    }
+    .ol-popup:before {
+    border-top-color: #cccccc;
+    border-width: 11px;
+    left: 48px;
+    margin-left: -11px;
+    }
+    </style>
+</head>
+<body>
+<div id="allmap">
+</div>
+<div id="popup">
+    <div id="popup-content" style="color:yellow"></div>
+</div>
+<script type="text/javascript">
+    var iconFeatures = [];
+    var areaPoints = [
+        [110.88,21.685,'茂名厂区'],
+        [120.4801802580,31.9647312629,'张家港基地']
+    ];  //基地坐标数据
+    var styles = {
+        //1内部基地
+        's_area': new ol.style.Style({
+            image: new ol.style.Icon({
+                anchor: [0.5, 0.5],
+                src: 'resources/images/green_24.png'
+            })
+        }),
+        //2外部基地
+        's_other': new ol.style.Style({
+            image: new ol.style.Icon({
+                anchor: [0.5, 0.5],
+                src: 'resources/images/red_24.png'
+            })
+        })
+    };
+    var projection = ol.proj.get('EPSG:3857');
+    var container = document.getElementById('popup');
+    var content = document.getElementById('popup-content');
+    var container_zjg = document.getElementById('popupzjg');
+    var content_zjg = document.getElementById('popup-contentzjg');
+
+    var overlay = new ol.Overlay({
+        element: container,
+        autoPan: true,
+        autoPanAnimation: {
+            duration: 250
+        }
+    });
+    var overlay_zjg = new ol.Overlay({
+        element: container_zjg,
+        autoPan: true,
+        autoPanAnimation: {
+            duration: 250
+        }
+    });
+    initMap('allmap',110.88,21.685,'image',15);
+    initArea();
+
+    /*
+    初始化地图
+     */
+    function initMap(divmapid,centerx,centery,dttype,zoom) {
+        var image_google_anno;
+        var image_google;
+        var vector_google;
+        //view
+        view = new ol.View({
+            center: ol.proj.fromLonLat([centerx,centery]),
+            zoom: zoom,
+            maxZoom: 19,
+            minZoom: 3,
+            projection: projection
+        });
+        // The map
+        map = new ol.Map({
+            target: divmapid,
+            overlays: [overlay,overlay_zjg],
+            view: view,
+            controls: ol.control.defaults({ "attribution": false }).extend([
+                new ol.control.MousePosition({
+                    coordinateFormat: ol.coordinate.createStringXY(4),
+                    projection: 'EPSG:3857',
+                    className: 'custom-mouse-position',
+                    target: document.getElementById('mouse-position'),
+                    undefinedHTML: '&nbsp;'
+                })
+            ])
+        });
+        if(dttype==='image') {
+            image_google = new ol.layer.Tile({
+                id: 'tianditu',
+                title: "影像",
+                baseLayer: true,
+                source: new ol.source.XYZ({
+                  url: 'http://10.238.255.44:32062/gis-platform/BaseMapService/getTiles?mapName=googleimg&x={x}&y={y}&z={z}'
+                }),
+                opacity: 1
+            });
+            map.addLayer(image_google);
+            var boundary = new ol.layer.Image({
+                title: "中国边界线",
+                source: new ol.source.ImageWMS({
+                  url: 'http://10.238.255.44:32062/geoserver/CHINADATA/wms?service=WMS&version=1.1.0&request=GetMap&layers=CHINADATA:China_boundary&styles=&bbox=73.44696044921875,3.408477306365967,135.08583068847656,53.557926177978516&width=768&height=624&srs=EPSG:4326&format=application/openlayers',
+                }),
+                preview: "../resource/boundary.png"
+            });
+            map.addLayer(boundary);
+        }
+        else if(dttype==='vector')
+        {
+            vector_google= new ol.layer.Tile({
+                id: 'tianditu',
+                title: "矢量",
+                baseLayer: true,
+                source: new ol.source.XYZ({
+                    url: 'http://10.238.255.44:32062/gis-platform/BaseMapService/getTiles?mapName=googleroad&x={x}&y={y}&z={z}'
+                }),
+                opacity: 1
+            });
+            map.addLayer(vector_google);
+        }
+    }
+
+    /*
+    初始化厂区数据
+     */
+    function initArea()
+    {
+        //start 根据巡检点数据，分别赋予巡检点样式，生成点要素
+        for (var i = 0; i < areaPoints.length; i++) {
+
+            var iconFeature = new ol.Feature({
+                name:'Point',
+                geometry: new ol.geom.Point( ol.proj.transform([areaPoints[i][0],areaPoints[i][1]], 'EPSG:4326', 'EPSG:3857')),
+                id:areaPoints[i][2]
+            });
+            iconFeature.setStyle(styles.s_area);
+            iconFeatures.push(iconFeature);
+
+        }          //end 根据巡检点数据，分别赋予巡检点样式，生成点要素
+
+        //增加厂区图层
+        var area_Layer = new ol.layer.Vector({
+            id:'rfidlyr',
+            source: new ol.source.Vector({
+                features: iconFeatures
+            })
+        });
+        map.addLayer(area_Layer);     //end增加巡检点层
+
+       var coordinate = ol.proj.transform([areaPoints[0][0],areaPoints[0][1]], 'EPSG:4326', 'EPSG:3857');
+        var hdms ="茂名厂区";
+
+        content.innerHTML = '<i class="fa fa-3x fa-map-marker" aria-hidden="true"></i>';
+        overlay.setPosition(coordinate);
+    }
+
+
+
+    /*
+    获取系统当前时间，按照YYYY-mm-dd HH:ii:ss格式yyyy-MM-dd HH:MM:SS
+     */
+    function getNowFormatDate() {
+        var date = new Date();
+        var seperator1 = "-";
+        var seperator2 = ":";
+        var month = date.getMonth() + 1;
+        var strDate = date.getDate();
+        if (month >= 1 && month <= 9) {
+            month = "0" + month;
+        }
+        if (strDate >= 0 && strDate <= 9) {
+            strDate = "0" + strDate;
+        }
+        return date.getFullYear() + seperator1 + month + seperator1 + strDate
+            + " " + date.getHours() + seperator2 + date.getMinutes()
+            + seperator2 + date.getSeconds();
+    }
+
+</script>
+
+</body>
+</html>

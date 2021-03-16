@@ -1,0 +1,264 @@
+{
+	"alterKey": "nodeCode",
+	"attribute": {
+		"nodeId": {
+			"display": "节点ID",
+			"type": "number",
+			"max": 6,
+			"required": false,
+			"hide": true,
+			"outPutN": false,
+			"editable": false,
+			"width": "10%",
+			"flag":  []
+		}, 
+		"nodeCode": {
+			"display": "料仓编码",
+			"type": "string",
+			"max": 36,
+			"required": true,
+			"editable": false,
+			"width": "10%",
+			"flag": [0,1,2]
+		},
+		"nodeName": {
+			"display": "料仓名称",
+			"type": "string",
+			"required": true,
+			"editable": false,
+			"width": "10%",
+			"flag":  [0,1,2]
+		},
+		"nodeAlias": {
+			"display": "料仓简称",
+			"type": "string",
+			"required": true,
+			"editable": false,
+			"width": "10%",
+			"flag": [0,1,2]
+		},
+		"nodeTypeId": {
+			"display": "节点类型ID ",
+			"type": "number",
+			"required": true,
+			"hide": true,
+			"editable": false,
+			"width": "10%",
+			"flag": []
+		},
+		"nodeTypeName": {
+			"display": "节点类型名称",
+			"type": "string",
+			"required": true,
+			"editable": false,
+			"width": "10%",
+			"parent": "T_PM_NODETYPE",
+			"flag": []
+		},
+		"siloTypeId": {
+			"display": "料仓类型ID",
+			"type": "number",
+			"max": 50,
+			"required": true,
+			"hide": true,
+			"editable": false,
+			"width": "10%",
+			"flag": []
+		},
+		"siloTypeName": {
+			"display": "料仓类型名称",
+			"type": "string",
+			"required": true,
+			"editable": false,
+			"width": "10%",
+			"dis":true,
+			"inputType":"option_silo",
+			"parent": "T_PM_TANKTYPE",
+			"flag": [0,1,2]
+		},
+		"cubage": {
+			"display": "料仓公称容积",
+			"type": "string",
+			"required": true,
+			"editable": false,
+			"width": "10%",
+			"parent": "T_PM_TANKTYPE",
+			"flag": [0]
+		},
+		"siloHgt": {
+			"display": "料仓高度",
+			"type": "string",
+			"required": true,
+			"editable": false,
+			"width": "10%",
+			"parent": "T_PM_TANKTYPE",
+			"flag": [0]
+		},
+		"maxSiloHgt": {
+			"display": "料仓上限高度",
+			"type": "string",
+			"required": true,
+			"editable": false,
+			"width": "10%",
+			"parent": "T_PM_TANKTYPE",
+			"flag": [0]
+		},
+		"minSiloHgt": {
+			"display": "料仓下限高度",
+			"type": "string",
+			"required": true,
+			"editable": false,
+			"width": "10%",
+			"parent": "T_PM_TANKTYPE",
+			"flag": [0]
+		},
+		"maxSiloStoarge": {
+			"display": "安全料仓量上限",
+			"type": "string",
+			"required": true,
+			"editable": false,
+			"width": "10%",
+			"parent": "T_PM_TANKTYPE",
+			"flag": [0]
+		},
+		"minSiloStoarge": {
+			"display": "安全料仓量下限",
+			"type": "string",
+			"required": true,
+			"editable": false,
+			"width": "10%",
+			"parent": "T_PM_TANKTYPE",
+			"flag": [0]
+		},
+		"areaCode": {
+			"display": "区域编码",
+			"type": "string",
+			"required": true,
+			"editable": true,
+			"width": "10%",
+			"max": 36,
+			"pos": 0,
+			"flag":[]
+		},
+		"nodeAltitude": {
+			"display": "位置海拔",
+			"type": "number",
+			"dataType": "number",
+			"required": true,
+			"editable": false,
+			"width": "10%",
+			"flag": [0,1,2]
+		},
+		"nodeLongitude": {
+			"display": "位置经度",
+			"type": "number",
+			"dataType": "number",
+			"required": true,
+			"editable": false,
+			"width": "10%",
+			"flag": [0,1,2]
+		},
+		"nodeLatitude": {
+			"display": "位置纬度",
+			"type": "number",
+			"dataType": "number",
+			"required":true,
+			"editable": false,
+			"width": "10%",
+			"flag": [0,1,2]
+		},
+		"crtUserId": {
+			"display": "创建人ID",
+			"type": "string",
+			"max": 36,
+			"required": false,
+			"hide": true,
+			"outPutN": false,
+			"editable": false,
+			"width": "10%",
+			"flag": []
+		},
+		"crtUserName": {
+			"display": "创建人名称",
+			"type": "string",
+			"max": 36,
+			"required": false,
+			"hide": true,
+			"outPutN": false,
+			"editable": false,
+			"width": "10%",
+			"flag": []
+		},
+		"crtDate": {
+			"display": "创建时间",
+			"type": "date",
+			"max": 20,
+			"required": false,
+			"hide": true,
+			"outPutN": false,
+			"editable": false,
+			"width": "10%",
+			"flag": []
+		},
+		"mntUserId": {
+			"display": "最后维护人ID",
+			"type": "string",
+			"max": 20,
+			"required": false,
+			"hide": true,
+			"outPutN": false,
+			"editable": false,
+			"width": "10%",
+			"flag": []
+		},
+		"mntUserName": {
+			"display": "最后维护人名称",
+			"type": "string",
+			"max": 50,
+			"required": false,
+			"hide": true,
+			"outPutN": false,
+			"editable": false,
+			"width": "10%",
+			"flag": []
+		},
+		"mntDate": {
+			"display": "维护日期",
+			"type": "date",
+			"required": false,
+			"hide": true,
+			"outPutN": false,
+			"editable": false,
+			"width": "10%",
+			"flag": []
+		},
+		"version": {
+			"display": "乐观锁版本",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"outPutN": false,
+			"editable": false,
+			"width": "10%",
+			"flag": []
+		},
+		"dataStatus": {
+			"hide": true,
+			"display": "状态",
+			"type": "number",
+			"required": false,
+			"editable": false,
+			"width": "10%",
+			"flag": []
+		},
+		"des": {
+			"display": "描述",
+			"type": "string",
+			"required": false,
+			"editable": false,
+			"width": "10%",
+			"flag": []
+		}
+	},
+	"apiUrl": ""
+}

@@ -1,0 +1,20 @@
+<div class="panel-component-heading panel-heading">
+    <button ng-click="panelCollapse()" class="panel-collapse-button">
+        三维展示
+        <span ng-show="panel3dCollapse" class="glyphicon glyphicon-menu-right"></span>
+        <span ng-show="!panel3dCollapse" class="glyphicon glyphicon-menu-down"></span>
+    </button>
+</div>
+<div class="panel-body" ng-show="!panel3dCollapse">
+    <div>
+        <div id="panel-3d-glFullscreen">
+            <canvas id="panel-3d-canvas"></canvas>
+        </div>
+        <div id="panel-3d-dat">
+        </div>
+        <div id="panel-3d-info">
+            鼠标左键旋转，右键移动视角
+            <div id="panel-3d-feedback"></div>
+        </div>
+    </div>
+</div>

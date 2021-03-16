@@ -1,0 +1,76 @@
+<div class="panel-component-heading">
+    <p>基本信息</p>
+    <!--<i class="fa fa-pencil-square" aria-hidden="true" ng-click="nodeUpdataOnClick(mtr)"></i>-->
+</div>
+<div class="row info-table">
+    <div class="col-md-4 info-table-col">
+        <div class="row info-table-row">
+            <div class="attribute-name col-xs-5">侧线编码：</div>
+            <div class="attribute-value col-xs-7" title="{{obj['nodeCode']}}">{{obj['nodeCode']}}</div>
+        </div>
+        <div class="row info-table-row">
+            <div class="attribute-name col-xs-5">侧线名称：</div>
+            <div class="attribute-value col-xs-7" title="{{obj['nodeName']}}">{{obj['nodeName']}}</div>
+        </div>
+        <div class="row info-table-row">
+            <div class="attribute-name col-xs-5">侧线简称：</div>
+            <div class="attribute-value col-xs-7" title="{{obj['nodeAlias']}}">{{obj['nodeAlias']}}</div>
+        </div>
+        <div class="row info-table-row" ng-switch="obj.slineInoutTypeId">
+            <div class="attribute-name col-xs-5">侧线进出类型：</div>
+            <div class="attribute-value col-xs-7" title="id:0" ng-switch-when="0">进</div>
+            <div class="attribute-value col-xs-7" title="id:1" ng-switch-when="1">出</div>
+            <div class="attribute-value col-xs-7" ng-switch-default>-</div>
+        </div>
+    </div>
+    <div class="col-md-4 info-table-col">
+        <div class="row info-table-row">
+            <div class="attribute-name col-xs-5">侧线业务类型：</div>
+            <div class="attribute-value col-xs-7" title="{{obj['sidelineTypeName']}}"><span ng-if="obj['sidelineTypeName']===''">-</span>{{obj['sidelineTypeName']}}</div>
+        </div>
+        <div class="row info-table-row">
+            <div class="attribute-name col-xs-5">侧线物料类型：</div>
+            <div class="attribute-value col-xs-7" title="{{obj['slineMtrlTypeName']}}"><span ng-if="obj['slineMtrlTypeName']===''">-</span>{{obj['slineMtrlTypeName']}}</div>
+        </div>
+        <div class="row info-table-row">
+            <div class="attribute-name col-xs-5">界区量公式：</div>
+            <div class="attribute-value col-xs-7" title="{{obj['areaForm']}}"><span ng-if="obj['areaForm']===''">-</span>{{obj['areaForm']}}</div>
+        </div>
+        <div class="row info-table-row">
+            <div class="attribute-name col-xs-5">侧线量公式：</div>
+            <div class="attribute-value col-xs-7" title="{{obj['formula']}}"><span ng-if="obj['formula']===''">-</span>{{obj['formula']}}</div>
+        </div>
+    </div>
+    <!--<div class="col-md-4 info-table-col">
+        <div class="row info-table-row">
+            <div class="attribute-name col-xs-5">物料编码：</div>
+            <div class="attribute-value col-xs-7" title="{{mtr['mtrlCode']}}">{{mtr['mtrlCode']}}</div>
+        </div>
+        <div class="row info-table-row">
+            <div class="attribute-name col-xs-5" title="物料名称">物料名称：</div>
+            <div class="attribute-value col-xs-7" title="{{mtr['mtrlName']}}">{{mtr['mtrlName']}}</div>
+        </div>
+        <div class="row info-table-row">
+            <div class="attribute-name col-xs-5" title="物料别名">物料别名：</div>
+            <div class="attribute-value col-xs-7" title="{{mtr['mtrlAlias']}}">{{mtr['mtrlAlias']}}</div>
+        </div>
+        <div class="row info-table-row">
+            <div class="attribute-name col-xs-5">物料类型：</div>
+            <div class="attribute-value col-xs-7" title="{{mtr['mtrlTypeName']}}">{{mtr['mtrlTypeName']}}</div>
+        </div>-->
+        
+         <!--<div class="row info-table-row">
+             
+        	<button class="msr-panel-switch" ng-click="mtrlAddOnClick(mtr, obj)" style="right: 12%; font-size: 2rem; bottom: -2%;">
+                            <span class="fa fa-plus-square"></span>
+            </button>	
+        	<button class="msr-panel-switch" ng-click="mtrlUpdateOnClick(mtr, obj)" style="right: 32%; font-size: 2rem; bottom: -2%;">
+                            <span class="fa fa-pencil-square"></span>
+            </button>-->
+            <!--下面是删除操作，看是否需要-->
+        	<!--<button class="msr-panel-switch" ng-click="mtrlDeleteOnClick(mtr, obj)" style="right: 22%; font-size: 2rem; bottom: -2%;">
+                            <span class="fa fa-times-circle"></span>
+            </button>	    
+        </div>-->
+    <!--</div>-->
+</div>

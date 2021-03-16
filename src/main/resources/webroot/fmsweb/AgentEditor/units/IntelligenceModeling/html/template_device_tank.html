@@ -1,0 +1,231 @@
+<div class="menu-heading">
+    <div class="menu-heading-left"><span class="fa fa-2x fa-file-text-o"></span> 详细信息</div>
+</div>
+<div class="panel-basic-info panel-block" ng-controller="devicePanelController">
+    <div class="panel-component-heading panel-heading">
+        <p>基本信息</p>
+        <button class="menu-list-button-flow" ng-click="nodeUpdataOnClick()"><span class="fa fa-pencil-square"></span></button>
+    </div>
+    <div class="row info-table">
+        <div class="col-md-3 info-table-col">
+            <div class="row info-table-row">
+                <div class="attribute-name col-xs-5">罐编码：</div>
+                <div class="attribute-value col-xs-7" title="{{obj['nodeCode']}}">{{obj['nodeCode']}}</div>
+            </div>
+            <div class="row info-table-row">
+                <div class="attribute-name col-xs-5">罐名称：</div>
+                <div class="attribute-value col-xs-7" title="{{obj['nodeName']}}">{{obj['nodeName']}}</div>
+            </div>
+            <div class="row info-table-row">
+                <div class="attribute-name col-xs-5">罐简称：</div>
+                <div class="attribute-value col-xs-7" title="{{obj['nodeAlias']}}">{{obj['nodeAlias']}}</div>
+            </div>
+            <div class="row info-table-row">
+                <div class="attribute-name col-xs-5">罐类型：</div>
+                <div class="attribute-value col-xs-7" title="{{obj['tankTypeName']}}">{{obj['tankTypeName']}}</div>
+            </div>
+        </div>
+        <div class="col-md-3 info-table-col">
+            <div class="row info-table-row">
+                <div class="attribute-name col-xs-5">浮盘重：</div>
+                <div class="attribute-value col-xs-7" title="{{obj['fltPlatWgt']}}"><span ng-if="obj['fltPlatWgt']===''">-</span>{{obj['fltPlatWgt']}}</div>
+            </div>
+            <div class="row info-table-row">
+                <div class="attribute-name col-xs-5">罐高：</div>
+                <div class="attribute-value col-xs-7" title="{{obj['tankHgt']}}"><span ng-if="obj['tankHgt']===''">-</span>{{obj['tankHgt']}}</div>
+            </div>
+            <div class="row info-table-row">
+                <div class="attribute-name col-xs-5">是否保温罐：</div>
+                <div class="attribute-value col-xs-7" title="{{obj['htPretTank']}}" ng-switch="obj.htPretTank">
+                    <span ng-switch-when="0">否</span><span ng-switch-when="1">是</span>
+                </div>
+            </div>
+            <div class="row info-table-row">
+                <div class="attribute-name col-xs-5">浮盘前高：</div>
+                <div class="attribute-value col-xs-7" title="{{obj['fltPlatPerhgt']}}"><span ng-if="obj['fltPlatPerhgt']===''">-</span>{{obj['fltPlatPerhgt']}}</div>
+            </div>
+            <div class="row info-table-row">
+                <div class="attribute-name col-xs-5">罐公称容积：</div>
+                <div class="attribute-value col-xs-7" title="{{obj['tankTotlCuba']}}"><span ng-if="obj['tankTotlCuba']===''">-</span>{{obj['tankTotlCuba']}}</div>
+            </div>
+        </div>
+        <div class="col-md-3 info-table-col">
+            <div class="row info-table-row">
+                <div class="attribute-name col-xs-5">浮顶最低点：</div>
+                <div class="attribute-value col-xs-7" title="{{obj['fltTipLst']}}"><span ng-if="obj['fltTipLst']===''">-</span>{{obj['fltTipLst']}}</div>
+            </div>
+            <div class="row info-table-row">
+                <div class="attribute-name col-xs-5">罐安全高度：</div>
+                <div class="attribute-value col-xs-7" title="{{obj['maxTankHgt']}}"><span ng-if="obj['maxTankHgt']===''">-</span>{{obj['maxTankHgt']}}</div>
+            </div>
+            <div class="row info-table-row">
+                <div class="attribute-name col-xs-5">罐底高度：</div>
+                <div class="attribute-value col-xs-7" title="{{obj['minTankHgt']}}"><span ng-if="obj['minTankHgt']===''">-</span>{{obj['minTankHgt']}}</div>
+            </div>
+            <div class="row info-table-row">
+                <div class="attribute-name col-xs-5" title="安全罐量上限">安全罐量上限：</div>
+                <div class="attribute-value col-xs-7" title="{{obj['maxTankStoarge']}}"><span ng-if="obj['maxTankStoarge']===''">-</span>{{obj['maxTankStoarge']}}</div>
+            </div>
+            <div class="row info-table-row">
+                <div class="attribute-name col-xs-5" title="安全罐量下限">安全罐量下限：</div>
+                <div class="attribute-value col-xs-7" title="{{obj['minTankStoarge']}}"><span ng-if="obj['minTankStoarge']===''">-</span>{{obj['minTankStoarge']}}</div>
+            </div>
+        </div>
+        <div class="col-md-3 info-table-col">
+            <div class="row info-table-row">
+                <div class="attribute-name col-xs-5">物料编码：</div>
+                <div class="attribute-value col-xs-7" title="{{mtr['mtrlCode']}}">{{mtr['mtrlCode']}}</div>
+            </div>
+            <div class="row info-table-row">
+                <div class="attribute-name col-xs-5" title="物料名称">物料名称：</div>
+                <div class="attribute-value col-xs-7" title="{{mtr['mtrlName']}}">{{mtr['mtrlName']}}</div>
+            </div>
+            <div class="row info-table-row">
+                <div class="attribute-name col-xs-5" title="物料别名">物料别名：</div>
+                <div class="attribute-value col-xs-7" title="{{mtr['mtrlAlias']}}">{{mtr['mtrlAlias']}}</div>
+            </div>
+            <div class="row info-table-row">
+                <div class="attribute-name col-xs-5">物料类型：</div>
+                <div class="attribute-value col-xs-7" title="{{mtr['mtrlTypeName']}}">{{mtr['mtrlTypeName']}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel-body-info">
+
+    <div class="panel-block" id="panel-block-msr">
+        <div class="panel-component-heading panel-heading" ng-init="panelMeasureCollapse=false">
+            <button ng-click="panelMeasureCollapse = !panelMeasureCollapse" class="panel-collapse-button">
+                度量指标
+                <span ng-show="panelMeasureCollapse" class="glyphicon glyphicon-menu-right"></span>
+                <span ng-show="!panelMeasureCollapse" class="glyphicon glyphicon-menu-down"></span>
+            </button>
+        </div>
+
+        <div class="row panel-body" ng-show="!panelMeasureCollapse" >
+            <div ng-show="msr.length>0" ng-repeat="measure in msr" class="col-sm-3 msr-panel-col">
+                    <div class="msr-panel" ng-if="measure['hasInfo']">
+                        <div class="msr-panel-heading">
+                            {{measure['idxTypeName']}}<img ng-src="../img/measure/icon3_{{measure['idxTypeId']}}.png"/>
+                        </div>
+                        <div class="msr-panel-body row">
+                            <div class="col-xs-3 msr-panel-name">编码：</div>
+                            <div class="col-xs-9 msr-panel-value"><span ng-if="measure['idxId']===''">-</span>{{measure['idxId']}}</div>
+                            <div class="col-xs-3 msr-panel-name">名称：</div>
+                            <div class="col-xs-9 msr-panel-value"><span ng-if="measure['idxName']===''">-</span>{{measure['idxName']}}</div>
+                            <div class="col-xs-3 msr-panel-name">简称：</div>
+                            <div class="col-xs-9 msr-panel-value"><span ng-if="measure['idxAlias']===''">-</span>{{measure['idxAlias']}}</div>
+                            <div class="col-xs-3 msr-panel-name">公式：</div>
+                            <div class="col-xs-9 msr-panel-value"><span ng-if="measure['idxFormula']===''">-</span>{{measure['idxFormula']}}</div>
+                        </div>
+                    </div>
+
+                <div class="msr-panel" ng-show="!measure['hasInfo']">
+                    <div class="msr-panel-heading">
+                        {{measure['idxTypeName']}}<img ng-src="../img/measure/icon2_{{measure['idxTypeId']}}.png"/>
+                    </div>
+                    <div class="msr-panel-body">
+                        暂无该信息
+                        <button class="msr-panel-switch" ng-click="msrAddOnClick(measure, obj)">
+                            <span class="fa fa-plus-circle"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="msr.length===0"><p>暂无度量指标信息</p></div>
+        </div>
+
+        <!--div class="row panel-body" ng-show="!panelMeasureCollapse" >
+            <div ng-if="msr.length>0" ng-repeat="measure in msr" class="col-sm-3 measure-button-col">
+                <button class="measure-button-on" ng-click="msrOnClick(measure, obj['nodeAlias'])" ng-if="measure['hasInfo']">
+                    <img ng-src="../img/measure/icon1_{{measure['idxTypeId']}}.png"/>
+                    {{measure['idxTypeName']}}
+                </button>
+                <button class="measure-button-off" ng-click="msrAddOnClick(measure, obj['nodeAlias'])" ng-if="!measure['hasInfo']">
+                    <img ng-src="../img/measure/icon2_{{measure['idxTypeId']}}.png"/>
+                    {{measure['idxTypeName']}}
+                </button>
+            </div>
+            <div ng-if="msr.length===0"><p>暂无度量指标信息</p></div>
+        </div-->
+    </div>
+
+    <div class="panel-block" id="panel-extra-map" ng-init="panelMapCollapse=true">
+        <div class="panel-component-heading panel-heading">
+            <button ng-click="panelMapCollapse = !panelMapCollapse" class="panel-collapse-button">
+                当前位置
+                <span ng-show="panelMapCollapse" class="glyphicon glyphicon-menu-right"></span>
+                <span ng-show="!panelMapCollapse" class="glyphicon glyphicon-menu-down"></span>
+            </button>
+
+        </div>
+        <div class="panel-body" ng-if="!panelMapCollapse">
+            <iframe src="../html/component_map.html"></iframe>
+        </div>
+    </div>
+
+    <div class="panel-block" id="panel-extra-3d" ng-init="panel3dCollapse=true" ng-controller="device3DController" >
+        <div class="panel-component-heading panel-heading">
+            <button ng-click="panelCollapse()" class="panel-collapse-button">
+                三维展示
+                <span ng-show="panel3dCollapse" class="glyphicon glyphicon-menu-right"></span>
+                <span ng-show="!panel3dCollapse" class="glyphicon glyphicon-menu-down"></span>
+            </button>
+        </div>
+        <div class="panel-body" ng-show="!panel3dCollapse" ng-include="url">
+            <!--iframe src="../3djs/tank2.html"></iframe-->
+        </div>
+    </div>
+
+    <!--div class="panel-block" id="panel-tuopu" ng-init="panelTuopuCollapse=false">
+        <div class="panel-component-heading panel-heading">
+            <button ng-click="panelTuopuCollapse = !panelTuopuCollapse" class="panel-collapse-button">
+                连接拓扑
+                <span ng-show="panelTuopuCollapse" class="glyphicon glyphicon-menu-right"></span>
+                <span ng-show="!panelTuopuCollapse" class="glyphicon glyphicon-menu-down"></span>
+            </button>
+        </div>
+        <div class="panel-body" ng-show="!panelTuopuCollapse">
+            <iframe id="tuopu-frame" src="../tuopu/index.html"></iframe>
+        </div>
+    </div-->
+</div>
+<!--
+罐ID      nodeId:300581
+罐编码     nodeCode:"Z6MP70531001"
+罐名称     nodeName:"茂名分公司顺和沥青中转站SH101"
+罐简称     nodeAlias:"SH101"
+罐类型     tankTypeName:"立罐"
+          tankTypeId:3
+
+浮盘重      fltPlatWgt :0
+罐高        tankHgt :17
+是否保温罐   htPretTank :0
+浮盘前高    fltPlatPerhgt :""
+罐公称容积   tankTotlCuba :3000
+
+浮顶最低点   fltTipLst:0
+罐安全高度   maxTankHgt:16
+罐底高度    minTankHgt:0
+安全罐量上限 maxTankStoarge:2400
+安全罐量下限 minTankStoarge:600
+
+物料ID            mtrlId:1510117
+物料编码           mtrlCode:0643020060511266
+物料名称/别名       mtrlName: 饱和液化气(半成品)/mtrlAlias: 饱和液化气(半成品)
+物料类型           mtrlTypeName: 原油
+上一级物料编码      upperMtrlCode: 0643040060179044
+
+areaCode:""
+areaId:1131
+crtDate:"2017-10-21 14:42:33"
+crtUserId:"0"
+crtUserName:"lzp"
+dataStatus:0
+des:"lzp"
+nodeTypeId:2
+nodeTypeName:"罐"
+nodeAltitude:""
+nodeLatitude:"0"
+nodeLongitude:"0"
+-->

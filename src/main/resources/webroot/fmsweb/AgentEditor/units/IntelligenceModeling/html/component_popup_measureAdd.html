@@ -1,0 +1,34 @@
+<div class="popup-edit">
+    <div class="">
+        <div class="col-sm-6 div_mar" ng-repeat="elem in popupAdd | orderBy:'position'">
+            <div class="">
+                <div class="col-xs-4 input-name">
+                    <p><span ng-show="elem['required']" style="color:red">*</span>{{elem['inputName']}}:</p>
+                </div>
+                <div class="col-xs-8 input-value" ng-switch="elem['inputType']">
+                    <div ng-switch-default>
+                        <input type="text" class="form-control" ng-model="elem['value']"/>
+                    </div>
+                    <div ng-switch-when="option" class="input-group">
+                        <input type="text" class="form-control" ng-model="elem['value']">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li ng-repeat="key in elem['optionKeys']"><a href="#" ng-click="elem['value']=key">{{elem['options'][key]}}</a></li>
+                            </ul>
+                        </div><!-- /btn-group -->
+                    </div><!-- /input-group -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+elem = {
+required : bool
+inputName : String
+inputType : option | text | undefined
+options : [option]
+value : $$placeholder
+}
+-->
