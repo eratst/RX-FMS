@@ -1,0 +1,40 @@
+﻿{
+	"alterKey": "mtrlFactoryID",
+	"attribute": {
+		"mtrlFactoryID": {
+			"display": "物料工厂关系ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"mtrlID": {
+			"display": "物料ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"mtrlCode": {
+			"display": "物料编码",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true
+		},
+		"upperMtrlCode": {
+			"display": "上级物料编码",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true
+		},
+		"orgID": {
+			"display": "组织机构ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		}
+	}
+}

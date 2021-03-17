@@ -1,0 +1,86 @@
+<div class="modal fade" id="formulaEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+	<div class="modal-dialog" style="width: 617px;">
+		<div class="modal-content">
+			<div class="modal-header" style="overflow-y: hidden" align="center">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h5 class="modal-title">公式编辑器</h5>
+			</div>
+			<div class="">
+				<div class="row" style="margin: 0;">
+					<div class="col-xs-7" style="background-color: #EEEEEE;height: 340px;">
+						<div>
+							<button class="btn btn-default" id="but" ng-click="main.vfunc.onclick.ensure(formula)">
+										<span class="glyphicon glyphicon-ok buttn"</span>确定</button>
+							<button class="btn btn-default" id="but" ng-click="main.vfunc.onclick.remove()">
+										<span class="glyphicon glyphicon-repeat buttn "></span>重置</button>
+							<button class="btn btn-default" id="but" ng-click="main.vfunc.onclick.back(formula)">
+										<span class="glyphicon glyphicon-backward buttn "></span>撤销</button>
+							<button class="btn btn-default" id="but" ng-click="main.vfunc.onclick.recover(formula)">
+										<span class="glyphicon glyphicon-forward buttn "></span>恢复</button>
+						</div>
+						<div>
+							<textarea style="width: 300px;height: 110px; resize: none;overflow: auto;" name="show" ng-model="formula" value="{{formula}}" class="form-control" disabled></textarea>
+						</div>
+						<div style="border:solid 1px #000000;width: 300px;background-color: #EEEEEE;margin-top: 5px;">
+							<button type="button" ng-click="main.vfunc.onclick.num('(')" class="btn btn-default" id="but">(</button>
+							<button type="button" ng-click="main.vfunc.onclick.num(')')" class="btn btn-default" id="but">)</button>
+							<br/>
+							<button type="button" ng-click="main.vfunc.onclick.num(7)" class="btn btn-default" id="but">7</button>
+							<button type="button" ng-click="main.vfunc.onclick.num(8)" class="btn btn-default" id="but">8</button>
+							<button type="button" ng-click="main.vfunc.onclick.num(9)" class="btn btn-default" id="but">9</button>
+							<button type="button" ng-click="main.vfunc.onclick.num('/')" class="btn btn-default" id="but">/</button>
+							<br/>
+							<button type="button" ng-click="main.vfunc.onclick.num(4)" class="btn btn-default" id="but">4</button>
+							<button type="button" ng-click="main.vfunc.onclick.num(5)" class="btn btn-default" id="but">5</button>
+							<button type="button" ng-click="main.vfunc.onclick.num(6)" class="btn btn-default" id="but">6</button>
+							<button type="button" ng-click="main.vfunc.onclick.num('*')" class="btn btn-default" id="but">*</button>
+							<br/>
+							<button type="button" ng-click="main.vfunc.onclick.num(1)" class="btn btn-default" id="but">1</button>
+							<button type="button" ng-click="main.vfunc.onclick.num(2)" class="btn btn-default" id="but">2</button>
+							<button type="button" ng-click="main.vfunc.onclick.num(3)" class="btn btn-default" id="but">3</button>
+							<button type="button" ng-click="main.vfunc.onclick.num('-')" class="btn btn-default" id="but">-</button>
+							<br/>
+							<button type="button" ng-click="main.vfunc.onclick.num(0)" class="btn btn-default" id="but">0</button>
+							<button type="button" ng-click="main.vfunc.onclick.num(',')" class="btn btn-default" id="but">,</button>
+							<button type="button" ng-click="main.vfunc.onclick.num('.')" class="btn btn-default" id="but">.</button>
+							<button type="button" ng-click="main.vfunc.onclick.num('+')" class="btn btn-default" id="but">+</button>
+							<!--</div>-->
+						</div>
+					</div>
+					<div class="col-xs-5" style="background-color: #FFFFFF;height: 320px;">
+						<table class="tablediv">
+							<thead style="display: block;">
+								<tr>
+									<!--<th ng-repeat="elem in resultArr" ng-hide="value.hide" style="min-width: 110px;text-align: center;" ng-if="elem.formulaEditShow">
+										<span ng-bind="elem.display"></span>
+									</th>-->
+									<th style="background-color: #E0E0E0;width: 136px;" class="tableLeft">
+										<span>公式参数编码</span>
+									</th>
+									<th style="background-color: #E0E0E0;width: 136px;" class="tableRight">
+										<span>公式参数名称</span>
+									</th>
+								</tr>
+							</thead>
+							<tbody style="height: 290px;overflow-y:scroll ;display: block;">
+								<tr ng-repeat="(index,tableData) in cnfgFormulaPara">
+									<td ng-hide="value.hide" class="tableLeft">
+										<a ng-click="main.vfunc.onclick.num(tableData.formulaParaCode)">{{tableData['formulaParaCode']}}</a>
+									</td>
+									<td ng-hide="value.hide" class="tableRight">
+										<span>{{tableData['formulaParaName']}}</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$(document).ready(function() {
+		$("#formulaEdit").draggable();
+	});
+</script>

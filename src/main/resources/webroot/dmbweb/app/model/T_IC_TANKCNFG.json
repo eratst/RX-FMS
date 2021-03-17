@@ -1,0 +1,253 @@
+{
+	"alterKey": "tankCnfgId",
+	"attribute": {
+		"tankCnfgId": {
+			"display": "单罐配置ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"nodeId": {
+			"display": "罐ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"nodeCode": {
+			"display": "节点编码",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "130",
+			"class": "left",
+			"parentModel": "T_PM_TANK"
+		},
+		"stdDen": {
+			"display": "标准密度",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "90"
+		},
+		"vtf": {
+			"display": "VTF",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "70"
+		},
+		"modChkForm": {
+			"display": "修正检尺公式",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "90"
+		},
+		"totlChkVpf": {
+			"display": "总尺VPF",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "80"
+		},
+		"wtrChkVpf": {
+			"display": "水尺VPF",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "80"
+		},
+		"cubaTempCoef": {
+			"display": "液化产品系数",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "90"
+		},
+		"vcf": {
+			"display": "VCF",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "90"
+		},
+		"vcfDecFraDgt": {
+			"display": "VCF小数位",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "90"
+		},
+		"tnkForm": {
+			"display": "罐公式",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130"
+		},
+		"tnkAirDen": {
+			"display": "罐空气密度",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "100"
+		},
+		"tnkFormMode": {
+			"display": "罐体积方式",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "80"
+		},
+		"stdCubaForm": {
+			"display": "罐标准体积公式",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "100"
+		},
+		"inUse": {
+			"display": "是否启用",
+			"type": "boolean",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "70",
+			"class": "center"
+		},
+		"sortNum": {
+			"display": "排序",
+			"type": "number",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "50",
+			"class": "right"
+		},
+		"crtUserCode": {
+			"display": "创建人编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"crtUserName": {
+			"display": "创建人",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false,
+			"class": "left",
+			"width": "70",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"crtDate": {
+			"display": "创建时间",
+			"type": "date",
+			"required": false,
+			"hide": true,
+			"inOut": false,
+			"width": "150",
+			"class": "center",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntUserCode": {
+			"display": "最后维护人编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"mntUserName": {
+			"display": "维护人",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false,
+			"class": "right",
+			"width": "70",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntDate": {
+			"display": "维护时间",
+			"type": "date",
+			"required": false,
+			"hide": true,
+			"inOut": false,
+			"class": "center",
+			"width": "150",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"des": {
+			"display": "描述",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "180"
+		},
+		"version": {
+			"display": "乐观锁版本",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		}
+	}
+}

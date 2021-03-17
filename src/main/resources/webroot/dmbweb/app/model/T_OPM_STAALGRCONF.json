@@ -1,0 +1,256 @@
+{
+	"alterKey": "staAlgrConfCode",
+	"mainKey": "staAlgrConfId",
+	"attribute": {
+		"staAlgrConfId": {
+			"display": "计算配置ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"staAlgrConfCode": {
+			"display": "计算配置编码",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"proUpdate": {
+				"show": true,
+				"edit": false
+			}
+		},
+		"staAlgrConfName": {
+			"display": "计算配置名称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "180"
+		},
+		"areaId": {
+			"display": "区域ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"areaCode": {
+			"display": "区域编码",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"parentModel": "T_PM_UNIT"
+		},
+		"monLevelId": {
+			"display": "监控级别ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"monLevelName": {
+			"display": "监控级别名称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"parentModel": "T_OPM_MONLEVEL"
+		},
+		"staAlgrId": {
+			"display": "算法ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+
+		"agentcode": {
+			"display": "agentLet编码",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130"
+		},
+		"staAlgrCode": {
+			"display": "算法编码",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"parent": "T_OPM_STAALGR"
+		},
+		"staAlgrName": {
+			"display": "算法名称",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "180",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"inUse": {
+			"display": "是否启用",
+			"type": "boolean",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "70"
+		},
+		"sortNum": {
+			"display": "排序",
+			"type": "number",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "50",
+			"class": "right"
+		},
+		"crtUserId": {
+			"display": "创建人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"crtUserName": {
+			"display": "创建人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "left",
+			"width": "70",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"crtDate": {
+			"display": "创建时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"width": "150",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntUserId": {
+			"display": "最后维护人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"mntUserName": {
+			"display": "维护人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "left",
+			"width": "70",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntDate": {
+			"display": "维护时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"width": "150",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+
+		"des": {
+			"display": "描述",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "180"
+		},
+
+		"extpara1": {
+			"display": "保留1",
+			"type": "",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"extpara2": {
+			"display": "保留2",
+			"type": "",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"extpara3": {
+			"display": "字段",
+			"type": "",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"extpara4": {
+			"display": "测试",
+			"type": "",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"version": {
+			"display": "版本",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		}
+	}
+}
