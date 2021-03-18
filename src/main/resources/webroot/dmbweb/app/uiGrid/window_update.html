@@ -35,7 +35,8 @@
 								<div ng-if="value.type=='number'">
 									<input type="number" class="form-control" ng-model="value.proUpdate.data" ng-disabled="key==main.vMember.sapc.tableType.alterKey||key==main.vMember.sapc.tableType.mainKey">
 								</div>
-								<div ng-if="value.parentType.type=='Model'||value.parentType.type=='Res'||value.parentType.type=='Msr'||(value.parentType.type=='Use'&&value.display!='用户名称')||value.display=='计算方法'||(value.parentType.type=='Rel'&&(value.display=='班组名称'||value.display=='岗位名称'))" id="parentModel" class="input-group">
+								<!--搜索文本框-->
+								<div ng-if="value.parentType.type=='Model'||value.parentType.type=='Res'||value.parentType.type=='Msr'||(value.parentType.type=='Use'&&value.display!='用户名称')||value.display=='计算方法'||(value.parentType.type=='Rel'&&(value.display=='班组名称'||value.display=='岗位名称'||value.display=='装置界区编码'))" id="parentModel" class="input-group">
 									<input type="text" class="form-control" ng-model="value.proUpdate.data" ng-disabled="true" ng-click="main.vfunc.onclick.parentModelSearchOnClick(value)">
 									<div class="input-group-btn">
 										<button type="button" class="btn clude search-btn" aria-expanded="false" ng-disabled="value.display=='采样点编码'" data-target="#parentSearchModel" data-toggle="modal" ng-click="main.vfunc.onclick.setTemLinkemKey(key,value,'proUpdate')"><span class="glyphicon glyphicon-search buttn"></span>
@@ -43,7 +44,8 @@
 									</div>
 									<span ng-click="removeParentOrg('proUpdate')" class="glyphicon glyphicon-remove removeOrg" ng-if="value.display=='上级组织机构简称'"></span>
 								</div>
-								<div ng-if="(value.parentType.type=='Dict'&&value.display!='计算方法'&&value.display!='基础分类')||value.parentType.type=='Sys'||(value.parentType.type=='Rel'&&value.display!='班组名称'&&value.display!='岗位名称')" class="input-group">
+								<!--下拉框-->
+								<div ng-if="(value.parentType.type=='Dict'&&value.display!='计算方法'&&value.display!='基础分类')||value.parentType.type=='Sys'||(value.parentType.type=='Rel'&&value.display!='班组名称'&&value.display!='岗位名称'&&value.display!='装置界区编码')" class="input-group">
 									<input type="text" class="form-control" ng-model="value.proUpdate.data" ng-disabled="true">
 									<div class="input-group-btn">
 										<button type="button" class="btn btn-default dropdown-toggle" style="padding: 2px 10px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>

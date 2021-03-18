@@ -6,6 +6,7 @@
 //localStorage.setItem('serverUrl', 'http://10.238.129.11:8081/DMBService'); //王森
 //localStorage.setItem('serverUrl', 'http://10.238.129.225:8081/DMBService'); //张华琪
 //localStorage.setItem('serverUrl', 'http://10.238.129.27:8081/DMBService');//鱼磊
+localStorage.setItem('serverUrl', 'http://10.238.129.43:8081/DMBService'); //张思珂
 
 /**
  * 正式环境路由
@@ -14,7 +15,7 @@
 
 //测试环境配置
 //localStorage.setItem('serverUrl', 'http://10.238.220.85:8081/DMBService'); //test
-localStorage.setItem('serverUrl', '/FactoryModelService/DMBService'); //test
+// localStorage.setItem('serverUrl', '/FactoryModelService/DMBService'); //test
 localStorage.setItem('promaceDomian', '.promace.sinopec.com'); //服务应用配置发版域名
 localStorage.setItem('UserCodeUrl', '/FactoryModelService/aaaUser'); //测试环境相对路径，【权限】
 
@@ -33,8 +34,8 @@ localStorage.setItem('rentServerUrl', '');
 /**
  * 本地测试逻辑多租时需要，发版时注释
  */
-//localStorage.setItem('testRent', true); //test
-//localStorage.setItem('testRentUrl', 'yy1.promace.sinopec.com'); //test
+localStorage.setItem('testRent', true); //test
+localStorage.setItem('testRentUrl', 'fms_mtrl.promace.sinopec.com'); //test
 
 //
 // Declare app level module
@@ -416,12 +417,18 @@ angular.module('myApp', [
 								interUrl = interUrl
 							}
 
-						} else if((jsonObj.type == 'Dict' && jsonObj.key != 'T_IC_CNFG_CLASS_PARA') || jsonObj.type == 'Rel') {
-							interUrl = httpPort + jsonObj.url + '?inUse=1&dataStatus=1';
+						} else if((jsonObj.type == 'Dict' && jsonObj.key != 'T_IC_CNFG_CLASS_PARA') || jsonObj.type == 'Rel' || jsonObj.type == 'Sys') {
+							let bizUrl;
+							if(jsonObj.key == "T_PM_UNITAREA" || jsonObj.key == "T_PM_UNITAREAREL") {
+								bizUrl = '/bizs/fms_mtrl' + jsonObj.url
+							} else {
+								bizUrl = jsonObj.url
+							}
+							interUrl = httpPort + bizUrl + '?inUse=1&dataStatus=1';
 						} else if(jsonObj.type == 'Model' || jsonObj.type == 'Res' || jsonObj.type == 'Msr' || jsonObj.type == 'Use' || jsonObj.key == 'T_IC_CNFG_CLASS_PARA') {
 							interUrl = httpPort + jsonObj.url + '?$codeList=0';
 						}
-						console.log('interUrl', interUrl, tableType)
+						console.log('interUrl', interUrl)
 						httpCommit(interUrl).then(function success(resu) {
 							var resuArr = cj.Parse(resu.data, true)
 							if(jsonObj.key == "T_PM_BIZORG_MAIN") {
@@ -553,7 +560,13 @@ angular.module('myApp', [
 						return 0;
 					}
 					tableType.searchCount = 0;
-					var url = this.httpPort() + jsonObj.url + "?$skip=0&$top=1";
+					let bizUrl;
+					if(tableType.jsonObj.key == "T_PM_UNITAREA" || tableType.jsonObj.key == "T_PM_UNITAREAREL") {
+						bizUrl = '/bizs/fms_mtrl' + jsonObj.url
+					} else {
+						bizUrl = jsonObj.url
+					}
+					var url = this.httpPort() + bizUrl + "?$skip=0&$top=1";
 					this.httpCommit(url).then(function success(res) {
 						for(var i = 0; i < res.data.collection.queries.length; i++) {
 							if(res.data.collection.queries.rel = 'condition') {

@@ -17,9 +17,13 @@ angular.module('myApp.tableSelector', ['ui.router'])
 	.controller('tableSelector', ['$scope', '$rootScope', '$http', '$state', 'viewGridProvider', function($scope, $rootScope, $http, $state, viewGridProvider) {
 		//console.log("$rootScope.showKey", $rootScope.showKey);
 		$scope.dataUrl = 'model/tableIndex.json';
-		if(!$rootScope.showKey) {
-			$rootScope.showFlag = true;
-			$rootScope.showKey = "Model"
+		if(!$rootScope.showKey1) {
+			$rootScope.showFlag1 = true;
+			$rootScope.showKey1 = "Model";
+			$rootScope.showFlag2 = true;
+			$rootScope.showKey2 = ""
+			$rootScope.showFlag3 = true;
+			$rootScope.showKey3 = ""
 		}
 		$scope.searchDates = [];
 		//将下拉选的数据值赋值给文本框  
@@ -41,28 +45,43 @@ angular.module('myApp.tableSelector', ['ui.router'])
 		});
 
 		var showKey = {};
-		$scope.searchConditonChange = function(searchConditonText) {
-			if($rootScope.showKey != 'search') {
-				angular.copy({
-					"key": $rootScope.showKey
-				}, showKey);
-			}
-			if(searchConditonText) {
-				$rootScope.showKey = 'search';
+//		$scope.searchConditonChange = function(searchConditonText) {
+//			if($rootScope.showKey != 'search') {
+//				angular.copy({
+//					"key": $rootScope.showKey
+//				}, showKey);
+//			}
+//			if(searchConditonText) {
+//				$rootScope.showKey = 'search';
+//			} else {
+//				$rootScope.showKey = showKey.key;
+//
+//			}
+//		};
+		$scope.colums1OnClick = function(key, showKey) {
+			$rootScope.showKey1 = key;
+			if(key == showKey) {
+				$rootScope.showFlag1 = !$rootScope.showFlag1
 			} else {
-				$rootScope.showKey = showKey.key;
-
+				$rootScope.showFlag1 = true
 			}
 		};
-		$scope.columsOnClick = function(key, showKey) {
-			$rootScope.showKey = key;
-			if(key == showKey) {
-				$rootScope.showFlag = !$rootScope.showFlag
+		$scope.colums2OnClick = function(key2, showKey2) {
+			$rootScope.showKey2 = key2
+			if(key2 == showKey2) {
+				$rootScope.showFlag2 = !$rootScope.showFlag2
 			} else {
-				$rootScope.showFlag = true
+				$rootScope.showFlag2 = true
 			}
-
-		}
+		};
+		$scope.colums3OnClick = function(key3, showKey3) {
+			$rootScope.showKey3 = key3
+			if(key3 == showKey3) {
+				$rootScope.showFlag3 = !$rootScope.showFlag3
+			} else {
+				$rootScope.showFlag3 = true
+			}
+		};
 		$scope.tableOpenOnClick = function(data) {
 			//------------------------与model层交互代码开始---------------
 			var obj = {};

@@ -1,5 +1,4 @@
 {
-
 	"Dict": {
 		"navName": "字典",
 		"rows": {
@@ -777,6 +776,30 @@
 	"Rel": {
 		"navName": "组态关系",
 		"rows": {
+
+			"T_PM_UNITAREA": {
+				"tableName": "2.1.1  装置界区",
+				"nameAlias": "装置界区",
+				"tableFormat": "T_PM_UNITAREA.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"hide": "true",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/unitAreas"
+			},
+			"T_PM_UNITAREAREL": {
+				"tableName": "2.1.2  装置界区与装置关系",
+				"nameAlias": "装置界区与装置关系",
+				"tableFormat": "T_PM_UNITAREAREL.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"hide": "true",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/unitAreaRels"
+			},
+
 			"T_PM_BIZORG_MAIN": {
 				"tableName": "1 多业务组织层次(业务域)",
 				"nameAlias": "多业务组织层次(业务域)",
@@ -795,8 +818,39 @@
 				"isShowSearch": true,
 				"desType": "shortDes",
 				"tree": true,
+				"hide": "true",
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/bizorgDtls"
+			},
+			"busiMol": {
+				"tableName": "2  业务模型管理",
+				"thirds": {
+					"busiArea": {
+						"tableName": "2.1 物料管理",
+						"fourth": {
+							"T_PM_UNITAREA": {
+								"tableName": "2.1.1  装置界区",
+								"nameAlias": "装置界区",
+								"tableFormat": "T_PM_UNITAREA.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "shortDes",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/unitAreas"
+							},
+							"T_PM_UNITAREAREL": {
+								"tableName": "2.1.2  装置界区与装置关系",
+								"nameAlias": "装置界区与装置关系",
+								"tableFormat": "T_PM_UNITAREAREL.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "shortDes",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/unitAreaRels"
+							}
+						}
+					}
+				}
 			},
 			"T_IC_SIMPLE_NODE_MAP": {
 				"tableName": "3 采样点与节点对象关联",
@@ -1275,8 +1329,7 @@
 				"url": "/calendarAndRents"
 			}
 		}
-	}
-	,
+	},
 	"Sys": {
 		"navName": "系统管理",
 		"rows": {
@@ -1290,6 +1343,80 @@
 				"tree": true,
 				"authPropertyValue": "FMS_DictModify",
 				"url": "/rents"
+			},
+			"T_SYSTEM_RESOURCE": {
+				"tableName": "2.1 资源配置",
+				"nameAlias": "资源配置",
+				"tableFormat": "T_SYSTEM_RESOURCE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"tree": true,
+				"hide": "true",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/systemResources"
+			},
+			"T_SYSTEM_RECIPIENT": {
+				"tableName": "2.2 应用管理",
+				"nameAlias": "应用管理",
+				"tableFormat": "T_SYSTEM_RECIPIENT.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"tree": true,
+				"hide": "true",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/systemRecipients"
+			},
+			"T_SYSTEM_MESSAGECONFIG": {
+				"tableName": "2.3 应用资源关联",
+				"nameAlias": "应用资源关联",
+				"tableFormat": "T_SYSTEM_MESSAGECONFIG.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"tree": true,
+				"hide": "true",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/systemMessageConfigs"
+			},
+			"message": {
+				"tableName": "2 消息管理",
+				"thirds": {
+					"T_SYSTEM_RESOURCE": {
+						"tableName": "2.1 资源配置",
+						"nameAlias": "资源配置",
+						"tableFormat": "T_SYSTEM_RESOURCE.json",
+						"parent": "none",
+						"isShowSearch": true,
+						"desType": "middleDes",
+						"tree": true,
+						"authPropertyValue": "FMS_DictModify",
+						"url": "/systemResources"
+					},
+					"T_SYSTEM_RECIPIENT": {
+						"tableName": "2.2 应用管理",
+						"nameAlias": "应用管理",
+						"tableFormat": "T_SYSTEM_RECIPIENT.json",
+						"parent": "none",
+						"isShowSearch": true,
+						"desType": "shortDes",
+						"tree": true,
+						"authPropertyValue": "FMS_DictModify",
+						"url": "/systemRecipients"
+					},
+					"T_SYSTEM_MESSAGECONFIG": {
+						"tableName": "2.3 应用资源关联",
+						"nameAlias": "应用资源关联",
+						"tableFormat": "T_SYSTEM_MESSAGECONFIG.json",
+						"parent": "none",
+						"isShowSearch": true,
+						"desType": "longDes",
+						"tree": true,
+						"authPropertyValue": "FMS_DictModify",
+						"url": "/systemMessageConfigs"
+					}
+				}
 			}
 		}
 	}
