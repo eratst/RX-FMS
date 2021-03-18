@@ -47,10 +47,10 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 		viewGridProvider.init();
 		//获取用户编码userCode,处理页面权限
 		$scope.levelOrg = false;
-								$scope.authModfiy = true;
-//		$scope.authModfiy = false;
+//								$scope.authModfiy = true;
+		$scope.authModfiy = false;
 		$scope.rentFlag = true;
-//		initAuthority() ///初始化唯一方法
+		initAuthority() ///初始化唯一方法
 
 		//禁止罐量计算配置基础分类，分类参数，公式参数的增删改查导入按钮显示
 		$scope.BntShow = ($stateParams.id != 'T_IC_CNFG_CLASS_PARA') && ($stateParams.id != 'T_IC_CNFG_CLASS') && ($stateParams.id != 'T_IC_CNFG_FORMULA_PARA');
@@ -349,9 +349,9 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 					$scope.rentFlag = false;
 			}, function error(res) {});
 		}
-								initGridOptionsColumnDefs(jsonObj); //仅在初始化调用了一次，其余活动未重复调用
-								initGridOptionsUserA("T_PM_USER.json"); //仅在新增弹框的初始化调用
-								initGridOptionsUserU("T_PM_USER.json"); //仅在编辑弹框的初始化调用
+//								initGridOptionsColumnDefs(jsonObj); //仅在初始化调用了一次，其余活动未重复调用
+//								initGridOptionsUserA("T_PM_USER.json"); //仅在新增弹框的初始化调用
+//								initGridOptionsUserU("T_PM_USER.json"); //仅在编辑弹框的初始化调用
 		/**
 		 * 初始化页面-----封装数据格式和JSON，初始化表格---------仅在刷新页面调用一次
 		 */
@@ -854,7 +854,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			if(tableType.jsonObj.key == "T_PM_UNITAREA"){
 				upUrl =bizUrl + jsonObj.url + singleCodeUrl
 			}else if(tableType.jsonObj.key == "T_SYSTEM_MESSAGECONFIG"){
-				upUrl = jsonObj.url+doubleCodeUrl
+				upUrl = jsonObj.url+tripleCodeUrl
 			}else if(tableType.jsonObj.key == "T_PM_UNITAREAREL"){
 				upUrl =  bizUrl  + jsonObj.url+tripleCodeUrl
 			}else{
@@ -979,7 +979,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			if(tableType.jsonObj.key == "T_PM_UNITAREA"){
 				alterUrl = bizUrl+jsonObj.url+singleCodeUrl
 			}else if(tableType.jsonObj.key == "T_SYSTEM_MESSAGECONFIG"){
-				alterUrl = jsonObj.url+doubleCodeUrl
+				alterUrl = jsonObj.url+tripleCodeUrl
 			}else if(tableType.jsonObj.key == "T_PM_UNITAREAREL"){
 				alterUrl = bizUrl+jsonObj.url+tripleCodeUrl
 			}else{

@@ -27,8 +27,8 @@
 			"inOut": true,
 			"parentModel": "T_SYSTEM_RESOURCE",
 			"linkKeys": {
-				"resourceCode": "recipientName",
-				"resourceName": "recipientName"
+				"resourceCode": "resourceCode",
+				"resourceName": "resourceName"
 			},
 			"class": "left"
 		},
