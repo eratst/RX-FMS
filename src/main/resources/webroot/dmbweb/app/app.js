@@ -182,7 +182,7 @@ angular.module('myApp', [
 						}
 					}
 
-					///////获取登录用户///////////////////////xiayl237
+					///////获取登录用户///////////////////////xiayl237  admin
 					localStorage.setItem('userCode', "test")
 
 					//http://10.238.255.204:8099/FactoryModelService/aaaUser

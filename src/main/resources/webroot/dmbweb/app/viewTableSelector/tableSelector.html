@@ -3,15 +3,6 @@
 		<div class="row" style="overflow: auto;">
 			<div class="col-md-2" style="padding: 0;">
 				<nav class="navbar navbar-default leftSide">
-					<!--<ul style="padding: 0;margin: 0;" id="sideLeft">
-						<li role="presentation" ng-repeat="(key,value) in datas">
-							<a class="tableType" ng-bind="value.navName" ng-click="columsOnClick(key,showKey)" ng-class="{active: key==showKey}"></a>
-							<div class="clearPadding" ng-repeat="(key2,value2) in datas[showKey].rows" ng-if="showKey!='search' &&!value2.hide&&key==showKey&&showFlag==true">
-								<a class="tableTitle" ng-bind="value2['tableName']" ui-sref="app.uiGrid({id:key2})"></a>
-							</div>
-						</li>
-					</ul>-->
-					
 					<ul style="padding: 0;margin: 0;" id="sideLeft">
 						<li role="presentation" ng-repeat="(key1,value1) in datas">
 							<a  class="tableType" style="cursor: pointer" ng-bind="value1.navName" ng-click="colums1OnClick(key1,showKey1)" ng-class="{active: key1==showKey1}">

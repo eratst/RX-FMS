@@ -47,10 +47,10 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 		viewGridProvider.init();
 		//获取用户编码userCode,处理页面权限
 		$scope.levelOrg = false;
-//								$scope.authModfiy = true;
-		$scope.authModfiy = false;
+//		$scope.authModfiy = true;
+				$scope.authModfiy = false;
 		$scope.rentFlag = true;
-		initAuthority() ///初始化唯一方法
+				initAuthority() ///初始化唯一方法
 
 		//禁止罐量计算配置基础分类，分类参数，公式参数的增删改查导入按钮显示
 		$scope.BntShow = ($stateParams.id != 'T_IC_CNFG_CLASS_PARA') && ($stateParams.id != 'T_IC_CNFG_CLASS') && ($stateParams.id != 'T_IC_CNFG_FORMULA_PARA');
@@ -337,9 +337,16 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				var authArr = $.ET.toObjectArr(res.data);
 				console.log('权限属性返回', authArr);
 				for(var i = 0; i < authArr.length; i++) {
-					if(authArr[i].value == "FMS_" + jsonObj.key) {
-						$scope.authModfiy = true;
-						break;
+					if(jsonObj.key == "T_SYSTEM_RESOURCE" || jsonObj.key == "T_SYSTEM_RECIPIENT" || jsonObj.key == "T_SYSTEM_MESSAGECONFIG") {
+						if(authArr[i].value == "FMS_T_PM_RENT") {
+							$scope.authModfiy = true;
+							break;
+						}
+					} else {
+						if(authArr[i].value == "FMS_" + jsonObj.key) {
+							$scope.authModfiy = true;
+							break;
+						}
 					}
 				}
 				initGridOptionsColumnDefs(jsonObj); //仅在初始化调用了一次，其余活动未重复调用
@@ -349,9 +356,9 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 					$scope.rentFlag = false;
 			}, function error(res) {});
 		}
-//								initGridOptionsColumnDefs(jsonObj); //仅在初始化调用了一次，其余活动未重复调用
-//								initGridOptionsUserA("T_PM_USER.json"); //仅在新增弹框的初始化调用
-//								initGridOptionsUserU("T_PM_USER.json"); //仅在编辑弹框的初始化调用
+//		initGridOptionsColumnDefs(jsonObj); //仅在初始化调用了一次，其余活动未重复调用
+//		initGridOptionsUserA("T_PM_USER.json"); //仅在新增弹框的初始化调用
+//		initGridOptionsUserU("T_PM_USER.json"); //仅在编辑弹框的初始化调用
 		/**
 		 * 初始化页面-----封装数据格式和JSON，初始化表格---------仅在刷新页面调用一次
 		 */
@@ -383,9 +390,9 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 		function initGridOptionsData(curPage, pageSize) {
 			let bizUrl;
 			let tableType = $scope.main.vMember.sapc.tableType
-			if(tableType.jsonObj.key == "T_PM_UNITAREA"||tableType.jsonObj.key == "T_PM_UNITAREAREL"){
+			if(tableType.jsonObj.key == "T_PM_UNITAREA" || tableType.jsonObj.key == "T_PM_UNITAREAREL") {
 				bizUrl = '/bizs/fms_mtrl' + jsonObj.url
-			}else{
+			} else {
 				bizUrl = jsonObj.url
 			}
 			if($scope.rentFlag) {
@@ -403,7 +410,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			} else if(!$scope.levelOrg) {
 				interUrl = interUrl + '&isRecursive=0';
 			}
-			
+
 			console.log("查询当前表数据所用url", interUrl);
 			viewGridProvider.httpCommit(interUrl).then(function success(res) {
 				for(var i = 0; i < res.data.collection.page.data.length; i++) {
@@ -525,9 +532,9 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				console.info("增加所用restful-->", JSON.stringify(json));
 			}
 			var alterUrl;
-			if(tableType.jsonObj.key == "T_PM_UNITAREA"||tableType.jsonObj.key == "T_PM_UNITAREAREL"){
-				alterUrl = '/bizs/' + tableType.attribute['bizCode'].proAdd.data+jsonObj.url
-			}else{
+			if(tableType.jsonObj.key == "T_PM_UNITAREA" || tableType.jsonObj.key == "T_PM_UNITAREAREL") {
+				alterUrl = '/bizs/' + tableType.attribute['bizCode'].proAdd.data + jsonObj.url
+			} else {
 				alterUrl = jsonObj.url
 			}
 			console.log("增加所用url-->", viewGridProvider.httpPort() + alterUrl);
@@ -845,20 +852,20 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 		}
 
 		function deleteData(i) {
-			var tableType=$scope.main.vMember.sapc.tableType
+			var tableType = $scope.main.vMember.sapc.tableType
 			var singleCodeUrl = '/' + $scope.gridApi.selection.getSelectedRows()[i][tableType.alterKey]
-			var doubleCodeUrl = '/' +tableType.nodeA+'/' + $scope.gridApi.selection.getSelectedRows()[i][tableType.nodeA]+'/' +tableType.nodeB+'/' + $scope.gridApi.selection.getSelectedRows()[i][tableType.nodeB]
-			var tripleCodeUrl =  '?' +tableType.nodeA+'=' + $scope.gridApi.selection.getSelectedRows()[i][tableType.nodeA]+'&' +tableType.nodeB+'=' + $scope.gridApi.selection.getSelectedRows()[i][tableType.nodeB] 
-			var bizUrl= '/bizs/' + $scope.gridApi.selection.getSelectedRows()[i][tableType.nodeC] 
+			var doubleCodeUrl = '/' + tableType.nodeA + '/' + $scope.gridApi.selection.getSelectedRows()[i][tableType.nodeA] + '/' + tableType.nodeB + '/' + $scope.gridApi.selection.getSelectedRows()[i][tableType.nodeB]
+			var tripleCodeUrl = '?' + tableType.nodeA + '=' + $scope.gridApi.selection.getSelectedRows()[i][tableType.nodeA] + '&' + tableType.nodeB + '=' + $scope.gridApi.selection.getSelectedRows()[i][tableType.nodeB]
+			var bizUrl = '/bizs/' + $scope.gridApi.selection.getSelectedRows()[i][tableType.nodeC]
 			var upUrl
-			if(tableType.jsonObj.key == "T_PM_UNITAREA"){
-				upUrl =bizUrl + jsonObj.url + singleCodeUrl
-			}else if(tableType.jsonObj.key == "T_SYSTEM_MESSAGECONFIG"){
-				upUrl = jsonObj.url+tripleCodeUrl
-			}else if(tableType.jsonObj.key == "T_PM_UNITAREAREL"){
-				upUrl =  bizUrl  + jsonObj.url+tripleCodeUrl
-			}else{
-				upUrl = jsonObj.url+singleCodeUrl
+			if(tableType.jsonObj.key == "T_PM_UNITAREA") {
+				upUrl = bizUrl + jsonObj.url + singleCodeUrl
+			} else if(tableType.jsonObj.key == "T_SYSTEM_MESSAGECONFIG") {
+				upUrl = jsonObj.url + tripleCodeUrl
+			} else if(tableType.jsonObj.key == "T_PM_UNITAREAREL") {
+				upUrl = bizUrl + jsonObj.url + tripleCodeUrl
+			} else {
+				upUrl = jsonObj.url + singleCodeUrl
 			}
 			console.log("删除所用url-->", viewGridProvider.httpPort() + upUrl);
 			viewGridProvider.httpDelete(upUrl, cj.parseCj($scope.prodAddData)).then(function success(res) {
@@ -972,18 +979,18 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			var json = viewGridProvider.getHttpData('proUpdate', $scope.main.vMember.sapc.tableType);
 			console.info("修改所用restful-->", JSON.stringify(json));
 			var singleCodeUrl = '/' + $scope.alterValue
-			var doubleCodeUrl = '/' +tableType.nodeA+'/' + $scope.nodeA+'/' +tableType.nodeB+'/' + $scope.nodeB
-			var tripleCodeUrl = '?' +tableType.nodeA+'=' + $scope.nodeA+'&' +tableType.nodeB+'=' + $scope.nodeB
-			var bizUrl='/bizs/' + $scope.nodeC
+			var doubleCodeUrl = '/' + tableType.nodeA + '/' + $scope.nodeA + '/' + tableType.nodeB + '/' + $scope.nodeB
+			var tripleCodeUrl = '?' + tableType.nodeA + '=' + $scope.nodeA + '&' + tableType.nodeB + '=' + $scope.nodeB
+			var bizUrl = '/bizs/' + $scope.nodeC
 			var alterUrl
-			if(tableType.jsonObj.key == "T_PM_UNITAREA"){
-				alterUrl = bizUrl+jsonObj.url+singleCodeUrl
-			}else if(tableType.jsonObj.key == "T_SYSTEM_MESSAGECONFIG"){
-				alterUrl = jsonObj.url+tripleCodeUrl
-			}else if(tableType.jsonObj.key == "T_PM_UNITAREAREL"){
-				alterUrl = bizUrl+jsonObj.url+tripleCodeUrl
-			}else{
-				alterUrl = jsonObj.url+singleCodeUrl
+			if(tableType.jsonObj.key == "T_PM_UNITAREA") {
+				alterUrl = bizUrl + jsonObj.url + singleCodeUrl
+			} else if(tableType.jsonObj.key == "T_SYSTEM_MESSAGECONFIG") {
+				alterUrl = jsonObj.url + tripleCodeUrl
+			} else if(tableType.jsonObj.key == "T_PM_UNITAREAREL") {
+				alterUrl = bizUrl + jsonObj.url + tripleCodeUrl
+			} else {
+				alterUrl = jsonObj.url + singleCodeUrl
 			}
 			console.log("修改所用url-->", viewGridProvider.httpPort() + alterUrl);
 			viewGridProvider.httpUpdate(alterUrl, json).then(function success(res) {
@@ -1767,15 +1774,14 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				} else {
 					var searchUrl = viewGridProvider.httpPort() + $scope.pM.vMember.sapc.parentType.jsonObj.url + '?$skip=' + ($scope.selPage - 1) * $scope.pageSize + '&$top=' + $scope.pageSize + '&inUse=1&dataStatus=1';
 				}
-			}else if(tableName == 'T_PM_UNITAREAREL'){
+			} else if(tableName == 'T_PM_UNITAREAREL') {
 				if($scope.pM.vMember.sapc.parentType.jsonObj.url == '/unitAreas') {
-				var searchUrl = viewGridProvider.httpPort() + '/bizs/fms_mtrl' +$scope.pM.vMember.sapc.parentType.jsonObj.url + '?$skip=' + ($scope.selPage - 1) * $scope.pageSize + '&$top=' + $scope.pageSize + '&inUse=1&dataStatus=1';
+					var searchUrl = viewGridProvider.httpPort() + '/bizs/fms_mtrl' + $scope.pM.vMember.sapc.parentType.jsonObj.url + '?$skip=' + ($scope.selPage - 1) * $scope.pageSize + '&$top=' + $scope.pageSize + '&inUse=1&dataStatus=1';
 				} else {
 					var searchUrl = viewGridProvider.httpPort() + $scope.pM.vMember.sapc.parentType.jsonObj.url + '?$skip=' + ($scope.selPage - 1) * $scope.pageSize + '&$top=' + $scope.pageSize + '&inUse=1&dataStatus=1';
 				}
 
-			}
-			else {
+			} else {
 				var searchUrl = viewGridProvider.httpPort() + $scope.pM.vMember.sapc.parentType.jsonObj.url + '?$skip=' + ($scope.selPage - 1) * $scope.pageSize + '&$top=' + $scope.pageSize + '&inUse=1&dataStatus=1';
 			}
 			for(var key in json) {
@@ -1862,7 +1868,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			} else {
 				var linkKeys = $scope.main.vMember.temLink.selfKV.vt.linkKeys;
 				for(var key in linkKeys) {
-					console.log("key++++",key,linkKeys[key],data)
+					console.log("key++++", key, linkKeys[key], data)
 					$scope.main.vMember.sapc.tableType.attribute[key][proValue].data = data[linkKeys[key]];
 				}
 			}
