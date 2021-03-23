@@ -43,14 +43,14 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 	.controller('uiGridCtrl', ['$scope', '$filter', '$location', '$rootScope', '$http', 'viewGridProvider', 'orgTree', '$stateParams', '$state', 'FileUploader', '$interval', '$timeout', 'tableIndex', '$q', function($scope, $location, $filter, $rootScope, $http, viewGridProvider, orgTree, $stateParams, $state, FileUploader, $interval, $timeout, tableIndex, $q) {
 		var jsonObj = viewGridProvider.getTableIndexJsonByKey(tableIndex, $stateParams.id);
 		//console.info("jsonObj init:", jsonObj);
+		$scope.levelOrg = false;
+		$scope.rentFlag = true;
 		jsonObj.key = $stateParams.id;
 		viewGridProvider.init();
 		//获取用户编码userCode,处理页面权限
-		$scope.levelOrg = false;
-//		$scope.authModfiy = true;
-				$scope.authModfiy = false;
-		$scope.rentFlag = true;
-				initAuthority() ///初始化唯一方法
+$scope.authModfiy = true;
+//				$scope.authModfiy = false;
+//				initAuthority() ///初始化唯一方法
 
 		//禁止罐量计算配置基础分类，分类参数，公式参数的增删改查导入按钮显示
 		$scope.BntShow = ($stateParams.id != 'T_IC_CNFG_CLASS_PARA') && ($stateParams.id != 'T_IC_CNFG_CLASS') && ($stateParams.id != 'T_IC_CNFG_FORMULA_PARA');
@@ -342,6 +342,12 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 							$scope.authModfiy = true;
 							break;
 						}
+					}else if(jsonObj.key == "T_PM_UNITAREA" || jsonObj.key == "T_PM_UNITAREAREL"){
+						//业务模型权限取决于物料表
+						if(authArr[i].value == "FMS_T_PM_MTRL") {
+							$scope.authModfiy = true;
+							break;
+						}
 					} else {
 						if(authArr[i].value == "FMS_" + jsonObj.key) {
 							$scope.authModfiy = true;
@@ -356,9 +362,9 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 					$scope.rentFlag = false;
 			}, function error(res) {});
 		}
-//		initGridOptionsColumnDefs(jsonObj); //仅在初始化调用了一次，其余活动未重复调用
-//		initGridOptionsUserA("T_PM_USER.json"); //仅在新增弹框的初始化调用
-//		initGridOptionsUserU("T_PM_USER.json"); //仅在编辑弹框的初始化调用
+		initGridOptionsColumnDefs(jsonObj); //仅在初始化调用了一次，其余活动未重复调用
+		initGridOptionsUserA("T_PM_USER.json"); //仅在新增弹框的初始化调用
+		initGridOptionsUserU("T_PM_USER.json"); //仅在编辑弹框的初始化调用
 		/**
 		 * 初始化页面-----封装数据格式和JSON，初始化表格---------仅在刷新页面调用一次
 		 */
@@ -395,6 +401,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			} else {
 				bizUrl = jsonObj.url
 			}
+			console.log("biZ5555555",bizUrl)
 			if($scope.rentFlag) {
 				var interUrl = viewGridProvider.httpPort() + bizUrl +
 					'?$skip=' + (curPage - 1) * pageSize + '&$top=' + pageSize +
@@ -405,6 +412,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 					viewGridProvider.getSearchKVUrl(tableType);
 
 			}
+			console.log("biZ5555555",interUrl)
 			if($scope.levelOrg) {
 				interUrl = interUrl + '&isRecursive=1';
 			} else if(!$scope.levelOrg) {
