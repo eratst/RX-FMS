@@ -806,6 +806,7 @@
 				"tableFormat": "T_PM_BIZORG_MAIN.json",
 				"parent": "none",
 				"isShowSearch": true,
+				"hide": "true",
 				"desType": "longDes",
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/bizorgMains"
@@ -824,6 +825,8 @@
 			},
 			"busiMol": {
 				"tableName": "2  业务模型管理",
+				"hide": "true",
+				
 				"thirds": {
 					"busiArea": {
 						"tableName": "2.1 物料管理",
@@ -853,7 +856,7 @@
 				}
 			},
 			"T_IC_SIMPLE_NODE_MAP": {
-				"tableName": "3 采样点与节点对象关联",
+				"tableName": "1 采样点与节点对象关联",
 				"nameAlias": "采样点与节点对象关联",
 				"tableFormat": "T_IC_SIMPLE_NODE_MAP.json",
 				"parent": "none",
@@ -863,7 +866,7 @@
 				"url": "/simpleNodeMaps"
 			},
 			"T_IC_NODETOP_MAIN": {
-				"tableName": "4.1 拓扑关系",
+				"tableName": "2.1 拓扑关系",
 				"nameAlias": "拓扑关系",
 				"tableFormat": "T_IC_NODETOP_MAIN.json",
 				"parent": "none",
@@ -873,7 +876,7 @@
 				"url": "/nodeTopMains"
 			},
 			"T_IC_NODETOP_DTL": {
-				"tableName": "4.2 拓扑关系明细",
+				"tableName": "2.2 拓扑关系明细",
 				"nameAlias": "拓扑关系明细",
 				"tableFormat": "T_IC_NODETOP_DTL.json",
 				"parent": "none",
@@ -883,7 +886,7 @@
 				"url": "/nodeTopDtls"
 			},
 			"T_PM_ASSOCIATIVE": {
-				"tableName": "5 节点物料关联",
+				"tableName": "3 节点物料关联",
 				"nameAlias": "节点物料关联",
 				"tableFormat": "T_PM_ASSOCIATIVE.json",
 				"parent": "none",
@@ -893,7 +896,7 @@
 				"url": "/associatives"
 			},
 			"T_PM_POSITIONORG": {
-				"tableName": "6 岗位与组织机构关联",
+				"tableName": "4 岗位与组织机构关联",
 				"nameAlias": "岗位与组织机构关联",
 				"tableFormat": "T_PM_POSITIONORG.json",
 				"parent": "none",
@@ -904,7 +907,7 @@
 				"url": "/positionOrgs"
 			},
 			"T_PM_USERPOSITION": {
-				"tableName": "7 用户与岗位关联",
+				"tableName": "5 用户与岗位关联",
 				"nameAlias": "用户与岗位关联",
 				"tableFormat": "T_PM_USERPOSITION.json",
 				"parent": "none",
@@ -924,6 +927,7 @@
 				"tableFormat": "T_PM_OUMORGUNIT.json",
 				"parent": "none",
 				"isShowSearch": true,
+				"hide": "true",
 				"desType": "shortDes",
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/oumOrgUnits"
@@ -934,12 +938,13 @@
 				"tableFormat": "T_PM_OUMUSER.json",
 				"parent": "none",
 				"isShowSearch": true,
+				"hide": "true",
 				"desType": "shortDes",
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/oumUsers"
 			},
 			"T_PM_USER": {
-				"tableName": "3 用户",
+				"tableName": "1 用户",
 				"nameAlias": "用户",
 				"tableFormat": "T_PM_USER.json",
 				"parent": "none",
@@ -950,7 +955,7 @@
 				"url": "/users"
 			},
 			"T_PM_TEAMANDUSER": {
-				"tableName": "4 班组用户关联",
+				"tableName": "2 班组用户关联",
 				"nameAlias": "班组用户关联",
 				"tableFormat": "T_PM_TEAMANDUSER.json",
 				"parent": "none",
