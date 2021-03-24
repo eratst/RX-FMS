@@ -47,6 +47,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 		$scope.rentFlag = true;
 		jsonObj.key = $stateParams.id;
 		viewGridProvider.init();
+		$scope.userCode = "ssh";
 		//获取用户编码userCode,处理页面权限
 $scope.authModfiy = true;
 //				$scope.authModfiy = false;
@@ -332,7 +333,7 @@ $scope.authModfiy = true;
 		}
 
 		function getAuthModfiy() {
-			var authUrl = viewGridProvider.httpPort() + '/aaaProperties' + '?userCode=' + localStorage.getItem('userCode');
+			var authUrl = viewGridProvider.httpPort() + '/aaaProperties' + '?userCode=' + $scope.userCode;
 			viewGridProvider.httpCommit(authUrl).then(function success(res) {
 				var authArr = $.ET.toObjectArr(res.data);
 				console.log('权限属性返回', authArr);
@@ -510,7 +511,7 @@ $scope.authModfiy = true;
 					}
 				} else if(key == 'crtUserId' || key == 'crtUserCode' || key == 'crtUserName' ||
 					key == 'mntUserId' || key == 'mntUserCode' || key == 'mntUserName') {
-					tableType.attribute[key].proAdd.data = localStorage.getItem('userCode');
+					tableType.attribute[key].proAdd.data = $scope.userCode;
 				} else if(key == 'bizCode') {
 					localStorage.setItem('bizCode', tableType.attribute[key].proAdd.data);
 				} else if(key == 'userCode') {
@@ -527,10 +528,10 @@ $scope.authModfiy = true;
 					$scope.selectUserARelation[i].orgId = tableType.attribute['orgId'].proAdd.data;
 					$scope.selectUserARelation[i].inUse = tableType.attribute['inUse'].proAdd.data;
 					$scope.selectUserARelation[i].sortNum = 1;
-					$scope.selectUserARelation[i].crtUserCode = localStorage.getItem('userCode');
-					$scope.selectUserARelation[i].crtUserName = localStorage.getItem('userCode');
-					$scope.selectUserARelation[i].mntUserCode = localStorage.getItem('userCode');
-					$scope.selectUserARelation[i].mntUserName = localStorage.getItem('userCode');
+					$scope.selectUserARelation[i].crtUserCode = $scope.userCode;
+					$scope.selectUserARelation[i].crtUserName = $scope.userCode;
+					$scope.selectUserARelation[i].mntUserCode = $scope.userCode;
+					$scope.selectUserARelation[i].mntUserName = $scope.userCode;
 					$scope.selectUserARelation[i].des = tableType.attribute['des'].proAdd.data;
 				}
 				console.info("增加所用restful-->", cj.parseCjArray($scope.selectUserARelation));
@@ -700,8 +701,8 @@ $scope.authModfiy = true;
 						}
 					}
 					$scope.selectedList[i]['sortNum'] = 1;
-					$scope.selectedList[i]['mntUserId'] = localStorage.getItem('userCode');
-					$scope.selectedList[i]['mntUserName'] = localStorage.getItem('userCode');
+					$scope.selectedList[i]['mntUserId'] = $scope.userCode;
+					$scope.selectedList[i]['mntUserName'] = $scope.userCode;
 					$scope.selectedList[i]['orgTypeId'] = tableType.attribute['orgTypeId'].proAdd.data;
 					$scope.selectedList[i]['orgTypeCode'] = tableType.attribute['orgTypeCode'].proAdd.data;
 					$scope.selectedList[i]['orgTypeName'] = tableType.attribute['orgTypeName'].proAdd.data;
@@ -722,10 +723,10 @@ $scope.authModfiy = true;
 				$scope.insertUrl = '/users';
 				for(let i = 0; i < $scope.selectedList.length; i++) {
 					$scope.selectedList[i]['sortNum'] = 1;
-					$scope.selectedList[i]['mntUserCode'] = localStorage.getItem('userCode');
-					$scope.selectedList[i]['mntUserName'] = localStorage.getItem('userCode');
-					$scope.selectedList[i]['crtUserCode'] = localStorage.getItem('userCode');
-					$scope.selectedList[i]['crtUserName'] = localStorage.getItem('userCode');
+					$scope.selectedList[i]['mntUserCode'] = $scope.userCode;
+					$scope.selectedList[i]['mntUserName'] = $scope.userCode;
+					$scope.selectedList[i]['crtUserCode'] = $scope.userCode;
+					$scope.selectedList[i]['crtUserName'] = $scope.userCode;
 					$scope.selectedList[i]['orgId'] = $scope.selectedList[i]['orgUnitId'];
 					$scope.selectedList[i]['userOrgNames'] = 'admin';
 					$scope.selectedList[i]['userOrgAlias'] = 'admin';
@@ -978,7 +979,8 @@ $scope.authModfiy = true;
 						tableType.attribute[key].proUpdate.data = document.getElementById('getUpdateTime').value + " 00:00:00"
 					}
 				} else if(key == 'mntUserId' || key == 'mntUserCode' || key == 'mntUserName') {
-					tableType.attribute[key].proUpdate.data = localStorage.getItem('userCode');
+					console.log("userCode++++++++++",$scope.userCode)
+					tableType.attribute[key].proUpdate.data = $scope.userCode;
 				} else if(key == 'bizCode') {
 					localStorage.setItem('bizCode', tableType.attribute[key].proUpdate.data);
 				}
@@ -1245,7 +1247,7 @@ $scope.authModfiy = true;
 				for(var attr in $scope.mTable.tableType) {
 					if(attr == 'crtUserId' || attr == 'crtUserCode' || attr == 'crtUserName' ||
 						attr == 'mntUserId' || attr == 'mntUserCode' || attr == 'mntUserName') {
-						$scope.mTable.tableValue[i][attr] = localStorage.getItem('userCode')
+						$scope.mTable.tableValue[i][attr] = $scope.userCode
 					}
 					if($scope.mTable.tableValue[i][attr] || $scope.mTable.tableValue[i][attr] === 0) {
 						$scope.mTable.tableValue[i][attr] = $scope.mTable.tableValue[i][attr].toString();
