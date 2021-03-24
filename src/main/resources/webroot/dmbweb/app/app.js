@@ -15,7 +15,7 @@
 //localStorage.setItem('serverUrl', 'http://10.238.255.101:32430/DMBService'); //live
 
 //测试环境配置
-//localStorage.setItem('serverUrl', 'http://10.238.220.85:8081/DMBService'); //test测试
+// localStorage.setItem('serverUrl', 'http://10.238.220.85:8081/DMBService'); //test测试
    localStorage.setItem('serverUrl', '/FactoryModelService/DMBService'); //test发版时
 localStorage.setItem('promaceDomian', '.promace.sinopec.com'); //服务应用配置发版域名
 localStorage.setItem('UserCodeUrl', '/FactoryModelService/aaaUser'); //测试环境相对路径，【权限】
@@ -35,8 +35,8 @@ localStorage.setItem('rentServerUrl', '');
 /**
  * 本地测试逻辑多租时需要，发版时注释
  */
-//localStorage.setItem('testRent', true); //test
-//localStorage.setItem('testRentUrl', 'em.promace.sinopec.com'); //test
+// localStorage.setItem('testRent', true); //test
+// localStorage.setItem('testRentUrl', 'em.promace.sinopec.com'); //test
 
 //
 // Declare app level module
@@ -185,7 +185,6 @@ angular.module('myApp', [
 
 					///////获取登录用户///////////////////////xiayl237  admin
 					localStorage.setItem('userCode', "ssh")
-
 					//http://10.238.255.204:8099/FactoryModelService/aaaUser
 
 				},
