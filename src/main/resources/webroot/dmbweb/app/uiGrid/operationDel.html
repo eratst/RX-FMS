@@ -1,7 +1,0 @@
-<div  class="form-group">
-	<button class="bttn" data-target="#deleteWindow" 
-		ng-if="grid.appScope.gridApi.grid.selection.selectedCount<1||(grid.appScope.gridApi.grid.selection.selectedCount==1&&row.isSelected)||![(grid.appScope.gridApi.grid.selection.selectedCount==1&&!row.isSelected)||grid.appScope.gridApi.grid.selection.selectedCount>1]" ng-click="grid.appScope.main.vfunc.onclick.deleteButton(row)" data-toggle="modal">
-		<span>删除</span>&nbsp;</button>
-	<button class="bttn" data-target="#deleteWindow" ng-if="(grid.appScope.gridApi.grid.selection.selectedCount==1&&!row.isSelected)||grid.appScope.gridApi.grid.selection.selectedCount>1" ng-disabled="true" data-toggle="modal">
-		<span>删除</span>&nbsp;</button>
-</div>

@@ -1,0 +1,235 @@
+{
+	"alterKey": "userPositionId",
+	"mainKey": "userPositionId",
+	"attribute": {
+		"userPositionId": {
+			"display": "用户岗位关联ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"positionId": {
+			"display": "岗位ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"positionName": {
+			"display": "岗位名称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "180",
+			"parentModel": "T_PM_POSITIONORG",
+			"linkKeys": {
+				"positionId": "positionId",
+				"positionName": "positionName",
+				"positionCode": "positionCode",
+				"orgCode": "orgCode",
+				"orgId": "orgId"
+			}
+		},
+		"positionCode": {
+			"display": "岗位编码",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"proUpdate": {
+				"show": true,
+				"edit": false
+			},
+			"proAdd": {
+				"show": true,
+				"edit": false
+			}
+		},
+		"orgCode": {
+			"display": "组织机构编码",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"proUpdate": {
+				"show": true,
+				"edit": false
+			},
+			"proAdd": {
+				"show": true,
+				"edit": false
+			}
+		},
+		"orgId": {
+			"display": "组织机构ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"userId": {
+			"display": "用户ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"userName": {
+			"display": "用户名称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "180",
+			"userDrop": true,
+			"parentModel": "T_PM_USER",
+			"linkKeys": {
+				"userId": "userId",
+				"userCode": "userCode",
+				"userName": "userName"
+			}
+		},
+		"userCode": {
+			"display": "用户编码",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"proUpdate": {
+				"show": true,
+				"edit": false
+			},
+			"proAdd": {
+				"show": true,
+				"edit": false
+			}
+		},
+		"inUse": {
+			"display": "是否启用",
+			"type": "boolean",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "80",
+			"class": "center"
+		},
+		"sortNum": {
+			"display": "排序",
+			"type": "number",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "70",
+			"class": "right"
+		},
+		"crtDate": {
+			"display": "创建时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"width": "150",
+			"class": "center",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"crtUserCode": {
+			"display": "创建人编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"crtUserName": {
+			"display": "创建人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"width": "70",
+			"class": "left",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntDate": {
+			"display": "维护时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"width": "150",
+			"class": "center",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntUserCode": {
+			"display": "最后维护人编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"mntUserName": {
+			"display": "维护人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"width": "70",
+			"class": "left",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"version": {
+			"display": "乐观锁版本",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"des": {
+			"display": "描述",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "180"
+		}
+	}
+}
+

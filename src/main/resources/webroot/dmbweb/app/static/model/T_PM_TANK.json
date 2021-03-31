@@ -1,0 +1,291 @@
+{
+	"alterKey": "nodeCode",
+	"mainKey": "nodeId",
+	"attribute": {
+		"nodeId": {
+			"display": "节点ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"nodeCode": {
+			"display": "编码",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "130",
+			"class": "left"
+		},
+		"nodeName": {
+			"display": "名称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "180",
+			"class": "left"
+		},
+		"nodeAlias": {
+			"display": "简称",
+			"type": "string",
+			"required": true,
+			"inOut": true,
+			"hide": false,
+			"width": "130",
+			"class": "left"
+		},
+		"tankTypeCode": {
+			"display": "罐类型编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false,
+			"class": "left"
+		},
+		"tankTypeName": {
+			"display": "罐类型",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "center",
+			"width": "90",
+			"parent": "T_PM_TANKTYPE"
+		},
+		"tankHgt": {
+			"display": "罐高(m)",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "90",
+			"class": "right"
+		},
+		"tankTotlCuba": {
+			"display": "罐公称容积(m³)",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "140",
+			"class": "right"
+		},
+		"fltPlatWgt": {
+			"display": "浮盘重(t)",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "100",
+			"class": "right"
+		},
+		"fltPlatPerhgt": {
+			"display": "浮盘前高(m)",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "120",
+			"class": "right"
+		},
+		"fltTipLst": {
+			"display": "浮顶最低点(m)",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "130",
+			"class": "right"
+		},
+		"maxTankHgt": {
+			"display": "罐安全高度(m)",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "130"
+		},
+		"minTankHgt": {
+			"display": "罐底高度(m)",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "120",
+			"class": "right"
+		},
+		"maxTankStoarge": {
+			"display": "安全罐量上限(t)",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "140",
+			"class": "right"
+		},
+		"minTankStoarge": {
+			"display": "安全罐量下限(t)",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "140",
+			"class": "right"
+		},
+		"htPretTank": {
+			"display": "是否保温罐",
+			"type": "boolean",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "110",
+			"class": "center"
+		},
+		"nodeLongitude": {
+			"display": "位置经度(°)",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "120",
+			"class": "left"
+		},
+		"nodeLatitude": {
+			"display": "位置纬度(°)",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "120",
+			"class": "left"
+		},
+		"nodeAltitude": {
+			"display": "位置海拔(m)",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "120",
+			"class": "right"
+		},
+		"inUse": {
+			"display": "是否启用",
+			"type": "boolean",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "100",
+			"class": "center"
+		},
+		"sortNum": {
+			"display": "排序",
+			"type": "number",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "90",
+			"class": "right"
+		},
+		"crtDate": {
+			"display": "创建时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"width": "150",
+			"class": "center",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"crtUserId": {
+			"display": "创建人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"crtUserName": {
+			"display": "创建人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"width": "80",
+			"class": "left",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntDate": {
+			"display": "维护时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"width": "150",
+			"class": "center",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntUserId": {
+			"display": "最后维护人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"mntUserName": {
+			"display": "维护人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"width": "80",
+			"class": "left",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+
+		"version": {
+			"display": "乐观锁版本",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"des": {
+			"display": "描述",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "180",
+			"class": "left"
+		}
+	}
+}

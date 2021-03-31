@@ -1,0 +1,349 @@
+{
+	"alterKey": "orgUnitCode",
+	"mainKey": "orgUnitId",
+	"attribute": {
+		"orgUnitId": {
+			"display": "机构单元ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"orgId": {
+			"display": "组织机构ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"orgCode": {
+			"display": "组织机构编码",
+			"type": "string",
+			"required": true,
+			"hide": true,
+			"inOut": true
+		},
+		"orgName": {
+			"display": "组织机构名称",
+			"type": "string",
+			"required": true,
+			"hide": true,
+			"inOut": true
+		},
+		"orgAlias": {
+			"display": "组织机构简称",
+			"type": "string",
+			"required": true,
+			"hide": true,
+			"inOut": false
+		},
+
+		"orgTypeId": {
+			"display": "组织机构类型ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"orgTypeCode": {
+			"display": "组织机构类型编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true,
+			"class": "left"
+		},
+		"orgTypeName": {
+			"display": "组织机构类型名称",
+			"type": "string",
+			"required": true,
+			"hide": true,
+			"inOut": true,
+			"proAdd": {
+				"show": true,
+				"edit": false
+			},
+			"parent": "T_PM_ORGTYPE"
+		},
+		"upperOrgCode": {
+			"display": "上级组织机构编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"treeIsUpdate": true,
+			"inOut": true,
+			"width": "130",
+			"class": "left",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"upperOrgAlias": {
+			"display": "上级组织机构",
+			"type": "string",
+			"required": true,
+			"hide": true,
+			"inOut": true,
+			"width": "130",
+			"treeIsUpdate": false,
+			"class": "left",
+			"proAdd": {
+				"show": true,
+				"edit": false
+			},
+			"parTree": true
+		},
+		"entrTypeId": {
+			"display": "企业性质类型ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"entrTypeName": {
+			"display": "企业性质类型名称",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true
+		},
+		"businessTypeId": {
+			"display": "工艺类型ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"businessTypeName": {
+			"display": "工艺类型名称",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true
+		},
+		"fctrBlockTypeId": {
+			"display": "所属板块ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"fctrBlockTypeName": {
+			"display": "所属板块类型名称",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true
+		},
+		"isDeploy": {
+			"display": "是否引入",
+			"type": "boolean",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"class": "center"
+		},
+		"orgUnitCode": {
+			"display": "机构单元编码",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": true,
+				"edit": false
+			}
+		},
+		"orgUnitName": {
+			"display": "机构单元名称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"proAdd": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"orgUnitAlia": {
+			"display": "机构单元简称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"inOut": true
+		},
+		"orgUnitTypeId": {
+			"display": "机构单元类型ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"contract": {
+			"display": "联系人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"inOut": true
+		},
+		"parentId": {
+			"display": "机构父级ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"rentId": {
+			"display": "机构单元根节点ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"orderId": {
+			"display": "排序",
+			"type": "number",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "70",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"class": "right"
+		},
+		"enabled": {
+			"display": "状态",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "center",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"valueShowSt": {
+				"0": "禁用",
+				"1": "启用"
+			}
+		},
+		"crtUserId": {
+			"display": "创建人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"crtUserName": {
+			"display": "创建人名称",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false,
+			"width": "70",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"crtUserDate": {
+			"display": "创建时间",
+			"type": "date",
+			"required": false,
+			"hide": true,
+			"inOut": false,
+			"width": "150",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntUserId": {
+			"display": "最后维护人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"mntUserName": {
+			"display": "维护人",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false,
+			"width": "70",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntUserDate": {
+			"display": "维护时间",
+			"type": "date",
+			"hide": true,
+			"inOut": false,
+			"width": "150",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			},
+			"required": false
+		},
+		"des": {
+			"display": "备注",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"proAdd": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"version": {
+			"display": "乐观锁版本",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		}
+	}
+}

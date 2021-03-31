@@ -1,6 +1,0 @@
-<div  class="form-group">
-	<button class="bttn" ng-if="grid.appScope.gridApi.grid.selection.selectedCount<1||(grid.appScope.gridApi.grid.selection.selectedCount==1&&row.isSelected)||![(grid.appScope.gridApi.grid.selection.selectedCount==1&&!row.isSelected)||grid.appScope.gridApi.grid.selection.selectedCount>1]" ng-click="grid.appScope.main.vfunc.onclick.updateButton(row)" data-toggle="modal" data-target="#updateWindow">
-		<span>详情</span></button>
-	<button class="bttn" ng-if="(grid.appScope.gridApi.grid.selection.selectedCount==1&&!row.isSelected)||grid.appScope.gridApi.grid.selection.selectedCount>1" ng-disabled="true">
-		<span>详情</span></button>
-</div>

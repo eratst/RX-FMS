@@ -1,0 +1,180 @@
+{
+	"alterKey": "customCode",
+	"attribute": {
+		"customId": {
+			"display": "组织机构ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"customCode": {
+			"display": "组织机构编码",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130"
+		},
+		"customName": {
+			"display": "组织机构名称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "180"
+		},
+		"customAlias": {
+			"display": "组织机构简称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130"
+		},
+		"customTypeId": {
+			"display": "外部组织机构类型ID",
+			"type": "number",
+			"required": false,
+			"inOut": false,
+			"hide": true
+		},
+		"customTypeCode": {
+			"display": "外部组织机构类型编码",
+			"type": "string",
+			"required": true,
+			"inOut": false,
+			"hide": true
+		},
+		"customTypeName": {
+			"display": "外部组织机构类型",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "180",
+			"parent": "T_PM_CUSTOMTYPE"
+		},
+		"dataStatus": {
+			"display": "是否启用",
+			"type": "boolean",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "center",
+			"width": "70"
+		},
+		"sortNum": {
+			"display": "排序",
+			"type": "number",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "70",
+			"class": "right"
+		},
+		"crtUserId": {
+			"display": "创建人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"crtUserName": {
+			"display": "创建人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "left",
+			"width": "70",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"crtDate": {
+			"display": "创建时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "center",
+			"width": "150",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntUserId": {
+			"display": "最后维护人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"mntUserName": {
+			"display": "维护人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "left",
+			"width": "70",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntDate": {
+			"display": "维护时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "center",
+			"width": "150",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+
+		"version": {
+			"display": "乐观锁版本",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"des": {
+			"display": "描述",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "180"
+		}
+	}
+}

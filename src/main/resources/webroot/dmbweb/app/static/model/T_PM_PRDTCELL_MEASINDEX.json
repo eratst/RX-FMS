@@ -1,0 +1,279 @@
+{
+	"alterKey": "idxCode",
+	"mainKey": "idxId",
+	"attribute": {
+		"idxId": {
+			"display": "度量指标ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"cellId": {
+			"display": "单元ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"cellCode": {
+			"display": "所属单元编码",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "110",
+			"proAdd": {
+				"show": true,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": true,
+				"edit": false
+			}
+		},
+		"cellAbbrName": {
+			"display": "所属单元",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "110",
+			"searchInput":true,
+			"parent": "T_PM_PRDTCELL"
+		},
+		"idxCode": {
+			"display": "度量指标编码",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130"
+		},
+		"idxName": {
+			"display": "度量指标名称",
+			"type": "string",
+			"required": true,
+			"inOut": true,
+			"hide": false,
+			"class": "left",
+			"width": "180"
+		},
+		"idxAbbrName": {
+			"display": "度量指标简称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130"
+		},
+		"idxTypeId": {
+			"display": "度量指标类型ID",
+			"type": "number",
+			"required": false,
+			"inOut": false,
+			"hide": true
+		},
+		"idxTypeCode": {
+			"display": "度量指标类型编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true
+		},
+		"idxTypeName": {
+			"display": "度量指标类型名称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "110",
+			"parent": "T_PM_IDX_TYPE"
+		},
+		"idxFormula": {
+			"display": "度量公式",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "180"
+		},
+		"exchangeRate": {
+			"display": "量纲调整系数",
+			"type": "number",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "90"
+		},
+		"dimensionId": {
+			"display": "量纲ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"dimensionCode": {
+			"display": "量纲编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true
+		},
+		"dimensionCode": {
+			"display": "量纲编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true
+		},
+		"dimensionAlias": {
+			"display": "量纲简称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"parentModel": "T_PM_DIMENSION"
+		},
+		"sourceDataType": {
+			"display": "源数据类型",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "80",
+			"valueShowData": {
+				"SG8000": "SG8000",
+				"RTDB": "RTDB",
+				"LIMS": "LIMS"
+			}
+		},
+		"inUse": {
+			"display": "是否启用",
+			"type": "boolean",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "80",
+			"class": "center"
+		},
+		"sortNum": {
+			"display": "排序",
+			"type": "number",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "70",
+			"class": "right"
+		},
+		"crtUserId": {
+			"display": "创建人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"crtUserName": {
+			"display": "创建人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "left",
+			"width": "70",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"crtDate": {
+			"display": "创建时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "center",
+			"width": "150",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntUserId": {
+			"display": "最后维护人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"mntUserName": {
+			"display": "维护人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "left",
+			"width": "70",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntDate": {
+			"display": "维护时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "center",
+			"width": "150",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+
+		"des": {
+			"display": "描述",
+			"type": "string",
+			"required": false,
+			"inOut": true,
+			"hide": false,
+			"class": "left",
+			"width": "180"
+		},
+
+		"version": {
+			"display": "乐观锁版本",
+			"type": "number",
+			"hide": true,
+			"required": false,
+			"inOut": false
+		}
+	}
+}
