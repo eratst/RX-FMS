@@ -162,7 +162,6 @@
 				"edit": false
 			}
 		},
-
 		"version": {
 			"display": "乐观锁版本",
 			"type": "number",
@@ -170,8 +169,6 @@
 			"hide": true,
 			"inOut": false
 		},
-
-
 		"des": {
 			"display": "描述",
 			"type": "string",

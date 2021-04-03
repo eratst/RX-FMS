@@ -1,14 +1,14 @@
 {
-	"alterKey": "nodeCode",
-	"attribute": {
-		"nodeId": {
-			"display": "节点ID",
-			"type": "number",
-			"required": false,
-			"hide": true,
-			"inOut": false
-		},
-		"nodeCode": {
+  "alterKey": "nodeCode",
+  "attribute": {
+    "nodeId": {
+      "display": "节点ID",
+      "type": "number",
+      "required": false,
+      "hide": true,
+      "inOut": false
+    },
+    "nodeCode": {
 			"display": "编码",
 			"type": "string",
 			"required": true,
@@ -17,7 +17,7 @@
 			"class": "left",
 			"width": "130"
 		},
-		"nodeName": {
+    "nodeName": {
 			"display": "名称",
 			"type": "string",
 			"required": true,
@@ -26,7 +26,7 @@
 			"class": "left",
 			"width": "180"
 		},
-		"nodeAlias": {
+    "nodeAlias": {
 			"display": "简称",
 			"type": "string",
 			"required": true,
@@ -35,31 +35,31 @@
 			"class": "left",
 			"width": "130"
 		},
-		"transTypeId": {
-			"display": "运输类型ID",
-			"type": "number",
-			"required": false,
-			"inOut": false,
-			"hide": true
-		},
-		"transTypeCode": {
-			"display": "运输类型编码",
-			"type": "string",
-			"required": false,
-			"inOut": false,
-			"hide": true
-		},
-		"transTypeName": {
+    "transTypeId": {
+      "display": "运输类型ID",
+      "type": "number",
+      "required": false,
+      "inOut": false,
+      "hide": true
+    },
+    "transTypeCode": {
+      "display": "运输类型编码",
+      "type": "string",
+      "required": false,
+      "inOut": false,
+      "hide": true
+    },
+    "transTypeName": {
 			"display": "运输类型名称",
 			"type": "string",
 			"required": true,
 			"hide": false,
 			"inOut": true,
 			"class": "left",
-			"width": "140",
+			"width": "130",
 			"parent": "T_PM_TRANSTYPE"
 		},
-		"inoutTypeId": {
+    "inoutTypeId": {
 			"display": "进出类型",
 			"required": true,
 			"hide": false,
@@ -79,7 +79,7 @@
 				"edit": true
 			}
 		},
-		"formula": {
+    "formula": {
 			"display": "计量公式",
 			"type": "string",
 			"required": false,
@@ -88,135 +88,134 @@
 			"class": "left",
 			"width": "100"
 		},
-		"nodeLongitude": {
-			"display": "位置经度(°)",
-			"type": "string",
-			"required": false,
-			"hide": false,
-			"inOut": true,
-			"class": "left",
-			"width": "120"
-		},
-		"nodeLatitude": {
-			"display": "位置纬度(°)",
-			"type": "string",
-			"required": false,
-			"hide": false,
-			"inOut": true,
-			"class": "left",
-			"width": "120"
-		},
-		"nodeAltitude": {
-			"display": "位置海拔(m)",
-			"type": "string",
-			"required": false,
-			"hide": false,
-			"inOut": true,
-			"class": "left",
-			"width": "120"
-		},
-		"inUse": {
-			"display": "是否启用",
-			"type": "boolean",
-			"required": true,
-			"hide": false,
-			"inOut": true,
-			"width": "100",
-			"class": "center"
-		},
-		"sortNum": {
-			"display": "排序",
-			"type": "number",
-			"required": true,
-			"hide": false,
-			"inOut": true,
-			"width": "90",
-			"class": "right"
-		},
-		"crtUserId": {
-			"display": "创建人ID",
-			"type": "string",
-			"required": false,
-			"hide": true,
-			"inOut": false
-		},
-		"crtUserName": {
-			"display": "创建人",
-			"type": "string",
-			"required": false,
-			"hide": false,
-			"inOut": false,
-			"class": "left",
-			"width": "90",
-			"proAdd": {
-				"show": false,
-				"edit": false
-			},
-			"proUpdate": {
-				"show": false,
-				"edit": false
-			}
-		},
-		"crtDate": {
-			"display": "创建时间",
-			"type": "date",
-			"required": false,
-			"hide": false,
-			"inOut": false,
-			"class": "center",
-			"width": "150",
-			"proAdd": {
-				"show": false,
-				"edit": false
-			},
-			"proUpdate": {
-				"show": false,
-				"edit": false
-			}
-		},
-		"mntUserId": {
-			"display": "最后维护人ID",
-			"type": "string",
-			"required": false,
-			"hide": true,
-			"inOut": false
-		},
-		"mntUserName": {
-			"display": "维护人",
-			"type": "string",
-			"required": false,
-			"hide": false,
-			"inOut": false,
-			"class": "left",
-			"width": "90",
-			"proAdd": {
-				"show": false,
-				"edit": false
-			},
-			"proUpdate": {
-				"show": false,
-				"edit": false
-			}
-		},
-		"mntDate": {
-			"display": "维护时间",
-			"type": "date",
-			"required": false,
-			"hide": false,
-			"inOut": false,
-			"class": "center",
-			"width": "150",
-			"proAdd": {
-				"show": false,
-				"edit": false
-			},
-			"proUpdate": {
-				"show": false,
-				"edit": false
-			}
-		},
-
-		"des": {
+    "nodeLongitude": {
+      "display": "位置经度(°)",
+      "type": "string",
+      "required": false,
+      "hide": false,
+      "inOut": true,
+      "class": "left",
+      "width": "120"
+    },
+    "nodeLatitude": {
+      "display": "位置纬度(°)",
+      "type": "string",
+      "required": false,
+      "hide": false,
+      "inOut": true,
+      "class": "left",
+      "width": "120"
+    },
+    "nodeAltitude": {
+      "display": "位置海拔(m)",
+      "type": "string",
+      "required": false,
+      "hide": false,
+      "inOut": true,
+      "class": "left",
+      "width": "120"
+    },
+    "inUse": {
+      "display": "是否启用",
+      "type": "boolean",
+      "required": true,
+      "hide": false,
+      "inOut": true,
+      "width": "100",
+      "class": "center"
+    },
+    "sortNum": {
+      "display": "排序",
+      "type": "number",
+      "required": true,
+      "hide": false,
+      "inOut": true,
+      "width": "90",
+      "class": "right"
+    },
+    "crtUserId": {
+      "display": "创建人ID",
+      "type": "string",
+      "required": false,
+      "hide": true,
+      "inOut": false
+    },
+    "crtUserName": {
+      "display": "创建人",
+      "type": "string",
+      "required": false,
+      "hide": false,
+      "inOut": false,
+      "class": "left",
+      "width": "90",
+      "proAdd": {
+        "show": false,
+        "edit": false
+      },
+      "proUpdate": {
+        "show": false,
+        "edit": false
+      }
+    },
+    "crtDate": {
+      "display": "创建时间",
+      "type": "date",
+      "required": false,
+      "hide": false,
+      "inOut": false,
+      "class": "center",
+      "width": "150",
+      "proAdd": {
+        "show": false,
+        "edit": false
+      },
+      "proUpdate": {
+        "show": false,
+        "edit": false
+      }
+    },
+    "mntUserId": {
+      "display": "最后维护人ID",
+      "type": "string",
+      "required": false,
+      "hide": true,
+      "inOut": false
+    },
+    "mntUserName": {
+      "display": "维护人",
+      "type": "string",
+      "required": false,
+      "hide": false,
+      "inOut": false,
+      "class": "left",
+      "width": "90",
+      "proAdd": {
+        "show": false,
+        "edit": false
+      },
+      "proUpdate": {
+        "show": false,
+        "edit": false
+      }
+    },
+    "mntDate": {
+      "display": "维护时间",
+      "type": "date",
+      "required": false,
+      "hide": false,
+      "inOut": false,
+      "class": "center",
+      "width": "150",
+      "proAdd": {
+        "show": false,
+        "edit": false
+      },
+      "proUpdate": {
+        "show": false,
+        "edit": false
+      }
+    },
+    "des": {
 			"display": "描述",
 			"type": "string",
 			"required": false,
@@ -225,12 +224,12 @@
 			"class": "left",
 			"width": "180"
 		},
-		"version": {
-			"display": "乐观锁版本",
-			"type": "number",
-			"required": false,
-			"hide": true,
-			"inOut": false
-		}
-	}
+    "version": {
+      "display": "乐观锁版本",
+      "type": "number",
+      "required": false,
+      "hide": true,
+      "inOut": false
+    }
+  }
 }

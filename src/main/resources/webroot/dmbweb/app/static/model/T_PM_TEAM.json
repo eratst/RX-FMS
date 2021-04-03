@@ -22,8 +22,8 @@
 			"type": "string",
 			"required": true,
 			"hide": false,
-			"width": "150",
 			"inOut": true,
+			"width": "150",
 			"class": "left"
 		},
 		"orgAlias": {
@@ -31,8 +31,8 @@
 			"type": "string",
 			"required": true,
 			"hide": false,
-			"inOut": true,
 			"width": "130",
+			"inOut": true,
 			"class": "left"
 		},
 		"upperOrgCode": {
@@ -59,7 +59,7 @@
 			"required": true,
 			"hide": false,
 			"inOut": true,
-			"width": "130",
+			"width": "150",
 			"treeIsUpdate": false,
 			"class": "left",
 			"parTree": true
@@ -191,20 +191,21 @@
 				"edit": false
 			}
 		},
+		"version": {
+			"display": "乐观锁版本",
+			"type": "date",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
 		"des": {
 			"display": "描述",
 			"type": "string",
 			"required": false,
-			"class": "left",
 			"hide": false,
-			"inOut": true
-		},
-		"version": {
-			"display": "乐观锁版本",
-			"type": "number",
-			"required": false,
-			"hide": true,
-			"inOut": false
+			"inOut": true,
+			"width": "180",
+			"class": "left"
 		}
 	}
 }

@@ -1,70 +1,123 @@
 {
-	"alterKey": "orgCode",
+	"alterKey": "areaCode",
+	"mainKey": "areaId",
 	"attribute": {
-		"orgId": {
-			"display": "科室ID",
+		"areaId": {
+			"display": "区域ID",
 			"type": "number",
 			"required": false,
 			"hide": true,
 			"inOut": false
 		},
 		"orgCode": {
-			"display": "科室编码",
+			"display": "组织机构编码",
 			"type": "string",
-			"required": true,
-			"hide": false,
+			"required": false,
+			"hide": true,
 			"inOut": true,
-			"width": "130",
-			"class": "left"
-		},
-		"orgName": {
-			"display": "科室名称",
-			"type": "string",
-			"required": true,
-			"hide": false,
-			"inOut": true,
-			"width": "150",
 			"class": "left"
 		},
 		"orgAlias": {
-			"display": "科室简称",
-			"type": "string",
-			"required": true,
-			"hide": false,
-			"width": "130",
-			"inOut": true,
-			"class": "left"
-		},
-		"upperOrgCode": {
-			"display": "上级组织机构编码",
-			"type": "string",
-			"required": false,
-			"hide": false,
-			"treeIsUpdate": true,
-			"inOut": true,
-			"width": "150",
-			"class": "left",
-			"proAdd": {
-				"show": false,
-				"edit": false
-			},
-			"proUpdate": {
-				"show": false,
-				"edit": false
-			}
-		},
-		"upperOrgAlias": {
-			"display": "上级组织机构",
+			"display": "组织机构",
 			"type": "string",
 			"required": true,
 			"hide": false,
 			"inOut": true,
-			"width": "150",
 			"treeIsUpdate": false,
 			"class": "left",
-			"parTree": true
+			"width": "130",
+			"chilTree": true
 		},
-		"orgLongitude": {
+		"areaCode": {
+			"display": "仓库编码",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130"
+		},
+		"areaName": {
+			"display": "仓库名称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "180"
+		},
+		"areaAlias": {
+			"display": "仓库简称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130" 
+		},
+		"warehouseTypeId": {
+			"display": "仓库业务类型ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"warehouseTypeCode": {
+			"display": "仓库业务类型编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true
+		},
+		"warehouseTypeName": {
+			"display": "业务类型名称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"parent": "T_PM_WAREHOUSETYPE"
+		},
+		"technicId": {
+			"display": "仓库工艺类型ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"technicCode": {
+			"display": "仓库工艺类型编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true
+		},
+		"technicId": {
+			"display": "仓库工艺类型ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"technicCode": {
+			"display": "仓库工艺类型编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true
+		},
+		"technicName": {
+			"display": "工艺类型名称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"parent": "T_PM_WAREHOUSETECHNIC"
+		},
+		"areaLongitude": {
 			"display": "位置经度",
 			"type": "string",
 			"required": false,
@@ -73,7 +126,7 @@
 			"class": "left",
 			"width": "100"
 		},
-		"orgLatitude": {
+		"areaLatitude": {
 			"display": "位置纬度",
 			"type": "string",
 			"required": false,
@@ -82,7 +135,7 @@
 			"class": "left",
 			"width": "100"
 		},
-		"orgAltitude": {
+		"areaAltitude": {
 			"display": "位置海拔",
 			"type": "string",
 			"required": false,
@@ -91,10 +144,10 @@
 			"class": "left",
 			"width": "100"
 		},
-		"dataStatus": {
+		"inUse": {
 			"display": "是否启用",
 			"type": "boolean",
-			"required": false,
+			"required": true,
 			"hide": false,
 			"inOut": true,
 			"width": "100",
@@ -122,8 +175,8 @@
 			"required": false,
 			"inOut": false,
 			"hide": false,
-			"width": "90",
 			"class": "left",
+			"width": "90",
 			"proAdd": {
 				"show": false,
 				"edit": false
@@ -139,8 +192,8 @@
 			"required": false,
 			"hide": false,
 			"inOut": false,
-			"width": "150",
 			"class": "center",
+			"width": "150",
 			"proAdd": {
 				"show": false,
 				"edit": false
@@ -163,8 +216,8 @@
 			"required": false,
 			"hide": false,
 			"inOut": false,
-			"width": "90",
 			"class": "left",
+			"width": "90",
 			"proAdd": {
 				"show": false,
 				"edit": false
@@ -180,8 +233,8 @@
 			"required": false,
 			"hide": false,
 			"inOut": false,
-			"width": "150",
 			"class": "center",
+			"width": "150",
 			"proAdd": {
 				"show": false,
 				"edit": false
@@ -191,21 +244,23 @@
 				"edit": false
 			}
 		},
+
 		"version": {
 			"display": "乐观锁版本",
-			"type": "date",
-			"required": false,
+			"type": "number",
 			"hide": true,
-			"inOut": false
+			"inOut": false,
+			"required": false
 		},
+
 		"des": {
 			"display": "描述",
 			"type": "string",
 			"required": false,
 			"hide": false,
 			"inOut": true,
-			"width": "180",
-			"class": "left"
+			"class": "left",
+			"width": "180"
 		}
 	}
 }

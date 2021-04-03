@@ -1,52 +1,35 @@
 {
-	"alterKey": "nodeCode",
-	"mainKey": "nodeId",
+	"alterKey": "areaCode",
+	"mainKey": "areaId",
 	"attribute": {
-		"nodeId": {
-			"display": "节点ID",
+		"areaId": {
+			"display": "区域ID",
 			"type": "number",
 			"required": false,
 			"hide": true,
 			"inOut": false
 		},
-    "areaId": {
-      "display": "区域ID",
-      "type": "number",
-      "required": false,
-      "hide": true,
-      "inOut": false
-    },
-    "orgCode": {
-      "display": "组织机构编码",
-      "type": "string",
-      "required": false,
-      "hide": true,
-      "inOut": true,
-      "class": "left"
-    },
-    "orgAlias": {
-      "display": "组织机构",
-      "type": "string",
-      "required": true,
-      "hide": false,
-      "inOut": true,
-      "treeIsUpdate": true,
-      "width": "130",
-      "class": "left",
-      "chilTree": true
-    },
-    "areaAlias": {
-      "display": "所属区域",
-      "type": "string",
-      "required": true,
-      "hide": false,
-      "inOut": true,
-      "width": "130",
-      "class": "left",
-      "orgTree": true
-    },
-		"nodeCode": {
-			"display": "编码",
+		"orgCode": {
+			"display": "组织机构编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true,
+			"class": "left"
+		},
+		"orgAlias": {
+			"display": "组织机构",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "130",
+			"treeIsUpdate": false,
+			"class": "left",
+			"chilTree": true
+		},
+		"areaCode": {
+			"display": "装置编码",
 			"type": "string",
 			"required": true,
 			"hide": false,
@@ -54,8 +37,8 @@
 			"class": "left",
 			"width": "130"
 		},
-		"nodeName": {
-			"display": "名称",
+		"areaName": {
+			"display": "装置名称",
 			"type": "string",
 			"required": true,
 			"hide": false,
@@ -63,8 +46,8 @@
 			"class": "left",
 			"width": "180"
 		},
-		"nodeAlias": {
-			"display": "简称",
+		"areaAlias": {
+			"display": "装置简称",
 			"type": "string",
 			"required": true,
 			"hide": false,
@@ -72,35 +55,57 @@
 			"class": "left",
 			"width": "130"
 		},
-		"nodeTypeId": {
-			"display": "节点类型ID",
+		"unitTypeId": {
+			"display": "装置类型ID",
 			"type": "number",
 			"required": false,
 			"inOut": false,
 			"hide": true
 		},
-		"equMgrCode": {
-			"display": "设备管理码",
+		"unitTypeCode": {
+			"display": "装置业务类型编码",
 			"type": "string",
 			"required": false,
+			"hide": true,
+			"inOut": true
+		},
+		"unitTypeName": {
+			"display": "业务类型名称",
+			"type": "string",
+			"required": true,
 			"hide": false,
 			"inOut": true,
 			"class": "left",
-			"width": "110"
+			"width": "130",
+			"parent": "T_PM_UNITTYPE"
 		},
 		"technicId": {
-			"display": "设备工艺类型ID",
+			"display": "装置类型ID",
 			"type": "number",
 			"required": false,
 			"inOut": false,
 			"hide": true
 		},
 		"technicCode": {
-			"display": "工艺类型编码",
+			"display": "装置工艺类型编码",
 			"type": "string",
 			"required": false,
 			"hide": true,
-			"inOut": false
+			"inOut": true
+		},
+		"technicId": {
+			"display": "装置类型ID",
+			"type": "number",
+			"required": false,
+			"inOut": false,
+			"hide": true
+		},
+		"technicCode": {
+			"display": "装置工艺类型编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true
 		},
 		"technicName": {
 			"display": "工艺类型名称",
@@ -110,34 +115,88 @@
 			"inOut": true,
 			"class": "left",
 			"width": "130",
-			"parent": "T_PM_EQUTECHNIC"
+			"parent": "T_PM_TECHNIC"
 		},
-		"nodeLongitude": {
-			"display": "位置经度(°)",
+		"capacity": {
+			"display": "加工能力",
+			"type": "number",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"tenThousand": true,
+			"width": "110"
+		},
+			"capacityUnitId": {
+			"display": "加工能力单位ID",
+			"type": "number",
+			"required": false,
+			"inOut": false,
+			"hide": true
+		},
+		"capacityUnitCode": {
+			"display": "加工能力单位编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true
+		},
+		"capacityUnitName": {
+			"display": "加工能力单位",
 			"type": "string",
 			"required": false,
 			"hide": false,
 			"inOut": true,
 			"class": "left",
-			"width": "120"
+			"width": "130",
+			"parent": "T_PM_CAPACITYUNIT"
 		},
-		"nodeLatitude": {
-			"display": "位置纬度(°)",
+		"initialAssetValue": {
+			"display": "资产原值(万元)",
+			"type": "number",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"tenThousand": true,
+			"width": "140"
+		},
+		"netAssetValue": {
+			"display": "资产净值(万元)",
+			"type": "number",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"tenThousand": true,
+			"width": "140"
+		},
+		"areaLongitude": {
+			"display": "位置经度",
 			"type": "string",
 			"required": false,
 			"hide": false,
 			"inOut": true,
 			"class": "left",
-			"width": "120"
+			"width": "100"
 		},
-		"nodeAltitude": {
-			"display": "位置海拔(m)",
+		"areaLatitude": {
+			"display": "位置纬度",
 			"type": "string",
 			"required": false,
 			"hide": false,
 			"inOut": true,
 			"class": "left",
-			"width": "120"
+			"width": "100"
+		},
+		"areaAltitude": {
+			"display": "位置海拔",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "100"
 		},
 		"inUse": {
 			"display": "是否启用",
@@ -145,8 +204,8 @@
 			"required": true,
 			"hide": false,
 			"inOut": true,
-			"class": "center",
-			"width": "100"
+			"width": "100",
+			"class": "center"
 		},
 		"sortNum": {
 			"display": "排序",
@@ -239,6 +298,13 @@
 				"edit": false
 			}
 		},
+		"version": {
+			"display": "乐观锁版本",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
 		"des": {
 			"display": "描述",
 			"type": "string",
@@ -247,13 +313,6 @@
 			"inOut": true,
 			"class": "left",
 			"width": "180"
-		},
-		"version": {
-			"display": "乐观锁版本",
-			"type": "number",
-			"required": false,
-			"hide": true,
-			"inOut": false
 		}
 	}
 }

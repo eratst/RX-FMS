@@ -8,6 +8,42 @@
       "hide": true,
       "inOut": false
     },
+    "areaId": {
+      "display": "区域ID",
+      "type": "number",
+      "required": false,
+      "hide": true,
+      "inOut": false
+    },
+    "orgCode": {
+      "display": "组织机构编码",
+      "type": "string",
+      "required": false,
+      "hide": true,
+      "inOut": true,
+      "class": "left"
+    },
+    "orgAlias": {
+      "display": "组织机构",
+      "type": "string",
+      "required": true,
+      "hide": false,
+      "inOut": true,
+      "treeIsUpdate": true,
+      "width": "130",
+      "class": "left",
+      "chilTree": true
+    },
+    "areaAlias": {
+      "display": "所属区域",
+      "type": "string",
+      "required": true,
+      "hide": false,
+      "inOut": true,
+      "width": "130",
+      "class": "left",
+      "orgTree": true
+    },
     "nodeCode": {
       "display": "编码",
       "type": "string",
@@ -35,29 +71,84 @@
       "class": "left",
       "width": "130"
     },
-    "samplepointTypeId": {
-      "display": "采样点业务类型ID",
+    "slineInoutTypeId": {
+      "display": "进出类型",
+      "required": true,
+      "hide": false,
+      "inOut": true,
+      "class": "center",
+      "width": "110",
+      "valueShowLine": {
+        "0": "进",
+        "1": "出",
+        "2": "消耗"
+      }
+    },
+    "sideLineTypeId": {
+      "display": "侧线业务类型ID",
       "type": "number",
       "required": false,
       "inOut": false,
-      "hide": true
+      "hide": "true"
     },
-    "samplepointTypeCode": {
-      "display": "采样点业务类型编码",
+    "sideLineTypeCode": {
+      "display": "侧线业务类型编码",
       "type": "string",
       "required": false,
       "inOut": false,
-      "hide": true
+      "hide": "true"
     },
-    "samplepointTypeName": {
-      "display": "业务类型名称",
+    "sideLineTypeName": {
+      "display": "侧线业务类型名称",
       "type": "string",
       "required": true,
       "hide": false,
       "inOut": true,
       "class": "left",
-      "width": "130",
-      "parent": "T_PM_SAMPLEPOINT_TYPE"
+      "width": "150",
+      "parent": "T_PM_SIDELINETYPE"
+    },
+    "sideMtrlTypeId": {
+      "display": "侧线物料类型ID",
+      "type": "number",
+      "required": false,
+      "inOut": false,
+      "hide": true
+    },
+    "sideMtrlTypeCode": {
+      "display": "侧线物料类型编码",
+      "type": "string",
+      "required": false,
+      "hide": true,
+      "inOut": false
+    },
+    "sideMtrlTypeName": {
+      "display": "侧线物料类型名称",
+      "type": "string",
+      "required": true,
+      "hide": false,
+      "inOut": true,
+      "class": "left",
+      "width": "150",
+      "parent": "T_PM_SIDEMTRLTYPE"
+    },
+    "formula": {
+      "display": "侧线量公式",
+      "type": "string",
+      "required": false,
+      "hide": false,
+      "inOut": true,
+      "class": "left",
+      "width": "110"
+    },
+    "areaForm": {
+      "display": "界区量公式",
+      "type": "string",
+      "required": false,
+      "hide": false,
+      "inOut": true,
+      "class": "left",
+      "width": "110"
     },
     "nodeLongitude": {
       "display": "位置经度(°)",
@@ -186,6 +277,7 @@
         "edit": false
       }
     },
+
     "version": {
       "display": "乐观锁版本",
       "type": "number",
@@ -193,6 +285,7 @@
       "hide": true,
       "inOut": false
     },
+
     "des": {
       "display": "描述",
       "type": "string",

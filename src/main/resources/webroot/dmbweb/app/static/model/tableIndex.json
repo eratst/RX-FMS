@@ -369,6 +369,216 @@
         "authPropertyValue": "FMS_ModelModify",
         "url": "/nodes"
       },
+      "T_HOME_FACTORY": {
+        "nameAlias": "工厂",
+        "tableFormat": "T_HOME_FACTORY.json",
+        "parent": "none",
+        "isShowSearch": true,
+        "desType": "longDes",
+        "tree": true,
+        "authPropertyValue": "FMS_ModelModify",
+        "url": "/productFactories"
+      },
+      "T_HOME_WORKSHOP": {
+        "nameAlias": "作业部",
+        "tableFormat": "T_HOME_WORKSHOP.json",
+        "parent": "none",
+        "isShowSearch": true,
+        "desType": "longDes",
+        "tree": true,
+        "authPropertyValue": "FMS_ModelModify",
+        "url": "/workshops"
+      },
+      "T_HOME_DEPARTMENT": {
+        "nameAlias": "科室",
+        "tableFormat": "T_HOME_DEPARTMENT.json",
+        "parent": "none",
+        "isShowSearch": true,
+        "desType": "longDes",
+        "tree": true,
+        "authPropertyValue": "FMS_ModelModify",
+        "url": "/departments"
+      },
+      "T_HOME_TEAM": {
+        "nameAlias": "班组",
+        "tableFormat": "T_HOME_TEAM.json",
+        "parent": "none",
+        "isShowSearch": true,
+        "desType": "longDes",
+        "tree": true,
+        "authPropertyValue": "FMS_ModelModify",
+        "url": "/teams"
+      },
+      "T_HOME_USER": {
+        "nameAlias": "人员",
+        "tableFormat": "T_HOME_USER.json",
+        "parent": "none",
+        "isShowSearch": true,
+        "desType": "longDes",
+        "tree": true,
+        "authPropertyValue": "FMS_ModelModify",
+        "url": "/personnels"
+      },
+      "T_HOME_UNIT": {
+        "nameAlias": "装置",
+        "tableFormat": "T_HOME_UNIT.json",
+        "parent": "none",
+        "isShowSearch": true,
+        "desType": "longDes",
+        "tree": true,
+        "authPropertyValue": "FMS_ModelModify",
+        "url": "/plants"
+      },
+      "T_HOME_TANKAREA": {
+        "nameAlias": "罐区",
+        "tableFormat": "T_HOME_TANKAREA.json",
+        "parent": "none",
+        "isShowSearch": true,
+        "desType": "longDes",
+        "tree": true,
+        "authPropertyValue": "FMS_ModelModify",
+        "url": "/tankAreas"
+      },
+      "T_HOME_LOADRACK": {
+        "nameAlias": "装卸台",
+        "tableFormat": "T_HOME_LOADRACK.json",
+        "parent": "none",
+        "isShowSearch": true,
+        "desType": "longDes",
+        "tree": true,
+        "authPropertyValue": "FMS_ModelModify",
+        "url": "/loadingDocks"
+      },
+      "T_HOME_WAREHOUSE": {
+        "nameAlias": "仓库",
+        "tableFormat": "T_HOME_WAREHOUSE.json",
+        "parent": "none",
+        "isShowSearch": true,
+        "desType": "longDes",
+        "tree": true,
+        "authPropertyValue": "FMS_ModelModify",
+        "url": "/warehouses"
+      },
+      "T_HOME_PIPENET": {
+        "nameAlias": "管网",
+        "tableFormat": "T_HOME_PIPENET.json",
+        "parent": "none",
+        "isShowSearch": true,
+        "desType": "longDes",
+        "tree": true,
+        "authPropertyValue": "FMS_ModelModify",
+        "url": "/pipeNetworks"
+      },
+      "T_HOME_ADMINISTRATION": {
+        "nameAlias": "办公区",
+        "tableFormat": "T_HOME_ADMINISTRATION.json",
+        "parent": "none",
+        "isShowSearch": true,
+        "desType": "longDes",
+        "tree": true,
+        "authPropertyValue": "FMS_ModelModify",
+        "url": "/administrations"
+      },
+      "T_HOME_TANKS": {
+        "nameAlias": "罐",
+        "tableFormat": "T_HOME_TANKS.json",
+        "parent": "none",
+        "isShowSearch": true,
+        "desType": "longDes",
+        "tree": true,
+        "authPropertyValue": "FMS_ModelModify",
+        "url": "/tanks"
+      },
+      "T_HOME_EQUIPMENT_LUS": {
+        "nameAlias": "炉",
+        "tableFormat": "T_HOME_EQUIPMENT_LUS.json",
+        "parent": "none",
+        "isShowSearch": true,
+        "desType": "longDes",
+        "tree": true,
+        "authPropertyValue": "FMS_ModelModify",
+        "url": "/equipments"
+      },
+      "T_HOME_EQUIPMENT_TAS": {
+        "nameAlias": "塔",
+        "tableFormat": "T_HOME_EQUIPMENT_TAS.json",
+        "parent": "none",
+        "isShowSearch": true,
+        "desType": "longDes",
+        "tree": true,
+        "authPropertyValue": "FMS_ModelModify",
+        "url": "/equipments"
+      },
+      "T_HOME_EQUIPMENT_QIS": {
+        "nameAlias": "反应器",
+        "tableFormat": "T_HOME_EQUIPMENT_QIS.json",
+        "parent": "none",
+        "isShowSearch": true,
+        "desType": "longDes",
+        "tree": true,
+        "authPropertyValue": "FMS_ModelModify",
+        "url": "/equipments"
+      },
+      "T_HOME_EQUIPMENT_BENGS": {
+        "nameAlias": "泵",
+        "tableFormat": "T_HOME_EQUIPMENT_BENGS.json",
+        "parent": "none",
+        "isShowSearch": true,
+        "desType": "longDes",
+        "tree": true,
+        "authPropertyValue": "FMS_ModelModify",
+        "url": "/equipments"
+      },
+      "T_HOME_SIDELINES": {
+        "nameAlias": "侧线",
+        "tableFormat": "T_HOME_SIDELINES.json",
+        "parent": "none",
+        "isShowSearch": true,
+        "desType": "longDes",
+        "tree": true,
+        "authPropertyValue": "FMS_ModelModify",
+        "url": "/sideLines"
+      },
+      "T_HOME_SHIPMENTS": {
+        "nameAlias": "进出厂点",
+        "tableFormat": "T_HOME_SHIPMENTS.json",
+        "parent": "none",
+        "isShowSearch": true,
+        "desType": "longDes",
+        "tree": true,
+        "authPropertyValue": "FMS_ModelModify",
+        "url": "/shipments"
+      },
+      "T_HOME_TUBULATIONS": {
+        "nameAlias": "管段",
+        "tableFormat": "T_HOME_TUBULATIONS.json",
+        "parent": "none",
+        "isShowSearch": true,
+        "desType": "longDes",
+        "tree": true,
+        "authPropertyValue": "FMS_ModelModify",
+        "url": "/tubulations"
+      },
+      "T_HOME_VALVES": {
+        "nameAlias": "阀门",
+        "tableFormat": "T_HOME_VALVES.json",
+        "parent": "none",
+        "isShowSearch": true,
+        "desType": "longDes",
+        "tree": true,
+        "authPropertyValue": "FMS_ModelModify",
+        "url": "/valves"
+      },
+      "T_HOME_SAMPLEPOINTS": {
+        "nameAlias": "采样点",
+        "tableFormat": "T_HOME_SAMPLEPOINTS.json",
+        "parent": "none",
+        "isShowSearch": true,
+        "desType": "longDes",
+        "tree": true,
+        "authPropertyValue": "FMS_ModelModify",
+        "url": "/samplePoints"
+      },
       "T_PM_SIDELINES": {
         "tableName": "4.1 侧线",
         "nameAlias": "侧线",
@@ -427,7 +637,18 @@
       "T_PM_EQUIPMENT_TAS": {
         "tableName": "4.6 塔",
         "nameAlias": "塔",
-        "tableFormat": "T_PM_EQUIPMENT_LUS.json",
+        "tableFormat": "T_PM_EQUIPMENT_TAS.json",
+        "parent": "none",
+        "isShowSearch": true,
+        "desType": "longDes",
+        "tree": true,
+        "authPropertyValue": "FMS_ModelModify",
+        "url": "/equipments"
+      },
+      "T_PM_EQUIPMENT_BENGS": {
+        "tableName": "4.7 泵",
+        "nameAlias": "泵",
+        "tableFormat": "T_PM_EQUIPMENT_BENGS.json",
         "parent": "none",
         "isShowSearch": true,
         "desType": "longDes",
@@ -656,6 +877,17 @@
         "authPropertyValue": "FMS_ModelModify",
         "url": "/equipments"
       },
+      "T_PM_EQUIPMENT_BENG": {
+        "tableName": "4.6 泵",
+        "nameAlias": "泵",
+        "tableFormat": "T_PM_EQUIPMENT_BENG.json",
+        "parent": "none",
+        "isShowSearch": true,
+        "desType": "longDes",
+        "tree": true,
+        "authPropertyValue": "FMS_ModelModify",
+        "url": "/equipments"
+      },
       "T_PM_SHIPMENT": {
         "tableName": "4.6 进出厂点",
         "nameAlias": "进出厂点",
@@ -809,6 +1041,17 @@
             "tableName": "4.4 反应器",
             "nameAlias": "反应器",
             "tableFormat": "T_PM_EQUIPMENT_QI.json",
+            "parent": "none",
+            "isShowSearch": true,
+            "desType": "longDes",
+            "tree": true,
+            "authPropertyValue": "FMS_ModelModify",
+            "url": "/equipments"
+          },
+          "T_PM_EQUIPMENT_BENG": {
+            "tableName": "4.5 泵",
+            "nameAlias": "泵",
+            "tableFormat": "T_PM_EQUIPMENT_BENG.json",
             "parent": "none",
             "isShowSearch": true,
             "desType": "longDes",

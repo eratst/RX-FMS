@@ -110,7 +110,7 @@ body {
 
 .ivu-modal-body {
   padding: 0;
-  padding-bottom: 5px;
+  /* padding-bottom: 5px; */
 }
 
 .ivu-tree-btn {
@@ -618,12 +618,14 @@ a {
   display: inline-block;
   width:90px;
   margin: 16px 16px 0px 16px;
+  cursor: pointer;
 }
 
 .total-item-node {
  display: inline-block;
  width:93px;
   margin: 16px 0px 0px 16px;
+  cursor: pointer;
 }
 
 .total-item-name {
@@ -657,11 +659,20 @@ a {
 }
 
 .details {
+  display: inline-block;
+  vertical-align: top;
   width: 228px;
   height: 195px;
   background: rgba(255, 255, 255, 0.8);
 }
-
+.node-details {
+  display: inline-block;
+  vertical-align: top;
+  /* margin-top: 50px; */
+  width: 200px;
+  height: 224px;
+  background: rgba(255, 255, 255, 0.8);
+}
 .details-top {
   line-height: 14px;
   margin: 14px;
@@ -684,14 +695,23 @@ a {
 }
 
 .details-bottom {
-  margin: 6px 21px;
+  margin: 6px 10px 6px 21px;
 }
-
+.node-details-bottom {
+  padding: 10px 10px 6px 21px;
+}
 .details-item-name {
   font-size: 14px;
   display: inline-block;
   text-align: left;
   width: 40%;
+}
+.node-details-item-name {
+  font-size: 14px;
+  display: inline-block;
+  text-align: left;
+  width: 40%;
+  cursor: pointer;
 }
 
 .details-item-num {
@@ -699,9 +719,15 @@ a {
   font-weight: 700;
   display: inline-block;
   text-align: right;
+  width: 40%;
+}
+.node-details-item-num {
+  font-size: 14px;
+  font-weight: 700;
+  display: inline-block;
+  text-align: right;
   width: 48%;
 }
-
 .pos-abs {
   position: absolute;
 }
