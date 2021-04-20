@@ -1,0 +1,97 @@
+<!--"查询" 模态框开始-->
+<div class="modal fade" id="user_model_add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header" style="height: 40px;">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h5 class="modal-title" style="margin-top: -3px;">查询用户</h5>
+			</div>
+			<div class="row" id="action">
+				<div class="" ng-init='isNull=true' style="margin: 0;padding: 0;">
+					<span class="" ng-repeat="(key,value) in main.vMember.sapc.tableType.attribute.userName.parentType.attribute" ng-if="main.vMember.sapc.tableType.attribute.userName.parentType.attribute[key].proSearch.show">
+				<div class="" ng-init='isNull=false' style="margin: 5px 13px 0 10px;padding: 0;display: inline-block;">
+					<div style="display: inline-block;">
+						<span class="title" style="text-align: right;font-size: 11px;margin: 0;line-height: 30px;">{{value.display}}:</span>
+				</div>
+				<div style="display: inline-block;">
+					<div ng-if="value.type!='boolean'">
+						<input type="text" class="form-control" ng-model="value.proSearch.data" style="width: 105px;display: inline-block;margin-bottom: 10px;">
+					</div>
+					<div ng-if="value.type=='boolean'">
+						<input type="text" class="form-control" ng-disabled="true" value="全部" ng-if="value.proSearch.data===''" style="width: 105px;display: inline-block;margin-bottom: 10px;">
+						<input type="text" class="form-control" ng-disabled="true" value="是" ng-if="value.proSearch.data==1" style="width: 105px;display: inline-block;margin-bottom: 10px;">
+						<input type="text" class="form-control" ng-disabled="true" value="否" ng-if="value.proSearch.data===0" style="width: 105px;display: inline-block;margin-bottom: 10px;">
+						<input type="text" class="form-control" ng-disabled="true" ng-model="value.proSearch.data" ng-if="value.proSearch.data!=1&&value.proSearch.data!==0&&value.proSearch.data!==''" style="width: 105px;display: inline-block;margin-bottom: 10px;">
+						<div class="input-group-btn" style="display: inline-block;">
+							<button type="button" class="btn btn-default dropdown-toggle buuttn " style="padding: 2px 10px;margin-left: -33px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+							<ul class="dropdown-menu dropdown-menu-right">
+								<li>
+									<a ng-click="value.proSearch.data=''">全部</a>
+								</li>
+								<li>
+									<a ng-click="value.proSearch.data=1">是</a>
+								</li>
+								<li>
+									<a ng-click="value.proSearch.data=0">否</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			</span>
+			<div style="display: inline-block;">
+				<button type="button" class="btn clude search buuttn" ng-click="main.vfunc.onclick.serchAUserEnsure()">
+				<span class="glyphicon glyphicon-search buttn"></span>查询</button>
+			</div>
+		</div>
+	</div>
+	<div ui-grid="userOptionsAdd" id="userGrid" style="height: auto;margin: 0px 15px ;" ui-grid-edit ui-grid-pagination ui-grid-selection ui-grid-exporter ui-grid-resize-columns ui-grid-auto-resize ui-grid-cellnav>
+	</div>
+	<div style="margin-right: 0.5%;">
+		<div style="float: left;">
+			<ul class="pagination">
+				<li style="font-size: 10px;">
+					显示第&nbsp;{{(userOptionsAdd.paginationCurrentPage-1)*(userOptionsAdd.paginationPageSize)+1}}&nbsp; 到第&nbsp;{{userAGridApi.pagination.getTotalPages()==userOptionsAdd.paginationCurrentPage?userOptionsAdd.totalItems:userOptionsAdd.paginationCurrentPage*(userOptionsAdd.paginationPageSize)}}&nbsp;条记录, 共&nbsp;{{userOptionsAdd.totalItems}}&nbsp;条记录 每页显示
+					<select ng-model="userAGridApi.grid.options.paginationPageSize" ng-options="o for o in userAGridApi.grid.options.paginationPageSizes">
+					</select>
+					条记录
+				</li>
+			</ul>
+		</div>
+		<div style="float: right;">
+			<ul class="pagination">
+				<li>
+					<a aria-label="Previous" ng-click="main.vfunc.onclick.goFirstPageUserA()">
+						<span aria-hidden="true"><!--&laquo;-->首页</span>
+					</a>
+				</li>
+				<li>
+					<a>
+						<input style="width: 40px;height: 20px;" type="number" ng-model="userAGridApi.grid.options.paginationCurrentPage" />
+					</a>
+				</li>
+				<li>
+					<a aria-label="Next" ng-click="main.vfunc.onclick.goLastPageUserA()">
+						<span aria-hidden="true"><!--&raquo;-->尾页</span>
+					</a>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+	<div class="modal-footer" style="margin-top: 60px;">
+		<div class="footer-content">
+			<button type="button" class="btn btn-default sure" ng-disabled="userAGridApi.grid.selection.selectedCount<1" data-dismiss="modal" ng-click="main.vfunc.onclick.userAddEnsure()" data-toggle="modal">确定</button>
+			<button type="submit" class="btn btn-default remove" data-dismiss="modal">取消</button>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+<script>
+	$(document).ready(function() {
+		$("#user_model_add").draggable();
+	});
+</script>
+<!--"查询" 模态框结束-->

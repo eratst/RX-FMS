@@ -1,0 +1,357 @@
+<!--修改信息模态框开始-->
+<div class="modal fade" id="updateWindow" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" style="z-index: 3;">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header" style="overflow-y: hidden" align="center">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h6 class="modal-title" ng-if="authModfiy">{{main.vMember.sapc.tableType.jsonObj.nameAlias}}修改</h6>
+				<h6 class="modal-title" ng-if="!authModfiy">{{main.vMember.sapc.tableType.jsonObj.nameAlias}}详情</h6>
+			</div>
+			<div class="row">
+				<div>
+					<div class="col-sm-4  row" style="padding: 0;" ng-repeat="(key,value) in main.vMember.sapc.tableType.attribute" ng-if="value.proUpdate.show&&value.display!='公式'&&value.display!='默认公式'&&value.rowShow!=true">
+						<div class="">
+							<!--红色星号，显示是否必须-->
+							<div class="col-xs-6" style="width: 45%;">
+								<p class="title" style="text-align: right;"><span ng-if="value.required===true" style="color: red;">*</span>{{value.display}}:</p>
+							</div>
+							<!--名称及数据-->
+							<div class="col-xs-6">
+								<div ng-if="!value.parentType&&value.type!='number'&&value.type!='boolean'&&!value.valueShowCh&&!value.valueShowLine&&!value.valueShowChLoad&&!value.valueShowSt&&!value.valueShowSex&&!value.valueShowTank&&!value.valueShowData&&value.display!='组织机构'&&value.display!='计算方法'&&value.parTree!=true&&value.chilTree!=true&&value.display!='用户所属机构'&&value.orgTree!=true&&value.display!='公式'&&value.display!='是否自定义公式'&&value.display!='描述'&&value.display!='起效时间'&&value.display!='出生日期'">
+									<input type="text" class="form-control" ng-model="value.proUpdate.data" ng-disabled="value.proUpdate.edit==false">
+								</div>
+								<div ng-if="value.display=='起效时间'||value.display=='出生日期'">
+									<input type="date" class="form-control" ng-model="value.proUpdate.data" ng-disabled="!value.proUpdate.edit" id="getUpdateTime">
+								</div>
+								<div ng-if="value.display=='描述'&&main.vMember.sapc.tableType.jsonObj.desType=='shortDes'">
+									<input type="text" class="form-control" ng-model="value.proUpdate.data" ng-disabled="!value.proUpdate.edit">
+								</div>
+								<div ng-if="value.display=='描述'&&main.vMember.sapc.tableType.jsonObj.desType=='middleDes'">
+									<input type="text" class="form-control" style="width: 305%;" ng-model="value.proUpdate.data" ng-disabled="!value.proUpdate.edit">
+								</div>
+								<div ng-if="value.display=='描述'&&main.vMember.sapc.tableType.jsonObj.desType=='longDes'">
+									<input type="text" class="form-control" style="width: 510%;" ng-model="value.proUpdate.data" ng-disabled="!value.proUpdate.edit">
+								</div>
+								<div ng-if="value.type=='number'">
+									<input type="number" class="form-control" ng-model="value.proUpdate.data" ng-disabled="key==main.vMember.sapc.tableType.alterKey||key==main.vMember.sapc.tableType.mainKey">
+								</div>
+								<!--搜索文本框-->
+								<div ng-if="value.parentType.type=='Model'||value.parentType.type=='Res'||value.parentType.type=='Msr'||(value.parentType.type=='Use'&&value.display!='用户名称')||value.display=='计算方法'||(value.parentType.type=='Rel'&&(value.display=='班组名称'||value.display=='岗位名称'||value.display=='装置界区编码'||value.display=='上级能源管网编码'||value.display=='区域编码'||value.display=='能源管网编码'))" id="parentModel" class="input-group">
+									<input type="text" class="form-control" ng-model="value.proUpdate.data" ng-disabled="true" ng-click="main.vfunc.onclick.parentModelSearchOnClick(value)">
+									<div class="input-group-btn">
+										<button type="button" class="btn clude search-btn" aria-expanded="false" ng-disabled="value.display=='采样点编码'" data-target="#parentSearchModel" data-toggle="modal" ng-click="main.vfunc.onclick.setTemLinkemKey(key,value,'proUpdate')"><span class="glyphicon glyphicon-search buttn"></span>
+										</button>
+									</div>
+									<span ng-click="removeParentOrg('proUpdate')" class="glyphicon glyphicon-remove removeOrg" ng-if="value.display=='上级组织机构简称'"></span>
+								</div>
+								<!--下拉框-->
+								<div ng-if="(value.parentType.type=='Dict'&&value.display!='计算方法'&&value.display!='基础分类')||value.parentType.type=='Sys'||(value.parentType.type=='Rel'&&value.display!='班组名称'&&value.display!='岗位名称'&&value.display!='装置界区编码'&&value.display!='上级能源管网编码'&&value.display!='区域编码'&&value.display!='能源管网编码')" class="input-group">
+									<input type="text" class="form-control" ng-model="value.proUpdate.data" ng-disabled="true">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" style="padding: 2px 10px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+										<ul class="dropdown-menu dropdown-menu-right menu-overflow">
+											<li ng-repeat="pData in value.parentValue">
+												<a ng-click="main.vfunc.onclick.checkAddData(pData,key,value,'proUpdate')">{{pData[key]}}</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div ng-if="value.display=='基础分类'" class="input-group">
+									<input type="text" class="form-control" ng-model="value.proUpdate.data" ng-disabled="true">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" ng-click="main.vfunc.onclick.classOnClick('proUpdate')" style="padding: 2px 10px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+										<ul class="dropdown-menu dropdown-menu-right menu-overflow" ng-model="value.proUpdate.data">
+											<li ng-repeat="pData in cnfgClass">
+												<a ng-click="main.vfunc.onclick.changeBaseClass(key,pData['cnfgClassName'])">{{pData['cnfgClassName']}}</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div ng-if="main.vMember.sapc.tableType.jsonObj.type=='Rel'&&value.display=='用户名称'" class="input-group">
+									<input type="text" class="form-control" ng-model="value.proUpdate.data" ng-disabled="true">
+									<div class="input-group-btn">
+										<button type="button" class="btn clude search-btn" ng-click="main.vfunc.onclick.userURelation(key, value)" data-target="#user_model_update" data-toggle="modal" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user buttn"></span>
+										</button>
+									</div>
+								</div>
+								<div ng-if="main.vMember.sapc.tableType.jsonObj.key=='T_PM_TEAMANDUSER'&&value.display=='用户名称'" class="input-group">
+									<input type="text" class="form-control" ng-model="value.proUpdate.data" ng-disabled="true">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" ng-click="main.vfunc.onclick.userOnClick('proUpdate')" style="padding: 2px 10px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+										<ul class="dropdown-menu dropdown-menu-right menu-overflow" ng-model="value.proUpdate.data">
+											<li ng-repeat="userData in userNameList">
+												<a ng-click="main.vfunc.onclick.selectUserName('proUpdate',userData['userName'])">{{userData['userName']}}</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div ng-if="value.type=='boolean'" class="input-group">
+									<input type="text" class="form-control" ng-disabled="true" value="是" ng-if="value.proUpdate.data=='是'||value.proUpdate.data===1">
+									<input type="text" class="form-control" ng-disabled="true" value="否" ng-if="value.proUpdate.data=='否'||value.proUpdate.data===0">
+									<!--<input type="text" class="form-control"   ng-disabled="true" ng-model="value.proUpdate.data">-->
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" style="padding: 2px 10px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+										<ul class="dropdown-menu dropdown-menu-right menu-overflow">
+											<li>
+												<a ng-click="value.proUpdate.data=1">是</a>
+											</li>
+											<li>
+												<a ng-click="value.proUpdate.data=0">否</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div ng-if="value.valueShowSex" class="input-group">
+									<input type="text" class="form-control" ng-disabled="true" value="男" ng-if="value.proUpdate.data=='男'||value.proUpdate.data===1">
+									<input type="text" class="form-control" ng-disabled="true" value="女" ng-if="value.proUpdate.data=='女'||value.proUpdate.data===2">
+									<input type="text" class="form-control" ng-disabled="true" ng-model="value.proUpdate.data" ng-if="value.proUpdate.data!=1&&value.proUpdate.data!=2&&value.proUpdate.data!='男'&&value.proUpdate.data!='女'">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" style="padding: 2px 10px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+										<ul class="dropdown-menu dropdown-menu-right menu-overflow">
+											<li>
+												<a ng-click="value.proUpdate.data=1">男</a>
+											</li>
+											<li>
+												<a ng-click="value.proUpdate.data=2">女</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div ng-if="value.display=='是否自定义公式'&&value.type=='string'">
+									<input type="text" class="form-control" ng-disabled="true" value="是" ng-if="value.proUpdate.data==1">
+									<input type="text" class="form-control" ng-disabled="true" value="否" ng-if="value.proUpdate.data===0">
+									<input type="text" class="form-control" ng-disabled="true" ng-model="value.proUpdate.data" ng-if="value.proUpdate.data!=1&&value.proUpdate.data!==0">
+								</div>
+								<div ng-if="value.valueShowSt" class="input-group">
+									<input type="text" class="form-control" ng-disabled="true" value="启用" ng-if="value.proUpdate.data=='启用'||value.proUpdate.data===1">
+									<input type="text" class="form-control" ng-disabled="true" value="禁用" ng-if="value.proUpdate.data=='禁用'||value.proUpdate.data===0">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" style="padding: 2px 10px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+										<ul class="dropdown-menu dropdown-menu-right menu-overflow">
+											<li>
+												<a ng-click="value.proUpdate.data=1">启用</a>
+											</li>
+											<li>
+												<a ng-click="value.proUpdate.data=0">禁用</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div ng-if="value.valueShowCh" class="input-group">
+									<input type="text" class="form-control" ng-disabled="true" value="出" ng-if="value.proUpdate.data=='出'||value.proUpdate.data===1">
+									<input type="text" class="form-control" ng-disabled="true" value="进" ng-if="value.proUpdate.data=='进'||value.proUpdate.data===0">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" style="padding: 2px 10px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+										<ul class="dropdown-menu dropdown-menu-right menu-overflow">
+											<li>
+												<a ng-click="value.proUpdate.data=1">出</a>
+											</li>
+											<li>
+												<a ng-click="value.proUpdate.data=0">进</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								
+								<div ng-if="value.valueShowChLoad" class="input-group">
+									<input type="text" class="form-control" ng-disabled="true" value="出" ng-if="value.proUpdate.data=='出'||value.proUpdate.data===1">
+									<input type="text" class="form-control" ng-disabled="true" value="进出" ng-if="value.proUpdate.data=='进出'||value.proUpdate.data===2">
+									<input type="text" class="form-control" ng-disabled="true" value="进" ng-if="value.proUpdate.data=='进'||value.proUpdate.data===0">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" style="padding: 2px 10px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+										<ul class="dropdown-menu dropdown-menu-right menu-overflow">
+											<li>
+												<a ng-click="value.proUpdate.data=2">进出</a>
+											</li>
+											<li>
+												<a ng-click="value.proUpdate.data=1">出</a>
+											</li>
+											<li>
+												<a ng-click="value.proUpdate.data=0">进</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div ng-if="value.valueShowLine" class="input-group">
+									<input type="text" class="form-control" ng-disabled="true" value="出" ng-if="value.proUpdate.data=='出'||value.proUpdate.data===1">
+									<input type="text" class="form-control" ng-disabled="true" value="消耗" ng-if="value.proUpdate.data=='消耗'||value.proUpdate.data===2">
+									<input type="text" class="form-control" ng-disabled="true" value="进" ng-if="value.proUpdate.data=='进'||value.proUpdate.data===0">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" style="padding: 2px 10px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+										<ul class="dropdown-menu dropdown-menu-right menu-overflow">
+											<li>
+												<a ng-click="value.proUpdate.data=2">消耗</a>
+											</li>
+											<li>
+												<a ng-click="value.proUpdate.data=1">出</a>
+											</li>
+											<li>
+												<a ng-click="value.proUpdate.data=0">进</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<!--<div ng-if="value.valueShowOrg" class="input-group">
+									<input type="text" class="form-control" ng-disabled="true" value="扩展组织机构" ng-if="value.proUpdate.data=='扩展组织机构'||value.proUpdate.data===1">
+									<input type="text" class="form-control" ng-disabled="true" value="标准组织机构" ng-if="value.proUpdate.data=='标准组织机构'||value.proUpdate.data===0">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" style="padding: 2px 10px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+										<ul class="dropdown-menu dropdown-menu-right">
+											<li>
+												<a ng-click="value.proUpdate.data=1">扩展组织机构</a>
+											</li>
+											<li>
+												<a ng-click="value.proUpdate.data=0">标准组织机构</a>
+											</li>
+										</ul>
+									</div>
+								</div>-->
+								<div ng-if="value.valueShowTank" class="input-group">
+									<input type="text" class="form-control" ng-disabled="true" value="全部" ng-if="value.proUpdate.data=='全部'||value.proUpdate.data===0">
+									<input type="text" class="form-control" ng-disabled="true" value="卧罐" ng-if="value.proUpdate.data=='卧罐'||value.proUpdate.data===1">
+									<input type="text" class="form-control" ng-disabled="true" value="球罐" ng-if="value.proUpdate.data=='球罐'||value.proUpdate.data===2">
+									<input type="text" class="form-control" ng-disabled="true" value="立罐" ng-if="value.proUpdate.data=='立罐'||value.proUpdate.data===3">
+
+									<!--<input type="text" class="form-control"   ng-disabled="true" ng-model="value.proUpdate.data">-->
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" style="padding: 2px 10px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+										<ul class="dropdown-menu dropdown-menu-right menu-overflow">
+											<li>
+												<a ng-click="value.proUpdate.data=0">全部</a>
+											</li>
+											<li>
+												<a ng-click="value.proUpdate.data=1">卧罐</a>
+											</li>
+											<li>
+												<a ng-click="value.proUpdate.data=2">球罐</a>
+											</li>
+											<li>
+												<a ng-click="value.proUpdate.data=3">立罐</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div ng-if="value.valueShowData" class="input-group">
+									<input type="text" class="form-control" ng-disabled="true" ng-model="value.proUpdate.data" ng-if="value.proUpdate.data!='SG8000'&&value.proUpdate.data!='RTDB'&&value.proUpdate.data!='LIMS'">
+									<input type="text" class="form-control" ng-disabled="true" value="SG8000" ng-if="value.proUpdate.data=='SG8000'">
+									<input type="text" class="form-control" ng-disabled="true" value="RTDB" ng-if="value.proUpdate.data=='RTDB'">
+									<input type="text" class="form-control" ng-disabled="true" value="LIMS" ng-if="value.proUpdate.data=='LIMS'">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" ng-disabled="true" style="padding: 2px 10px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+										<ul class="dropdown-menu dropdown-menu-right menu-overflow">
+											<li>
+												<a ng-click="value.proUpdate.data='SG8000'">SG8000</a>
+											</li>
+											<li>
+												<a ng-click="value.proUpdate.data='RTDB'">RTDB</a>
+											</li>
+											<li>
+												<a ng-click="value.proUpdate.data='LIMS'">LIMS</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<!--<div ng-if="(value.display=='组织机构'&&value.parTree!=true&&value.chilTree!=true)||value.display=='用户所属机构'" class="input-group">
+									<input type="text" class="form-control" ng-model="value.proUpdate.data" ng-disabled="value.treeIsUpdate">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" ng-click="main.vfunc.onclick.treeButton(value.proUpdate,'proUpdate')" data-target="#orgTree" data-toggle="modal" style="padding: 2px 4px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-tree-conifer buttn" style="font-size: 12px;"></span></span></button>
+									</div>
+								</div>-->
+								<div ng-if="value.parTree==true" class="input-group">
+									<input type="text" class="form-control" ng-model="value.proUpdate.data" ng-disabled="true">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" data-target="#orgTreeStd" ng-click="main.vfunc.onclick.treeButtonStd(value.proUpdate,'proUpdate','parTree')" data-toggle="modal" style="padding: 2px 4px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-tree-conifer buttn"style="font-size: 12px;"></span></button>
+									</div>
+								</div>
+								<div ng-if="value.chilTree==true" class="input-group">
+									<input type="text" class="form-control" ng-model="value.proUpdate.data" ng-disabled="true">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" data-target="#orgTreeStd" ng-click="main.vfunc.onclick.treeButtonStd(value.proUpdate,'proUpdate','chilTree')" data-toggle="modal" style="padding: 2px 4px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-tree-conifer buttn"style="font-size: 12px;"></span></button>
+									</div>
+								</div>
+								<div ng-if="value.chilUserTree==true" class="input-group">
+									<input type="text" class="form-control" ng-model="value.proUpdate.data" ng-disabled="true">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" data-target="#orgTreeStd" ng-click="main.vfunc.onclick.treeButtonStd(value.proUpdate,'proUpdate','chilUserTree')" data-toggle="modal" style="padding: 2px 4px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-tree-conifer buttn"style="font-size: 12px;"></span></button>
+									</div>
+								</div>
+								<!--<div ng-if="value.orgTree==true" class="input-group">
+									<input type="text" class="form-control" ng-model="value.proUpdate.data" ng-disabled="true">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" ng-disabled="true" ng-click="main.vfunc.onclick.areaOnClick('proUpdate')" style="padding: 2px 10px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+										<ul class="dropdown-menu dropdown-menu-right">
+											<li ng-repeat="pData in areaAlias">
+												<a ng-click="value.proUpdate.data=pData['value']">{{pData['value']}}</a>
+											</li>
+										</ul>
+									</div>
+								</div>-->
+								<div ng-if="value.orgTree==true" class="input-group">
+									<input type="text" class="form-control" ng-model="value.proUpdate.data" ng-disabled="true">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" ng-disabled="false" ng-click="main.vfunc.onclick.areaOnClick('proUpdate')" style="padding: 2px 10px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+										<ul class="dropdown-menu dropdown-menu-right">
+											<li class="dropdown-submenu" ng-repeat="pData in areaAlias" ng-if="pData.value.length>0">
+												<a tabindex="-1" href="javascript:;">{{pData['typeName']}}</a>
+												<ul class="dropdown-menu menu-overflow">
+													<li ng-repeat="pcData in pData.value">
+														<a ng-click="main.vfunc.onclick.areaSelected('proUpdate',pcData['areaAlias'],pcData['orgCode'])">{{pcData['orgCode']+'--'+pcData['areaAlias']}}</a>
+														<!--<a ng-click="value.proUpdate.data=pcData['areaAlias']">{{pcData['areaAlias']}}</a>-->
+													</li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="margin: 0;">
+				<div class="row" style="margin: 0;" ng-repeat="(key,value) in main.vMember.sapc.tableType.attribute" ng-if="value.proUpdate.show&&value.display=='公式'||value.display=='默认公式'">
+					<div>
+						<div class="col-xs-6" style="width: 15%;">
+							<p class="title" style="text-align: right;"><span ng-if="value.required===true" style="color: red;">*</span>{{value.display}}:</p>
+						</div>
+						<div class="col-xs-6">
+							<div class="input-group">
+								<input type="text" class="form-control" style="width: 100%;" ng-model="value.proUpdate.data" ng-disabled="!value.proUpdate.edit">
+								<div class="input-group-btn">
+									<button type="button" class="btn clude search-btn" data-target="#formulaEdit" data-toggle="modal" aria-expanded="false" ng-click="main.vfunc.onclick.formulaButton(value.proUpdate)" ng-disabled="flagIsFamula"><span class="glyphicon glyphicon-pencil buttn"></span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--<div class="row" style="margin: 0;" ng-repeat="(key,value) in main.vMember.sapc.tableType.attribute" ng-if="value.proUpdate.show&&value.display=='描述'&&main.vMember.sapc.tableType.jsonObj.nameAlias=='罐量计算单罐配置'">
+					<div>
+						<div class="col-xs-6" style="width: 15%;">
+							<p class="title" style="text-align: right;"><span ng-if="value.required===true" style="color: red;">*</span>{{value.display}}:</p>
+						</div>
+						<div class="col-xs-6">
+							<div>
+								<input type="text" class="form-control" style="width:167%;" ng-model="value.proUpdate.data" placeholder="请输入" ng-disabled="!value.proUpdate.edit">
+							</div>
+						</div>
+					</div>
+				</div>-->
+			</div>
+			<div class="modal-footer">
+				<div class="footer-content">
+					<button type="button" class="btn sure" ng-if="authModfiy" ng-click="main.vfunc.onclick.updataEnsure()" data-toggle="modal" data-target="#tempresetModel" ng-mouseover="buttonOver('proUpdate')">
+					确定
+				</button>
+					<button type="submit" class="btn btn-default remove" data-dismiss="modal" ng-click="main.vfunc.onclick.updateDatasRemove()">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$(document).ready(function() {
+		$("#updateWindow").draggable();
+	});
+</script>
+<!--修改信息模态框结束-->

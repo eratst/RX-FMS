@@ -1,0 +1,34 @@
+<div class="modal fade in open" id="connectTable" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header" style="overflow-y: hidden" align="center">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click='svFunc.onclick.cancel()'>&times;</button>
+				<h6 class="modal-title">查询表:{{sM.vMember.sapc.parentType.jsonObj.tableName}}</h6>
+			</div>
+	<div class="row">
+		<div class="modal-body" style="margin-top: 0px;overflow: auto;max-height: 500px;padding: 0;">
+			<table class="table table-bordered; table table-hover" style="color: black; text-align: center;overflow: auto;">
+				<thead>
+					<tr>
+						<th ng-repeat="(key,value) in sM.vMember.sapc.parentType.attribute" ng-hide="value.hide" style="min-width: 110px;text-align: center;">
+							<span ng-bind="value.display"></span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="data in queryData track by $index" ng-click='main.vfunc.onclick.setTemlData(data)'  ui-serf="/">
+						<td ng-repeat='(key,value) in sM.vMember.sapc.parentType.attribute' ng-hide="value.hide" style="white-space: nowrap;">
+							<span ng-bind="data[key]"></span>
+						</td>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+<script>
+	$(document).ready(function() {
+		$("#connectTable").draggable();
+	});
+</script>

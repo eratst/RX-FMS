@@ -1,0 +1,215 @@
+{
+	"alterKey": "orgCode",
+	"attribute": {
+		"orgId": {
+			"display": "组织机构ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"orgCode": {
+			"display": "组织机构编码",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "130",
+			"class": "left",
+			"proUpdate": {
+				"show": true,
+				"edit": false
+			}
+		},
+		"orgName": {
+			"display": "组织机构名称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "150",
+			"class": "left"
+		},
+		"orgAlias": {
+			"display": "组织机构简称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"width": "130",
+			"inOut": true,
+			"class": "left"
+		},
+		"upperOrgCode": {
+			"display": "上级组织机构编码",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"treeIsUpdate": true,
+			"inOut": true,
+			"width": "130",
+			"class": "left",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"upperOrgAlias": {
+			"display": "上级组织机构",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "130",
+			"treeIsUpdate": true,
+			"class": "left",
+			"parTree": true
+		},
+		"orgLongitude": {
+			"display": "位置经度(°)",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "90"
+		},
+		"orgLatitude": {
+			"display": "位置纬度(°)",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "90"
+		},
+		"orgAltitude": {
+			"display": "位置海拔(m)",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "90"
+		},
+		"dataStatus": {
+			"display": "是否启用",
+			"type": "boolean",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "70",
+			"class": "center"
+		},
+		"sortNum": {
+			"display": "排序",
+			"type": "number",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "50",
+			"class": "right"
+		},
+		"crtUserId": {
+			"display": "创建人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"crtUserName": {
+			"display": "创建人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"width": "70",
+			"class": "left",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"crtDate": {
+			"display": "创建时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"width": "150",
+			"class": "center",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntUserId": {
+			"display": "最后维护人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"mntUserName": {
+			"display": "维护人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"width": "70",
+			"class": "left",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntDate": {
+			"display": "维护时间",
+			"class": "center",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"width": "150",
+			"type": "date",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"des": {
+			"display": "描述",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "180",
+			"class": "left"
+		},
+		"version": {
+			"display": "乐观锁版本",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		}
+	}
+}

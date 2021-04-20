@@ -1,0 +1,1481 @@
+{
+	"Dict": {
+		"navName": "字典",
+		"rows": {
+			"T_PM_ORGTYPE": {
+				"tableName": "1 组织机构类型",
+				"nameAlias": "组织机构类型",
+				"tableFormat": "T_PM_ORGTYPE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/organizations"
+			},
+			"T_PM_ENTR_TYPE": {
+				"tableName": "1.1 企业性质类型",
+				"nameAlias": "企业性质类型",
+				"tableFormat": "T_PM_ENTR_TYPE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/entrTypes"
+			},
+			"T_PM_FCTR_BLOCK_TYPE": {
+				"tableName": "1.2 所属板块类型",
+				"nameAlias": "所属板块类型",
+				"tableFormat": "T_PM_FCTR_BLOCK_TYPE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/fctrBlockTypes"
+			},
+			"T_PM_BUSINESS_TYPE": {
+				"tableName": "1.3 工艺类型",
+				"nameAlias": "工艺类型",
+				"tableFormat": "T_PM_BUSINESS_TYPE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/businessTypes"
+			},
+			"T_PM_CUSTOMTYPE": {
+				"tableName": "2 外部组织机构类型",
+				"nameAlias": "外部组织机构类型",
+				"tableFormat": "T_PM_CUSTOMTYPE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/customTypes"
+			},
+			"T_PM_AREATYPE": {
+				"tableName": "3 区域类型",
+				"nameAlias": "区域类型",
+				"tableFormat": "T_PM_AREATYPE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/areaTypes"
+			},
+			"T_PM_UNITTYPE": {
+				"tableName": "3.1.1 装置业务类型",
+				"nameAlias": "装置业务类型",
+				"tableFormat": "T_PM_UNITTYPE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/unitTypes"
+			},
+			"T_PM_TECHNIC": {
+				"tableName": "3.1.2 装置工艺类型",
+				"nameAlias": "装置工艺类型",
+				"tableFormat": "T_PM_TECHNIC.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/technics"
+			},
+			"T_OPM_OPEINDEXCLASS": {
+				"tableName": "3.1.3 操作指标类型",
+				"nameAlias": "操作指标类型",
+				"tableFormat": "T_OPM_OPEINDEXCLASS.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/opeIndexClasses"
+			},
+			"T_OPM_CONTROLDEP": {
+				"tableName": "3.1.4 控制部门",
+				"nameAlias": "控制部门",
+				"tableFormat": "T_OPM_CONTROLDEP.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/controlDeps"
+			},
+			"T_OPM_STAALGR": {
+				"tableName": "3.1.5 操作平稳率算法",
+				"nameAlias": "操作平稳率算法",
+				"tableFormat": "T_OPM_STAALGR.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/staAlgrs"
+			},
+			"T_PM_TANKAREATYPE": {
+				"tableName": "3.2.1 罐区业务类型",
+				"nameAlias": "罐区业务类型",
+				"tableFormat": "T_PM_TANKAREATYPE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/tankAreaTypes"
+			},
+			"T_PM_TANKAREATECHNIC": {
+				"tableName": "3.2.2 罐区工艺类型",
+				"nameAlias": "罐区工艺类型",
+				"tableFormat": "T_PM_TANKAREATECHNIC.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/tankAreaTechnics"
+			},
+			"T_PM_WAREHOUSETYPE": {
+				"tableName": "3.3.1 仓库业务类型",
+				"nameAlias": "仓库业务类型",
+				"tableFormat": "T_PM_WAREHOUSETYPE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/warehouseTypes"
+			},
+			"T_PM_WAREHOUSETECHNIC": {
+				"tableName": "3.3.2 仓库工艺类型",
+				"nameAlias": "仓库工艺类型",
+				"tableFormat": "T_PM_WAREHOUSETECHNIC.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/warehouseTechnics"
+			},
+			"T_PM_LOADRACKTECHNIC": {
+				"tableName": "3.4.1 装卸台工艺类型",
+				"nameAlias": "装卸台工艺类型",
+				"tableFormat": "T_PM_LOADRACKTECHNIC.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/loadingDockTechnics"
+			},
+			"T_PM_PIPENETTECHNIC": {
+				"tableName": "3.5.1 管网工艺类型",
+				"nameAlias": "管网工艺类型",
+				"tableFormat": "T_PM_PIPENETTECHNIC.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/pipeNetTechnics"
+			},
+			"T_PM_NODETYPE": {
+				"tableName": "4 节点类型",
+				"nameAlias": "节点类型",
+				"tableFormat": "T_PM_NODETYPE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/nodeTypes"
+			},
+			"T_PM_SIDELINETYPE": {
+				"tableName": "4.1.1 侧线业务类型",
+				"nameAlias": "侧线业务类型",
+				"tableFormat": "T_PM_SIDELINETYPE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/sideLineTypes"
+			},
+			"T_PM_SIDEMTRLTYPE": {
+				"tableName": "4.1.2 侧线物料类型",
+				"nameAlias": "侧线物料类型",
+				"tableFormat": "T_PM_SIDEMTRLTYPE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/sideMtrlTypes"
+			},
+			"T_PM_TANKTYPE": {
+				"tableName": "4.2.1 罐类型",
+				"nameAlias": "罐类型",
+				"tableFormat": "T_PM_TANKTYPE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/tankTypeDicts"
+			},
+			"T_PM_VCFTYPE": {
+				"tableName": "4.2.2 VCF表类型",
+				"nameAlias": "VCF表类型",
+				"tableFormat": "T_PM_VCFTYPE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/vcfDictionarys"
+			},
+			"T_PM_EQUTECHNIC": {
+				"tableName": "4.3.1 设备工艺类型",
+				"nameAlias": "设备工艺类型",
+				"tableFormat": "T_PM_EQUTECHNIC.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/equipmentcs"
+			},
+			"T_PM_TRANSTYPE": {
+				"tableName": "4.4.1 进出厂运输类型",
+				"nameAlias": "进出厂运输类型",
+				"tableFormat": "T_PM_TRANSTYPE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/transTypes"
+			},
+			"T_PM_SILOTYPE": {
+				"tableName": "4.5.1 料仓业务类型",
+				"nameAlias": "料仓业务类型",
+				"tableFormat": "T_PM_SILOTYPE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/siloTypes"
+			},
+			"T_PM_SAMPLEPOINT_TYPE": {
+				"tableName": "4.6.1 采样点业务类型",
+				"nameAlias": "采样点业务类型",
+				"tableFormat": "T_PM_SAMPLEPOINT_TYPE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/samplePointTypes"
+			},
+			"T_PM_SIGNBOARD_TYPE": {
+				"tableName": "4.7.1 标识牌类型",
+				"nameAlias": "标识牌类型",
+				"tableFormat": "T_PM_SIGNBOARD_TYPE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/signboardTypes"
+			},
+			"T_PM_LOADPOINT_TYPE": {
+				"tableName": "4.8.1 装卸点类型",
+				"nameAlias": "装卸点类型",
+				"tableFormat": "T_PM_LOADPOINT_TYPE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/loadPointTypes"
+			},
+			"T_PM_IDX_TYPE": {
+				"tableName": "5 指标类型",
+				"nameAlias": "指标类型",
+				"tableFormat": "T_PM_IDX_TYPE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/idxTypes"
+			},
+			"T_PM_MTRL_TYPE": {
+				"tableName": "6 物料类型",
+				"nameAlias": "物料类型",
+				"tableFormat": "T_PM_MTRL_TYPE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/mtrlTypeDics"
+			},
+			"T_PM_CAPACITYUNIT": {
+				"tableName": "7 加工能力单位",
+				"nameAlias": "加工能力单位",
+				"tableFormat": "T_PM_CAPACITYUNIT.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/capacityUnits"
+			},
+			"T_IC_CNFG_CLASS": {
+				"tableName": "8.1 罐量计算配置基础分类",
+				"nameAlias": "罐量计算配置基础分类",
+				"tableFormat": "T_IC_CNFG_CLASS.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/cnfgClasses"
+			},
+			"T_IC_CNFG_CLASS_PARA": {
+				"tableName": "8.2 罐量计算配置分类参数",
+				"nameAlias": "罐量计算配置分类参数",
+				"tableFormat": "T_IC_CNFG_CLASS_PARA.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/CnfgClassParas"
+			},
+			"T_IC_CNFG_FORMULA_PARA": {
+				"tableName": "8.3 罐量计算配置公式参数",
+				"nameAlias": "罐量计算配置公式参数",
+				"tableFormat": "T_IC_CNFG_FORMULA_PARA.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/CnfgFormulaParas"
+			}
+		}
+	},
+	"Model": {
+		"navName": "主模型",
+		"rows": {
+			"T_PM_ORG": {
+				"tableName": "1 内部组织机构",
+				"nameAlias": "内部组织机构",
+				"tableFormat": "T_PM_ORG.json",
+				"parent": "none",
+				"desType": "shortDes",
+				"hide": true,
+				"isShowSearch": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/orgs"
+			},
+			"T_PM_HEADQUARTERS": {
+				"tableName": "1.1 总部",
+				"nameAlias": "总部",
+				"tableFormat": "T_PM_HEADQUARTERS.json",
+				"parent": "none",
+				"desType": "longDes",
+				"isShowSearch": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/headquarters"
+			},
+			"T_PM_DIVISION": {
+				"tableName": "1.2 事业部",
+				"nameAlias": "事业部",
+				"tableFormat": "T_PM_DIVISION.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"insertData": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/divisions"
+			},
+			"T_PM_ENTERPRISE": {
+				"tableName": "1.3 企业",
+				"nameAlias": "企业",
+				"tableFormat": "T_PM_ENTERPRISE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"insertData": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/enterprises"
+			},
+			"T_PM_OFFICES": {
+				"tableName": "1.4 公司处室",
+				"nameAlias": "公司处室",
+				"tableFormat": "T_PM_OFFICES.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"insertData": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/offices"
+			},
+			"T_PM_FACTORY": {
+				"tableName": "1.5 生产工厂",
+				"nameAlias": "生产工厂",
+				"tableFormat": "T_PM_FACTORY.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"insertData": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/productFactories"
+			},
+			"T_PM_DEPARTMENT": {
+				"tableName": "1.6 科室",
+				"nameAlias": "科室",
+				"tableFormat": "T_PM_DEPARTMENT.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"insertData": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/departments"
+			},
+			"T_PM_WORKSHOP": {
+				"tableName": "1.7 车间",
+				"nameAlias": "车间",
+				"tableFormat": "T_PM_WORKSHOP.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"insertData": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/workshops"
+			},
+			"T_PM_TEAM": {
+				"tableName": "1.8 班组",
+				"nameAlias": "班组",
+				"tableFormat": "T_PM_TEAM.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"hide": false,
+				"desType": "longDes",
+				"insertData": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/teams"
+			},
+			"T_PM_CALENDARTEAM": {
+				"tableName": "1.8 班次日历",
+				"nameAlias": "班次日历",
+				"tableFormat": "T_PM_CALENDARTEAM.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"hide": true,
+				"desType": "shortDes",
+				"insertData": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/calendarTeams"
+			},
+			"T_PM_CUSTOM": {
+				"tableName": "2 外部组织机构",
+				"nameAlias": "外部组织机构",
+				"tableFormat": "T_PM_CUSTOM.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/customs"
+			},
+			"T_PM_AREA": {
+				"hide": true,
+				"tableName": "3 区域",
+				"nameAlias": "区域",
+				"tableFormat": "T_PM_AREA.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/areas"
+			},
+			"T_PM_UNIT": {
+				"tableName": "3.1 装置",
+				"nameAlias": "装置",
+				"tableFormat": "T_PM_UNIT.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/plants"
+			},
+			"T_PM_TANKAREA": {
+				"tableName": "3.2 罐区",
+				"nameAlias": "罐区",
+				"tableFormat": "T_PM_TANKAREA.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/tankAreas"
+			},
+			"T_PM_WAREHOUSE": {
+				"tableName": "3.3 仓库",
+				"nameAlias": "仓库",
+				"tableFormat": "T_PM_WAREHOUSE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/warehouses"
+			},
+			"T_PM_LOADRACK": {
+				"tableName": "3.4 装卸台",
+				"nameAlias": "装卸台",
+				"tableFormat": "T_PM_LOADRACK.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/loadingDocks"
+			},
+			"T_PM_PIPENET": {
+				"tableName": "3.5 管网(非能源管网)",
+				"nameAlias": "管网(非能源管网)",
+				"tableFormat": "T_PM_PIPENET.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/pipeNetworks"
+			},
+			"T_PM_COMMUNITY": {
+				"tableName": "3.6 生活区",
+				"nameAlias": "生活区",
+				"tableFormat": "T_PM_COMMUNITY.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/communities"
+			},
+			"T_PM_ADMINISTRATION": {
+				"tableName": "3.7 办公区",
+				"nameAlias": "办公区",
+				"tableFormat": "T_PM_ADMINISTRATION.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/administrations"
+			},
+			"T_PM_NODE": {
+				"hide": true,
+				"tableName": "4 节点",
+				"nameAlias": "节点",
+				"tableFormat": "T_PM_NODE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/nodes"
+			},
+			"T_PM_SIDELINE": {
+				"tableName": "4.1 侧线",
+				"nameAlias": "侧线",
+				"tableFormat": "T_PM_SIDELINE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/sideLines"
+			},
+			"T_PM_TANK": {
+				"tableName": "4.2 罐",
+				"nameAlias": "罐",
+				"tableFormat": "T_PM_TANK.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/tanks"
+			},
+			"T_PM_EQUIPMENT": {
+				"tableName": "4.3 设备",
+				"nameAlias": "设备",
+				"tableFormat": "T_PM_EQUIPMENT.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/equipments"
+			},
+			"T_PM_SHIPMENT": {
+				"tableName": "4.4 进出厂点",
+				"nameAlias": "进出厂点",
+				"tableFormat": "T_PM_SHIPMENT.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/shipments"
+			},
+			"T_PM_SILO": {
+				"tableName": "4.5 料仓",
+				"nameAlias": "料仓",
+				"tableFormat": "T_PM_SILO.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/silos"
+			},
+			"T_PM_LOCATION": {
+				"tableName": "4.6 库位",
+				"nameAlias": "库位",
+				"tableFormat": "T_PM_LOCATION.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/stocks"
+			},
+			"T_PM_SAMPLEPOINT": {
+				"tableName": "4.7 采样点",
+				"nameAlias": "采样点",
+				"tableFormat": "T_PM_SAMPLEPOINT.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/samplePoints"
+			},
+			"T_PM_DRAINAGEPORT": {
+				"tableName": "4.8 排放口",
+				"nameAlias": "排放口",
+				"tableFormat": "T_PM_DRAINAGEPORT.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/outlets"
+			},
+			"T_PM_TUBULATION": {
+				"tableName": "4.9 管段",
+				"nameAlias": "管段",
+				"tableFormat": "T_PM_TUBULATION.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/tubulations"
+			},
+			"T_PM_VALVE": {
+				"tableName": "4.10 阀门",
+				"nameAlias": "阀门",
+				"tableFormat": "T_PM_VALVE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/valves"
+			},
+			"T_PM_CLOSURE": {
+				"tableName": "4.11 盲板",
+				"nameAlias": "盲板",
+				"tableFormat": "T_PM_CLOSURE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/plates"
+			},
+			"T_PM_TEE": {
+				"tableName": "4.12 三通",
+				"nameAlias": "三通",
+				"tableFormat": "T_PM_TEE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/tees"
+			},
+			"T_PM_LOADPOINT": {
+				"tableName": "4.13 装卸点",
+				"nameAlias": "装卸点",
+				"tableFormat": "T_PM_LOADPOINT.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/loadPoints"
+			},
+			"T_PM_MEASINDEX": {
+				"tableName": "5 度量指标",
+				"nameAlias": "度量指标",
+				"tableFormat": "T_PM_MEASINDEX.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/measurements"
+			},
+			"T_PM_MTRL": {
+				"tableName": "6 物料",
+				"nameAlias": "物料",
+				"tableFormat": "T_PM_MTRL.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/materials"
+			},
+			"T_PM_DIMENSION": {
+				"tableName": "7 量纲",
+				"nameAlias": "量纲",
+				"tableFormat": "T_PM_DIMENSION.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/dimensions"
+			},
+			"T_PM_PRDTCELL": {
+				"tableName": "8.1 生产单元",
+				"nameAlias": "生产单元",
+				"tableFormat": "T_PM_PRDTCELL.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/prdtcells"
+			},
+			"T_PM_PRDTCELL_MEASINDEX": {
+				"tableName": "8.2 生产单元度量指标",
+				"nameAlias": "生产单元度量指标",
+				"tableFormat": "T_PM_PRDTCELL_MEASINDEX.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/prdtcellMeasindexs"
+			},
+			"T_PM_POSITION": {
+				"tableName": "9 岗位",
+				"nameAlias": "岗位",
+				"tableFormat": "T_PM_POSITION.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/positions"
+			}
+		}
+	},
+	"Rel": {
+		"navName": "组态关系",
+		"rows": {
+
+			"T_PM_UNITAREA": {
+				"tableName": "2.1.1  装置界区",
+				"nameAlias": "装置界区",
+				"tableFormat": "T_PM_UNITAREA.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+								"bizType":"busiArea",
+				"hide": "true",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/unitAreas"
+			},
+			"T_PM_UNITAREAREL": {
+				"tableName": "2.1.2  装置界区与装置关系",
+				"nameAlias": "装置界区与装置关系",
+				"tableFormat": "T_PM_UNITAREAREL.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+								"bizType":"busiArea",
+				"hide": "true",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/unitAreaRels"
+			},
+
+			"T_PM_ENPIPENET": {
+				"tableName": "2.2.1  能源管网",
+				"nameAlias": "能源管网",
+				"tableFormat": "T_PM_ENPIPENET.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"bizType":"energyMng",
+				"hide": "true",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/enPipeNets"
+			},
+			"T_PM_ENNODE": {
+				"tableName": "2.2.2  能源节点",
+				"nameAlias": "能源节点",
+				"tableFormat": "T_PM_ENNODE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"bizType":"energyMng",
+				"hide": "true",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/enNodes"
+			},
+			"T_PM_BIZORG_MAIN": {
+				"tableName": "1 多业务组织层次(业务域)",
+				"nameAlias": "多业务组织层次(业务域)",
+				"tableFormat": "T_PM_BIZORG_MAIN.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/bizorgMains"
+			},
+			"T_PM_BIZORG_DTL": {
+				"tableName": "2 多业务组织层次明细",
+				"nameAlias": "多业务组织层次明细",
+				"tableFormat": "T_PM_BIZORG_DTL.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"tree": true,
+				"hide": "true",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/bizorgDtls"
+			},
+			"busiMol": {
+				"tableName": "2  业务模型管理",
+				"thirds": {
+					"busiArea": {
+						"tableName": "2.1 物料管理",
+						"fourth": {
+							"T_PM_UNITAREA": {
+								"tableName": "2.1.1  装置界区",
+								"nameAlias": "装置界区",
+								"tableFormat": "T_PM_UNITAREA.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "shortDes",
+								"bizType":"busiArea",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/unitAreas"
+							},
+							"T_PM_UNITAREAREL": {
+								"tableName": "2.1.2  装置界区与装置关系",
+								"nameAlias": "装置界区与装置关系",
+								"tableFormat": "T_PM_UNITAREAREL.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "shortDes",
+								"bizType":"busiArea",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/unitAreaRels"
+							}
+						}
+					},
+					"energyMng": {
+						"tableName": "2.2 能源管理",
+						"fourth": {
+
+							"T_PM_ENPIPENET": {
+								"tableName": "2.2.1  能源管网",
+								"nameAlias": "能源管网",
+								"tableFormat": "T_PM_ENPIPENET.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "shortDes",
+								"bizType":"energyMng",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/enPipeNets"
+							},
+							"T_PM_ENNODE": {
+								"tableName": "2.2.2  能源节点",
+								"nameAlias": "能源节点",
+								"tableFormat": "T_PM_ENNODE.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "shortDes",
+								"bizType":"energyMng",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/enNodes"
+							}
+						}
+					}
+				}
+			},
+			"T_IC_SIMPLE_NODE_MAP": {
+				"tableName": "3 采样点与节点对象关联",
+				"nameAlias": "采样点与节点对象关联",
+				"tableFormat": "T_IC_SIMPLE_NODE_MAP.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/simpleNodeMaps"
+			},
+			"T_IC_NODETOP_MAIN": {
+				"tableName": "4.1 拓扑关系",
+				"nameAlias": "拓扑关系",
+				"tableFormat": "T_IC_NODETOP_MAIN.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/nodeTopMains"
+			},
+			"T_IC_NODETOP_DTL": {
+				"tableName": "4.2 拓扑关系明细",
+				"nameAlias": "拓扑关系明细",
+				"tableFormat": "T_IC_NODETOP_DTL.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/nodeTopDtls"
+			},
+			"T_PM_ASSOCIATIVE": {
+				"tableName": "5 节点物料关联",
+				"nameAlias": "节点物料关联",
+				"tableFormat": "T_PM_ASSOCIATIVE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/associatives"
+			},
+			"T_PM_POSITIONORG": {
+				"tableName": "6 岗位与组织机构关联",
+				"nameAlias": "岗位与组织机构关联",
+				"tableFormat": "T_PM_POSITIONORG.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/positionOrgs"
+			},
+			"T_PM_USERPOSITION": {
+				"tableName": "7 用户与岗位关联",
+				"nameAlias": "用户与岗位关联",
+				"tableFormat": "T_PM_USERPOSITION.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/userPositions"
+			}
+		}
+	},
+	"Msr": {
+		"navName": "计量模型",
+		"rows": {
+			"T_IC_CNFG_BASE": {
+				"tableName": "1.1 罐量计算基础配置",
+				"nameAlias": "罐量计算基础配置",
+				"tableFormat": "T_IC_CNFG_BASE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/cnfgBases"
+			},
+			"T_IC_CNFG_TANK": {
+				"tableName": "1.2 罐量计算单罐配置",
+				"nameAlias": "罐量计算单罐配置",
+				"tableFormat": "T_IC_CNFG_TANK.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/cnfgTanks"
+			},
+			"T_IC_LIE_CUBA": {
+				"tableName": "2 卧罐罐容",
+				"nameAlias": "卧罐罐容",
+				"tableFormat": "T_IC_LIE_CUBA.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/lieCubas"
+			},
+			"T_IC_GLB_CUBA": {
+				"tableName": "3 球罐罐容",
+				"nameAlias": "球罐罐容",
+				"tableFormat": "T_IC_GLB_CUBA.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/glbCubas"
+			},
+			"T_IC_STDDM_CUAB": {
+				"tableName": "4.1 立罐分米(厘米)",
+				"nameAlias": "立罐分米(厘米)",
+				"tableFormat": "T_IC_STDDM_CUAB.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/stddmCubas"
+			},
+			"T_IC_STDCMMM_CUAB": {
+				"tableName": "4.2 立罐厘米(毫米)",
+				"nameAlias": "立罐厘米(毫米)",
+				"tableFormat": "T_IC_STDCMMM_CUAB.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/stdcmmmCubas"
+			},
+			"T_IC_STD_SEC": {
+				"tableName": "4.3 立罐区间",
+				"nameAlias": "立罐区间",
+				"tableFormat": "T_IC_STD_SEC.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/stdSecs"
+			},
+			"T_IC_FLTPER_CUAB": {
+				"tableName": "4.4 立罐浮前罐容",
+				"nameAlias": "立罐浮前罐容",
+				"tableFormat": "T_IC_FLTPER_CUAB.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/fltPerCuabs"
+			},
+			"T_IC_STDPRES_COEF": {
+				"tableName": "4.5 立罐静压修正",
+				"nameAlias": "立罐静压修正",
+				"tableFormat": "T_IC_STDPRES_COEF.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/stdpresCoefs"
+			},
+			"T_IC_SPCL_CUBA": {
+				"tableName": "5 简易罐容",
+				"nameAlias": "简易罐容",
+				"tableFormat": "T_IC_SPCL_CUBA.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/spclCuabs"
+			},
+			"T_IC_TEMPDEN": {
+				"tableName": "6.1 温度标准密度",
+				"nameAlias": "温度标准密度",
+				"tableFormat": "T_IC_TEMPDEN.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/tempDens"
+			},
+			"T_IC_TEMPCONDEN": {
+				"tableName": "6.2 温度浓度标准密度",
+				"nameAlias": "温度浓度标准密度",
+				"tableFormat": "T_IC_TEMPCONDEN.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/tempConDens"
+			},
+			"T_IC_DENMOD_VAL": {
+				"tableName": "6.3 空气密度修正值",
+				"nameAlias": "空气密度修正值",
+				"tableFormat": "T_IC_DENMOD_VAL.json",
+				"parent": "none",
+				"isShowSearch": false,
+				"desType": "shortDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/airDenModVals"
+			},
+			"T_IC_DENMOD_COEF": {
+				"tableName": "6.4 空气密度修正系数",
+				"nameAlias": "空气密度修正系数",
+				"tableFormat": "T_IC_DENMOD_COEF.json",
+				"parent": "none",
+				"isShowSearch": false,
+				"desType": "shortDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/airDenModCoefs"
+			},
+			"T_IC_TEMPPREDEN": {
+				"tableName": "6.5 温度压力标准密度",
+				"nameAlias": "温度压力标准密度",
+				"tableFormat": "T_IC_TEMPPREDEN.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/temppredens"
+			},
+			"T_IC_LIQPROD_COEF": {
+				"tableName": "7.1 液化产品系数",
+				"nameAlias": "液化产品系数",
+				"tableFormat": "T_IC_LIQPROD_COEF.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/liqprodCoefs"
+			},
+			"T_IC_CUBATEMP_COEF": {
+				"tableName": "7.2 液化产品系数(体积温度)",
+				"nameAlias": "液化产品系数(体积温度)",
+				"tableFormat": "T_IC_CUBATEMP_COEF.json",
+				"parent": "none",
+				"isShowSearch": false,
+				"desType": "shortDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/cubaTempCoefs"
+			},
+			"T_IC_PIPENETTNK_COEF": {
+				"tableName": "8 管网罐系数",
+				"nameAlias": "管网罐系数",
+				"tableFormat": "T_IC_PIPENETTNK_COEF.json",
+				"parent": "none",
+				"isShowSearch": false,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/pipenettnks"
+			},
+			"T_IC_VCF": {
+				"tableName": "9 VCF",
+				"nameAlias": "VCF",
+				"tableFormat": "T_IC_VCF.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/vcfs"
+			},
+			"T_IC_TANKMEAS": {
+				"tableName": "10 罐计量 ",
+				"nameAlias": "罐计量",
+				"tableFormat": "T_IC_TANKMEAS.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"hide": true,
+				"url": "/tankmeas"
+			},
+			"T_IC_MTRLMOLAR": {
+				"tableName": "11 物料摩尔系数 ",
+				"nameAlias": "物料摩尔系数",
+				"tableFormat": "T_IC_MTRLMOLAR.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/mtrlMolars"
+			},
+			"T_IC_GLBPRECOEF": {
+				"tableName": "12 球罐压力系数",
+				"nameAlias": "球罐压力系数",
+				"tableFormat": "T_IC_GLBPRECOEF.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"hide": false,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/glbPreCoefs"
+			},
+			"T_IC_MTRLVCF": {
+				"tableName": "13 物料温度对应VCF",
+				"nameAlias": "物料温度对应VCF",
+				"tableFormat": "T_IC_MTRLVCF.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"hide": false,
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/mtrlVcfs"
+			},
+			"T_IC_STANDEN": {
+				"tableName": "14 标准密度",
+				"nameAlias": "标准密度",
+				"tableFormat": "T_IC_STANDEN.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/stanDens"
+			},
+			"T_IC_STANGASDEN": {
+				"tableName": "15 标准气体密度",
+				"nameAlias": "标准气体密度",
+				"tableFormat": "T_IC_STANGASDEN.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/stangasdens"
+			},
+			"T_IC_MTRLFORMCNFG": {
+				"tableName": "16 料仓物料罐量计算公式",
+				"nameAlias": "料仓物料罐量计算公式",
+				"tableFormat": "T_IC_MTRLFORMCNFG.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/mtrlFormCnfgs"
+			},
+			"T_IC_DELTCNFG": {
+				"tableName": "17 罐量计算默认配置",
+				"nameAlias": "罐量计算默认配置",
+				"tableFormat": "T_IC_DELTCNFG.json",
+				"parent": "none",
+				"isShowSearch": false,
+				"desType": "shortDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/deltcnfgs"
+			},
+			"T_IC_TANKCNFG": {
+				"tableName": "18 单罐配置",
+				"nameAlias": "单罐配置",
+				"tableFormat": "T_IC_TANKCNFG.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/tankCnfgs"
+			},
+			"T_OPM_OPEINDEX": {
+				"tableName": "19.1 操作指标",
+				"nameAlias": "操作指标",
+				"tableFormat": "T_OPM_OPEINDEX.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/opeindexs"
+			},
+			"T_OPM_CRAFTSCHEME": {
+				"tableName": "19.2 工艺方案",
+				"nameAlias": "工艺方案",
+				"tableFormat": "T_OPM_CRAFTSCHEME.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/craftschemes"
+			},
+			"T_OPM_MONLEVEL": {
+				"tableName": "19.3 监控级别 ",
+				"nameAlias": "监控级别",
+				"tableFormat": "T_OPM_MONLEVEL.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/monLevels"
+			},
+			"T_OPM_DEUPDOWNLIMIT": {
+				"tableName": "19.4 默认上下限",
+				"nameAlias": "默认上下限",
+				"tableFormat": "T_OPM_DEUPDOWNLIMIT.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/deUpDownLimits"
+			},
+			"T_OPM_STAALGRCONF": {
+				"tableName": "19.5 操作平稳率计算配置",
+				"nameAlias": "操作平稳率计算配置",
+				"tableFormat": "T_OPM_STAALGRCONF.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/staAlgrConfs"
+			},
+			"T_OPM_STAALGRCONFITEM": {
+				"tableName": "19.6 操作平稳率计算配置项",
+				"nameAlias": "操作平稳率计算配置项",
+				"tableFormat": "T_OPM_STAALGRCONFITEM.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/staalgrConfitems"
+			},
+			"T_PM_UNITALARM": {
+				"tableName": "19.7 装置告警",
+				"nameAlias": "装置告警",
+				"tableFormat": "T_PM_UNITALARM.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/unitAlarms"
+			}
+		}
+	},
+	"Use": {
+		"navName": "用户管理",
+		"rows": {
+			"T_PM_OUMORGUNIT": {
+				"tableName": "1 OUM机构单元",
+				"nameAlias": "OUM机构单元",
+				"tableFormat": "T_PM_OUMORGUNIT.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/oumOrgUnits"
+			},
+			"T_PM_OUMUSER": {
+				"tableName": "2 OUM用户",
+				"nameAlias": "OUM用户",
+				"tableFormat": "T_PM_OUMUSER.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/oumUsers"
+			},
+			"T_PM_USER": {
+				"tableName": "3 用户",
+				"nameAlias": "用户",
+				"tableFormat": "T_PM_USER.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/users"
+			},
+			"T_PM_TEAMANDUSER": {
+				"tableName": "4 班组用户关联",
+				"nameAlias": "班组用户关联",
+				"tableFormat": "T_PM_TEAMANDUSER.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/teamAndUsers"
+			},
+			"T_PM_CALENDARANDRENT": {
+				"tableName": "5 班次日历服务配置",
+				"nameAlias": "班次日历服务配置",
+				"tableFormat": "T_PM_CALENDARANDRENT.json",
+				"parent": "none",
+				"hide": "true",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"url": "/calendarAndRents"
+			}
+		}
+	},
+	"Sys": {
+		"navName": "系统管理",
+		"rows": {
+			"T_PM_RENT": {
+				"tableName": "1 租户配置",
+				"nameAlias": "租户配置",
+				"tableFormat": "T_PM_RENT.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"tree": true,
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/rents"
+			},
+			"T_SYSTEM_RESOURCE": {
+				"tableName": "2.1 资源配置",
+				"nameAlias": "资源配置",
+				"tableFormat": "T_SYSTEM_RESOURCE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "middleDes",
+				"tree": true,
+				"hide": "true",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/systemResources"
+			},
+			"T_SYSTEM_RECIPIENT": {
+				"tableName": "2.2 应用管理",
+				"nameAlias": "应用管理",
+				"tableFormat": "T_SYSTEM_RECIPIENT.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"tree": true,
+				"hide": "true",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/systemRecipients"
+			},
+			"T_SYSTEM_MESSAGECONFIG": {
+				"tableName": "2.3 应用资源关联",
+				"nameAlias": "应用资源关联",
+				"tableFormat": "T_SYSTEM_MESSAGECONFIG.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"tree": true,
+				"hide": "true",
+				"authPropertyValue": "FMS_DictModify",
+				"url": "/systemMessageConfigs"
+			},
+			"message": {
+				"tableName": "2 消息管理",
+				"thirds": {
+					"T_SYSTEM_RESOURCE": {
+						"tableName": "2.1 资源配置",
+						"nameAlias": "资源配置",
+						"tableFormat": "T_SYSTEM_RESOURCE.json",
+						"parent": "none",
+						"isShowSearch": true,
+						"desType": "middleDes",
+						"tree": true,
+						"authPropertyValue": "FMS_DictModify",
+						"url": "/systemResources"
+					},
+					"T_SYSTEM_RECIPIENT": {
+						"tableName": "2.2 应用管理",
+						"nameAlias": "应用管理",
+						"tableFormat": "T_SYSTEM_RECIPIENT.json",
+						"parent": "none",
+						"isShowSearch": true,
+						"desType": "shortDes",
+						"tree": true,
+						"authPropertyValue": "FMS_DictModify",
+						"url": "/systemRecipients"
+					},
+					"T_SYSTEM_MESSAGECONFIG": {
+						"tableName": "2.3 应用资源关联",
+						"nameAlias": "应用资源关联",
+						"tableFormat": "T_SYSTEM_MESSAGECONFIG.json",
+						"parent": "none",
+						"isShowSearch": true,
+						"desType": "longDes",
+						"tree": true,
+						"authPropertyValue": "FMS_DictModify",
+						"url": "/systemMessageConfigs"
+					}
+				}
+			}
+		}
+	}
+}
+
+

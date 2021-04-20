@@ -1,0 +1,40 @@
+<div style="width: 100%;height: 100%;">
+	<div class="col-md-12" style="margin: 0;padding: 0;">
+		<div class="row" style="overflow: auto;">
+			<div class="col-md-2" style="padding: 0;">
+				<nav class="navbar navbar-default leftSide">
+					<ul style="padding: 0;margin: 0;" id="sideLeft">
+						<li role="presentation" ng-repeat="(key1,value1) in datas">
+							<a  class="tableType" style="cursor: pointer" ng-bind="value1.navName" ng-click="colums1OnClick(key1,showKey1)" ng-class="{active: key1==showKey1}">
+							</a>
+							<ul class="sub-menu">
+								<li ng-repeat="(key2,value2) in value1.rows" ng-if="!value2.hide&&key1==showKey1&&showFlag1==true">
+									<!--value2.thirds如果当前菜单有下一级路由不用传参，反之-->
+									<a class="tableTitle" ng-if="value2.thirds" ng-bind="value2.tableName" style="cursor: pointer" ng-click="colums2OnClick(key2,showKey2)" ng-class="{active: key2==showKey2}"></a>
+									<a class="tableTitle" ng-if="!value2.thirds" ui-sref="app.uiGrid({id:key2})" ng-bind="value2.tableName" style="cursor: pointer" ng-click="colums2OnClick(key2,showKey2)" ng-class="{active: key2==showKey2}"></a>
+									<ul class="sub-menu">
+										<li ng-repeat="(key3,value3) in value2.thirds" ng-if="!value3.hide&&key2==showKey2&&showFlag2==true">
+											<!--同上-->
+											<a class="tableTitle" ng-if="!value3.fourth" ui-sref="app.uiGrid({id:key3})" ng-bind="value3.tableName" style="cursor: pointer" ng-click="colums3OnClick(key3,showKey3)" ng-class="{active: key3==showKey3}"></a>
+											<a class="tableTitle" ng-if="value3.fourth"  ng-bind="value3.tableName" style="cursor: pointer" ng-click="colums3OnClick(key3,showKey3)" ng-class="{active: key3==showKey3}"></a>
+											<ul class="sub-menu">
+												<li ng-repeat="(key4,value4) in value3.fourth" ng-if="!value4.hide&&key3==showKey3&&showFlag3==true">
+													<a class="tableTitle" ng-bind="value4.tableName" ui-sref="app.uiGrid({id:key4})"  style="cursor: pointer"></a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+				<div>
+					<div class="table-footer text-right" style="margin-right: 15px;">
+						<span>版本号:&nbsp;v4.9.2</span></div>
+				</div>
+			</div>
+			<div ui-view class="col-md-10"></div>
+		</div>
+	</div>
+</div>

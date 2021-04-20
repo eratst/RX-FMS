@@ -1,0 +1,276 @@
+{
+	"alterKey": "enNodeCode",
+	"nodeC":"bizCode",
+	"attribute": {
+		
+		"enNodeCode": {
+			"display": "能源节点编码",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130"
+		},
+		"enNodeName": {
+			"display": "能源节点名称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "180"
+		},
+		"enNodeAlias": {
+			"display": "能源节点简称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130"
+		},
+		"enNodeTypeCode": {
+			"display": "能源节点类型编码",
+			"type": "string",
+			"required": true,
+			"hide": true,
+			"inOut": true,
+			"class": "left"
+		},
+		"enNodeTypeName": {
+			"display": "能源节点类型",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left" ,
+			"width": "100",
+			"parentModel": "T_PM_ENNODETYPE",
+			"linkKeys": {
+				"enNodeTypeCode": "enNodeTypeCode",
+				"enNodeTypeName": "enNodeTypeName"
+			}
+		},
+		"ywUnitAlias": {
+			"display": "虚拟装置简称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left" ,
+			"width": "130",
+			"parentModel": "T_PM_YWUNIT2",
+			"linkKeys": {
+				"ywUnitCode": "ywUnitCode",
+				"ywUnitName": "ywUnitName",
+				"ywUnitAlias": "ywUnitAlias"
+			},
+			"proUpdate": {
+				"show": true,
+				"edit": false
+			}
+		},
+		"ywUnitName": {
+			"display": "虚拟装置名称",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false,
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"ywUnitCode": {
+			"display": "虚拟装置编码",
+			"type": "string",
+			"required": true,
+			"hide": true,
+			"inOut": true,
+			"class": "left"
+		},
+		"netCode": {
+			"display": "能源管网编码",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"parentModel": "T_PM_ENPIPENET",
+			"linkKeys": {
+				"netCode": "netCode",
+				"netName": "netName",
+				"netId":"netId"
+			},
+			"proUpdate": {
+				"show": true,
+				"edit": false
+			}
+		},
+		"netName": {
+			"display": "能源管网名称",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"width": "130",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"bizCode": {
+			"display": "业务域",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"dropBiz": true,
+				"proAdd": {
+				"show": true,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": true,
+				"edit": false
+			}
+		},
+		"formula": {
+			"display": "计量公式",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "220"
+		},
+		"dataStatus": {
+			"display": "是否启用",
+			"type": "boolean",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "center",
+			"width": "70"
+		},
+		"sortNum": {
+			"display": "排序",
+			"type": "number",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "50",
+			"class": "right"
+		},
+		"crtUserId": {
+			"display": "创建人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"crtUserName": {
+			"display": "创建人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "left",
+			"width": "70",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"crtDate": {
+			"display": "创建时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "center",
+			"width": "150",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntUserId": {
+			"display": "最后维护人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"mntUserName": {
+			"display": "维护人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "left",
+			"width": "70",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntDate": {
+			"display": "维护时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "center",
+			"width": "150",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"version": {
+			"display": "乐观锁版本",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"des": {
+			"display": "描述",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "180"
+		}
+	}
+}
