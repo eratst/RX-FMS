@@ -19,7 +19,7 @@ public class UnitType implements Serializable {
 	private String unitTypeCode;
 	
 	@Column(name="UNITTYPE_NAME")
-	private String unitTyprName;
+	private String unitTypeName;
 	
 	@Column(name="DES")
 	private String des;
@@ -113,11 +113,11 @@ public class UnitType implements Serializable {
 	public void setUnitTypeCode(String unitTypeCode) {
 		this.unitTypeCode = unitTypeCode;
 	}
-	public String getUnitTyprName() {
-		return unitTyprName;
+	public String getUnitTypeName() {
+		return unitTypeName;
 	}
-	public void setUnitTyprName(String unitTyprName) {
-		this.unitTyprName = unitTyprName;
+	public void setUnitTypeName(String unitTypeName) {
+		this.unitTypeName = unitTypeName;
 	}
 	public String getDes() {
 		return des;

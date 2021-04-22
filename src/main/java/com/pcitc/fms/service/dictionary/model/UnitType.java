@@ -16,7 +16,7 @@ public class UnitType  extends BaseResRep implements Serializable {
 	
 	private Long unitTypeId;
 	private String unitTypeCode;
-	private String unitTyprName;
+	private String unitTypeName;
 	private String des;
 	private Integer sortNum;
 	private Integer version;
@@ -89,11 +89,11 @@ public class UnitType  extends BaseResRep implements Serializable {
 	public void setUnitTypeCode(String unitTypeCode) {
 		this.unitTypeCode = unitTypeCode;
 	}
-	public String getUnitTyprName() {
-		return unitTyprName;
+	public String getUnitTypeName() {
+		return unitTypeName;
 	}
-	public void setUnitTyprName(String unitTyprName) {
-		this.unitTyprName = unitTyprName;
+	public void setUnitTypeName(String unitTypeName) {
+		this.unitTypeName = unitTypeName;
 	}
 	public String getDes() {
 		return des;

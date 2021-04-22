@@ -471,4 +471,34 @@ public  interface AreaNodeBasicSql {
 				+ "capacityUnit.crtUserCode, capacityUnit.crtUserName, capacityUnit.crtDate, capacityUnit.mntUserCode, capacityUnit.mntUserName, "
 				+ "capacityUnit.mntDate) from CapacityUnit capacityUnit where 1=1 ";
 
+    //装置界区
+    static final String unitarea = "select new UnitArea(unitArea.unitAreaId,unitArea.unitAreaCode,unitArea.unitAreaName,"
+            + "unitArea.unitAreaAlias,unitArea.orgId,org.orgCode,org.orgName,org.orgAlias,org.crtUserId,org.crtUserName,"
+            + "org.crtDate,org.mntUserId,org.mntUserName,org.mntDate,unitArea.dataStatus,unitArea.sortNum,unitArea.des,unitArea.version,"
+            + "unitArea.bizId,biz.bizCode) "
+            + " from UnitArea unitArea,Org org, BizorgMain biz "
+            + " where unitArea.orgId = org.orgId and unitArea.bizId=biz.bizId ";
+
+    //能源管网
+    static final String enPipeNet = "select new EnPipeNet(enpipenet.netId,enpipenet.netCode,enpipenet.netName,"
+            + "enpipenet.netAlias,enpipenet.upperNetCode,enpipenet.mtrlId,material.mtrlCode,material.mtrlName,"
+            + "enpipenet.orgId,org.orgCode,org.orgName,org.orgAlias,org.crtUserId,org.crtUserName,org.crtDate,"
+            + "org.mntUserId,org.mntUserName,org.mntDate,enpipenet.dataStatus,enpipenet.sortNum,enpipenet.des,"
+            + "enpipenet.version,enpipenet.bizId,biz.bizCode) "
+            + " from EnPipeNet enpipenet,Material material,Org org, BizorgMain biz "
+            + " where enpipenet.mtrlId = material.mtrlId and enpipenet.orgId = org.orgId and enpipenet.bizId=biz.bizId ";
+
+    //业务装置
+    static final String ywUnit = "select new YwUnit(ywUnit.ywUnitId,ywUnit.ywUnitCode,ywUnit.ywUnitName,"
+            + "ywUnit.ywUnitAlias,ywUnit.unitTypeId,unitType.unitTypeName,ywUnit.technicId,technic.technicName,"
+            + "ywUnit.orgId,org.orgCode,org.orgName,org.orgAlias,org.crtUserId,org.crtUserName,org.crtDate,"
+            + "org.mntUserId,org.mntUserName,org.mntDate,ywUnit.bizId,biz.bizCode,"
+            + "ywUnit.capacity,ywUnit.initialAssetValue,ywUnit.netAssetValue,ywUnit.dataStatus,ywUnit.sortNum,ywUnit.des,"
+            + "ywUnit.version,ywUnit.capacityUnitId,case when ywUnit.capacityUnitId is NULL then '' else " +
+            "(select capacityUnit.capacityUnitName from CapacityUnit capacityUnit where ywUnit.capacityUnitId = capacityUnit.capacityUnitId) end) "
+            + " from YwUnit ywUnit,Org org, BizorgMain biz ,UnitType unitType,Technic technic "
+            + " where ywUnit.orgId = org.orgId and ywUnit.bizId = biz.bizId and ywUnit.unitTypeId=unitType.unitTypeId "
+            + "and ywUnit.technicId=technic.technicId ";
+
+
 }
