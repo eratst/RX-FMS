@@ -925,11 +925,13 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				var bizUrl = '/bizs/' + $scope.gridApi.selection.getSelectedRows()[i][tableType.nodeC]
 				var upUrl
 				if (tableType.jsonObj.hasOwnProperty("bizType")) {
-					upUrl = bizUrl + jsonObj.url + singleCodeUrl
+					if (tableType.jsonObj.key == "T_PM_UNITAREAREL") {
+						upUrl = bizUrl + jsonObj.url + tripleCodeUrl
+					} else{
+						upUrl = bizUrl + jsonObj.url + singleCodeUrl
+					}
 				} else if (tableType.jsonObj.key == "T_SYSTEM_MESSAGECONFIG") {
 					upUrl = jsonObj.url + tripleCodeUrl
-				} else if (tableType.jsonObj.key == "T_PM_UNITAREAREL") {
-					upUrl = bizUrl + jsonObj.url + tripleCodeUrl
 				} 
 				else if(tableType.jsonObj.key == "T_PM_MEASINDEX"){
 					upUrl = $scope.measIndex ? jsonObj.url +singleCodeUrl+'?ofMeasindexType=1' :jsonObj.url +singleCodeUrl+ '?ofMeasindexType=0';
@@ -1367,7 +1369,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			$scope.main.vfunc.onclick.importEnsure = function() {
 				var alterKey = $scope.main.vMember.sapc.tableType.alterKey;
 				var nodeA, nodeB, nodeC, nodeD, nodeM, nodeS;
-				if (jsonObj.key == 'T_PM_ASSOCIATIVE') {
+				if (jsonObj.key == 'T_PM_ASSOCIATIVE'||jsonObj.key == "T_SYSTEM_MESSAGECONFIG"||jsonObj.key == "T_PM_UNITAREAREL") {
 					nodeA = $scope.main.vMember.sapc.tableType.nodeA;
 					nodeB = $scope.main.vMember.sapc.tableType.nodeB;
 				} else if (jsonObj.key == 'T_PM_BIZORG_DTL') {
@@ -1376,7 +1378,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				} else if (jsonObj.key == 'T_IC_SIMPLE_NODE_MAP') {
 					nodeM = $scope.main.vMember.sapc.tableType.nodeM;
 					nodeS = $scope.main.vMember.sapc.tableType.nodeS;
-				}
+				} 
 
 				$scope.imBtnDisable = true;
 				for (var i = 0; i < $scope.mTable.tableValue.length; i++) {
@@ -1432,7 +1434,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 					var tableType = $scope.main.vMember.sapc.tableType;
 				
 				//导入先查数据，数据库有数据走修改接口，无走新增
-					if (jsonObj.key == 'T_PM_ASSOCIATIVE') {
+					if (jsonObj.key == 'T_PM_ASSOCIATIVE'||jsonObj.key == "T_SYSTEM_MESSAGECONFIG") {
 						repeatUrl = viewGridProvider.httpPort() + jsonObj.url + '/' + $scope.mTable.tableValue[
 							i][nodeA] + '/' + $scope.mTable.tableValue[i][nodeB];
 					} else if (jsonObj.key == 'T_PM_BIZORG_DTL') {
@@ -1443,9 +1445,14 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 							i][nodeS] + '/' + $scope.mTable.tableValue[i][nodeM];
 					}else if(tableType.jsonObj.hasOwnProperty("bizType")){
 						bizUrl = '/bizs/' + obj[tableType.jsonObj.bizType]
-						repeatUrl = viewGridProvider.httpPort() + bizUrl + jsonObj.url + '/' + $scope.mTable.tableValue[
-							i][alterKey];
-					} else if(tableType.jsonObj.key == "T_PM_MEASINDEX"){
+					 	if (tableType.jsonObj.key == "T_PM_UNITAREAREL") {
+							repeatUrl = viewGridProvider.httpPort() + bizUrl + jsonObj.url + '/' + $scope.mTable.tableValue[
+								i][nodeA] + '/' + $scope.mTable.tableValue[i][nodeB];
+						}else{
+							repeatUrl = viewGridProvider.httpPort() + bizUrl + jsonObj.url + '/' + $scope.mTable.tableValue[
+								i][alterKey];
+						}
+					} else if(jsonObj.key == "T_PM_MEASINDEX"){
 						repeatUrl =$scope.measIndex ? viewGridProvider.httpPort() + jsonObj.url + '/' + $scope.mTable.tableValue[
 							i][alterKey] +'?ofMeasindexType=1':viewGridProvider.httpPort() + jsonObj.url + '/' + $scope.mTable.tableValue[
 							i][alterKey]+'?ofMeasindexType=1';
@@ -1472,14 +1479,17 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				viewGridProvider.httpCommit(repeatUrl).then(function success(res) {
 					var tableType = $scope.main.vMember.sapc.tableType;
 					let obj={
-					"busiArea":'fms_mtrl',
-					"energyMng":'fms_ener'
-				}
-					var bizUrl;
+						"busiArea":'fms_mtrl',
+						"energyMng":'fms_ener'
+					}
+					var bizUrl = '/bizs/' + obj[tableType.jsonObj.bizType]
+					var tripleCodeUrl = '?' + tableType.nodeA + '=' + $scope.nodeA + '&' + tableType.nodeB + '=' +
+					$scope.nodeB
 					console.log('ressss', res)
 					if ((alterValue || nodeAValve || nodeCValve || nodeSValve) && res.data.collection.items
 						.length == 1) {
 						var putUrl;
+
 						if (jsonObj.key == 'T_PM_ASSOCIATIVE') {
 							putUrl = jsonObj.url + '/' + nodeAValve + '/' + nodeBValve;
 						} else if (jsonObj.key == 'T_PM_BIZORG_DTL') {
@@ -1487,18 +1497,22 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 						} else if (jsonObj.key == 'T_IC_SIMPLE_NODE_MAP') {
 							putUrl = jsonObj.url + '/' + nodeSValve + '/' + nodeMValve;
 						}else if(tableType.jsonObj.hasOwnProperty("bizType")){
-							bizUrl = '/bizs/' + obj[tableType.jsonObj.bizType]
-							putUrl = bizUrl + jsonObj.url + '/' +  alterValue
+							  if (tableType.jsonObj.key == "T_PM_UNITAREAREL") {
+								putUrl = bizUrl + jsonObj.url + tripleCodeUrl
+							}else{
+								putUrl = bizUrl + jsonObj.url + '/' +  alterValue
+							}
 						} else if(tableType.jsonObj.key == "T_PM_MEASINDEX"){
 							putUrl =$scope.measIndex ? jsonObj.url+ '/' + alterValue +'?ofMeasindexType=1' :jsonObj.url + '/' + alterValue+ '?ofMeasindexType=0';
-						}else {
+						} else if (tableType.jsonObj.key == "T_SYSTEM_MESSAGECONFIG") {
+							putUrl = jsonObj.url + '?' + tableType.nodeA + '=' + nodeAValve + '&' + tableType.nodeB + '=' + nodeBValve
+						} else {
 							putUrl = jsonObj.url + '/' + alterValue;
 						}
 						importPutData(index, importJson, putUrl)
 					} else {
 						var postUrl
 						if(tableType.jsonObj.hasOwnProperty("bizType")){
-							bizUrl = '/bizs/' + obj[tableType.jsonObj.bizType]
 							postUrl = bizUrl + jsonObj.url 
 						}else if(tableType.jsonObj.key == "T_PM_MEASINDEX"){
 							postUrl =$scope.measIndex ? jsonObj.url +'?ofMeasindexType=1' :jsonObj.url + '?ofMeasindexType=0';
