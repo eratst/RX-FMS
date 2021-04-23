@@ -1017,7 +1017,7 @@ public class ServiceVerticle extends AbstractVerticle {
 
         router.getWithRegex("/FactoryModelService/.*/SideLines").handler(sideLineHandler::getLinkSideLines);
         router.route("/FactoryModelService/orgs/:orgCode/:areaTypeCode/:areaCode/sideLines*").handler(BodyHandler.create());
-        // 度量指标
+        /*// 度量指标
         MeasurementHandler measurementHandler = (MeasurementHandler) context.getBean("measurementHandler");
         router.get("/FactoryModelService/measurements").handler(measurementHandler::getMeasurements);
         router.get("/FactoryModelService/nodeDictionaries/:nodeCode/measurements").handler(measurementHandler::getMeasurements);
@@ -1031,7 +1031,16 @@ public class ServiceVerticle extends AbstractVerticle {
         router.get("/FactoryModelService/rents/:rentCode/measurements/:idxCode").handler(measurementHandler::getMeasurements);
         router.get("/FactoryModelService/rents/:rentCode/nodeDictionaries/:nodeCode/measurements/:idxCode").handler(measurementHandler::getMeasurements);
         router.get("/FactoryModelService/rents/:rentCode/bizOrgMains/:bizCode/measurements/:idxCode").handler(measurementHandler::getMeasurements);
-        router.get("/FactoryModelService/rents/:rentCode/bizOrgMains/:bizCode/nodeDictionaries/:nodeCode/measurements/:idxCode").handler(measurementHandler::getMeasurements);
+        router.get("/FactoryModelService/rents/:rentCode/bizOrgMains/:bizCode/nodeDictionaries/:nodeCode/measurements/:idxCode").handler(measurementHandler::getMeasurements);*/
+
+        // [模型表]5 度量指标*
+        MeasurementHandler measurementHandler = (MeasurementHandler) context.getBean("measurementHandler");
+        router.get("/FactoryModelService/measurements/:idxCode").handler(measurementHandler::findMeasurements);
+        router.get("/FactoryModelService/measurements").handler(measurementHandler::findMeasurements);
+
+        router.get("/FactoryModelService/rents/:rentCode/measurements/:idxCode").handler(measurementHandler::findMeasurements);
+        router.get("/FactoryModelService/rents/:rentCode/measurements").handler(measurementHandler::findMeasurements);
+
         // 通过关联关系的度量指标
         // router.get("/FactoryModelService/relMeasurements").handler(measurementHandler::getRelMeasurements);
 

@@ -16,5 +16,7 @@ public @interface CheckField {
 	 public int StrLength () default 100;
 	 
 	 public String Explain() default "";
+
+    public boolean AllowNull() default false;
 	 
 }
