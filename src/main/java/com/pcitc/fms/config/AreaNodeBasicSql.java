@@ -500,5 +500,30 @@ public  interface AreaNodeBasicSql {
             + " where ywUnit.orgId = org.orgId and ywUnit.bizId = biz.bizId and ywUnit.unitTypeId=unitType.unitTypeId "
             + "and ywUnit.technicId=technic.technicId ";
 
+    // 装置与装置界区关系
+    public static final String unitAreaRel = "select new UnitAreaRel(unitAreaRel.unitAreaRelId, plant.plantId, plant.plantCode, area.areaName, unitArea.unitAreaId, "
+            + "unitArea.unitAreaCode, unitArea.unitAreaName,unitAreaRel.dataStatus, biz.crtUserId ,biz.crtUserName,biz.crtDate,biz.mntUserId, biz.mntUserName,"
+            + "biz.mntDate,unitAreaRel.sortNum, unitAreaRel.version,unitAreaRel.des, unitAreaRel.bizId, biz.bizCode)"
+            + "from UnitAreaRel unitAreaRel, Plant plant, Area area, UnitArea unitArea, BizorgMain biz "
+            + "where unitAreaRel.unitId = plant.plantId and area.areaId = plant.plantId and "
+            + "unitAreaRel.unitAreaId = unitArea.unitAreaId and unitAreaRel.bizId = biz.bizId";
+
+    //能源节点
+    public static final String enNode = "select new EnNode (enNode.enNodeId, enNode.enNodeCode, enNode.enNodeName, enNode.enNodeAlias, "
+    		+ "enNode.enNodeTypeId, enNodeType.enNodeTypeCode, enNodeType.enNodeTypeName, enNode.formula, enNode.ywUnitId, ywUnit.ywUnitCode, "
+    		+ "ywUnit.ywUnitName, ywUnit.ywUnitAlias, enNode.bizId, biz.bizCode, biz.crtUserId, biz.crtUserName, biz.crtDate, biz.mntUserId, "
+    		+ "biz.mntUserName, biz.mntDate, enNode.dataStatus, enNode.sortNum, enNode.des, enNode.version, enNode.netId, "
+    		+ "case when enNode.netId is NULL then '' else ( select enpipenet.netCode from EnPipeNet enpipenet where enNode.netId = enpipenet.netId ) end, "
+    		+ "case when enNode.netId is NULL then '' else ( select enpipenet.netName from EnPipeNet enpipenet where enNode.netId = enpipenet.netId ) end, "
+    		+ "case when enNode.netId is NULL then '' else ( select enpipenet.netAlias from EnPipeNet enpipenet where enNode.netId = enpipenet.netId ) end ) "
+    		+ "from EnNode enNode, EnNodeType enNodeType, YwUnit ywUnit, BizorgMain biz "
+    		+ "where enNode.enNodeTypeId = enNodeType.enNodeTypeId and ywUnit.ywUnitId = enNode.ywUnitId and enNode.bizId = biz.bizId";
+    
+    //能源节点类型
+    public static final String enNodeType = "select new EnNodeType (enNodeType.enNodeTypeId, enNodeType.enNodeTypeCode, enNodeType.enNodeTypeName, "
+    		+ "enNodeType.bizId, biz.bizCode, enNodeType.des, enNodeType.sortNum, enNodeType.inUse, enNodeType.version, enNodeType.crtUserId, "
+    		+ "enNodeType.crtUserName, enNodeType.crtDate, enNodeType.mntUserId, enNodeType.mntUserName, enNodeType.mntDate )"
+    		+ "from EnNodeType enNodeType, BizorgMain biz "
+    		+ "where enNodeType.bizId = biz.bizId";
 
 }
