@@ -24,92 +24,61 @@ public class Measurement extends BaseResRep implements Serializable {
     @ResourceMember(InTemplate = false)
     private Long idxId;
 
-    /**
-     * 节点ID
-     */
     @ResourceMember(InTemplate = false)
-    private Long nodeId;// 新增需要
+    private Long nodeId;
 
     @ResourceMember(InTemplate = false)
-    private Long areaId;// 新增需要
+    private Long areaId;
 
     @CheckField(CheckName = CheckNameType.NAMEMAYBENULL, StrLength = 80, Explain = "区域简称")
     @ResourceMember(InQueries = "condition", Name = "areaAlias")
     private String areaAlias;
 
-    /**
-     * 节点编码
-     */
-    @CheckField(CheckName = CheckNameType.CODE, StrLength = 50, Explain = "区域编码", AllowNull = true)
+    @CheckField(CheckName = CheckNameType.CODEMAYBENULL, StrLength = 50, Explain = "区域编码", AllowNull = true)
     @ResourceMember(InQueries = "condition", Name = "areaCode")
     private String areaCode;
 
-    @CheckField(CheckName = CheckNameType.NAME, StrLength = 80, Explain = "节点名称", AllowNull = true)
+    @CheckField(CheckName = CheckNameType.NAMEMAYBENULL, StrLength = 200, Explain = "节点名称", AllowNull = true)
     @ResourceMember(InQueries = "condition", Name = "areaName")
     private String areaName;
 
-    /**
-     * 节点类型编码
-     */
-//	@CheckField(CheckName = CheckNameType.CODE, StrLength = 50, Explain = "区域类型编码")
-    @ResourceMember(InQueries = "condition", Name = "areaTypeCode")
+    @CheckField(CheckName = CheckNameType.CODEMAYBENULL, StrLength = 80, Explain = "区域类型编码")
+    //@ResourceMember(InQueries = "condition", Name = "areaTypeCode")
     private String areaTypeCode;
 
-    /**
-     * 节点类型名称
-     */
-    @ResourceMember(InQueries = "condition", Name = "areaTypeName")
+    @CheckField(CheckName = CheckNameType.NAMEMAYBENULL, StrLength = 200, Explain = "区域类型名称")
+    //@ResourceMember(InQueries = "condition", Name = "areaTypeName")
     private String areaTypeName;
 
-    /**
-     * 节点简称
-     */
     @CheckField(CheckName = CheckNameType.NAMEMAYBENULL, StrLength = 80, Explain = "节点简称")
     @ResourceMember(InQueries = "condition", Name = "nodeAlias")
     private String nodeAlias;
 
-    /**
-     * 节点编码
-     */
-    @CheckField(CheckName = CheckNameType.CODE, StrLength = 50, Explain = "节点编码", AllowNull = true)
+    @CheckField(CheckName = CheckNameType.CODEMAYBENULL, StrLength = 50, Explain = "节点编码", AllowNull = true)
     @ResourceMember(InQueries = "condition", Name = "nodeCode")
     private String nodeCode;
 
-    @CheckField(CheckName = CheckNameType.NAME, StrLength = 80, Explain = "节点名称", AllowNull = true)
+    @CheckField(CheckName = CheckNameType.NAMEMAYBENULL, StrLength = 200, Explain = "节点名称", AllowNull = true)
     @ResourceMember(InQueries = "condition", Name = "nodeName")
     private String nodeName;
 
-    /**
-     * 节点类型编码
-     */
-//	@CheckField(CheckName = CheckNameType.CODE, StrLength = 50, Explain = "节点类型编码")
-    @ResourceMember(InQueries = "condition", Name = "nodeTypeCode")
+    @CheckField(CheckName = CheckNameType.CODEMAYBENULL, StrLength = 50, Explain = "节点类型编码")
+    //@ResourceMember(InQueries = "condition", Name = "nodeTypeCode")
     private String nodeTypeCode;
 
-    /**
-     * 节点类型名称
-     */
+    @CheckField(CheckName = CheckNameType.CODEMAYBENULL, StrLength = 200, Explain = "节点类型名称")
     /*@ResourceMember(InQueries = "condition", Name = "nodeTypeName")*/
     private String nodeTypeName;
 
-    /**
-     * 度量指标编码
-     */
     @CheckField(CheckName = CheckNameType.CODE, StrLength = 50, Explain = "度量指标编码")
     @ResourceMember(InQueries = "condition", Name = "idxCode")
     private String idxCode;
 
-    /**
-     * 度量指标名称
-     */
-    @CheckField(CheckName = CheckNameType.NAME, StrLength = 80, Explain = "度量指标名称")
+    @CheckField(CheckName = CheckNameType.NAME, StrLength = 200, Explain = "度量指标名称")
     @ResourceMember(InQueries = "condition", Name = "idxName")
     private String idxName;
 
-    /**
-     * 度量指标简称
-     */
-    @CheckField(CheckName = CheckNameType.NAME, StrLength = 80, Explain = "度量指标简称")
+    @CheckField(CheckName = CheckNameType.NAME, StrLength = 200, Explain = "度量指标简称")
     @ResourceMember(InQueries = "condition", Name = "idxAlias")
     private String idxAlias;
 
@@ -117,12 +86,12 @@ public class Measurement extends BaseResRep implements Serializable {
      * 度量指标类型
      */
     @ResourceMember(InTemplate = false)
-    private Long idxTypeId;// 新增需要
+    private Long idxTypeId;
 
     /**
      * 指标类型名称
      */
-    @CheckField(CheckName = CheckNameType.NAME, StrLength = 80, Explain = "指标类型名称")
+    @CheckField(CheckName = CheckNameType.NAME, StrLength = 200, Explain = "指标类型名称")
     @ResourceMember(InQueries = "condition", Name = "idxTypeName")
     private String idxTypeName;
 
@@ -143,77 +112,47 @@ public class Measurement extends BaseResRep implements Serializable {
      */
     @CheckField(CheckName = CheckNameType.NAME, StrLength = 80, Explain = "量纲简称")
     /*@ResourceMember(InQueries = "condition", Name = "dimensionAlias")*/
-    private String dimensionAlias; // 量纲名称
+    private String dimensionAlias;
 
     /**
      * 度量公式
      */
     @CheckField(CheckName = CheckNameType.SOURCEDATATYPE, Explain = "度量公式")
-    private String idxFormula;// 度量公式
+    private String idxFormula;
 
     /**
      * 源数据类型 SG8000,RTDB
      */
     private String sourceDataType;
 
-    /**
-     * 是否启用
-     */
     @CheckField(CheckName = CheckNameType.ENABLED, Explain = "是否启用")
     @ResourceMember(InQueries = "condition", Name = "inUse")
     private Integer inUse;
 
-    /**
-     * 创建人Id
-     */
     @CheckField(CheckName = CheckNameType.CODE, StrLength = 50, Explain = "创建人Id")
     private String crtUserId;
 
-    /**
-     * 创建人名称
-     */
     @CheckField(CheckName = CheckNameType.CREATOR, StrLength = 80, Explain = "创建人名称")
     private String crtUserName;
 
-    /**
-     * 创建时间
-     */
     @CheckField(CheckName = CheckNameType.CREATETIME, Explain = "创建时间")
     private Date crtDate;
 
-    /**
-     * 最后维护人Id
-     */
     @CheckField(CheckName = CheckNameType.CODE, StrLength = 50, Explain = "最后维护人Id")
     private String mntUserId;
 
-    /**
-     * 最后维护人名称
-     */
     @CheckField(CheckName = CheckNameType.EDITOR, StrLength = 80, Explain = "最后维护人名称")
     private String mntUserName;
 
-    /**
-     * 维护时间
-     */
     @CheckField(CheckName = CheckNameType.MAINTAINTIME, Explain = "维护时间")
     private Date mntDate;
 
-    /**
-     * 描述
-     */
     @CheckField(CheckName = CheckNameType.DES, StrLength = 200, Explain = "描述")
     private String des;
 
-    /**
-     * 排序
-     */
     @CheckField(CheckName = CheckNameType.SORTNUM, Explain = "排序")
     private Integer sortNum;
 
-    /**
-     * 乐观锁版本
-     */
     @CheckField(CheckName = CheckNameType.ID, Explain = "乐观锁版本")
     private Integer version;
 
@@ -237,7 +176,6 @@ public class Measurement extends BaseResRep implements Serializable {
 
     @ResourceMember(OnlyQuery = true)
     private String bizCode;
-
 
     public Measurement() {
         super();

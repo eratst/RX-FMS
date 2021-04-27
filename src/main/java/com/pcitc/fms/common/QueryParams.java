@@ -279,6 +279,19 @@ public class QueryParams {
 				field.set(obj, value);
 			}
 		}
+
+        if (supperFieldAnnotation.CheckName().equals(CheckNameType.CODEMAYBENULL)){
+            if (StringUtils.isNotEmpty(value)){
+                if (value.length() > 36) {
+                    throw new BusiException("", fieldName + "长度不能大于36");
+                } else if (!value.matches(VerifyUtil.regexForCode)) {
+                    throw new BusiException("", fieldName + "由数字、26个英文字母或者下划线组成");
+                } else {
+                    field.set(obj, value);
+                }
+            }
+        }
+
 		if (supperFieldAnnotation.CheckName().equals(CheckNameType.CODELIST)) {
 			List<String> codeList = CheckUtil.checkCodeList(value);
 			field.set(obj, codeList);
@@ -307,6 +320,20 @@ public class QueryParams {
 				}
 			}
 		}
+
+        if (supperFieldAnnotation.CheckName().equals(CheckNameType.NAMEMAYBENULL)) {
+            if (StringUtils.isNotEmpty(value)) {
+                if (value.length() > 50) {
+                    throw new BusiException("", fieldName + "长度不能大于50");
+                } else {
+                    if (!value.matches(VerifyUtil.NewregexForString)) {
+                        throw new BusiException("", fieldName + "由数字、26个英文字母或者汉字或者下划线组成");
+                    } else {
+                        field.set(obj, value);
+                    }
+                }
+            }
+        }
 		
 		if (supperFieldAnnotation.CheckName().equals(CheckNameType.UNITNAME)) {
 			if (value.length() > 50) {

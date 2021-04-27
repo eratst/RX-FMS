@@ -75,20 +75,6 @@ public interface AreaNodeBasicSql {
     /**
      * 度量指标
      */
-    public static final String measureMentsOfNode = "select new Measurement ( m.idxId, m.nodeId, n.nodeAlias,n.nodeCode,n.nodeName,"
-            + "nt.nodeTypeCode,nt.nodeTypeName,m.idxCode,m.idxName,m.idxAlias,m.idxTypeId,i.idxTypeName,m.dimensionId,"
-            + "m.exchangeRate,d.dimensionAlias,m.idxFormula,m.sourceDataType,m.inUse,m.crtUserId,m.crtUserName,m.crtDate,"
-            + "m.mntUserId,m.mntUserName,m.mntDate,m.des,m.sortNum,m.version,m.ofMeasindexType) "
-            + "from Measurement m, IdxType i, Dimension d, Node n, NodeType nt, Area area, Org org "
-            + "where m.idxTypeId = i.idxTypeId and m.dimensionId = d.dimensionId and m.nodeId = n.nodeId "
-            + "and n.nodeTypeId = nt.nodeTypeId and n.areaId = area.areaId and org.orgId = area.orgId ";
-    public static final String measureMentsOfArea = "select new Measurement (m.idxId,area.areaAlias,m.areaId,area.areaCode,"
-            + "area.areaName,areat.areaTypeCode,areat.areaTypeName,m.idxCode,m.idxName,m.idxAlias,m.idxTypeId,i.idxTypeName,"
-            + "m.dimensionId,m.exchangeRate,d.dimensionAlias,m.idxFormula,m.sourceDataType,m.inUse,m.crtUserId,m.crtUserName,"
-            + "m.crtDate,m.mntUserId,m.mntUserName,m.mntDate,m.des,m.sortNum,m.version,m.ofMeasindexType)"
-            + "from Measurement m,IdxType i,Dimension d,Area area,AreaType areat,Org org "
-            + "where m.idxTypeId = i.idxTypeId and m.dimensionId = d.dimensionId and m.areaId = area.areaId "
-            + "and area.areaTypeId = areat.areaTypeId and org.orgId = area.orgId ";
     public static final String measureMents = "select new Measurement (m.idxId,m.nodeId, "
             + "case when m.nodeId is NULL then '' else ( select n.nodeAlias from Node n where m.nodeId = n.nodeId ) end,"
             + "case when m.nodeId is NULL then '' else ( select n.nodeCode from Node n where m.nodeId = n.nodeId ) end,"

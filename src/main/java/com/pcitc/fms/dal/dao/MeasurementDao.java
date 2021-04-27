@@ -17,25 +17,14 @@ public interface MeasurementDao extends JpaRepository<Measurement, Integer>, Jpa
     @Transactional
     public Page<Measurement> findMeasurement(com.pcitc.fms.service.model.Measurement measurement, Pageable pageable);
 
-    @Transactional
-    public Page<Measurement> findMeasurementByNodes(com.pcitc.fms.service.model.Measurement measurement, Pageable pageable);
+    @Query(AreaNodeBasicSql.measureMents + " and m.idxCode = :idxCode ")
+    public List<Measurement> findMeasureMentByIdxCode(@Param("idxCode") String idxCode);
 
-    @Transactional
-    public Page<Measurement> findMeasurementByAreas(com.pcitc.fms.service.model.Measurement measurement, Pageable pageable);
-
-    /*@Query(AreaNodeBasicSql.measureMentsOfNode + " and m.idxCode = :idxCode ")
-    public List<Measurement> findMeasureMentByIdxCodeOfNode(@Param("idxCode") String idxCode);
-
-    @Query(AreaNodeBasicSql.measureMentsOfArea + " and m.idxCode = :idxCode ")
-    public List<Measurement> findMeasureMentByIdxCodeOfArea(@Param("idxCode") String idxCode);
-
-    @Query(AreaNodeBasicSql.measureMentsOfNode + " and m.idxCode = :idxCode and m.ofMeasindexType=:ofMeasindexType ")
-    public List<Measurement> findMeasureMentByIdxCodeOfNode(@Param("idxCode") String idxCode, @Param("ofMeasindexType") Integer ofMeasindexType);
-
-    @Query(AreaNodeBasicSql.measureMentsOfArea + " and m.idxCode = :idxCode and m.ofMeasindexType=:ofMeasindexType ")
-    public List<Measurement> findMeasureMentByIdxCodeOfArea(@Param("idxCode") String idxCode, @Param("ofMeasindexType") Integer ofMeasindexType);
+    @Query(AreaNodeBasicSql.measureMents + " and m.idxCode = :idxCode and m.ofMeasindexType=:ofMeasindexType ")
+    public List<Measurement> findMeasureMentByIdxCode(@Param("idxCode") String idxCode, @Param("ofMeasindexType") Integer ofMeasindexType);
 
     @Query("from Measurement where idxName = :idxName")
-    public List<Measurement> findMeasureMentByIdxName(@Param("idxName") String idxName);*/
+    public List<Measurement> findMeasureMentByIdxName(@Param("idxName") String idxName);
+
 
 }

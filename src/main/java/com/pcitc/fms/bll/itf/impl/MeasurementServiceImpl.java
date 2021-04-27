@@ -25,28 +25,7 @@ public class MeasurementServiceImpl implements MeasurementService {
     public Pager<Measurement> getMeasurements(com.pcitc.fms.service.model.Measurement measurement, Pageable pageable)
             throws Exception {
         Pager<Measurement> pageData = new Pager<>();
-        if (measurement.getOfMeasindexType() == null) {
-            if (measurement.getNodeName() != null || measurement.getNodeAlias() != null || measurement.getNodeCode() != null || measurement.getNodeTypeName() != null || measurement.getNodeTypeCode() != null) {
-                Page<Measurement> measurementPojoList = repo.findMeasurementByNodes(measurement, pageable);
-                getContent(pageData, measurementPojoList);
-            } else if (measurement.getAreaName() != null || measurement.getAreaAlias() != null || measurement.getAreaCode() != null || measurement.getAreaTypeName() != null || measurement.getAreaTypeCode() != null) {
-                Page<Measurement> measurementPojoList = repo.findMeasurementByAreas(measurement, pageable);
-                getContent(pageData, measurementPojoList);
-            } else {
-                Page<Measurement> measurementPojoList = repo.findMeasurement(measurement, pageable);
-                getContent(pageData, measurementPojoList);
-            }
-        } else if (measurement.getOfMeasindexType() == 0) {
-            Page<Measurement> measurementPojoList = repo.findMeasurementByNodes(measurement, pageable);
-            getContent(pageData, measurementPojoList);
-        } else if (measurement.getOfMeasindexType() == 1) {
-            Page<Measurement> measurementPojoList = repo.findMeasurementByAreas(measurement, pageable);
-            getContent(pageData, measurementPojoList);
-        }
-        return pageData;
-    }
-
-    private void getContent(Pager<Measurement> pageData, Page<Measurement> measurementPojoList) throws Exception {
+        Page<Measurement> measurementPojoList = repo.findMeasurement(measurement, pageable);
         List<Measurement> result = ObjectConverter.listConverter(measurementPojoList.getContent(), Measurement.class);
         pageData.setContent(result);
         pageData.setFirst(measurementPojoList.isFirst());
@@ -57,5 +36,6 @@ public class MeasurementServiceImpl implements MeasurementService {
         pageData.setSort(measurementPojoList.getSort());
         pageData.setTotalElements(measurementPojoList.getTotalElements());
         pageData.setTotalPages(measurementPojoList.getTotalPages());
+        return pageData;
     }
 }
