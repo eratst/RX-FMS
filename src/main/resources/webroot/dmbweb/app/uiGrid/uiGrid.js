@@ -59,6 +59,8 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			$scope.measIndex = false;
 			//度量指标按钮
 			$scope.measBtnShow = ($stateParams.id=='T_PM_MEASINDEX')
+			//装置界区详情按钮
+//			$scope.detailBtnShow = ($stateParams.id=='T_PM_UNITAREAREL')
 			//禁止罐量计算配置基础分类，分类参数，公式参数的增删改查导入按钮显示
 			$scope.BntShow = ($stateParams.id != 'T_IC_CNFG_CLASS_PARA') && ($stateParams.id !=
 				'T_IC_CNFG_CLASS') && ($stateParams.id != 'T_IC_CNFG_FORMULA_PARA');
@@ -1126,6 +1128,81 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 					.paginationPageSize);
 
 			}
+			
+			
+			
+			
+			/**
+			 * 详情按钮
+			 * ---------------------------------------详情开始------------------------------------------------------------
+			 */
+			/**
+			 * 点击详情初始化弹窗数据
+			 */
+//			$scope.alterValue = '';
+//			$scope.main.vfunc.onclick.detailButton = function(row) {
+//				row.isSelected = true;
+//				var tableType = $scope.main.vMember.sapc.tableType;
+//				var alterKey = tableType.alterKey;
+//				var nodeA = tableType.nodeA;
+//				var nodeB = tableType.nodeB;
+//				var nodeC = tableType.nodeC;
+//				$scope.alterValue = row.entity[alterKey]
+//				$scope.nodeA = row.entity[nodeA]
+//				$scope.nodeB = row.entity[nodeB]
+//				$scope.nodeC = row.entity[nodeC]
+//				//			console.log("当前行数据", row);
+//				for (let key in row.entity) {
+//					if (key == 'startTime' || key == 'birthday') {
+//						if (row.entity[key]) {
+//							let nowTimes = row.entity[key];
+//							var ymd = nowTimes.slice(0, 10); //获取数据库年月日
+//							row.entity[key] = new Date(ymd); //将数据库的时间格式转化为模态框显示格式
+//						}
+//					}
+//					if (key == 'isUseFormula') {
+//						$scope.flagIsFamula = (row.entity[key] == '否') ? true : false
+//					}
+//				}
+//				viewGridProvider.setPartFlag($scope.main.vMember.sapc.tableType,$scope.measIndex);
+//				viewGridProvider.initParentTable($scope.main.vMember.sapc.tableType, tableIndex);
+//				$scope.areaAlias = [];
+//				viewGridProvider.setDefalutValue($scope.main.vMember.sapc.tableType);
+//				var tableType=$scope.main.vMember.sapc.tableType;
+//				//单罐配置获取基础分类
+//				if (tableType.jsonObj.key == "T_IC_CNFG_TANK") {
+//					var tankType = tableType.attribute['tankTypeCode'].proUpdate.data;
+//					var url = viewGridProvider.getTableIndexJsonByKey(tableIndex, "T_IC_CNFG_CLASS").url;
+//					var areaUrl = localStorage.getItem('serverUrl') + url + '?' + 'tankType=' + tankType;
+//					setcnfgClass(areaUrl);
+//					//罐量计算基础配置获取基础分类
+//				} else if (tableType.jsonObj.key == "T_IC_CNFG_BASE") {
+//					var url = viewGridProvider.getTableIndexJsonByKey(tableIndex, "T_IC_CNFG_CLASS").url;
+//					var areaUrl = localStorage.getItem('serverUrl') + url;
+//					setcnfgClass(areaUrl);
+//					//班组用户关联获取用户
+//				} else if (tableType.jsonObj.key == "T_PM_TEAMANDUSER") {
+//					var orgAlias = tableType.attribute['userOrgAlias'].proUpdate.data;
+//					var url = viewGridProvider.getTableIndexJsonByKey(tableIndex, "T_PM_USER").url;
+//					var userUrl = localStorage.getItem('serverUrl') + url + '?' + 'orgAlias=' + orgAlias;
+//					setUserName(userUrl);
+//				}else if(tableType.jsonObj.key == "T_PM_MEASINDEX"){
+//					for(var key in tableType.attribute){
+//						if((key == "areaAlias"&&$scope.measIndex)||(key =="nodeAlias" && !$scope.measIndex)){
+//							tableType.attribute[key].proUpdate.show = true;
+//						}else if((key == "areaAlias"&& !$scope.measIndex)||(key =="nodeAlias" && $scope.measIndex)){
+//							tableType.attribute[key].proUpdate.show = false;
+//						}
+//					}
+//				}
+//				viewGridProvider.setUpdateData($scope.gridApi.selection.getSelectedRows()[0], $scope.main
+//					.vMember.sapc.tableType);
+//			}
+			
+			
+			
+			
+			
 			/**
 			 * ---------------------------------------修改结束------------------------------------------------------------
 			 */

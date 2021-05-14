@@ -36,7 +36,7 @@ localStorage.setItem('rentServerUrl', '');
  * 本地测试逻辑多租时需要，发版时注释
  */
 //localStorage.setItem('testRent', true); //test
-//localStorage.setItem('testRentUrl', 'fms_ener.promace.sinopec.com'); //test em   fms_mtrl  fms_ener
+//localStorage.setItem('testRentUrl', 'fms_rxhg.promace.sinopec.com'); //test em   fms_mtrl  fms_ener
 
 //
 // Declare app level module
@@ -585,9 +585,9 @@ angular.module('myApp', [
 				 * 初始化页面设置查询显示
 				 */
 				setSearchFlag: function(tableType, jsonObj,measIndex) {
-					if(tableType.searchCount) {
-						return 0;
-					}
+//					if(tableType.searchCount) {
+//						return 0;
+//					}
 					tableType.searchCount = 0;
 					let bizUrl;
 					let obj = {
@@ -601,14 +601,13 @@ angular.module('myApp', [
 					}else {
 						bizUrl = jsonObj.url
 					}
-					
 					var url = this.httpPort() + bizUrl + "?$skip=0&$top=1";
 					if(tableType.jsonObj.key=="T_PM_MEASINDEX"){
 						url =measIndex ? url + "&ofMeasindexType=1" : url + "&ofMeasindexType=0"
 					}
 					this.httpCommit(url).then(function success(res) {
 						for(var i = 0; i < res.data.collection.queries.length; i++) {
-							if(res.data.collection.queries.rel = 'condition') {
+							if(res.data.collection.queries[i].rel == 'condition') {
 								var queriesData = res.data.collection.queries[i].data;
 							}
 						}
@@ -623,6 +622,8 @@ angular.module('myApp', [
 										}
 									}
 								}
+							}else{
+								delete  tableType.attribute[key].proSearch
 							}
 						}
 					}, function error(res) {
