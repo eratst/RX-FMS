@@ -920,6 +920,8 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			function deleteData(i) {
 				var tableType = $scope.main.vMember.sapc.tableType
 				var singleCodeUrl = '/' + $scope.gridApi.selection.getSelectedRows()[i][tableType.alterKey]
+				var singleBizUrl =  '/' + $scope.gridApi.selection.getSelectedRows()[i][
+					tableType.nodeA]
 				var doubleCodeUrl = '/' + tableType.nodeA + '/' + $scope.gridApi.selection.getSelectedRows()[i][
 					tableType.nodeA] + '/' + tableType.nodeB + '/' + $scope.gridApi.selection.getSelectedRows()[i][tableType.nodeB]
 				var tripleCodeUrl = '?' + tableType.nodeA + '=' + $scope.gridApi.selection.getSelectedRows()[i][
@@ -928,10 +930,12 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				var upUrl
 				if (tableType.jsonObj.hasOwnProperty("bizType")) {
 					if (tableType.jsonObj.key == "T_PM_UNITAREAREL") {
-						upUrl = bizUrl + jsonObj.url + tripleCodeUrl
+//						upUrl = bizUrl + jsonObj.url + tripleCodeUrl
+					upUrl = bizUrl + jsonObj.url + singleBizUrl
 					} else{
 						upUrl = bizUrl + jsonObj.url + singleCodeUrl
 					}
+
 				} else if (tableType.jsonObj.key == "T_SYSTEM_MESSAGECONFIG") {
 					upUrl = jsonObj.url + tripleCodeUrl
 				} 
