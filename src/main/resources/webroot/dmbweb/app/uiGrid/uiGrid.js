@@ -417,7 +417,8 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				let tableType = $scope.main.vMember.sapc.tableType
 				let obj={
 					"busiArea":'fms_mtrl',
-					"energyMng":'fms_ener'
+					"energyMng":'fms_ener',
+					"operMng":'fms_ope'
 				}
 				if(tableType.jsonObj.hasOwnProperty("bizType")) {
 //					bizUrl = '/bizs/fms_mtrl' + jsonObj.url
@@ -1071,7 +1072,8 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				var tableType = $scope.main.vMember.sapc.tableType;
 				let obj={
 					"busiArea":'fms_mtrl',
-					"energyMng":'fms_ener'
+					"energyMng":'fms_ener',
+					"operMng":'fms_ope'
 				}
 				var json = viewGridProvider.getHttpData('proUpdate', $scope.main.vMember.sapc.tableType);
 				console.info("修改所用restful-->", JSON.stringify(json));
@@ -1311,7 +1313,8 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				var tableType = $scope.main.vMember.sapc.tableType;
 				let obj={
 					"busiArea":'fms_mtrl',
-					"energyMng":'fms_ener'
+					"energyMng":'fms_ener',
+					"operMng":'fms_ope'
 				}
 				$scope.tempreset = "查询中";
 				var str = viewGridProvider.getSearchKVUrl(tableType);
@@ -1401,7 +1404,8 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			var tableType = $scope.main.vMember.sapc.tableType;
 			var obj={
 					"busiArea":'fms_mtrl',
-					"energyMng":'fms_ener'
+					"energyMng":'fms_ener',
+					"operMng":'fms_ope'
 				}
 			var bizUrl
 			uploader.onAfterAddingFile = function(fileItem) {
@@ -1561,7 +1565,8 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 					var tableType = $scope.main.vMember.sapc.tableType;
 					let obj={
 						"busiArea":'fms_mtrl',
-						"energyMng":'fms_ener'
+						"energyMng":'fms_ener',
+						"operMng":'fms_ope'
 					}
 					var bizUrl = '/bizs/' + obj[tableType.jsonObj.bizType]
 					var tripleCodeUrl = '?' + tableType.nodeA + '=' + $scope.nodeA + '&' + tableType.nodeB + '=' +
@@ -1720,7 +1725,8 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				var tableType = $scope.main.vMember.sapc.tableType;
 				var obj={
 					"busiArea":'fms_mtrl',
-					"energyMng":'fms_ener'
+					"energyMng":'fms_ener',
+					"operMng":'fms_ope'
 				}
 				let bizUrl
 				if (whichBtn == 'allData') {
@@ -2122,6 +2128,16 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 //					表的搜索模态框不止一个,所以分情况
 					if ($scope.pM.vMember.sapc.parentType.jsonObj.url == '/enPipeNets') {
 						var searchUrl = viewGridProvider.httpPort() + '/bizs/fms_ener' + $scope.pM.vMember.sapc
+							.parentType.jsonObj.url + '?$skip=' + ($scope.selPage - 1) * $scope.pageSize +
+							'&$top=' + $scope.pageSize + '&inUse=1&dataStatus=1';
+					} else {
+						var searchUrl = viewGridProvider.httpPort() + $scope.pM.vMember.sapc.parentType.jsonObj
+							.url + '?$skip=' + ($scope.selPage - 1) * $scope.pageSize + '&$top=' + $scope
+							.pageSize + '&inUse=1&dataStatus=1';
+					}
+				}else if(tableName == 'T_PM_OPERCOMPONENT'){
+					if ($scope.pM.vMember.sapc.parentType.jsonObj.url == '/operSamples') {
+						var searchUrl = viewGridProvider.httpPort() + '/bizs/fms_ope' + $scope.pM.vMember.sapc
 							.parentType.jsonObj.url + '?$skip=' + ($scope.selPage - 1) * $scope.pageSize +
 							'&$top=' + $scope.pageSize + '&inUse=1&dataStatus=1';
 					} else {

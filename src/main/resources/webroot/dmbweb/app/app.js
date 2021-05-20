@@ -264,7 +264,8 @@ angular.module('myApp', [
 				setDefalutValue: function(tableType,which) {
 					let obj = {
 						"busiArea": 'fms_mtrl',
-						"energyMng": 'fms_ener'
+						"energyMng": 'fms_ener',
+						"operMng":'fms_ope'
 					}
 					for(var key in tableType.attribute) {
 						if(key == 'parentIdxTypeId' || key == 'rlsUserId' || key == 'rlsUserName' || key == 'cmtUserId' ||
@@ -444,7 +445,8 @@ angular.module('myApp', [
 							let bizUrl;
 							let obj = {
 								"busiArea": 'fms_mtrl',
-								"energyMng": 'fms_ener'
+								"energyMng": 'fms_ener',
+								"operMng":'fms_ope'
 							}
 							if(jsonObj.hasOwnProperty("bizType")) {
 								//								bizUrl = '/bizs/fms_mtrl' + jsonObj.url
@@ -592,7 +594,8 @@ angular.module('myApp', [
 					let bizUrl;
 					let obj = {
 						"busiArea": 'fms_mtrl',
-						"energyMng": 'fms_ener'
+						"energyMng": 'fms_ener',
+						"operMng":'fms_ope'
 					}
 					if(tableType.jsonObj.hasOwnProperty("bizType")) {
 						//								bizUrl = '/bizs/fms_mtrl' + jsonObj.url

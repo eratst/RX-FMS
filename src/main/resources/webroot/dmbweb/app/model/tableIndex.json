@@ -784,7 +784,7 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "shortDes",
-				"bizType":"busiArea",
+				"bizType": "busiArea",
 				"hide": "true",
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/unitAreas"
@@ -796,7 +796,7 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "shortDes",
-				"bizType":"busiArea",
+				"bizType": "busiArea",
 				"hide": "true",
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/unitAreaRels"
@@ -808,7 +808,7 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "shortDes",
-				"bizType":"busiArea",
+				"bizType": "busiArea",
 				"hide": "true",
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/ywUnits"
@@ -820,7 +820,7 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "shortDes",
-				"bizType":"energyMng",
+				"bizType": "energyMng",
 				"hide": "true",
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/enPipeNets"
@@ -832,7 +832,7 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "shortDes",
-				"bizType":"energyMng",
+				"bizType": "energyMng",
 				"hide": "true",
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/enNodes"
@@ -844,7 +844,7 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "shortDes",
-				"bizType":"energyMng",
+				"bizType": "energyMng",
 				"hide": "true",
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/enNodeTypes"
@@ -856,10 +856,34 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "shortDes",
-				"bizType":"energyMng",
+				"bizType": "energyMng",
 				"hide": "true",
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/ywUnits"
+			},
+			"T_PM_OPERSAMPLE": {
+				"tableName": "2.3.1  样品",
+				"nameAlias": "样品",
+				"tableFormat": "T_PM_OPERSAMPLE.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"bizType": "operMng",
+				"hide": "true",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/operSamples"
+			},
+			"T_PM_OPERCOMPONENT": {
+				"tableName": "2.3.2  组份",
+				"nameAlias": "组份",
+				"tableFormat": "T_PM_OPERCOMPONENT.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"bizType": "operMng",
+				"hide": "true",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/operComponents"
 			},
 			"T_IC_CNFG_BASE": {
 				"tableName": "2.2.1 罐量计算基础配置",
@@ -1283,7 +1307,7 @@
 								"parent": "none",
 								"isShowSearch": true,
 								"desType": "shortDes",
-								"bizType":"busiArea",
+								"bizType": "busiArea",
 								"authPropertyValue": "FMS_ModelModify",
 								"url": "/unitAreas"
 							},
@@ -1294,7 +1318,7 @@
 								"parent": "none",
 								"isShowSearch": true,
 								"desType": "shortDes",
-								"bizType":"busiArea",
+								"bizType": "busiArea",
 								"authPropertyValue": "FMS_ModelModify",
 								"url": "/unitAreaRels"
 							},
@@ -1305,364 +1329,364 @@
 								"parent": "none",
 								"isShowSearch": true,
 								"desType": "shortDes",
-								"bizType":"busiArea",
+								"bizType": "busiArea",
 								"authPropertyValue": "FMS_ModelModify",
 								"url": "/ywUnits"
 							},
 							"T_IC_CNFG_BASE": {
-				"tableName": "2.2.1 罐量计算基础配置",
-				"nameAlias": "罐量计算基础配置",
-				"tableFormat": "T_IC_CNFG_BASE.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "middleDes",
-				"tree": true,
-				"authPropertyValue": "FMS_ModelModify",
-				"url": "/cnfgBases"
-			},
-			"T_IC_CNFG_TANK": {
-				"tableName": "2.2.2 罐量计算单罐配置",
-				"nameAlias": "罐量计算单罐配置",
-				"tableFormat": "T_IC_CNFG_TANK.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "shortDes",
-				"tree": true,
-				"authPropertyValue": "FMS_ModelModify",
-				"url": "/cnfgTanks"
-			},
-			"T_IC_LIE_CUBA": {
-				"tableName": "2.3 卧罐罐容",
-				"nameAlias": "卧罐罐容",
-				"tableFormat": "T_IC_LIE_CUBA.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "shortDes",
-				"authPropertyValue": "FMS_ModelModify",
-				"url": "/lieCubas"
-			},
-			"T_IC_GLB_CUBA": {
-				"tableName": "2.4 球罐罐容",
-				"nameAlias": "球罐罐容",
-				"tableFormat": "T_IC_GLB_CUBA.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "middleDes",
-				"authPropertyValue": "FMS_ModelModify",
-				"url": "/glbCubas"
-			},
-			"T_IC_STDDM_CUAB": {
-				"tableName": "2.5.1 立罐分米(厘米)",
-				"nameAlias": "立罐分米(厘米)",
-				"tableFormat": "T_IC_STDDM_CUAB.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "shortDes",
-				"authPropertyValue": "FMS_ModelModify",
-				"url": "/stddmCubas"
-			},
-			"T_IC_STDCMMM_CUAB": {
-				"tableName": "2.5.2 立罐厘米(毫米)",
-				"nameAlias": "立罐厘米(毫米)",
-				"tableFormat": "T_IC_STDCMMM_CUAB.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "middleDes",
-				"authPropertyValue": "FMS_ModelModify",
-				"url": "/stdcmmmCubas"
-			},
-			"T_IC_STD_SEC": {
-				"tableName": "2.5.3 立罐区间",
-				"nameAlias": "立罐区间",
-				"tableFormat": "T_IC_STD_SEC.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "longDes",
-				"authPropertyValue": "FMS_ModelModify",
-				"url": "/stdSecs"
-			},
-			"T_IC_FLTPER_CUAB": {
-				"tableName": "2.5.4 立罐浮前罐容",
-				"nameAlias": "立罐浮前罐容",
-				"tableFormat": "T_IC_FLTPER_CUAB.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "longDes",
-				"authPropertyValue": "FMS_ModelModify",
-				"url": "/fltPerCuabs"
-			},
-			"T_IC_STDPRES_COEF": {
-				"tableName": "2.5.5 立罐静压修正",
-				"nameAlias": "立罐静压修正",
-				"tableFormat": "T_IC_STDPRES_COEF.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "longDes",
-				"authPropertyValue": "FMS_ModelModify",
-				"url": "/stdpresCoefs"
-			},
-			"T_IC_SPCL_CUBA": {
-				"tableName": "2.6 简易罐容",
-				"nameAlias": "简易罐容",
-				"tableFormat": "T_IC_SPCL_CUBA.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "shortDes",
-				"authPropertyValue": "FMS_ModelModify",
-				"url": "/spclCuabs"
-			},
-			"T_IC_TEMPDEN": {
-				"tableName": "2.7.1 温度标准密度",
-				"nameAlias": "温度标准密度",
-				"tableFormat": "T_IC_TEMPDEN.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "shortDes",
-				"authPropertyValue": "FMS_DictModify",
-				"url": "/tempDens"
-			},
-			"T_IC_TEMPCONDEN": {
-				"tableName": "2.7.2 温度浓度标准密度",
-				"nameAlias": "温度浓度标准密度",
-				"tableFormat": "T_IC_TEMPCONDEN.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "longDes",
-				"authPropertyValue": "FMS_DictModify",
-				"url": "/tempConDens"
-			},
-			"T_IC_DENMOD_VAL": {
-				"tableName": "2.7.3 空气密度修正值",
-				"nameAlias": "空气密度修正值",
-				"tableFormat": "T_IC_DENMOD_VAL.json",
-				"parent": "none",
-				"isShowSearch": false,
-				"desType": "shortDes",
-				"authPropertyValue": "FMS_DictModify",
-				"url": "/airDenModVals"
-			},
-			"T_IC_DENMOD_COEF": {
-				"tableName": "2.7.4 空气密度修正系数",
-				"nameAlias": "空气密度修正系数",
-				"tableFormat": "T_IC_DENMOD_COEF.json",
-				"parent": "none",
-				"isShowSearch": false,
-				"desType": "shortDes",
-				"authPropertyValue": "FMS_DictModify",
-				"url": "/airDenModCoefs"
-			},
-			"T_IC_TEMPPREDEN": {
-				"tableName": "2.7.5 温度压力标准密度",
-				"nameAlias": "温度压力标准密度",
-				"tableFormat": "T_IC_TEMPPREDEN.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "longDes",
-				"authPropertyValue": "FMS_DictModify",
-				"url": "/temppredens"
-			},
-			"T_IC_LIQPROD_COEF": {
-				"tableName": "2.8.1 液化产品系数",
-				"nameAlias": "液化产品系数",
-				"tableFormat": "T_IC_LIQPROD_COEF.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "longDes",
-				"authPropertyValue": "FMS_DictModify",
-				"url": "/liqprodCoefs"
-			},
-			"T_IC_CUBATEMP_COEF": {
-				"tableName": "2.8.2 液化产品系数(体积温度)",
-				"nameAlias": "液化产品系数(体积温度)",
-				"tableFormat": "T_IC_CUBATEMP_COEF.json",
-				"parent": "none",
-				"isShowSearch": false,
-				"desType": "shortDes",
-				"authPropertyValue": "FMS_DictModify",
-				"url": "/cubaTempCoefs"
-			},
-			"T_IC_PIPENETTNK_COEF": {
-				"tableName": "2.9 管网罐系数",
-				"nameAlias": "管网罐系数",
-				"tableFormat": "T_IC_PIPENETTNK_COEF.json",
-				"parent": "none",
-				"isShowSearch": false,
-				"desType": "middleDes",
-				"authPropertyValue": "FMS_DictModify",
-				"url": "/pipenettnks"
-			},
-			"T_IC_VCF": {
-				"tableName": "2.10 VCF",
-				"nameAlias": "VCF",
-				"tableFormat": "T_IC_VCF.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "longDes",
-				"authPropertyValue": "FMS_DictModify",
-				"url": "/vcfs"
-			},
-			"T_IC_TANKMEAS": {
-				"tableName": "2.11 罐计量 ",
-				"nameAlias": "罐计量",
-				"tableFormat": "T_IC_TANKMEAS.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "longDes",
-				"hide": true,
-				"url": "/tankmeas"
-			},
-			"T_IC_MTRLMOLAR": {
-				"tableName": "2.12 物料摩尔系数 ",
-				"nameAlias": "物料摩尔系数",
-				"tableFormat": "T_IC_MTRLMOLAR.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "shortDes",
-				"authPropertyValue": "FMS_DictModify",
-				"url": "/mtrlMolars"
-			},
-			"T_IC_GLBPRECOEF": {
-				"tableName": "2.13 球罐压力系数",
-				"nameAlias": "球罐压力系数",
-				"tableFormat": "T_IC_GLBPRECOEF.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "longDes",
-				"hide": false,
-				"authPropertyValue": "FMS_ModelModify",
-				"url": "/glbPreCoefs"
-			},
-			"T_IC_MTRLVCF": {
-				"tableName": "2.14 物料温度对应VCF",
-				"nameAlias": "物料温度对应VCF",
-				"tableFormat": "T_IC_MTRLVCF.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "shortDes",
-				"hide": false,
-				"authPropertyValue": "FMS_DictModify",
-				"url": "/mtrlVcfs"
-			},
-			"T_IC_STANDEN": {
-				"tableName": "2.15 标准密度",
-				"nameAlias": "标准密度",
-				"tableFormat": "T_IC_STANDEN.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "longDes",
-				"authPropertyValue": "FMS_DictModify",
-				"url": "/stanDens"
-			},
-			"T_IC_STANGASDEN": {
-				"tableName": "2.16 标准气体密度",
-				"nameAlias": "标准气体密度",
-				"tableFormat": "T_IC_STANGASDEN.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "middleDes",
-				"authPropertyValue": "FMS_DictModify",
-				"url": "/stangasdens"
-			},
-			"T_IC_MTRLFORMCNFG": {
-				"tableName": "2.17 料仓物料罐量计算公式",
-				"nameAlias": "料仓物料罐量计算公式",
-				"tableFormat": "T_IC_MTRLFORMCNFG.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "shortDes",
-				"authPropertyValue": "FMS_ModelModify",
-				"url": "/mtrlFormCnfgs"
-			},
-			"T_IC_DELTCNFG": {
-				"tableName": "2.18 罐量计算默认配置",
-				"nameAlias": "罐量计算默认配置",
-				"tableFormat": "T_IC_DELTCNFG.json",
-				"parent": "none",
-				"isShowSearch": false,
-				"desType": "shortDes",
-				"authPropertyValue": "FMS_ModelModify",
-				"url": "/deltcnfgs"
-			},
-			"T_IC_TANKCNFG": {
-				"tableName": "2.19 单罐配置",
-				"nameAlias": "单罐配置",
-				"tableFormat": "T_IC_TANKCNFG.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "shortDes",
-				"authPropertyValue": "FMS_ModelModify",
-				"url": "/tankCnfgs"
-			},
-			"T_OPM_OPEINDEX": {
-				"tableName": "2.20.1 操作指标",
-				"nameAlias": "操作指标",
-				"tableFormat": "T_OPM_OPEINDEX.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "middleDes",
-				"authPropertyValue": "FMS_ModelModify",
-				"url": "/opeindexs"
-			},
-			"T_OPM_CRAFTSCHEME": {
-				"tableName": "2.20.2 工艺方案",
-				"nameAlias": "工艺方案",
-				"tableFormat": "T_OPM_CRAFTSCHEME.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "longDes",
-				"authPropertyValue": "FMS_ModelModify",
-				"url": "/craftschemes"
-			},
-			"T_OPM_MONLEVEL": {
-				"tableName": "2.20.3 监控级别 ",
-				"nameAlias": "监控级别",
-				"tableFormat": "T_OPM_MONLEVEL.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "longDes",
-				"authPropertyValue": "FMS_DictModify",
-				"url": "/monLevels"
-			},
-			"T_OPM_DEUPDOWNLIMIT": {
-				"tableName": "2.20.4 默认上下限",
-				"nameAlias": "默认上下限",
-				"tableFormat": "T_OPM_DEUPDOWNLIMIT.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "shortDes",
-				"authPropertyValue": "FMS_DictModify",
-				"url": "/deUpDownLimits"
-			},
-			"T_OPM_STAALGRCONF": {
-				"tableName": "2.20.5 操作平稳率计算配置",
-				"nameAlias": "操作平稳率计算配置",
-				"tableFormat": "T_OPM_STAALGRCONF.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "shortDes",
-				"authPropertyValue": "FMS_ModelModify",
-				"url": "/staAlgrConfs"
-			},
-			"T_OPM_STAALGRCONFITEM": {
-				"tableName": "2.20.6 操作平稳率计算配置项",
-				"nameAlias": "操作平稳率计算配置项",
-				"tableFormat": "T_OPM_STAALGRCONFITEM.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "longDes",
-				"authPropertyValue": "FMS_ModelModify",
-				"url": "/staalgrConfitems"
-			},
-			"T_PM_UNITALARM": {
-				"tableName": "2.20.7 装置告警",
-				"nameAlias": "装置告警",
-				"tableFormat": "T_PM_UNITALARM.json",
-				"parent": "none",
-				"isShowSearch": true,
-				"desType": "middleDes",
-				"authPropertyValue": "FMS_ModelModify",
-				"url": "/unitAlarms"
-			}
+								"tableName": "2.2.1 罐量计算基础配置",
+								"nameAlias": "罐量计算基础配置",
+								"tableFormat": "T_IC_CNFG_BASE.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "middleDes",
+								"tree": true,
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/cnfgBases"
+							},
+							"T_IC_CNFG_TANK": {
+								"tableName": "2.2.2 罐量计算单罐配置",
+								"nameAlias": "罐量计算单罐配置",
+								"tableFormat": "T_IC_CNFG_TANK.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "shortDes",
+								"tree": true,
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/cnfgTanks"
+							},
+							"T_IC_LIE_CUBA": {
+								"tableName": "2.3 卧罐罐容",
+								"nameAlias": "卧罐罐容",
+								"tableFormat": "T_IC_LIE_CUBA.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "shortDes",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/lieCubas"
+							},
+							"T_IC_GLB_CUBA": {
+								"tableName": "2.4 球罐罐容",
+								"nameAlias": "球罐罐容",
+								"tableFormat": "T_IC_GLB_CUBA.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "middleDes",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/glbCubas"
+							},
+							"T_IC_STDDM_CUAB": {
+								"tableName": "2.5.1 立罐分米(厘米)",
+								"nameAlias": "立罐分米(厘米)",
+								"tableFormat": "T_IC_STDDM_CUAB.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "shortDes",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/stddmCubas"
+							},
+							"T_IC_STDCMMM_CUAB": {
+								"tableName": "2.5.2 立罐厘米(毫米)",
+								"nameAlias": "立罐厘米(毫米)",
+								"tableFormat": "T_IC_STDCMMM_CUAB.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "middleDes",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/stdcmmmCubas"
+							},
+							"T_IC_STD_SEC": {
+								"tableName": "2.5.3 立罐区间",
+								"nameAlias": "立罐区间",
+								"tableFormat": "T_IC_STD_SEC.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "longDes",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/stdSecs"
+							},
+							"T_IC_FLTPER_CUAB": {
+								"tableName": "2.5.4 立罐浮前罐容",
+								"nameAlias": "立罐浮前罐容",
+								"tableFormat": "T_IC_FLTPER_CUAB.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "longDes",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/fltPerCuabs"
+							},
+							"T_IC_STDPRES_COEF": {
+								"tableName": "2.5.5 立罐静压修正",
+								"nameAlias": "立罐静压修正",
+								"tableFormat": "T_IC_STDPRES_COEF.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "longDes",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/stdpresCoefs"
+							},
+							"T_IC_SPCL_CUBA": {
+								"tableName": "2.6 简易罐容",
+								"nameAlias": "简易罐容",
+								"tableFormat": "T_IC_SPCL_CUBA.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "shortDes",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/spclCuabs"
+							},
+							"T_IC_TEMPDEN": {
+								"tableName": "2.7.1 温度标准密度",
+								"nameAlias": "温度标准密度",
+								"tableFormat": "T_IC_TEMPDEN.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "shortDes",
+								"authPropertyValue": "FMS_DictModify",
+								"url": "/tempDens"
+							},
+							"T_IC_TEMPCONDEN": {
+								"tableName": "2.7.2 温度浓度标准密度",
+								"nameAlias": "温度浓度标准密度",
+								"tableFormat": "T_IC_TEMPCONDEN.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "longDes",
+								"authPropertyValue": "FMS_DictModify",
+								"url": "/tempConDens"
+							},
+							"T_IC_DENMOD_VAL": {
+								"tableName": "2.7.3 空气密度修正值",
+								"nameAlias": "空气密度修正值",
+								"tableFormat": "T_IC_DENMOD_VAL.json",
+								"parent": "none",
+								"isShowSearch": false,
+								"desType": "shortDes",
+								"authPropertyValue": "FMS_DictModify",
+								"url": "/airDenModVals"
+							},
+							"T_IC_DENMOD_COEF": {
+								"tableName": "2.7.4 空气密度修正系数",
+								"nameAlias": "空气密度修正系数",
+								"tableFormat": "T_IC_DENMOD_COEF.json",
+								"parent": "none",
+								"isShowSearch": false,
+								"desType": "shortDes",
+								"authPropertyValue": "FMS_DictModify",
+								"url": "/airDenModCoefs"
+							},
+							"T_IC_TEMPPREDEN": {
+								"tableName": "2.7.5 温度压力标准密度",
+								"nameAlias": "温度压力标准密度",
+								"tableFormat": "T_IC_TEMPPREDEN.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "longDes",
+								"authPropertyValue": "FMS_DictModify",
+								"url": "/temppredens"
+							},
+							"T_IC_LIQPROD_COEF": {
+								"tableName": "2.8.1 液化产品系数",
+								"nameAlias": "液化产品系数",
+								"tableFormat": "T_IC_LIQPROD_COEF.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "longDes",
+								"authPropertyValue": "FMS_DictModify",
+								"url": "/liqprodCoefs"
+							},
+							"T_IC_CUBATEMP_COEF": {
+								"tableName": "2.8.2 液化产品系数(体积温度)",
+								"nameAlias": "液化产品系数(体积温度)",
+								"tableFormat": "T_IC_CUBATEMP_COEF.json",
+								"parent": "none",
+								"isShowSearch": false,
+								"desType": "shortDes",
+								"authPropertyValue": "FMS_DictModify",
+								"url": "/cubaTempCoefs"
+							},
+							"T_IC_PIPENETTNK_COEF": {
+								"tableName": "2.9 管网罐系数",
+								"nameAlias": "管网罐系数",
+								"tableFormat": "T_IC_PIPENETTNK_COEF.json",
+								"parent": "none",
+								"isShowSearch": false,
+								"desType": "middleDes",
+								"authPropertyValue": "FMS_DictModify",
+								"url": "/pipenettnks"
+							},
+							"T_IC_VCF": {
+								"tableName": "2.10 VCF",
+								"nameAlias": "VCF",
+								"tableFormat": "T_IC_VCF.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "longDes",
+								"authPropertyValue": "FMS_DictModify",
+								"url": "/vcfs"
+							},
+							"T_IC_TANKMEAS": {
+								"tableName": "2.11 罐计量 ",
+								"nameAlias": "罐计量",
+								"tableFormat": "T_IC_TANKMEAS.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "longDes",
+								"hide": true,
+								"url": "/tankmeas"
+							},
+							"T_IC_MTRLMOLAR": {
+								"tableName": "2.12 物料摩尔系数 ",
+								"nameAlias": "物料摩尔系数",
+								"tableFormat": "T_IC_MTRLMOLAR.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "shortDes",
+								"authPropertyValue": "FMS_DictModify",
+								"url": "/mtrlMolars"
+							},
+							"T_IC_GLBPRECOEF": {
+								"tableName": "2.13 球罐压力系数",
+								"nameAlias": "球罐压力系数",
+								"tableFormat": "T_IC_GLBPRECOEF.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "longDes",
+								"hide": false,
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/glbPreCoefs"
+							},
+							"T_IC_MTRLVCF": {
+								"tableName": "2.14 物料温度对应VCF",
+								"nameAlias": "物料温度对应VCF",
+								"tableFormat": "T_IC_MTRLVCF.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "shortDes",
+								"hide": false,
+								"authPropertyValue": "FMS_DictModify",
+								"url": "/mtrlVcfs"
+							},
+							"T_IC_STANDEN": {
+								"tableName": "2.15 标准密度",
+								"nameAlias": "标准密度",
+								"tableFormat": "T_IC_STANDEN.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "longDes",
+								"authPropertyValue": "FMS_DictModify",
+								"url": "/stanDens"
+							},
+							"T_IC_STANGASDEN": {
+								"tableName": "2.16 标准气体密度",
+								"nameAlias": "标准气体密度",
+								"tableFormat": "T_IC_STANGASDEN.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "middleDes",
+								"authPropertyValue": "FMS_DictModify",
+								"url": "/stangasdens"
+							},
+							"T_IC_MTRLFORMCNFG": {
+								"tableName": "2.17 料仓物料罐量计算公式",
+								"nameAlias": "料仓物料罐量计算公式",
+								"tableFormat": "T_IC_MTRLFORMCNFG.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "shortDes",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/mtrlFormCnfgs"
+							},
+							"T_IC_DELTCNFG": {
+								"tableName": "2.18 罐量计算默认配置",
+								"nameAlias": "罐量计算默认配置",
+								"tableFormat": "T_IC_DELTCNFG.json",
+								"parent": "none",
+								"isShowSearch": false,
+								"desType": "shortDes",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/deltcnfgs"
+							},
+							"T_IC_TANKCNFG": {
+								"tableName": "2.19 单罐配置",
+								"nameAlias": "单罐配置",
+								"tableFormat": "T_IC_TANKCNFG.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "shortDes",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/tankCnfgs"
+							},
+							"T_OPM_OPEINDEX": {
+								"tableName": "2.20.1 操作指标",
+								"nameAlias": "操作指标",
+								"tableFormat": "T_OPM_OPEINDEX.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "middleDes",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/opeindexs"
+							},
+							"T_OPM_CRAFTSCHEME": {
+								"tableName": "2.20.2 工艺方案",
+								"nameAlias": "工艺方案",
+								"tableFormat": "T_OPM_CRAFTSCHEME.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "longDes",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/craftschemes"
+							},
+							"T_OPM_MONLEVEL": {
+								"tableName": "2.20.3 监控级别 ",
+								"nameAlias": "监控级别",
+								"tableFormat": "T_OPM_MONLEVEL.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "longDes",
+								"authPropertyValue": "FMS_DictModify",
+								"url": "/monLevels"
+							},
+							"T_OPM_DEUPDOWNLIMIT": {
+								"tableName": "2.20.4 默认上下限",
+								"nameAlias": "默认上下限",
+								"tableFormat": "T_OPM_DEUPDOWNLIMIT.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "shortDes",
+								"authPropertyValue": "FMS_DictModify",
+								"url": "/deUpDownLimits"
+							},
+							"T_OPM_STAALGRCONF": {
+								"tableName": "2.20.5 操作平稳率计算配置",
+								"nameAlias": "操作平稳率计算配置",
+								"tableFormat": "T_OPM_STAALGRCONF.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "shortDes",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/staAlgrConfs"
+							},
+							"T_OPM_STAALGRCONFITEM": {
+								"tableName": "2.20.6 操作平稳率计算配置项",
+								"nameAlias": "操作平稳率计算配置项",
+								"tableFormat": "T_OPM_STAALGRCONFITEM.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "longDes",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/staalgrConfitems"
+							},
+							"T_PM_UNITALARM": {
+								"tableName": "2.20.7 装置告警",
+								"nameAlias": "装置告警",
+								"tableFormat": "T_PM_UNITALARM.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "middleDes",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/unitAlarms"
+							}
 						}
 					},
 					"energyMng": {
@@ -1676,7 +1700,7 @@
 								"parent": "none",
 								"isShowSearch": true,
 								"desType": "shortDes",
-								"bizType":"energyMng",
+								"bizType": "energyMng",
 								"authPropertyValue": "FMS_ModelModify",
 								"url": "/enPipeNets"
 							},
@@ -1687,7 +1711,7 @@
 								"parent": "none",
 								"isShowSearch": true,
 								"desType": "shortDes",
-								"bizType":"energyMng",
+								"bizType": "energyMng",
 								"authPropertyValue": "FMS_ModelModify",
 								"url": "/enNodes"
 							},
@@ -1698,7 +1722,7 @@
 								"parent": "none",
 								"isShowSearch": true,
 								"desType": "shortDes",
-								"bizType":"energyMng",
+								"bizType": "energyMng",
 								"authPropertyValue": "FMS_ModelModify",
 								"url": "/enNodeTypes"
 							},
@@ -1709,9 +1733,36 @@
 								"parent": "none",
 								"isShowSearch": true,
 								"desType": "shortDes",
-								"bizType":"energyMng",
+								"bizType": "energyMng",
 								"authPropertyValue": "FMS_ModelModify",
 								"url": "/ywUnits"
+							}
+						}
+					},
+					"operMng": {
+						"tableName": "2.3 操作管理",
+						"fourth": {
+							"T_PM_OPERSAMPLE": {
+								"tableName": "2.3.1  样品",
+								"nameAlias": "样品",
+								"tableFormat": "T_PM_OPERSAMPLE.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "shortDes",
+								"bizType": "operMng",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/operSamples"
+							},
+							"T_PM_OPERCOMPONENT": {
+								"tableName": "2.3.2  组份",
+								"nameAlias": "组份",
+								"tableFormat": "T_PM_OPERCOMPONENT.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "shortDes",
+								"bizType": "operMng",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/operComponents"
 							}
 						}
 					}
