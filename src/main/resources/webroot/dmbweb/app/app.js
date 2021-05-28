@@ -471,6 +471,14 @@ angular.module('myApp', [
 							}
 							value.parentValue = resuArr;
 							value.parentType.jsonObj = jsonObj;
+//							if(value.hasOwnProperty("unitAl")){
+//								var uniturl = httpPort  + '/plants?inUse=1&dataStatus=1';
+//								httpCommit(uniturl).then(function success(ressss) {
+//									value.parentValue.push.apply(value.parentValue,cj.Parse(ressss.data, true))
+//								}, function error(res) {
+//						cj.Error(res);
+//					});
+//							}
 							//**主要是为了给第一级表设置ProSearch
 							for(var i = 0; i < resu.data.collection.queries.length; i++) {
 								if(resu.data.collection.queries[i].rel == 'condition') {

@@ -52,27 +52,22 @@
 				"enNodeTypeName": "enNodeTypeName"
 			}
 		},
-		"ywUnitAlias": {
-			"display": "虚拟装置简称",
+		"areaAlias": {
+			"display": "装置简称",
 			"type": "string",
 			"required": true,
 			"hide": false,
 			"inOut": true,
 			"class": "left" ,
 			"width": "130",
-			"parentModel": "T_PM_YWUNIT2",
-			"linkKeys": {
-				"ywUnitCode": "ywUnitCode",
-				"ywUnitName": "ywUnitName",
-				"ywUnitAlias": "ywUnitAlias"
-			},
+			"unitAll": true,
 			"proUpdate": {
 				"show": true,
 				"edit": false
 			}
 		},
-		"ywUnitName": {
-			"display": "虚拟装置名称",
+		"areaName": {
+			"display": "装置名称",
 			"type": "string",
 			"required": false,
 			"hide": true,
@@ -86,8 +81,8 @@
 				"edit": false
 			}
 		},
-		"ywUnitCode": {
-			"display": "虚拟装置编码",
+		"areaCode": {
+			"display": "装置编码",
 			"type": "string",
 			"required": true,
 			"hide": true,
@@ -271,6 +266,13 @@
 			"inOut": true,
 			"class": "left",
 			"width": "180"
+		},
+		"markOfVirtual":{
+			"display": "区分",
+			"type": "number",
+			"hide": true,
+			"required": false,
+			"inOut": false
 		}
 	}
 }

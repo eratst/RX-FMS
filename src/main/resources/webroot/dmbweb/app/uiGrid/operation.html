@@ -10,8 +10,8 @@
 	<button class="bttn" ng-if="(grid.appScope.gridApi.grid.selection.selectedCount==1&&!row.isSelected)||grid.appScope.gridApi.grid.selection.selectedCount>1" ng-disabled="true">
 		<span >修改</span></button>
 
-	<!--<button class="bttn" ng-if="grid.appScope.gridApi.grid.selection.selectedCount<1||(grid.appScope.gridApi.grid.selection.selectedCount==1&&row.isSelected)||![(grid.appScope.gridApi.grid.selection.selectedCount==1&&!row.isSelected)||grid.appScope.gridApi.grid.selection.selectedCount>1]" ng-click="grid.appScope.main.vfunc.onclick.detailButton(row)" data-toggle="modal" data-target="#detailWindow">
+	<!--<button class="bttn" ng-if="detailBtnShow&&[grid.appScope.gridApi.grid.selection.selectedCount<1||(grid.appScope.gridApi.grid.selection.selectedCount==1&&row.isSelected)||![(grid.appScope.gridApi.grid.selection.selectedCount==1&&!row.isSelected)||grid.appScope.gridApi.grid.selection.selectedCount>1]]" ng-click="grid.appScope.main.vfunc.onclick.detailButton(row)" data-toggle="modal" data-target="#detailWindow">
 		<span >详情</span></button>
-	<button class="bttn" ng-if="(grid.appScope.gridApi.grid.selection.selectedCount==1&&!row.isSelected)||grid.appScope.gridApi.grid.selection.selectedCount>1" ng-disabled="true">
+	<button class="bttn" ng-if="detailBtnShow&&[(grid.appScope.gridApi.grid.selection.selectedCount==1&&!row.isSelected)||grid.appScope.gridApi.grid.selection.selectedCount>1]" ng-disabled="true">
 		<span >详情</span></button>-->
 </div>

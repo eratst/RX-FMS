@@ -1,24 +1,12 @@
 {
 	"alterKey": "areaCode",
-	"nodeC":"bizCode",
 	"attribute": {
-		"bizCode": {
-			"display": "业务域",
-			"type": "string",
-			"required": true,
-			"hide": false,
-			"inOut": true,
-			"class": "left",
-			"width": "130",
-			"dropBiz": true,
-				"proAdd": {
-				"show": true,
-				"edit": false
-			},
-			"proUpdate": {
-				"show": true,
-				"edit": false
-			}
+		"areaId": {
+			"display": "区域ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
 		},
 		"orgCode": {
 			"display": "组织机构编码",
@@ -28,26 +16,19 @@
 			"inOut": true,
 			"class": "left"
 		},
-		"orgName": {
-			"display": "组织机构名称",
-			"type": "string",
-			"required": false,
-			"hide": true,
-			"inOut": false
-		},
 		"orgAlias": {
-			"display": "组织机构简称",
+			"display": "组织机构",
 			"type": "string",
 			"required": true,
 			"hide": false,
 			"inOut": true,
-			"width": "130",
 			"treeIsUpdate": false,
+			"width": "130",
 			"class": "left",
 			"chilTree": true
 		},
 		"areaCode": {
-			"display": "虚拟装置编码",
+			"display": "站/房编码",
 			"type": "string",
 			"required": true,
 			"hide": false,
@@ -56,7 +37,7 @@
 			"width": "130"
 		},
 		"areaName": {
-			"display": "虚拟装置名称",
+			"display": "站/房名称",
 			"type": "string",
 			"required": true,
 			"hide": false,
@@ -65,7 +46,7 @@
 			"width": "180"
 		},
 		"areaAlias": {
-			"display": "虚拟装置简称",
+			"display": "站/房简称",
 			"type": "string",
 			"required": true,
 			"hide": false,
@@ -73,65 +54,32 @@
 			"class": "left",
 			"width": "130"
 		},
-		"unitTypeName": {
-			"display": "业务类型名称",
-			"type": "string",
-			"required": true,
-			"hide": false,
-			"inOut": true,
-			"class": "left",
-			"width": "110",
-			"parent": "T_PM_UNITTYPE"
-		},
-		"technicName": {
-			"display": "工艺类型名称",
-			"type": "string",
-			"required": true,
-			"hide": false,
-			"inOut": true,
-			"class": "left",
-			"width": "110",
-			"parent": "T_PM_TECHNIC"
-		},
-		"capacity": {
-			"display": "加工能力",
-			"type": "number",
-			"required": false,
-			"hide": false,
-			"inOut": true,
-			"class": "right",
-			"tenThousand": true,
-			"width": "110"
-		},
-		"capacityUnitName": {
-			"display": "加工能力单位",
+		"areaLongitude": {
+			"display": "位置经度(°)",
 			"type": "string",
 			"required": false,
 			"hide": false,
 			"inOut": true,
 			"class": "left",
-			"width": "110",
-			"parent": "T_PM_CAPACITYUNIT"
+			"width": "90"
 		},
-		"initialAssetValue": {
-			"display": "资产原值(万元）",
-			"type": "number",
+		"areaLatitude": {
+			"display": "位置纬度(°)",
+			"type": "string",
 			"required": false,
 			"hide": false,
 			"inOut": true,
-			"class": "right",
-			"tenThousand": true,
-			"width": "110"
+			"class": "left",
+			"width": "90"
 		},
-		"netAssetValue": {
-			"display": "资产净值（万元）",
-			"type": "number",
+		"areaAltitude": {
+			"display": "位置海拔(m)",
+			"type": "string",
 			"required": false,
 			"hide": false,
 			"inOut": true,
-			"class": "right",
-			"tenThousand": true,
-			"width": "110"
+			"class": "left",
+			"width": "90"
 		},
 		"dataStatus": {
 			"display": "是否启用",
@@ -233,6 +181,7 @@
 				"edit": false
 			}
 		},
+
 		"version": {
 			"display": "乐观锁版本",
 			"type": "number",
@@ -240,6 +189,7 @@
 			"hide": true,
 			"inOut": false
 		},
+
 		"des": {
 			"display": "描述",
 			"type": "string",

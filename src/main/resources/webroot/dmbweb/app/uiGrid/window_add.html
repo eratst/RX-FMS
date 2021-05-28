@@ -22,7 +22,7 @@
 									非boolean型字段
 									非组织机构类型，非进出类型字段
 								-->
-								<div ng-if="!value.parentType&&value.type!='number'&&value.type!='boolean'&&!value.valueShowCh&&!value.valueShowLine&&!value.valueShowChLoad&&!value.valueShowSt&&!value.valueShowSex&&!value.valueShowTank&&!value.valueShowData&&value.display!='组织机构'&&value.display!='计算方法'&&value.display!='用户所属机构'&&value.orgTree!=true&&value.parTree!=true&&value.chilTree!=true&&value.display!='公式'&&value.display!='是否自定义公式'&&value.display!='描述'&&value.display!='起效时间'&&value.display!='出生日期'">
+								<div ng-if="!value.parentType&&value.type!='number'&&value.type!='boolean'&&!value.valueShowCh&&!value.valueShowLine&&!value.valueShowChLoad&&!value.valueShowSt&&!value.valueShowSex&&!value.valueShowTank&&!value.valueShowData&&value.display!='组织机构'&&value.display!='计算方法'&&value.display!='用户所属机构'&&value.orgTree!=true&&value.parTree!=true&&value.chilTree!=true&&value.unitAll!=true&&value.display!='公式'&&value.display!='是否自定义公式'&&value.display!='描述'&&value.display!='起效时间'&&value.display!='出生日期'">
 									<input type="text" class="form-control" ng-model="value.proAdd.data" ng-disabled="!value.proAdd.edit">
 								</div>
 								<div ng-if="value.display=='起效时间'||value.display=='出生日期'">
@@ -320,6 +320,25 @@
 										</ul>
 									</div>
 								</div>
+								
+								<div ng-if="value.unitAll==true" class="input-group">
+									<input type="text" class="form-control" ng-model="value.proAdd.data" ng-disabled="true">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" ng-click="main.vfunc.onclick.unitOnClick('proAdd')" style="padding: 2px 10px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+										<ul class="dropdown-menu dropdown-menu-right" ng-model="value.proAdd.data">
+											<li class="dropdown-submenu" ng-repeat="pData in unitAlias" ng-if="pData.value.length>0">
+												<a tabindex="-1" href="javascript:;">{{pData['typeName']}}</a>
+												<ul class="dropdown-menu menu-overflow">
+													<li ng-repeat="pcData in pData.value">
+														<!--<a ng-click="value.proAdd.data=pcData['areaAlias']">{{pcData['orgCode']+pcData['areaAlias']}}</a>-->
+														<a ng-click="main.vfunc.onclick.unitSelected('proAdd',pData['typeName'],pcData['areaAlias'],pcData['areaCode'])">{{pcData['areaCode']+'--'+pcData['areaAlias']}}</a>
+													</li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+								
 							</div>
 						</div>
 					</div>

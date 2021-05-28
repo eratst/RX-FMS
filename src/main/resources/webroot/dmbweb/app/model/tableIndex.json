@@ -556,6 +556,17 @@
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/administrations"
 			},
+			"T_PM_STATION": {
+				"tableName": "3.8 站(房)",
+				"nameAlias": "站(房)",
+				"tableFormat": "T_PM_STATION.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "longDes",
+				"tree": true,
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/stations"
+			},
 			"T_PM_NODE": {
 				"hide": true,
 				"tableName": "4 节点",
@@ -1741,6 +1752,7 @@
 					},
 					"operMng": {
 						"tableName": "2.3 操作管理",
+						"hide":true,
 						"fourth": {
 							"T_PM_OPERSAMPLE": {
 								"tableName": "2.3.1  样品",
