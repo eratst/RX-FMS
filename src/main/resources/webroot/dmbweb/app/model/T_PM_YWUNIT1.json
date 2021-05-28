@@ -1,5 +1,5 @@
 {
-	"alterKey": "ywUnitCode",
+	"alterKey": "areaCode",
 	"nodeC":"bizCode",
 	"attribute": {
 		"bizCode": {
@@ -46,7 +46,7 @@
 			"class": "left",
 			"chilTree": true
 		},
-		"ywUnitCode": {
+		"areaCode": {
 			"display": "虚拟装置编码",
 			"type": "string",
 			"required": true,
@@ -55,7 +55,7 @@
 			"class": "left",
 			"width": "130"
 		},
-		"ywUnitName": {
+		"areaName": {
 			"display": "虚拟装置名称",
 			"type": "string",
 			"required": true,
@@ -64,7 +64,7 @@
 			"class": "left",
 			"width": "180"
 		},
-		"ywUnitAlias": {
+		"areaAlias": {
 			"display": "虚拟装置简称",
 			"type": "string",
 			"required": true,
