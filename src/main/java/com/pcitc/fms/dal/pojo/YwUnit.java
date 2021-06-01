@@ -17,16 +17,16 @@ public class YwUnit implements Serializable {
 
     @Id
     @Column(name = "YWUNIT_ID")
-    private Long ywUnitId;
+    private Long areaId;
 
     @Column(name = "YWUNIT_CODE")
-    private String ywUnitCode;
+    private String areaCode;
 
     @Column(name = "YWUNIT_NAME")
-    private String ywUnitName;
+    private String areaName;
 
     @Column(name = "YWUNIT_ALIAS")
-    private String ywUnitAlias;
+    private String areaAlias;
 
     @Column(name = "UNITTYPE_ID")
     private Long unitTypeId;
@@ -52,22 +52,22 @@ public class YwUnit implements Serializable {
     @Transient
     private String orgAlias;
 
-    @Transient
+    @Column(name = "CRTUSER_CODE")
     private String crtUserId;
 
-    @Transient
+    @Column(name = "CRTUSER_NAME")
     private String crtUserName;
 
-    @Transient
+    @Column(name = "CRTDATE")
     private Date crtDate;
 
-    @Transient
+    @Column(name = "MNTUSER_CODE")
     private String mntUserId;
 
-    @Transient
+    @Column(name = "MNTUSER_NAME")
     private String mntUserName;
 
-    @Transient
+    @Column(name = "MNTDATE")
     private Date mntDate;
 
     @Column(name = "BIZORGMAIN_ID")
@@ -107,12 +107,16 @@ public class YwUnit implements Serializable {
         super();
     }
 
-    public YwUnit(Long ywUnitId, String ywUnitCode, String ywUnitName, String ywUnitAlias, Long unitTypeId, String unitTypeName, Long technicId, String technicName, Long orgId, String orgCode, String orgName, String orgAlias, String crtUserId, String crtUserName, Date crtDate, String mntUserId, String mntUserName, Date mntDate, Long bizId, String bizCode, Long capacity, BigDecimal initialAssetValue, BigDecimal netAssetValue, Integer dataStatus, Integer sortNum, String des, Integer version, Long capacityUnitId, String capacityUnitName) {
-        super();
-        this.ywUnitId = ywUnitId;
-        this.ywUnitCode = ywUnitCode;
-        this.ywUnitName = ywUnitName;
-        this.ywUnitAlias = ywUnitAlias;
+    public YwUnit(Long areaId, String areaCode, String areaName, String areaAlias, Long unitTypeId, String unitTypeName,
+                  Long technicId, String technicName, Long orgId, String orgCode, String orgName, String orgAlias,
+                  String crtUserId, String crtUserName, Date crtDate, String mntUserId, String mntUserName,
+                  Date mntDate, Long bizId, String bizCode,
+                  Long capacity, BigDecimal initialAssetValue, BigDecimal netAssetValue, Integer dataStatus,
+                  Integer sortNum, String des, Integer version, Long capacityUnitId, String capacityUnitName) {
+        this.areaId = areaId;
+        this.areaCode = areaCode;
+        this.areaName = areaName;
+        this.areaAlias = areaAlias;
         this.unitTypeId = unitTypeId;
         this.unitTypeName = unitTypeName;
         this.technicId = technicId;
@@ -129,6 +133,7 @@ public class YwUnit implements Serializable {
         this.mntDate = mntDate;
         this.bizId = bizId;
         this.bizCode = bizCode;
+
         this.capacity = capacity;
         this.initialAssetValue = initialAssetValue;
         this.netAssetValue = netAssetValue;
@@ -140,36 +145,36 @@ public class YwUnit implements Serializable {
         this.capacityUnitName = capacityUnitName;
     }
 
-    public Long getYwUnitId() {
-        return ywUnitId;
+    public Long getAreaId() {
+        return areaId;
     }
 
-    public void setYwUnitId(Long ywUnitId) {
-        this.ywUnitId = ywUnitId;
+    public void setAreaId(Long areaId) {
+        this.areaId = areaId;
     }
 
-    public String getYwUnitCode() {
-        return ywUnitCode;
+    public String getAreaCode() {
+        return areaCode;
     }
 
-    public void setYwUnitCode(String ywUnitCode) {
-        this.ywUnitCode = ywUnitCode;
+    public void setAreaCode(String areaCode) {
+        this.areaCode = areaCode;
     }
 
-    public String getYwUnitName() {
-        return ywUnitName;
+    public String getAreaName() {
+        return areaName;
     }
 
-    public void setYwUnitName(String ywUnitName) {
-        this.ywUnitName = ywUnitName;
+    public void setAreaName(String areaName) {
+        this.areaName = areaName;
     }
 
-    public String getYwUnitAlias() {
-        return ywUnitAlias;
+    public String getAreaAlias() {
+        return areaAlias;
     }
 
-    public void setYwUnitAlias(String ywUnitAlias) {
-        this.ywUnitAlias = ywUnitAlias;
+    public void setAreaAlias(String areaAlias) {
+        this.areaAlias = areaAlias;
     }
 
     public Long getUnitTypeId() {

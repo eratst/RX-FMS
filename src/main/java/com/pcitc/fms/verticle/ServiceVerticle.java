@@ -1789,14 +1789,14 @@ public class ServiceVerticle extends AbstractVerticle {
         router.get("/FactoryModelService/rents/:rentCode/bizs/:bizCode/enPipeNets").handler(enPipeNetHandler::findEnPipeNets);
         router.get("/FactoryModelService/rents/:rentCode/bizs/:bizCode/enPipeNets/:netCode").handler(enPipeNetHandler::findEnPipeNets);
 
-        // 业务装置表
+        // 虚拟装置表
         YwUnitHandler ywUnitHandler = (YwUnitHandler) context.getBean("ywUnitHandler");
         router.get("/FactoryModelService/ywUnits").handler(ywUnitHandler::findYwUnits);
         router.get("/FactoryModelService/bizs/:bizCode/ywUnits").handler(ywUnitHandler::findYwUnits);
-        router.get("/FactoryModelService/bizs/:bizCode/ywUnits/:ywUnitCode").handler(ywUnitHandler::findYwUnits);
+        router.get("/FactoryModelService/bizs/:bizCode/ywUnits/:areaCode").handler(ywUnitHandler::findYwUnits);
 
         router.get("/FactoryModelService/rents/:rentCode/bizs/:bizCode/ywUnits").handler(ywUnitHandler::findYwUnits);
-        router.get("/FactoryModelService/rents/:rentCode/bizs/:bizCode/ywUnits/:ywUnitCode").handler(ywUnitHandler::findYwUnits);
+        router.get("/FactoryModelService/rents/:rentCode/bizs/:bizCode/ywUnits/:areaCode").handler(ywUnitHandler::findYwUnits);
 
         // 装置与装置界区关系表
         UnitAreaRelHandler unitAreaRelHandler = (UnitAreaRelHandler) context.getBean("unitAreaRelHandler");

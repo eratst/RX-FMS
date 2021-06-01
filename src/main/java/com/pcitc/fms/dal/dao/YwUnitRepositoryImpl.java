@@ -57,21 +57,21 @@ public class YwUnitRepositoryImpl {
             parameterMap.put("orgCode", YwUnitModel.getOrgCode());
         }
 
-        if (null != YwUnitModel.getYwUnitCode() && !StringUtils.isEmpty(YwUnitModel.getYwUnitCode())) {
-            countSql.append(" and ywUnit.ywUnitCode like :ywUnitCode");
-            dataSql.append(" and ywUnit.ywUnitCode like :ywUnitCode");
-            parameterMap.put("ywUnitCode", "%" + YwUnitModel.getYwUnitCode() + "%");
+        if (null != YwUnitModel.getAreaCode() && !StringUtils.isEmpty(YwUnitModel.getAreaCode())) {
+            countSql.append(" and ywUnit.areaCode like :areaCode");
+            dataSql.append(" and ywUnit.areaCode like :areaCode");
+            parameterMap.put("areaCode", "%" + YwUnitModel.getAreaCode() + "%");
         }
 
-        if (null != YwUnitModel.getYwUnitName() && !StringUtils.isEmpty(YwUnitModel.getYwUnitName())) {
-            countSql.append(" and ywUnit.ywUnitName like :ywUnitName");
-            dataSql.append(" and ywUnit.ywUnitName like :ywUnitName");
-            parameterMap.put("ywUnitName", "%" + YwUnitModel.getYwUnitName() + "%");
+        if (null != YwUnitModel.getAreaName() && !StringUtils.isEmpty(YwUnitModel.getAreaName())) {
+            countSql.append(" and ywUnit.areaName like :areaName");
+            dataSql.append(" and ywUnit.areaName like :areaName");
+            parameterMap.put("areaName", "%" + YwUnitModel.getAreaName() + "%");
         }
-        if (null != YwUnitModel.getYwUnitAlias() && !StringUtils.isEmpty(YwUnitModel.getYwUnitAlias())) {
-            countSql.append(" and ywUnit.ywUnitAlias like :ywUnitAlias");
-            dataSql.append(" and ywUnit.ywUnitAlias like :ywUnitAlias");
-            parameterMap.put("ywUnitAlias", "%" + YwUnitModel.getYwUnitAlias() + "%");
+        if (null != YwUnitModel.getAreaAlias() && !StringUtils.isEmpty(YwUnitModel.getAreaAlias())) {
+            countSql.append(" and ywUnit.areaAlias like :areaAlias");
+            dataSql.append(" and ywUnit.areaAlias like :areaAlias");
+            parameterMap.put("areaAlias", "%" + YwUnitModel.getAreaAlias() + "%");
         }
 
         if (null != YwUnitModel.getDataStatus()
@@ -81,8 +81,8 @@ public class YwUnitRepositoryImpl {
             parameterMap.put("dataStatus", YwUnitModel.getDataStatus());
         }
         if (null != YwUnitModel.getCodeList() && !YwUnitModel.getCodeList().isEmpty()) {
-            countSql.append(" and ywUnit.ywUnitCode in :codeList");
-            dataSql.append(" and ywUnit.ywUnitCode in :codeList");
+            countSql.append(" and ywUnit.areaCode in :codeList");
+            dataSql.append(" and ywUnit.areaCode in :codeList");
             parameterMap.put("codeList", YwUnitModel.getCodeList());
         }
 
@@ -96,18 +96,6 @@ public class YwUnitRepositoryImpl {
             dataSql.append(" and technic.technicName like :technicName");
             parameterMap.put("technicName", "%" + YwUnitModel.getTechnicName() + "%");
         }
-
-       /* List<String> orgCodes = new ArrayList<>();
-        if (StringUtils.isNotEmpty(YwUnitModel.getRentCode())) {
-            orgCodes = CacheRentInfo.getNewOrgCodes(YwUnitModel.getRentCode(), YwUnitModel.getBizCode());
-            if (orgCodes != null && !orgCodes.isEmpty()) {
-                countSql.append(" and org.orgCode in :rentOrgCodes");
-                dataSql.append(" and org.orgCode in :rentOrgCodes");
-                parameterMap.put("rentOrgCodes", orgCodes);
-            } else {
-                return new PageImpl(new ArrayList<YwUnit>(), null, 0L);
-            }
-        }*/
 
         dataSql.append(" order by ywUnit.sortNum asc");
         countSql.append(" order by ywUnit.sortNum asc");

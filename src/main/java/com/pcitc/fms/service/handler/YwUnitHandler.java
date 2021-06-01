@@ -25,7 +25,7 @@ public class YwUnitHandler extends BaseHandler {
     private YwUnitService ywUnitService;
 
     public void findYwUnits(RoutingContext routingContext) {
-        Sort sort = new Sort(Sort.Direction.DESC, "ywUnitId");
+        Sort sort = new Sort(Sort.Direction.DESC, "areaId");
         Pagination pagination = new Pagination();
         Vertx vertx = routingContext.vertx();
         vertx.executeBlocking(future -> {

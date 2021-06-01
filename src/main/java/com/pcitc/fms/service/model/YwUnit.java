@@ -20,19 +20,19 @@ public class YwUnit extends BaseResRep implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ResourceMember(InTemplate = false)
-    private Long ywUnitId;
+    private Long aredId;
 
     @CheckField(CheckName = CheckNameType.CODE, StrLength = 50, Explain = "业务装置编码")
-    @ResourceMember(InQueries = "condition", Name = "ywUnitCode")
-    private String ywUnitCode;
+    @ResourceMember(InQueries = "condition", Name = "areaCode")
+    private String areaCode;
 
     @CheckField(CheckName = CheckNameType.NAME, StrLength = 4000, Explain = "业务装置名称")
-    @ResourceMember(InQueries = "condition", Name = "ywUnitName")
-    private String ywUnitName;
+    @ResourceMember(InQueries = "condition", Name = "areaName")
+    private String areaName;
 
     @CheckField(CheckName = CheckNameType.NAME, StrLength = 4000, Explain = "业务装置简称")
-    /*@ResourceMember(InQueries = "condition", Name = "ywUnitAlias")*/
-    private String ywUnitAlias;
+    /*@ResourceMember(InQueries = "condition", Name = "areaAlias")*/
+    private String areaAlias;
 
     /*@ResourceMember(InTemplate = false)
     private Long unitTypeId;*/
@@ -126,36 +126,36 @@ public class YwUnit extends BaseResRep implements Serializable {
     @ResourceMember(InTemplate = false, InQueries = "search,condition", OnlyQuery = true, Name = "$skip")
     private Integer skip = 0;
 
-    public Long getYwUnitId() {
-        return ywUnitId;
+    public Long getAredId() {
+        return aredId;
     }
 
-    public void setYwUnitId(Long ywUnitId) {
-        this.ywUnitId = ywUnitId;
+    public void setAredId(Long aredId) {
+        this.aredId = aredId;
     }
 
-    public String getYwUnitCode() {
-        return ywUnitCode;
+    public String getAreaCode() {
+        return areaCode;
     }
 
-    public void setYwUnitCode(String ywUnitCode) {
-        this.ywUnitCode = ywUnitCode;
+    public void setAreaCode(String areaCode) {
+        this.areaCode = areaCode;
     }
 
-    public String getYwUnitName() {
-        return ywUnitName;
+    public String getAreaName() {
+        return areaName;
     }
 
-    public void setYwUnitName(String ywUnitName) {
-        this.ywUnitName = ywUnitName;
+    public void setAreaName(String areaName) {
+        this.areaName = areaName;
     }
 
-    public String getYwUnitAlias() {
-        return ywUnitAlias;
+    public String getAreaAlias() {
+        return areaAlias;
     }
 
-    public void setYwUnitAlias(String ywUnitAlias) {
-        this.ywUnitAlias = ywUnitAlias;
+    public void setAreaAlias(String areaAlias) {
+        this.areaAlias = areaAlias;
     }
 
     /*public Long getUnitTypeId() {

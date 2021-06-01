@@ -498,10 +498,10 @@ public interface AreaNodeBasicSql {
             + " where enpipenet.mtrlId = material.mtrlId and enpipenet.orgId = org.orgId and enpipenet.bizId=biz.bizId ";
 
     //虚拟装置
-    static final String ywUnit = "select new YwUnit(ywUnit.ywUnitId,ywUnit.ywUnitCode,ywUnit.ywUnitName,"
-            + "ywUnit.ywUnitAlias,ywUnit.unitTypeId,unitType.unitTypeName,ywUnit.technicId,technic.technicName,"
-            + "ywUnit.orgId,org.orgCode,org.orgName,org.orgAlias,org.crtUserId,org.crtUserName,org.crtDate,"
-            + "org.mntUserId,org.mntUserName,org.mntDate,ywUnit.bizId,biz.bizCode,"
+    static final String ywUnit = "select new YwUnit(ywUnit.areaId,ywUnit.areaCode,ywUnit.areaName,"
+            + "ywUnit.areaAlias,ywUnit.unitTypeId,unitType.unitTypeName,ywUnit.technicId,technic.technicName,"
+            + "ywUnit.orgId,org.orgCode,org.orgName,org.orgAlias,ywUnit.crtUserId,ywUnit.crtUserName,ywUnit.crtDate,"
+            + "ywUnit.mntUserId,ywUnit.mntUserName,ywUnit.mntDate,ywUnit.bizId,biz.bizCode,"
             + "ywUnit.capacity,ywUnit.initialAssetValue,ywUnit.netAssetValue,ywUnit.dataStatus,ywUnit.sortNum,ywUnit.des,"
             + "ywUnit.version,ywUnit.capacityUnitId,case when ywUnit.capacityUnitId is NULL then '' else " +
             "(select capacityUnit.capacityUnitName from CapacityUnit capacityUnit where ywUnit.capacityUnitId = capacityUnit.capacityUnitId) end) "
