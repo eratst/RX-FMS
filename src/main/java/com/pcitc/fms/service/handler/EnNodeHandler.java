@@ -30,7 +30,7 @@ public class EnNodeHandler extends BaseHandler {
         Vertx vertx = routingContext.vertx();
         vertx.executeBlocking(future -> {
             try {
-            	EnNode enNodeParam = QueryParams.getQueryParams(routingContext, EnNode.class);
+                EnNode enNodeParam = QueryParams.getQueryParams(routingContext, EnNode.class);
                 Pageable pageable = null;
                 if (enNodeParam.getSkip() != null && enNodeParam.getTop() != null) {
                     pageable = PageUtil.pageable(enNodeParam.getTop(), enNodeParam.getSkip(), sort);
@@ -58,5 +58,4 @@ public class EnNodeHandler extends BaseHandler {
             returnCollection(routingContext, collection);
         });
     }
-
 }

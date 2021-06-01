@@ -519,14 +519,20 @@ public interface AreaNodeBasicSql {
 
     //能源节点
     public static final String enNode = "select new EnNode (enNode.enNodeId, enNode.enNodeCode, enNode.enNodeName, enNode.enNodeAlias, "
-            + "enNode.enNodeTypeId, enNodeType.enNodeTypeCode, enNodeType.enNodeTypeName, enNode.formula, enNode.ywUnitId, ywUnit.ywUnitCode, "
-            + "ywUnit.ywUnitName, ywUnit.ywUnitAlias, enNode.bizId, biz.bizCode, biz.crtUserId, biz.crtUserName, biz.crtDate, biz.mntUserId, "
-            + "biz.mntUserName, biz.mntDate, enNode.dataStatus, enNode.sortNum, enNode.des, enNode.version, enNode.netId, "
+            + "enNode.enNodeTypeId, enNodeType.enNodeTypeCode, enNodeType.enNodeTypeName, enNode.formula, enNode.areaId, "
+            + "case when enNode.markOfVirtual=1 then ( select ywUnit.areaCode from YwUnit ywUnit where enNode.areaId = ywUnit.areaId ) "
+            + "else ( select unit.plantCode from Plant unit where enNode.areaId = unit.plantId ) end, "
+            + "case when enNode.markOfVirtual=1 then ( select ywUnit.areaName from YwUnit ywUnit where enNode.areaId = ywUnit.areaId ) "
+            + "else ( select area.areaName from Plant unit,Area area where enNode.areaId = unit.plantId and area.areaId = unit.plantId) end, "
+            + "case when enNode.markOfVirtual=1 then ( select ywUnit.areaAlias from YwUnit ywUnit where enNode.areaId = ywUnit.areaId ) "
+            + "else ( select area.areaAlias from Plant unit,Area area where enNode.areaId = unit.plantId and area.areaId = unit.plantId ) end, "
+            + "enNode.bizId, biz.bizCode, enNode.crtUserId, enNode.crtUserName, enNode.crtDate, enNode.mntUserId, "
+            + "enNode.mntUserName, enNode.mntDate, enNode.dataStatus, enNode.sortNum, enNode.des, enNode.version,enNode.markOfVirtual, enNode.netId, "
             + "case when enNode.netId is NULL then '' else ( select enpipenet.netCode from EnPipeNet enpipenet where enNode.netId = enpipenet.netId ) end, "
             + "case when enNode.netId is NULL then '' else ( select enpipenet.netName from EnPipeNet enpipenet where enNode.netId = enpipenet.netId ) end, "
             + "case when enNode.netId is NULL then '' else ( select enpipenet.netAlias from EnPipeNet enpipenet where enNode.netId = enpipenet.netId ) end ) "
-            + "from EnNode enNode, EnNodeType enNodeType, YwUnit ywUnit, BizorgMain biz "
-            + "where enNode.enNodeTypeId = enNodeType.enNodeTypeId and ywUnit.ywUnitId = enNode.ywUnitId and enNode.bizId = biz.bizId";
+            + "from EnNode enNode, EnNodeType enNodeType,  BizorgMain biz "
+            + "where enNode.enNodeTypeId = enNodeType.enNodeTypeId and enNode.bizId = biz.bizId";
 
     //能源节点类型
     public static final String enNodeType = "select new EnNodeType (enNodeType.enNodeTypeId, enNodeType.enNodeTypeCode, enNodeType.enNodeTypeName, "

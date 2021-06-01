@@ -35,44 +35,44 @@ public class EnNode implements Serializable {
 
     @Transient
     private String enNodeTypeName;
-    
+
     @Column(name = "FORMULA")
     private String formula;
-    
+
     @Column(name = "YWUNIT_ID")
-    private Long ywUnitId;
+    private Long areaId;
 
     @Transient
-    private String ywUnitCode;
+    private String areaCode;
 
     @Transient
-    private String ywUnitName;
+    private String areaName;
 
     @Transient
-    private String ywUnitAlias;
+    private String areaAlias;
 
     @Column(name = "BIZORGMAIN_ID")
     private Long bizId;
 
     @Transient
     private String bizCode;
-    
-    @Transient
+
+    @Column(name = "CRTUSER_CODE")
     private String crtUserId;
 
-    @Transient
+    @Column(name = "CRTUSER_NAME")
     private String crtUserName;
 
-    @Transient
+    @Column(name = "CRTDATE")
     private Date crtDate;
 
-    @Transient
+    @Column(name = "MNTUSER_CODE")
     private String mntUserId;
 
-    @Transient
+    @Column(name = "MNTUSER_NAME")
     private String mntUserName;
 
-    @Transient
+    @Column(name = "MNTDATE")
     private Date mntDate;
 
     @Column(name = "INUSE")
@@ -99,176 +99,180 @@ public class EnNode implements Serializable {
     @Transient
     private String netAlias;
 
+    @Column(name = "MARKOFVIRTUAL")
+    private Integer markOfVirtual;
+
 
     public EnNode() {
         super();
     }
 
-	public EnNode(Long enNodeId, String enNodeCode, String enNodeName, String enNodeAlias, Long enNodeTypeId,
-			String enNodeTypeCode, String enNodeTypeName, String formula, Long ywUnitId, String ywUnitCode,
-			String ywUnitName, String ywUnitAlias, Long bizId, String bizCode, String crtUserId, String crtUserName,
-			Date crtDate, String mntUserId, String mntUserName, Date mntDate, Integer dataStatus, Integer sortNum,
-			String des, Integer version, Long netId, String netCode, String netName, String netAlias) {
-		super();
-		this.enNodeId = enNodeId;
-		this.enNodeCode = enNodeCode;
-		this.enNodeName = enNodeName;
-		this.enNodeAlias = enNodeAlias;
-		this.enNodeTypeId = enNodeTypeId;
-		this.enNodeTypeCode = enNodeTypeCode;
-		this.enNodeTypeName = enNodeTypeName;
-		this.formula = formula;
-		this.ywUnitId = ywUnitId;
-		this.ywUnitCode = ywUnitCode;
-		this.ywUnitName = ywUnitName;
-		this.ywUnitAlias = ywUnitAlias;
-		this.bizId = bizId;
-		this.bizCode = bizCode;
-		this.crtUserId = crtUserId;
-		this.crtUserName = crtUserName;
-		this.crtDate = crtDate;
-		this.mntUserId = mntUserId;
-		this.mntUserName = mntUserName;
-		this.mntDate = mntDate;
-		this.dataStatus = dataStatus;
-		this.sortNum = sortNum;
-		this.des = des;
-		this.version = version;
-		this.netId = netId;
-		this.netCode = netCode;
-		this.netName = netName;
-		this.netAlias = netAlias;
-	}
+    public EnNode(Long enNodeId, String enNodeCode, String enNodeName, String enNodeAlias, Long enNodeTypeId,
+                  String enNodeTypeCode, String enNodeTypeName, String formula, Long areaId, String areaCode,
+                  String areaName, String areaAlias, Long bizId, String bizCode, String crtUserId, String crtUserName,
+                  Date crtDate, String mntUserId, String mntUserName, Date mntDate, Integer dataStatus, Integer sortNum,
+                  String des, Integer version, Integer markOfVirtual, Long netId, String netCode, String netName, String netAlias) {
+        this.enNodeId = enNodeId;
+        this.enNodeCode = enNodeCode;
+        this.enNodeName = enNodeName;
+        this.enNodeAlias = enNodeAlias;
+        this.enNodeTypeId = enNodeTypeId;
+        this.enNodeTypeCode = enNodeTypeCode;
+        this.enNodeTypeName = enNodeTypeName;
+        this.formula = formula;
+        this.areaId = areaId;
+        this.areaCode = areaCode;
+        this.areaName = areaName;
+        this.areaAlias = areaAlias;
+        this.bizId = bizId;
+        this.bizCode = bizCode;
+        this.crtUserId = crtUserId;
+        this.crtUserName = crtUserName;
+        this.crtDate = crtDate;
+        this.mntUserId = mntUserId;
+        this.mntUserName = mntUserName;
+        this.mntDate = mntDate;
+        this.dataStatus = dataStatus;
+        this.sortNum = sortNum;
+        this.des = des;
+        this.version = version;
+        this.markOfVirtual = markOfVirtual;
+        this.netId = netId;
+        this.netCode = netCode;
+        this.netName = netName;
+        this.netAlias = netAlias;
 
-	public Long getEnNodeId() {
-		return enNodeId;
-	}
+    }
 
-	public void setEnNodeId(Long enNodeId) {
-		this.enNodeId = enNodeId;
-	}
+    public Long getEnNodeId() {
+        return enNodeId;
+    }
 
-	public String getEnNodeCode() {
-		return enNodeCode;
-	}
+    public void setEnNodeId(Long enNodeId) {
+        this.enNodeId = enNodeId;
+    }
 
-	public void setEnNodeCode(String enNodeCode) {
-		this.enNodeCode = enNodeCode;
-	}
+    public String getEnNodeCode() {
+        return enNodeCode;
+    }
 
-	public String getEnNodeName() {
-		return enNodeName;
-	}
+    public void setEnNodeCode(String enNodeCode) {
+        this.enNodeCode = enNodeCode;
+    }
 
-	public void setEnNodeName(String enNodeName) {
-		this.enNodeName = enNodeName;
-	}
+    public String getEnNodeName() {
+        return enNodeName;
+    }
 
-	public String getEnNodeAlias() {
-		return enNodeAlias;
-	}
+    public void setEnNodeName(String enNodeName) {
+        this.enNodeName = enNodeName;
+    }
 
-	public void setEnNodeAlias(String enNodeAlias) {
-		this.enNodeAlias = enNodeAlias;
-	}
+    public String getEnNodeAlias() {
+        return enNodeAlias;
+    }
 
-	public Long getEnNodeTypeId() {
-		return enNodeTypeId;
-	}
+    public void setEnNodeAlias(String enNodeAlias) {
+        this.enNodeAlias = enNodeAlias;
+    }
 
-	public void setEnNodeTypeId(Long enNodeTypeId) {
-		this.enNodeTypeId = enNodeTypeId;
-	}
+    public Long getEnNodeTypeId() {
+        return enNodeTypeId;
+    }
 
-	public String getEnNodeTypeCode() {
-		return enNodeTypeCode;
-	}
+    public void setEnNodeTypeId(Long enNodeTypeId) {
+        this.enNodeTypeId = enNodeTypeId;
+    }
 
-	public void setEnNodeTypeCode(String enNodeTypeCode) {
-		this.enNodeTypeCode = enNodeTypeCode;
-	}
+    public String getEnNodeTypeCode() {
+        return enNodeTypeCode;
+    }
 
-	public String getEnNodeTypeName() {
-		return enNodeTypeName;
-	}
+    public void setEnNodeTypeCode(String enNodeTypeCode) {
+        this.enNodeTypeCode = enNodeTypeCode;
+    }
 
-	public void setEnNodeTypeName(String enNodeTypeName) {
-		this.enNodeTypeName = enNodeTypeName;
-	}
+    public String getEnNodeTypeName() {
+        return enNodeTypeName;
+    }
 
-	public String getFormula() {
-		return formula;
-	}
+    public void setEnNodeTypeName(String enNodeTypeName) {
+        this.enNodeTypeName = enNodeTypeName;
+    }
 
-	public void setFormula(String formula) {
-		this.formula = formula;
-	}
+    public String getFormula() {
+        return formula;
+    }
 
-	public Long getYwUnitId() {
-		return ywUnitId;
-	}
+    public void setFormula(String formula) {
+        this.formula = formula;
+    }
 
-	public void setYwUnitId(Long ywUnitId) {
-		this.ywUnitId = ywUnitId;
-	}
+    public Long getAreaId() {
+        return areaId;
+    }
 
-	public String getYwUnitCode() {
-		return ywUnitCode;
-	}
+    public void setAreaId(Long areaId) {
+        this.areaId = areaId;
+    }
 
-	public void setYwUnitCode(String ywUnitCode) {
-		this.ywUnitCode = ywUnitCode;
-	}
+    public String getAreaCode() {
+        return areaCode;
+    }
 
-	public String getYwUnitName() {
-		return ywUnitName;
-	}
+    public void setAreaCode(String areaCode) {
+        this.areaCode = areaCode;
+    }
 
-	public void setYwUnitName(String ywUnitName) {
-		this.ywUnitName = ywUnitName;
-	}
+    public String getAreaName() {
+        return areaName;
+    }
 
-	public String getYwUnitAlias() {
-		return ywUnitAlias;
-	}
+    public void setAreaName(String areaName) {
+        this.areaName = areaName;
+    }
 
-	public void setYwUnitAlias(String ywUnitAlias) {
-		this.ywUnitAlias = ywUnitAlias;
-	}
+    public String getAreaAlias() {
+        return areaAlias;
+    }
 
-	public Long getNetId() {
-		return netId;
-	}
+    public void setAreaAlias(String areaAlias) {
+        this.areaAlias = areaAlias;
+    }
 
-	public void setNetId(Long netId) {
-		this.netId = netId;
-	}
+    public Long getNetId() {
+        return netId;
+    }
 
-	public String getNetCode() {
-		return netCode;
-	}
+    public void setNetId(Long netId) {
+        this.netId = netId;
+    }
 
-	public void setNetCode(String netCode) {
-		this.netCode = netCode;
-	}
+    public String getNetCode() {
+        return netCode;
+    }
 
-	public String getNetName() {
-		return netName;
-	}
+    public void setNetCode(String netCode) {
+        this.netCode = netCode;
+    }
 
-	public void setNetName(String netName) {
-		this.netName = netName;
-	}
+    public String getNetName() {
+        return netName;
+    }
 
-	public String getNetAlias() {
-		return netAlias;
-	}
+    public void setNetName(String netName) {
+        this.netName = netName;
+    }
 
-	public void setNetAlias(String netAlias) {
-		this.netAlias = netAlias;
-	}
+    public String getNetAlias() {
+        return netAlias;
+    }
 
-	public String getCrtUserId() {
+    public void setNetAlias(String netAlias) {
+        this.netAlias = netAlias;
+    }
+
+    public String getCrtUserId() {
         return crtUserId;
     }
 
@@ -364,4 +368,11 @@ public class EnNode implements Serializable {
         this.bizCode = bizCode;
     }
 
+    public Integer getMarkOfVirtual() {
+        return markOfVirtual;
+    }
+
+    public void setMarkOfVirtual(Integer markOfVirtual) {
+        this.markOfVirtual = markOfVirtual;
+    }
 }

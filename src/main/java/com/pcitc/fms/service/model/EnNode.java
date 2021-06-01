@@ -48,17 +48,17 @@ public class EnNode extends BaseResRep implements Serializable {
      * 组织机构
      */
     @ResourceMember(InTemplate = false)
-    private Long ywUnitId;
+    private Long areaId;
 
-    @CheckField(CheckName = CheckNameType.CODE, StrLength = 50, Explain = "业务装置编码")
-    @ResourceMember(InQueries = "condition", Name = "ywUnitCode")
-    private String ywUnitCode;
+    //@CheckField(CheckName = CheckNameType.CODE, StrLength = 50, Explain = "业务装置编码")
+    @ResourceMember(InQueries = "condition", Name = "areaCode")
+    private String areaCode;
 
-    private String ywUnitName;
+    private String areaName;
 
     @CheckField(CheckName = CheckNameType.NAME, StrLength = 200, Explain = "业务装置简称")
-    @ResourceMember(InQueries = "condition", Name = "ywUnitAlias")
-    private String ywUnitAlias;
+    @ResourceMember(InQueries = "condition", Name = "areaAlias")
+    private String areaAlias;
 
     /**
      * 能源管网
@@ -69,13 +69,14 @@ public class EnNode extends BaseResRep implements Serializable {
     @CheckField(CheckName = CheckNameType.NAMEMAYBENULL, StrLength = 200, Explain = "能源管网名称")
     private String netName;
 
+    @CheckField(CheckName = CheckNameType.CODEMAYBENULL, StrLength = 50, Explain = "能源管网编码")
     private String netCode;
 
     /**
      * 业务域
      */
     @CheckField(CheckName = CheckNameType.CODE, StrLength = 50, Explain = "业务域编码")
-    @ResourceMember(InQueries = "condition", Name = "bizCode")
+    //@ResourceMember(InQueries = "condition", Name = "bizCode")
     private String bizCode;
 
     @ResourceMember(OnlyQuery = true)
@@ -91,7 +92,7 @@ public class EnNode extends BaseResRep implements Serializable {
     /**
      * 创建信息
      */
-    @CheckField(CheckName = CheckNameType.CREATORID, StrLength = 50, Explain = "创建人ID")
+    @CheckField(CheckName = CheckNameType.CODE, StrLength = 50, Explain = "创建人ID")
     private String crtUserId;
 
     @CheckField(CheckName = CheckNameType.CREATOR, StrLength = 80, Explain = "创建人名称")
@@ -100,7 +101,7 @@ public class EnNode extends BaseResRep implements Serializable {
     @CheckField(CheckName = CheckNameType.CREATETIME, Explain = "创建时间")
     private Date crtDate;
 
-    @CheckField(CheckName = CheckNameType.EDITORID, StrLength = 50, Explain = "最后维护人ID")
+    @CheckField(CheckName = CheckNameType.CODE, StrLength = 50, Explain = "最后维护人ID")
     private String mntUserId;
 
     @CheckField(CheckName = CheckNameType.EDITOR, StrLength = 80, Explain = "最后维护人名称")
@@ -118,6 +119,7 @@ public class EnNode extends BaseResRep implements Serializable {
     private Integer sortNum;
 
     @CheckField(CheckName = CheckNameType.DES, StrLength = 200, Explain = "描述")
+    /*@ResourceMember(InQueries = "condition", Name = "des")*/
     private String des;
 
     @CheckField(CheckName = CheckNameType.ID, Explain = "乐观锁版本")
@@ -136,6 +138,9 @@ public class EnNode extends BaseResRep implements Serializable {
 
     @ResourceMember(OnlyQuery = true)
     private String rentCode;
+
+    @CheckField(CheckName = CheckNameType.ENABLED, Explain = "是否是虚拟装置")
+    private Integer markOfVirtual;
 
     public Long getBizId() {
         return bizId;
@@ -177,39 +182,39 @@ public class EnNode extends BaseResRep implements Serializable {
         this.enNodeAlias = enNodeAlias;
     }
 
-    public Long getYwUnitId() {
-		return ywUnitId;
-	}
+    public Long getAreaId() {
+        return areaId;
+    }
 
-	public void setYwUnitId(Long ywUnitId) {
-		this.ywUnitId = ywUnitId;
-	}
+    public void setAreaId(Long areaId) {
+        this.areaId = areaId;
+    }
 
-	public String getYwUnitCode() {
-		return ywUnitCode;
-	}
+    public String getAreaCode() {
+        return areaCode;
+    }
 
-	public void setYwUnitCode(String ywUnitCode) {
-		this.ywUnitCode = ywUnitCode;
-	}
+    public void setAreaCode(String areaCode) {
+        this.areaCode = areaCode;
+    }
 
-	public String getYwUnitName() {
-		return ywUnitName;
-	}
+    public String getAreaName() {
+        return areaName;
+    }
 
-	public void setYwUnitName(String ywUnitName) {
-		this.ywUnitName = ywUnitName;
-	}
+    public void setAreaName(String areaName) {
+        this.areaName = areaName;
+    }
 
-	public String getYwUnitAlias() {
-		return ywUnitAlias;
-	}
+    public String getAreaAlias() {
+        return areaAlias;
+    }
 
-	public void setYwUnitAlias(String ywUnitAlias) {
-		this.ywUnitAlias = ywUnitAlias;
-	}
+    public void setAreaAlias(String areaAlias) {
+        this.areaAlias = areaAlias;
+    }
 
-	public Long getNetId() {
+    public Long getNetId() {
         return netId;
     }
 
@@ -238,30 +243,30 @@ public class EnNode extends BaseResRep implements Serializable {
     }
 
     public Long getEnNodeTypeId() {
-		return enNodeTypeId;
-	}
+        return enNodeTypeId;
+    }
 
-	public void setEnNodeTypeId(Long enNodeTypeId) {
-		this.enNodeTypeId = enNodeTypeId;
-	}
+    public void setEnNodeTypeId(Long enNodeTypeId) {
+        this.enNodeTypeId = enNodeTypeId;
+    }
 
-	public String getEnNodeTypeCode() {
-		return enNodeTypeCode;
-	}
+    public String getEnNodeTypeCode() {
+        return enNodeTypeCode;
+    }
 
-	public void setEnNodeTypeCode(String enNodeTypeCode) {
-		this.enNodeTypeCode = enNodeTypeCode;
-	}
+    public void setEnNodeTypeCode(String enNodeTypeCode) {
+        this.enNodeTypeCode = enNodeTypeCode;
+    }
 
-	public String getEnNodeTypeName() {
-		return enNodeTypeName;
-	}
+    public String getEnNodeTypeName() {
+        return enNodeTypeName;
+    }
 
-	public void setEnNodeTypeName(String enNodeTypeName) {
-		this.enNodeTypeName = enNodeTypeName;
-	}
+    public void setEnNodeTypeName(String enNodeTypeName) {
+        this.enNodeTypeName = enNodeTypeName;
+    }
 
-	public void setFormula(String formula) {
+    public void setFormula(String formula) {
         this.formula = formula;
     }
 
@@ -383,5 +388,13 @@ public class EnNode extends BaseResRep implements Serializable {
 
     public void setBizCode(String bizCode) {
         this.bizCode = bizCode;
+    }
+
+    public Integer getMarkOfVirtual() {
+        return markOfVirtual;
+    }
+
+    public void setMarkOfVirtual(Integer markOfVirtual) {
+        this.markOfVirtual = markOfVirtual;
     }
 }
