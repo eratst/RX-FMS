@@ -303,6 +303,7 @@
 										</ul>
 									</div>
 								</div>
+								<!--能源节点、装置与装置简称装置简称-->
 								<div ng-if="value.unitAll==true" class="input-group">
 									<input type="text" class="form-control" ng-model="value.proUpdate.data" ng-disabled="true">
 									<div class="input-group-btn">
@@ -312,8 +313,7 @@
 												<a tabindex="-1" href="javascript:;">{{pData['typeName']}}</a>
 												<ul class="dropdown-menu menu-overflow">
 													<li ng-repeat="pcData in pData.value">
-														<!--<a ng-click="value.proAdd.data=pcData['areaAlias']">{{pcData['orgCode']+pcData['areaAlias']}}</a>-->
-														<a ng-click="main.vfunc.onclick.unitSelected('proUpdate',pData['typeName'],pcData['areaAlias'],pcData['areaCode'])">{{pcData['areaCode']+'--'+pcData['areaAlias']}}</a>
+														<a ng-click="main.vfunc.onclick.unitSelected('proUpdate',pData['typeName'],pcData['areaAlias'],pcData['areaCode'],pcData['areaName'])">{{pcData['areaCode']+'--'+pcData['areaAlias']}}</a>
 													</li>
 												</ul>
 											</li>

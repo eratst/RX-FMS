@@ -620,6 +620,7 @@ angular.module('myApp', [
 						for(var i = 0; i < res.data.collection.queries.length; i++) {
 							if(res.data.collection.queries[i].rel == 'condition') {
 								var queriesData = res.data.collection.queries[i].data;
+								console.log('jjjjj====',queriesData)
 							}
 						}
 						for(var key in tableType.attribute) {

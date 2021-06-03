@@ -510,12 +510,18 @@ public interface AreaNodeBasicSql {
             + "and ywUnit.technicId=technic.technicId ";
 
     // 装置与装置界区关系
-    public static final String unitAreaRel = "select new UnitAreaRel(unitAreaRel.unitAreaRelId, plant.plantId, plant.plantCode, area.areaName, unitArea.unitAreaId, "
-            + "unitArea.unitAreaCode, unitArea.unitAreaName,unitAreaRel.dataStatus, biz.crtUserId ,biz.crtUserName,biz.crtDate,biz.mntUserId, biz.mntUserName,"
-            + "biz.mntDate,unitAreaRel.sortNum, unitAreaRel.version,unitAreaRel.des, unitAreaRel.bizId, biz.bizCode)"
-            + "from UnitAreaRel unitAreaRel, Plant plant, Area area, UnitArea unitArea, BizorgMain biz "
-            + "where unitAreaRel.unitId = plant.plantId and area.areaId = plant.plantId and "
-            + "unitAreaRel.unitAreaId = unitArea.unitAreaId and unitAreaRel.bizId = biz.bizId";
+    public static final String unitAreaRel = "select new UnitAreaRel(unitAreaRel.unitAreaRelId, unitAreaRel.areaId, "
+            + "case when unitAreaRel.ofFms=0 then ( select ywUnit.areaCode from YwUnit ywUnit where unitAreaRel.areaId = ywUnit.areaId ) "
+            + "else ( select unit.plantCode from Plant unit where unitAreaRel.areaId = unit.plantId ) end, "
+            + "case when unitAreaRel.ofFms=0 then ( select ywUnit.areaName from YwUnit ywUnit where unitAreaRel.areaId = ywUnit.areaId ) "
+            + "else ( select area.areaName from Plant unit,Area area where unitAreaRel.areaId = unit.plantId and area.areaId = unit.plantId) end, "
+            + "case when unitAreaRel.ofFms=0 then ( select ywUnit.areaAlias from YwUnit ywUnit where unitAreaRel.areaId = ywUnit.areaId ) "
+            + "else ( select area.areaAlias from Plant unit,Area area where unitAreaRel.areaId = unit.plantId and area.areaId = unit.plantId ) end, "
+            + "unitAreaRel.unitAreaId, unitArea.unitAreaCode, unitArea.unitAreaName,unitArea.unitAreaAlias,unitAreaRel.dataStatus, "
+            + "unitAreaRel.crtUserId,unitAreaRel.crtUserName,unitAreaRel.crtDate,unitAreaRel.mntUserId, unitAreaRel.mntUserName,"
+            + "unitAreaRel.mntDate,unitAreaRel.sortNum, unitAreaRel.version,unitAreaRel.des, unitAreaRel.bizId, biz.bizCode,unitAreaRel.ofFms )"
+            + " from UnitAreaRel unitAreaRel,UnitArea unitArea, BizorgMain biz "
+            + " where unitAreaRel.unitAreaId = unitArea.unitAreaId and unitAreaRel.bizId = biz.bizId";
 
     //能源节点
     public static final String enNode = "select new EnNode (enNode.enNodeId, enNode.enNodeCode, enNode.enNodeName, enNode.enNodeAlias, "

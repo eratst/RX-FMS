@@ -1801,10 +1801,10 @@ public class ServiceVerticle extends AbstractVerticle {
         // 装置与装置界区关系表
         UnitAreaRelHandler unitAreaRelHandler = (UnitAreaRelHandler) context.getBean("unitAreaRelHandler");
         router.get("/FactoryModelService/bizs/:bizCode/unitAreaRels").handler(unitAreaRelHandler::findUnitAreaRels);
-        router.get("/FactoryModelService/bizs/:bizCode/unitAreaRels/:unitCode/:unitAreaCode").handler(unitAreaRelHandler::findUnitAreaRels);
+        router.get("/FactoryModelService/bizs/:bizCode/unitAreaRels/:areaCode/:unitAreaCode").handler(unitAreaRelHandler::findUnitAreaRels);
 
         router.get("/FactoryModelService/rents/:rentCode/bizs/:bizCode/unitAreaRels").handler(unitAreaRelHandler::findUnitAreaRels);
-        router.get("/FactoryModelService/rents/:rentCode/bizs/:bizCode/unitAreaRels/:unitCode/:unitAreaCode").handler(unitAreaRelHandler::findUnitAreaRels);
+        router.get("/FactoryModelService/rents/:rentCode/bizs/:bizCode/unitAreaRels/:areaCode/:unitAreaCode").handler(unitAreaRelHandler::findUnitAreaRels);
         
         // 能源节点类型表
         EnNodeTypeHandler enNodeTypeHandler = (EnNodeTypeHandler) context.getBean("enNodeTypeHandler");

@@ -1,8 +1,8 @@
 {
 	"alterKey": "unitAreaRelId",
-	"nodeA": "unitCode",
+	"nodeA": "areaCode",
 	"nodeB": "unitAreaCode",
-	"nodeC":"bizCode",
+	"nodeC": "bizCode",
 	"attribute": {
 		"unitAreaRelId": {
 			"display": "装置与装置界区ID",
@@ -11,7 +11,7 @@
 			"hide": true,
 			"inOut": false
 		},
-		"unitId": {
+		"areaId": {
 			"display": "装置ID",
 			"type": "number",
 			"required": false,
@@ -25,7 +25,7 @@
 			"hide": true,
 			"inOut": false
 		},
-		"unitCode": {
+		"areaCode": {
 			"display": "装置编码",
 			"type": "string",
 			"required": true,
@@ -33,18 +33,13 @@
 			"inOut": true,
 			"width": "130",
 			"class": "left",
-			"parentModel": "T_PM_UNIT",
-			"linkKeys": {
-				"unitCode": "areaCode",
-				"unitName": "areaName",
-				"unitId": "areaId"
-			},
+			"unitAll": true,
 			"proUpdate": {
 				"show": true,
 				"edit": false
 			}
 		},
-		"unitName": {
+		"areaName": {
 			"display": "装置名称",
 			"type": "string",
 			"required": false,
@@ -60,6 +55,15 @@
 				"edit": false
 			}
 		},
+		"areaAlias": {
+			"display": "装置简称",
+			"type": "string",
+			"required": true,
+			"hide": true,
+			"inOut": true,
+			"width": "130",
+			"class": "left"
+		},
 		"unitAreaCode": {
 			"display": "装置界区编码",
 			"type": "string",
@@ -72,6 +76,7 @@
 			"linkKeys": {
 				"unitAreaCode": "unitAreaCode",
 				"unitAreaName": "unitAreaName",
+				"unitAreaAlias": "unitAreaAlias",
 				"unitAreaId": "unitAreaId"
 			},
 			"proUpdate": {
@@ -94,7 +99,16 @@
 				"show": false,
 				"edit": false
 			}
-		},"bizCode": {
+		},
+		"unitAreaAlias": {
+			"display": "装置界区简称",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true,
+			"width": "150"
+		},
+		"bizCode": {
 			"display": "业务域",
 			"type": "string",
 			"required": true,
@@ -103,7 +117,7 @@
 			"class": "left",
 			"width": "130",
 			"dropBiz": true,
-				"proAdd": {
+			"proAdd": {
 				"show": true,
 				"edit": false
 			},
@@ -233,6 +247,13 @@
 			"type": "number",
 			"required": false,
 			"hide": true,
+			"inOut": false
+		},
+		"ofFms":{
+			"display": "是否是工厂模型装置",
+			"type": "number",
+			"hide": true,
+			"required": false,
 			"inOut": false
 		}
 	}

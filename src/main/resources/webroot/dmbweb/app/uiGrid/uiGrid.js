@@ -60,7 +60,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			//度量指标按钮
 			$scope.measBtnShow = ($stateParams.id == 'T_PM_MEASINDEX')
 			//装置界区详情按钮
-//						$scope.detailBtnShow = ($stateParams.id=='T_PM_UNITAREAREL')
+			$scope.detailBtnShow = ($stateParams.id == 'T_PM_UNITAREAREL')
 			//禁止罐量计算配置基础分类，分类参数，公式参数的增删改查导入按钮显示
 			$scope.BntShow = ($stateParams.id != 'T_IC_CNFG_CLASS_PARA') && ($stateParams.id !=
 				'T_IC_CNFG_CLASS') && ($stateParams.id != 'T_IC_CNFG_FORMULA_PARA');
@@ -1296,7 +1296,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 
 						}
 					} else if(item == 'bizCode') {
-						localStorage.setItem('bizCode', tableType.attribute['bizCode'].proSearch.data);
+						tableType.attribute['bizCode'].hasOwnProperty("proSearch")&&localStorage.setItem('bizCode', tableType.attribute['bizCode'].proSearch.data);
 					}
 				}
 			}
@@ -2661,11 +2661,18 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			}
 
 			/**
-			 * 能源节点表新增修改
+			 * 能源节点表、装置与装置界区关系表
+			 * 新增修改
 			 * 下拉显示装置和虚拟装置
 			 */
 
 			$scope.main.vfunc.onclick.unitOnClick = function(proWhich) {
+				var tableType = $scope.main.vMember.sapc.tableType;
+				var obj = {
+					"busiArea": 'fms_mtrl',
+					"energyMng": 'fms_ener',
+					"operMng": 'fms_ope'
+				}
 				$scope.unitAlias = [{
 						typeName: "装置",
 						url: "/plants",
@@ -2673,26 +2680,31 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 					},
 					{
 						typeName: "虚拟装置",
-						url: "/bizs/fms_ener/ywUnits",
+						url: '/bizs/'+ obj[tableType.jsonObj.bizType] + '/ywUnits',
 						value: []
 					}
 				];
-				$scope.unitAlias.forEach(item=>{
+
+				$scope.unitAlias.forEach(item => {
 					let searchUrl = viewGridProvider.httpPort() + item.url + '?inUse=1&dataStatus=1';
 					viewGridProvider.httpCommit(searchUrl).then(function success(res) {
 						item.value = $.ET.toObjectArr(res.data)
 					}, function errorCallback(response) {});
 				})
 			}
-				$scope.main.vfunc.onclick.unitSelected = function(proWhich, typeName,areaAlias, areaCode) {
+			$scope.main.vfunc.onclick.unitSelected = function(proWhich, typeName, areaAlias, areaCode,areaName) {
 				var tableType = $scope.main.vMember.sapc.tableType;
 				for(var key in tableType.attribute) {
 					if(key == 'areaAlias') {
 						tableType.attribute[key][proWhich].data = areaAlias;
 					} else if(key == 'areaCode') {
 						tableType.attribute[key][proWhich].data = areaCode;
-					}else if(key =='markOfVirtual'){
-						tableType.attribute[key][proWhich].data = typeName=="虚拟装置"?1:0
+					}else if(key == 'areaName') {
+						tableType.attribute[key][proWhich].data = areaName;
+					} else if(key == 'markOfVirtual') {
+						tableType.attribute[key][proWhich].data = typeName == "虚拟装置" ? 1 : 0
+					}else if(key == 'ofFms') {
+						tableType.attribute[key][proWhich].data = typeName == "虚拟装置" ? 0 : 1
 					}
 				}
 			}

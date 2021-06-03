@@ -1,306 +1,297 @@
 package com.pcitc.fms.dal.pojo;
 
-import java.io.Serializable;
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import java.io.Serializable;
+import java.util.Date;
 
-/**
- * [模型表]3.1 装置对象
- * 
- * @author zhao.li
- *
- */
 @Entity
 @Table(name = "T_PM_UNITAREAREL")
 public class UnitAreaRel implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * 装置与装置界区ID
-	 */
-	@Id
-	@Column(name = "UNIT_AREA_REL_ID")
-	private Long unitAreaRelId;
-	
-	/**
-	 * 装置ID
-	 */
-	@Column(name = "AREA_ID")
-	private Long unitId;
+    /**
+     * 装置与装置界区关系ID
+     */
+    @Id
+    @Column(name = "UNIT_AREA_REL_ID")
+    private Long unitAreaRelId;
 
-	@Transient
-	private String unitCode;
+    /**
+     * 装置ID
+     */
+    @Column(name = "AREA_ID")
+    private Long areaId;
 
-	@Transient
-	private String unitName;
-	/**
-	 * 装置界区ID
-	 */
-	@Column(name = "UNIT_AREA_ID")
-	private Long unitAreaId;
+    @Transient
+    private String areaCode;
 
-	@Transient
-	private String unitAreaCode;
+    @Transient
+    private String areaName;
 
-	@Transient
-	private String unitAreaName;
+    @Transient
+    private String areaAlias;
 
-	/**
-	 * 状态
-	 */
-	@Column(name = "INUSE")
-	private Integer dataStatus;
+    /**
+     * 装置界区ID
+     */
+    @Column(name = "UNIT_AREA_ID")
+    private Long unitAreaId;
 
-	/**
-	 * 创建人ID
-	 */
-	@Transient
-	private String crtUserId;
+    @Transient
+    private String unitAreaCode;
 
-	/**
-	 * 创建人名称
-	 */
-	@Transient
-	private String crtUserName;
+    @Transient
+    private String unitAreaName;
 
-	/**
-	 * 创建时间
-	 */
-	@Transient
-	private Date crtDate;
+    @Transient
+    private String unitAreaAlias;
 
-	/**
-	 * 最后维护人ID
-	 */
-	@Transient
-	private String mntUserId;
+    @Column(name = "INUSE")
+    private Integer dataStatus;
 
-	/**
-	 * 最后维护人名称
-	 */
-	@Transient
-	private String mntUserName;
+    @Column(name = "CRTUSER_CODE")
+    private String crtUserId;
 
-	/**
-	 * 维护日期
-	 */
-	@Transient
-	private Date mntDate;
+    @Column(name = "CRTUSER_NAME")
+    private String crtUserName;
 
-	/**
-	 * 排序
-	 */
-	@Column(name = "SORT_NUM")
-	private Integer sortNum;
+    @Column(name = "CRTDATE")
+    private Date crtDate;
 
-	/**
-	 * 乐观锁版本
-	 */
-	@Column(name = "VERSION")
-	private Integer version;
-	
-	/**
-	 * 描述
-	 */
-	@Column(name = "DES")
-	private String des;
-	
-	@Column(name = "BIZORGMAIN_ID")
-	private Long bizId;
+    @Column(name = "MNTUSER_CODE")
+    private String mntUserId;
 
-	@Transient
-	private String bizCode;
+    @Column(name = "MNTUSER_NAME")
+    private String mntUserName;
 
-	public UnitAreaRel() {
-		super();
-	}
+    @Column(name = "MNTDATE")
+    private Date mntDate;
 
+    @Column(name = "SORT_NUM")
+    private Integer sortNum;
 
-	public UnitAreaRel(Long unitAreaRelId, Long unitId, String unitCode, String unitName, Long unitAreaId,
-			String unitAreaCode, String unitAreaName, Integer dataStatus, String crtUserId, String crtUserName,
-			Date crtDate, String mntUserId, String mntUserName, Date mntDate, Integer sortNum, Integer version,
-			String des, Long bizId, String bizCode) {
-		super();
-		this.unitAreaRelId = unitAreaRelId;
-		this.unitId = unitId;
-		this.unitCode = unitCode;
-		this.unitName = unitName;
-		this.unitAreaId = unitAreaId;
-		this.unitAreaCode = unitAreaCode;
-		this.unitAreaName = unitAreaName;
-		this.dataStatus = dataStatus;
-		this.crtUserId = crtUserId;
-		this.crtUserName = crtUserName;
-		this.crtDate = crtDate;
-		this.mntUserId = mntUserId;
-		this.mntUserName = mntUserName;
-		this.mntDate = mntDate;
-		this.sortNum = sortNum;
-		this.version = version;
-		this.des = des;
-		this.bizId = bizId;
-		this.bizCode = bizCode;
-	}
+    @Column(name = "VERSION")
+    private Integer version;
 
+    @Column(name = "DES")
+    private String des;
 
-	public Long getBizId() {
-		return bizId;
-	}
+    @Column(name = "BIZORGMAIN_ID")
+    private Long bizId;
 
+    @Transient
+    private String bizCode;
 
-	public void setBizId(Long bizId) {
-		this.bizId = bizId;
-	}
+    @Column(name = "OFFMS")
+    private Integer ofFms;
 
+    public UnitAreaRel() {
+        super();
+    }
 
-	public Long getUnitId() {
-		return unitId;
-	}
+    public UnitAreaRel(Long unitAreaRelId, Long areaId, String areaCode, String areaName, String areaAlias, Long unitAreaId, String unitAreaCode, String unitAreaName, String unitAreaAlias, Integer dataStatus, String crtUserId, String crtUserName, Date crtDate, String mntUserId, String mntUserName, Date mntDate, Integer sortNum, Integer version, String des, Long bizId, String bizCode, Integer ofFms) {
+        this.unitAreaRelId = unitAreaRelId;
+        this.areaId = areaId;
+        this.areaCode = areaCode;
+        this.areaName = areaName;
+        this.areaAlias = areaAlias;
+        this.unitAreaId = unitAreaId;
+        this.unitAreaCode = unitAreaCode;
+        this.unitAreaName = unitAreaName;
+        this.unitAreaAlias = unitAreaAlias;
+        this.dataStatus = dataStatus;
+        this.crtUserId = crtUserId;
+        this.crtUserName = crtUserName;
+        this.crtDate = crtDate;
+        this.mntUserId = mntUserId;
+        this.mntUserName = mntUserName;
+        this.mntDate = mntDate;
+        this.sortNum = sortNum;
+        this.version = version;
+        this.des = des;
+        this.bizId = bizId;
+        this.bizCode = bizCode;
+        this.ofFms = ofFms;
+    }
 
-	public void setUnitId(Long unitId) {
-		this.unitId = unitId;
-	}
+    public Long getUnitAreaRelId() {
+        return unitAreaRelId;
+    }
 
-	public String getUnitCode() {
-		return unitCode;
-	}
+    public void setUnitAreaRelId(Long unitAreaRelId) {
+        this.unitAreaRelId = unitAreaRelId;
+    }
 
-	public void setUnitCode(String unitCode) {
-		this.unitCode = unitCode;
-	}
+    public Long getAreaId() {
+        return areaId;
+    }
 
-	public String getUnitName() {
-		return unitName;
-	}
+    public void setAreaId(Long areaId) {
+        this.areaId = areaId;
+    }
 
-	public void setUnitName(String unitName) {
-		this.unitName = unitName;
-	}
+    public String getAreaCode() {
+        return areaCode;
+    }
 
-	public String getBizCode() {
-		return bizCode;
-	}
+    public void setAreaCode(String areaCode) {
+        this.areaCode = areaCode;
+    }
 
-	public void setBizCode(String bizCode) {
-		this.bizCode = bizCode;
-	}
+    public String getAreaName() {
+        return areaName;
+    }
 
-	public String getUnitAreaCode() {
-		return unitAreaCode;
-	}
+    public void setAreaName(String areaName) {
+        this.areaName = areaName;
+    }
 
-	public void setUnitAreaCode(String unitAreaCode) {
-		this.unitAreaCode = unitAreaCode;
-	}
+    public String getAreaAlias() {
+        return areaAlias;
+    }
 
-	public String getUnitAreaName() {
-		return unitAreaName;
-	}
+    public void setAreaAlias(String areaAlias) {
+        this.areaAlias = areaAlias;
+    }
 
-	public void setUnitAreaName(String unitAreaName) {
-		this.unitAreaName = unitAreaName;
-	}
+    public Long getUnitAreaId() {
+        return unitAreaId;
+    }
 
-	public Long getUnitAreaRelId() {
-		return unitAreaRelId;
-	}
+    public void setUnitAreaId(Long unitAreaId) {
+        this.unitAreaId = unitAreaId;
+    }
 
-	public void setUnitAreaRelId(Long unitAreaRelId) {
-		this.unitAreaRelId = unitAreaRelId;
-	}
+    public String getUnitAreaCode() {
+        return unitAreaCode;
+    }
 
-	public Long getUnitAreaId() {
-		return unitAreaId;
-	}
+    public void setUnitAreaCode(String unitAreaCode) {
+        this.unitAreaCode = unitAreaCode;
+    }
 
-	public void setUnitAreaId(Long unitAreaId) {
-		this.unitAreaId = unitAreaId;
-	}
+    public String getUnitAreaName() {
+        return unitAreaName;
+    }
 
-	public Integer getDataStatus() {
-		return dataStatus;
-	}
+    public void setUnitAreaName(String unitAreaName) {
+        this.unitAreaName = unitAreaName;
+    }
 
-	public void setDataStatus(Integer dataStatus) {
-		this.dataStatus = dataStatus;
-	}
+    public String getUnitAreaAlias() {
+        return unitAreaAlias;
+    }
 
-	public String getCrtUserId() {
-		return crtUserId;
-	}
+    public void setUnitAreaAlias(String unitAreaAlias) {
+        this.unitAreaAlias = unitAreaAlias;
+    }
 
-	public void setCrtUserId(String crtUserId) {
-		this.crtUserId = crtUserId;
-	}
+    public Integer getDataStatus() {
+        return dataStatus;
+    }
 
-	public String getCrtUserName() {
-		return crtUserName;
-	}
+    public void setDataStatus(Integer dataStatus) {
+        this.dataStatus = dataStatus;
+    }
 
-	public void setCrtUserName(String crtUserName) {
-		this.crtUserName = crtUserName;
-	}
+    public String getCrtUserId() {
+        return crtUserId;
+    }
 
-	public Date getCrtDate() {
-		return crtDate;
-	}
+    public void setCrtUserId(String crtUserId) {
+        this.crtUserId = crtUserId;
+    }
 
-	public void setCrtDate(Date crtDate) {
-		this.crtDate = crtDate;
-	}
+    public String getCrtUserName() {
+        return crtUserName;
+    }
 
-	public String getMntUserId() {
-		return mntUserId;
-	}
+    public void setCrtUserName(String crtUserName) {
+        this.crtUserName = crtUserName;
+    }
 
-	public void setMntUserId(String mntUserId) {
-		this.mntUserId = mntUserId;
-	}
+    public Date getCrtDate() {
+        return crtDate;
+    }
 
-	public String getMntUserName() {
-		return mntUserName;
-	}
+    public void setCrtDate(Date crtDate) {
+        this.crtDate = crtDate;
+    }
 
-	public void setMntUserName(String mntUserName) {
-		this.mntUserName = mntUserName;
-	}
+    public String getMntUserId() {
+        return mntUserId;
+    }
 
-	public Date getMntDate() {
-		return mntDate;
-	}
+    public void setMntUserId(String mntUserId) {
+        this.mntUserId = mntUserId;
+    }
 
-	public void setMntDate(Date mntDate) {
-		this.mntDate = mntDate;
-	}
+    public String getMntUserName() {
+        return mntUserName;
+    }
 
-	public Integer getSortNum() {
-		return sortNum;
-	}
+    public void setMntUserName(String mntUserName) {
+        this.mntUserName = mntUserName;
+    }
 
-	public void setSortNum(Integer sortNum) {
-		this.sortNum = sortNum;
-	}
+    public Date getMntDate() {
+        return mntDate;
+    }
 
-	public Integer getVersion() {
-		return version;
-	}
+    public void setMntDate(Date mntDate) {
+        this.mntDate = mntDate;
+    }
 
-	public void setVersion(Integer version) {
-		this.version = version;
-	}
+    public Integer getSortNum() {
+        return sortNum;
+    }
 
-	public String getDes() {
-		return des;
-	}
+    public void setSortNum(Integer sortNum) {
+        this.sortNum = sortNum;
+    }
 
-	public void setDes(String des) {
-		this.des = des;
-	}
+    public Integer getVersion() {
+        return version;
+    }
 
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
+
+    public String getDes() {
+        return des;
+    }
+
+    public void setDes(String des) {
+        this.des = des;
+    }
+
+    public Long getBizId() {
+        return bizId;
+    }
+
+    public void setBizId(Long bizId) {
+        this.bizId = bizId;
+    }
+
+    public String getBizCode() {
+        return bizCode;
+    }
+
+    public void setBizCode(String bizCode) {
+        this.bizCode = bizCode;
+    }
+
+    public Integer getOfFms() {
+        return ofFms;
+    }
+
+    public void setOfFms(Integer ofFms) {
+        this.ofFms = ofFms;
+    }
 }
