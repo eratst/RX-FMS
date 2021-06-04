@@ -1063,10 +1063,11 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 								.value + " 00:00:00"
 						}
 					} else if(key == 'mntUserId' || key == 'mntUserCode' || key == 'mntUserName') {
-						console.log("userCode++++++++++", $scope.userCode)
 						tableType.attribute[key].proUpdate.data = $scope.userCode;
 					} else if(key == 'bizCode') {
 						localStorage.setItem('bizCode', tableType.attribute[key].proUpdate.data);
+					}else if((tableType.jsonObj.key == 'T_PM_UNITAREAREL'||tableType.jsonObj.key == 'T_PM_ENNODE')&&key=='rentCode'){
+						tableType.attribute[key].proUpdate.data=localStorage.getItem('rentCode')
 					}
 				}
 				//获取修改数据
@@ -2010,7 +2011,6 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				var promise = deffered.promise;
 				viewGridProvider.setValueTV($scope.pM.vMember.sapc, pjsonObj, deffered);
 				promise.then(function() {
-					console.log('[[[[[[[[[[[[[', $scope.pM.vMember.sapc.parentType)
 					viewGridProvider.initParentTable($scope.pM.vMember.sapc.parentType, tableIndex);
 					//		将新增页面上的数据赋给查询模态框
 					var searchTableType = $scope.pM.vMember.sapc.parentType;
@@ -2120,7 +2120,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 
 				} else if(tableName == 'T_PM_ENPIPENET' || tableName == 'T_PM_ENNODE') {
 					//					表的搜索模态框不止一个,所以分情况
-					if($scope.pM.vMember.sapc.parentType.jsonObj.url == '/enPipeNets') {
+					if($scope.pM.vMember.sapc.parentType.jsonObj.url == '/enPipeNets'||$scope.pM.vMember.sapc.parentType.jsonObj.url == '/enNodeTypes') {
 						var searchUrl = viewGridProvider.httpPort() + '/bizs/fms_ener' + $scope.pM.vMember.sapc
 							.parentType.jsonObj.url + '?$skip=' + ($scope.selPage - 1) * $scope.pageSize +
 							'&$top=' + $scope.pageSize + '&inUse=1&dataStatus=1';
@@ -2165,7 +2165,6 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 							.pageSize)); //通过当前页数筛选出表格当前显示数据
 					}
 					$scope.items = $scope.pM.vMember.sapc.parentValue.slice(0, $scope.pageSize);
-					//console.log('items', $scope.items);
 					for(let i = 0; i < $scope.items.length; i++) {
 						for(let key in $scope.items[i]) {
 							if(key == 'dataStatus' || key == 'inUse') {
@@ -2231,9 +2230,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 					}
 				} else {
 					var linkKeys = $scope.main.vMember.temLink.selfKV.vt.linkKeys;
-					console.log("linkKeys", linkKeys)
 					for(var key in linkKeys) {
-						console.log("key++++", $scope.main.vMember.sapc.tableType.attribute[key])
 						$scope.main.vMember.sapc.tableType.attribute[key][proValue].data = data[linkKeys[key]];
 					}
 				}
@@ -2282,7 +2279,6 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				viewGridProvider.httpCommit(bizUrl).then(function success(res) {
 					$scope.stdTreeList = []
 					$scope.stdTreeRes = $.ET.toObjectArr(res.data)
-					//console.log('$.ET.toObjectArr(res.data)', $.ET.toObjectArr(res.data))
 					for(let i = 0; i < $scope.stdTreeRes.length; i++) {
 						if($scope.stdTreeRes[i].upperOrgId == '' || $scope.stdTreeRes[i].upperOrgId ==
 							0) {
@@ -2304,8 +2300,6 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 							$scope.stdTreeList.push(obj)
 						}
 					}
-					//console.log("标准组织机构树返回数据", $scope.stdTreeRes)
-					//console.log("标准组织机构树组装数据", $scope.stdTreeList)
 				}, function errorCallback(response) {});
 
 			}
@@ -2337,10 +2331,8 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			 */
 			$scope.main.vfunc.onclick.orgStdOnClick = function(orgStd) {
 				//			$scope.levelOrg=false;
-				console.log("选中该组织机构", orgStd)
 				for(let item in $scope.main.vMember.sapc.tableType.attribute) {
 					if((item == 'upperOrgCode' || item == 'parentOrgCode') && $scope.treeFlag == 'parTree') {
-						//console.log('-++++++++-', $scope.main.vMember.sapc.tableType.attribute)
 						if($scope.proStdFlag == 'proSearch') {
 							$scope.main.vMember.sapc.tableType.attribute[item].proSearch = {};
 							$scope.main.vMember.sapc.tableType.attribute[item].proSearch.data = orgStd.orgCode;
@@ -2362,7 +2354,6 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 						} else {
 							$scope.main.vMember.sapc.tableType.attribute[item][$scope.proStdFlag].data = orgStd
 								.orgCode;
-							//console.log('--------', $scope.main.vMember.sapc.tableType.attribute)
 							if($scope.main.vMember.sapc.tableType.jsonObj.key == "T_PM_BIZORG_DTL") {
 								$scope.main.vMember.sapc.tableType.attribute['orgTypeName'][$scope.proStdFlag]
 									.data = orgStd.orgTypeName;
@@ -2399,7 +2390,6 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				viewGridProvider.httpCommit(bizUrl).then(function success(res) {
 
 					$scope.resultBizArr = $.ET.toObjectArr(res.data);
-					//console.log('业务域返回', $scope.resultBizArr);
 					orgTree.treeLevel = 0;
 					$scope.orgTree = orgTree;
 					//				if(localStorage.getItem('bizCode')) {
@@ -2583,10 +2573,8 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 					areaUrl = viewGridProvider.httpPort() + url +
 						"?inUse=1&dataStatus=1&isRecursive=1&orgCode=" + urlCode + '&$nodeType=' + nodeType;
 				}
-				console.log('查询区域所用url', areaUrl, proWhich);
 				viewGridProvider.httpCommit(areaUrl).then(function success(res) {
 					var resultArr = $.ET.toObjectArr(res.data);
-					console.log('查询区域返回值', resultArr);
 					$scope.areaAlias = [{
 							typeName: "装置",
 							areaTypeCode: "plants",
@@ -2727,7 +2715,6 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			}
 
 			function setcnfgClass(areaUrl) {
-				console.log('areaUrl', areaUrl)
 				viewGridProvider.httpCommit(areaUrl).then(function success(res) {
 					var resultArr = $.ET.toObjectArr(res.data);
 					//					console.log('基础配置返回值', resultArr);
@@ -2951,13 +2938,10 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			//	撤销
 			$scope.main.vfunc.onclick.back = function(formula) {
 				if($scope.formula != '') {
-					//console.log("被撤销掉的-->" + formula);
 					var curr = $scope.undoStack.indexOf(formula) - 1;
-					//console.log("当前数组", $scope.undoStack);
 					for(var i = 0; i < curr + 1; i++) {
 						$scope.newStack[i] = $scope.undoStack[i];
 					}
-					//console.log('新数组-->', $scope.newStack);
 					if(curr < 0) {
 						$scope.formula = '';
 						$scope.undoStack = [];
@@ -2965,7 +2949,6 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 					} else {
 						$scope.formula = $scope.undoStack[curr];
 					}
-					//console.log('当前-->', $scope.formula);
 					console.log(curr);
 				} else {
 					alert('no');
@@ -2973,10 +2956,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			}
 			//	恢复
 			$scope.main.vfunc.onclick.recover = function(formula) {
-				//console.log("需要恢复的上一个数据（当前数据）-->" + formula);
 				var curr = $scope.undoStack.indexOf(formula) + 1; //下一个下标
-				//console.log("$scope.undoStack-->", $scope.undoStack);
-				//console.log("需要回复的数据-->" + $scope.undoStack[curr]);
 				if(curr > $scope.undoStack.length - 1) {
 					$scope.formula = $scope.undoStack[$scope.undoStack.length - 1];
 				} else {

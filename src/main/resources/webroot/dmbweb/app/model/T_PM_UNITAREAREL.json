@@ -77,7 +77,8 @@
 				"unitAreaCode": "unitAreaCode",
 				"unitAreaName": "unitAreaName",
 				"unitAreaAlias": "unitAreaAlias",
-				"unitAreaId": "unitAreaId"
+				"unitAreaId": "unitAreaId",
+				"rentCode":"rentCode"
 			},
 			"proUpdate": {
 				"show": true,
@@ -107,6 +108,15 @@
 			"hide": true,
 			"inOut": true,
 			"width": "150"
+		},
+		"rentCode": {
+			"display": "租户",
+			"type": "string",
+			"required": true,
+			"hide": true,
+			"inOut": true,
+			"class": "left",
+			"width": "130"
 		},
 		"bizCode": {
 			"display": "业务域",

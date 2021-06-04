@@ -796,6 +796,7 @@
 				"isShowSearch": true,
 				"desType": "shortDes",
 				"bizType": "busiArea",
+				"rentType":"rent",
 				"hide": "true",
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/unitAreas"
@@ -820,6 +821,7 @@
 				"isShowSearch": true,
 				"desType": "shortDes",
 				"bizType": "busiArea",
+				"rentType":"rent",
 				"hide": "true",
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/ywUnits"
@@ -832,6 +834,7 @@
 				"isShowSearch": true,
 				"desType": "shortDes",
 				"bizType": "energyMng",
+				"rentType":"rent",
 				"hide": "true",
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/enPipeNets"
@@ -856,6 +859,7 @@
 				"isShowSearch": true,
 				"desType": "shortDes",
 				"bizType": "energyMng",
+				"rentType":"rent",
 				"hide": "true",
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/enNodeTypes"
@@ -868,6 +872,7 @@
 				"isShowSearch": true,
 				"desType": "shortDes",
 				"bizType": "energyMng",
+				"rentType":"rent",
 				"hide": "true",
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/ywUnits"
@@ -1319,6 +1324,7 @@
 								"isShowSearch": true,
 								"desType": "shortDes",
 								"bizType": "busiArea",
+								"rentType":"rent",
 								"authPropertyValue": "FMS_ModelModify",
 								"url": "/unitAreas"
 							},
@@ -1341,6 +1347,7 @@
 								"isShowSearch": true,
 								"desType": "shortDes",
 								"bizType": "busiArea",
+								"rentType":"rent",
 								"authPropertyValue": "FMS_ModelModify",
 								"url": "/ywUnits"
 							},
@@ -1712,6 +1719,7 @@
 								"isShowSearch": true,
 								"desType": "shortDes",
 								"bizType": "energyMng",
+								"rentType":"rent",
 								"authPropertyValue": "FMS_ModelModify",
 								"url": "/enPipeNets"
 							},
@@ -1734,6 +1742,7 @@
 								"isShowSearch": true,
 								"desType": "shortDes",
 								"bizType": "energyMng",
+								"rentType":"rent",
 								"authPropertyValue": "FMS_ModelModify",
 								"url": "/enNodeTypes"
 							},
@@ -1745,6 +1754,7 @@
 								"isShowSearch": true,
 								"desType": "shortDes",
 								"bizType": "energyMng",
+								"rentType":"rent",
 								"authPropertyValue": "FMS_ModelModify",
 								"url": "/ywUnits"
 							}

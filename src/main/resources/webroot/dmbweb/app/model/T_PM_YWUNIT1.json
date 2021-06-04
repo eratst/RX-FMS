@@ -2,6 +2,15 @@
 	"alterKey": "areaCode",
 	"nodeC":"bizCode",
 	"attribute": {
+		"rentCode": {
+			"display": "租户",
+			"type": "string",
+			"required": true,
+			"hide": true,
+			"inOut": true,
+			"class": "left",
+			"width": "130"
+		},
 		"bizCode": {
 			"display": "业务域",
 			"type": "string",

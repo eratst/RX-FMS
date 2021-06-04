@@ -281,6 +281,9 @@ angular.module('myApp', [
 						if(tableType.jsonObj.hasOwnProperty("bizType") && key == 'bizCode'&&which=="proAdd") {
 							tableType.attribute[key][which].data = obj[tableType.jsonObj.bizType];
 						}
+						if(tableType.jsonObj.hasOwnProperty("rentType") && key == 'rentCode'&&which=="proAdd") {
+							tableType.attribute[key][which].data = localStorage.getItem('rentCode');
+						}
 					}
 				},
 				/**
