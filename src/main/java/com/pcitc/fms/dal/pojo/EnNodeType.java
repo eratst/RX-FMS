@@ -1,209 +1,229 @@
 package com.pcitc.fms.dal.pojo;
 
-import java.io.Serializable;
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Table(name = "T_PM_ENNODETYPE")
 public class EnNodeType implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
+    @Id
     @Column(name = "ENNODETYPE_ID")
-	private Long enNodeTypeId;
+    private Long enNodeTypeId;
 
-	@Column(name = "ENNODETYPE_CODE")
-	private String enNodeTypeCode;
+    @Column(name = "ENNODETYPE_CODE")
+    private String enNodeTypeCode;
 
-	@Column(name = "ENNODETYPE_NAME")
-	private String enNodeTypeName;
+    @Column(name = "ENNODETYPE_NAME")
+    private String enNodeTypeName;
 
     @Column(name = "BIZORGMAIN_ID")
-	private Long bizId;
-    
+    private Long bizId;
+
     @Transient
     private String bizCode;
 
-	@Column(name = "DES")
-	private String des;
-	
-	@Column(name = "SORT_NUM")
-	private Integer sortNum;
-	
-	@Column(name = "INUSE")
-	private Integer inUse;
-	
-	@Column(name = "VERSION")
-	private Integer version;
-	
-	@Column(name = "CRTUSER_CODE")
-	private String crtUserId;
-	
-	@Column(name = "CRTUSER_NAME")
-	private String crtUserName;
-	
-	@Column(name = "CRTDATE")
-	private Date crtDate;
-	
-	@Column(name = "MNTUSER_CODE")
-	private String mntUserId;
-	
-	@Column(name = "MNTUSER_NAME")
-	private String mntUserName;
-	
-	@Column(name = "MNTDATE")
-	private Date mntDate;
+    @Column(name = "DES")
+    private String des;
+
+    @Column(name = "SORT_NUM")
+    private Integer sortNum;
+
+    @Column(name = "INUSE")
+    private Integer inUse;
+
+    @Column(name = "VERSION")
+    private Integer version;
+
+    @Column(name = "CRTUSER_CODE")
+    private String crtUserId;
+
+    @Column(name = "CRTUSER_NAME")
+    private String crtUserName;
+
+    @Column(name = "CRTDATE")
+    private Date crtDate;
+
+    @Column(name = "MNTUSER_CODE")
+    private String mntUserId;
+
+    @Column(name = "MNTUSER_NAME")
+    private String mntUserName;
+
+    @Column(name = "MNTDATE")
+    private Date mntDate;
+
+    @Column(name = "RENT_ID")
+    private Long rentId;
+
+    @Transient
+    private String rentCode;
 
     public EnNodeType() {
         super();
     }
 
-	public EnNodeType(Long enNodeTypeId, String enNodeTypeCode, String enNodeTypeName, Long bizId, String bizCode,
-			String des, Integer sortNum, Integer inUse, Integer version, String crtUserId, String crtUserName,
-			Date crtDate, String mntUserId, String mntUserName, Date mntDate) {
-		super();
-		this.enNodeTypeId = enNodeTypeId;
-		this.enNodeTypeCode = enNodeTypeCode;
-		this.enNodeTypeName = enNodeTypeName;
-		this.bizId = bizId;
-		this.bizCode = bizCode;
-		this.des = des;
-		this.sortNum = sortNum;
-		this.inUse = inUse;
-		this.version = version;
-		this.crtUserId = crtUserId;
-		this.crtUserName = crtUserName;
-		this.crtDate = crtDate;
-		this.mntUserId = mntUserId;
-		this.mntUserName = mntUserName;
-		this.mntDate = mntDate;
-	}
+    public EnNodeType(Long enNodeTypeId, String enNodeTypeCode, String enNodeTypeName, Long bizId, String bizCode, String des, Integer sortNum, Integer inUse, Integer version, String crtUserId, String crtUserName, Date crtDate, String mntUserId, String mntUserName, Date mntDate, Long rentId, String rentCode) {
+        this.enNodeTypeId = enNodeTypeId;
+        this.enNodeTypeCode = enNodeTypeCode;
+        this.enNodeTypeName = enNodeTypeName;
+        this.bizId = bizId;
+        this.bizCode = bizCode;
+        this.des = des;
+        this.sortNum = sortNum;
+        this.inUse = inUse;
+        this.version = version;
+        this.crtUserId = crtUserId;
+        this.crtUserName = crtUserName;
+        this.crtDate = crtDate;
+        this.mntUserId = mntUserId;
+        this.mntUserName = mntUserName;
+        this.mntDate = mntDate;
+        this.rentId = rentId;
+        this.rentCode = rentCode;
+    }
 
-	public Long getEnNodeTypeId() {
-		return enNodeTypeId;
-	}
+    public Long getRentId() {
+        return rentId;
+    }
 
-	public void setEnNodeTypeId(Long enNodeTypeId) {
-		this.enNodeTypeId = enNodeTypeId;
-	}
+    public void setRentId(Long rentId) {
+        this.rentId = rentId;
+    }
 
-	public String getEnNodeTypeCode() {
-		return enNodeTypeCode;
-	}
+    public String getRentCode() {
+        return rentCode;
+    }
 
-	public void setEnNodeTypeCode(String enNodeTypeCode) {
-		this.enNodeTypeCode = enNodeTypeCode;
-	}
+    public void setRentCode(String rentCode) {
+        this.rentCode = rentCode;
+    }
 
-	public String getEnNodeTypeName() {
-		return enNodeTypeName;
-	}
+    public Long getEnNodeTypeId() {
+        return enNodeTypeId;
+    }
 
-	public void setEnNodeTypeName(String enNodeTypeName) {
-		this.enNodeTypeName = enNodeTypeName;
-	}
+    public void setEnNodeTypeId(Long enNodeTypeId) {
+        this.enNodeTypeId = enNodeTypeId;
+    }
 
-	public Long getBizId() {
-		return bizId;
-	}
+    public String getEnNodeTypeCode() {
+        return enNodeTypeCode;
+    }
 
-	public void setBizId(Long bizId) {
-		this.bizId = bizId;
-	}
+    public void setEnNodeTypeCode(String enNodeTypeCode) {
+        this.enNodeTypeCode = enNodeTypeCode;
+    }
 
-	public String getBizCode() {
-		return bizCode;
-	}
+    public String getEnNodeTypeName() {
+        return enNodeTypeName;
+    }
 
-	public void setBizCode(String bizCode) {
-		this.bizCode = bizCode;
-	}
+    public void setEnNodeTypeName(String enNodeTypeName) {
+        this.enNodeTypeName = enNodeTypeName;
+    }
 
-	public Integer getInUse() {
-		return inUse;
-	}
+    public Long getBizId() {
+        return bizId;
+    }
 
-	public void setInUse(Integer inUse) {
-		this.inUse = inUse;
-	}
+    public void setBizId(Long bizId) {
+        this.bizId = bizId;
+    }
 
-	public Integer getVersion() {
-		return version;
-	}
+    public String getBizCode() {
+        return bizCode;
+    }
 
-	public void setVersion(Integer version) {
-		this.version = version;
-	}
+    public void setBizCode(String bizCode) {
+        this.bizCode = bizCode;
+    }
 
-	public String getCrtUserId() {
-		return crtUserId;
-	}
+    public Integer getInUse() {
+        return inUse;
+    }
 
-	public void setCrtUserId(String crtUserId) {
-		this.crtUserId = crtUserId;
-	}
+    public void setInUse(Integer inUse) {
+        this.inUse = inUse;
+    }
 
-	public String getCrtUserName() {
-		return crtUserName;
-	}
+    public Integer getVersion() {
+        return version;
+    }
 
-	public void setCrtUserName(String crtUserName) {
-		this.crtUserName = crtUserName;
-	}
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
 
-	public Date getCrtDate() {
-		return crtDate;
-	}
+    public String getCrtUserId() {
+        return crtUserId;
+    }
 
-	public void setCrtDate(Date crtDate) {
-		this.crtDate = crtDate;
-	}
+    public void setCrtUserId(String crtUserId) {
+        this.crtUserId = crtUserId;
+    }
 
-	public String getMntUserId() {
-		return mntUserId;
-	}
+    public String getCrtUserName() {
+        return crtUserName;
+    }
 
-	public void setMntUserId(String mntUserId) {
-		this.mntUserId = mntUserId;
-	}
+    public void setCrtUserName(String crtUserName) {
+        this.crtUserName = crtUserName;
+    }
 
-	public String getMntUserName() {
-		return mntUserName;
-	}
+    public Date getCrtDate() {
+        return crtDate;
+    }
 
-	public void setMntUserName(String mntUserName) {
-		this.mntUserName = mntUserName;
-	}
+    public void setCrtDate(Date crtDate) {
+        this.crtDate = crtDate;
+    }
 
-	public Date getMntDate() {
-		return mntDate;
-	}
+    public String getMntUserId() {
+        return mntUserId;
+    }
 
-	public void setMntDate(Date mntDate) {
-		this.mntDate = mntDate;
-	}
+    public void setMntUserId(String mntUserId) {
+        this.mntUserId = mntUserId;
+    }
 
-	public String getDes() {
-		return des;
-	}
+    public String getMntUserName() {
+        return mntUserName;
+    }
 
-	public void setDes(String des) {
-		this.des = des;
-	}
+    public void setMntUserName(String mntUserName) {
+        this.mntUserName = mntUserName;
+    }
 
-	public Integer getSortNum() {
-		return sortNum;
-	}
+    public Date getMntDate() {
+        return mntDate;
+    }
 
-	public void setSortNum(Integer sortNum) {
-		this.sortNum = sortNum;
-	}
-	
+    public void setMntDate(Date mntDate) {
+        this.mntDate = mntDate;
+    }
+
+    public String getDes() {
+        return des;
+    }
+
+    public void setDes(String des) {
+        this.des = des;
+    }
+
+    public Integer getSortNum() {
+        return sortNum;
+    }
+
+    public void setSortNum(Integer sortNum) {
+        this.sortNum = sortNum;
+    }
+
 }

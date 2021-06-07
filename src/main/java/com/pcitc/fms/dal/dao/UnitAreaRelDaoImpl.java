@@ -23,8 +23,8 @@ public class UnitAreaRelDaoImpl {
     @SuppressWarnings("unchecked")
     public Page<UnitAreaRel> findUnitAreaRels(com.pcitc.fms.service.model.UnitAreaRel UnitAreaRelModel, Pageable pageable) {
         String unitAreaRels = "select count(1) "
-                + " from UnitAreaRel unitAreaRel,UnitArea unitArea, BizorgMain biz "
-                + " where unitAreaRel.unitAreaId = unitArea.unitAreaId and unitAreaRel.bizId = biz.bizId";
+                + " from UnitAreaRel unitAreaRel,UnitArea unitArea, BizorgMain biz,Rent rent "
+                + " where unitAreaRel.unitAreaId = unitArea.unitAreaId and unitAreaRel.bizId = biz.bizId and unitArea.rentId=rent.rentId";
 
         StringBuilder dataSql = new StringBuilder();
         dataSql.append(AreaNodeBasicSql.unitAreaRel);
@@ -41,24 +41,28 @@ public class UnitAreaRelDaoImpl {
         if (null != UnitAreaRelModel.getAreaCode() && !StringUtils.isEmpty(UnitAreaRelModel.getAreaCode())) {
             countSql.append(" and (unitAreaRel.areaId in (select areaId from YwUnit ywUnit where ywUnit.areaCode like :areaCode) " +
                     "or unitAreaRel.areaId in (select plantId from Plant unit where unit.plantCode like :areaCode))");
-            dataSql.append("  and (unitAreaRel.areaId in (select areaId from YwUnit ywUnit where ywUnit.areaCode like :areaCode) " +
+            dataSql.append(" and (unitAreaRel.areaId in (select areaId from YwUnit ywUnit where ywUnit.areaCode like :areaCode) " +
                     "or unitAreaRel.areaId in (select plantId from Plant unit where unit.plantCode like :areaCode))");
             parameterMap.put("areaCode", "%" + UnitAreaRelModel.getAreaCode() + "%");
         }
 
         if (null != UnitAreaRelModel.getAreaName() && !StringUtils.isEmpty(UnitAreaRelModel.getAreaName())) {
             countSql.append(" and (unitAreaRel.areaId in (select areaId from YwUnit ywUnit where ywUnit.areaName like :areaName) " +
-                    "or unitAreaRel.areaId in (select areaId from Plant unit where unit.areaCode in " +
+                    "or unitAreaRel.areaId in (select plantId from Plant unit where unit.plantCode in " +
                     "(select area.areaCode from Area area where area.areaName like :areaName)))");
             dataSql.append("  and (unitAreaRel.areaId in (select areaId from YwUnit ywUnit where ywUnit.areaName like :areaName) " +
-                    "or unitAreaRel.areaId in (select areaId from Plant unit where unit.areaCode in " +
+                    "or unitAreaRel.areaId in (select plantId from Plant unit where unit.plantCode in " +
                     "(select area.areaCode from Area area where area.areaName like :areaName)))");
             parameterMap.put("areaName", "%" + UnitAreaRelModel.getAreaName() + "%");
         }
 
         if (null != UnitAreaRelModel.getAreaAlias() && !StringUtils.isEmpty(UnitAreaRelModel.getAreaAlias())) {
-            countSql.append(" and (unitAreaRel.areaId in (select areaId from YwUnit ywUnit where ywUnit.areaAlias like :areaAlias) or unitAreaRel.areaId in (select areaId from Plant unit where unit.areaCode in (select area.areaCode from Area area where area.areaAlias like :areaAlias)))");
-            dataSql.append("  and (unitAreaRel.areaId in (select areaId from YwUnit ywUnit where ywUnit.areaAlias like :areaAlias) or unitAreaRel.areaId in (select areaId from Plant unit where unit.areaCode in (select area.areaCode from Area area where area.areaAlias like :areaAlias)))");
+            countSql.append(" and (unitAreaRel.areaId in (select areaId from YwUnit ywUnit where ywUnit.areaAlias like :areaAlias) " +
+                    "or unitAreaRel.areaId in (select plantId from Plant unit where unit.plantCode in " +
+                    "(select area.areaCode from Area area where area.areaAlias like :areaAlias)))");
+            dataSql.append("  and (unitAreaRel.areaId in (select areaId from YwUnit ywUnit where ywUnit.areaAlias like :areaAlias) " +
+                    "or unitAreaRel.areaId in (select plantId from Plant unit where unit.plantCode in " +
+                    "(select area.areaCode from Area area where area.areaAlias like :areaAlias)))");
             parameterMap.put("areaAlias", "%" + UnitAreaRelModel.getAreaAlias() + "%");
         }
 
@@ -90,6 +94,12 @@ public class UnitAreaRelDaoImpl {
             countSql.append(" and unitAreaRel.dataStatus = :dataStatus");
             dataSql.append(" and unitAreaRel.dataStatus = :dataStatus");
             parameterMap.put("dataStatus", +UnitAreaRelModel.getDataStatus());
+        }
+
+        if (null != UnitAreaRelModel.getRentCode() && !StringUtils.isEmpty(UnitAreaRelModel.getRentCode())) {
+            dataSql.append(" and rent.rentCode = :rentCode");
+            countSql.append(" and rent.rentCode = :rentCode");
+            parameterMap.put("rentCode", UnitAreaRelModel.getRentCode());
         }
 
         dataSql.append(" order by unitAreaRel.sortNum asc");

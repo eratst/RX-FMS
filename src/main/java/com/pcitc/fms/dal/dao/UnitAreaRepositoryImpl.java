@@ -1,6 +1,5 @@
 package com.pcitc.fms.dal.dao;
 
-import com.pcitc.fms.common.CacheRentInfo;
 import com.pcitc.fms.config.AreaNodeBasicSql;
 import com.pcitc.fms.dal.pojo.UnitArea;
 import org.apache.commons.lang3.StringUtils;
@@ -12,10 +11,9 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+
 /**
  * @author yalin.zhao
  * @date 2021/4/21 9:32
@@ -29,8 +27,8 @@ public class UnitAreaRepositoryImpl {
     @SuppressWarnings("unchecked")
     public Page<UnitArea> findUnitAreas(com.pcitc.fms.service.model.UnitArea UnitAreaModel, Pageable pageable) {
         String unitareaCount = "select count(1) "
-                + " from UnitArea unitArea,Org org, BizorgMain biz "
-                + " where unitArea.orgId = org.orgId and unitArea.bizId=biz.bizId ";
+                + " from UnitArea unitArea,Org org, BizorgMain biz,Rent rent "
+                + " where unitArea.orgId = org.orgId and unitArea.bizId=biz.bizId and unitArea.rentId=rent.rentId ";
 
         StringBuilder dataSql = new StringBuilder();
         dataSql.append(AreaNodeBasicSql.unitarea);
@@ -65,11 +63,17 @@ public class UnitAreaRepositoryImpl {
             dataSql.append(" and unitArea.unitAreaName like :unitAreaName");
             parameterMap.put("unitAreaName", "%" + UnitAreaModel.getUnitAreaName() + "%");
         }
-        /*if (null != UnitAreaModel.getUnitAreaAlias() && !StringUtils.isEmpty(UnitAreaModel.getUnitAreaAlias())) {
+        if (null != UnitAreaModel.getUnitAreaAlias() && !StringUtils.isEmpty(UnitAreaModel.getUnitAreaAlias())) {
             countSql.append(" and unitArea.unitAreaAlias like :unitAreaAlias");
             dataSql.append(" and unitArea.unitAreaAlias like :unitAreaAlias");
             parameterMap.put("unitAreaAlias", "%" + UnitAreaModel.getUnitAreaAlias() + "%");
-        }*/
+        }
+
+        if (null != UnitAreaModel.getRentCode() && !StringUtils.isEmpty(UnitAreaModel.getRentCode())) {
+            dataSql.append(" and rent.rentCode = :rentCode");
+            countSql.append(" and rent.rentCode = :rentCode");
+            parameterMap.put("rentCode", UnitAreaModel.getRentCode());
+        }
 
         if (null != UnitAreaModel.getDataStatus()
                 && !StringUtils.isEmpty(String.valueOf(UnitAreaModel.getDataStatus()))) {
@@ -82,18 +86,6 @@ public class UnitAreaRepositoryImpl {
             dataSql.append(" and unitArea.unitAreaCode in :codeList");
             parameterMap.put("codeList", UnitAreaModel.getCodeList());
         }
-
-        /*List<String> orgCodes = new ArrayList<>();
-        if (StringUtils.isNotEmpty(UnitAreaModel.getRentCode())) {
-            orgCodes = CacheRentInfo.getNewOrgCodes(UnitAreaModel.getRentCode(), UnitAreaModel.getBizCode());
-            if (orgCodes != null && !orgCodes.isEmpty()) {
-                countSql.append(" and org.orgCode in :rentOrgCodes");
-                dataSql.append(" and org.orgCode in :rentOrgCodes");
-                parameterMap.put("rentOrgCodes", orgCodes);
-            } else {
-                return new PageImpl(new ArrayList<UnitArea>(), null, 0L);
-            }
-        }*/
 
         dataSql.append(" order by unitArea.sortNum asc");
         countSql.append(" order by unitArea.sortNum asc");

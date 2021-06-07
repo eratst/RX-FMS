@@ -23,8 +23,8 @@ public class EnNodeTypeDaoImpl {
     @SuppressWarnings("unchecked")
     public Page<EnNodeType> findEnNodeTypes(com.pcitc.fms.service.model.EnNodeType EnNodeTypeModel, Pageable pageable) {
         String enNodeTypeCount = "select count(1) "
-                + " from EnNodeType enNodeType, BizorgMain biz "
-                + " where enNodeType.bizId=biz.bizId ";
+                + " from EnNodeType enNodeType, BizorgMain biz ,Rent rent"
+                + " where enNodeType.bizId = biz.bizId and enNodeType.rentId=rent.rentId ";
 
         StringBuilder dataSql = new StringBuilder();
         dataSql.append(AreaNodeBasicSql.enNodeType);
@@ -50,6 +50,13 @@ public class EnNodeTypeDaoImpl {
             dataSql.append(" and enNodeType.enNodeTypeName like :enNodeTypeName");
             parameterMap.put("enNodeTypeName", "%" + EnNodeTypeModel.getEnNodeTypeName() + "%");
         }
+
+        if (null != EnNodeTypeModel.getRentCode() && !StringUtils.isEmpty(EnNodeTypeModel.getRentCode())) {
+            dataSql.append(" and rent.rentCode = :rentCode");
+            countSql.append(" and rent.rentCode = :rentCode");
+            parameterMap.put("rentCode", EnNodeTypeModel.getRentCode());
+        }
+
         if (null != EnNodeTypeModel.getInUse()
                 && !StringUtils.isEmpty(String.valueOf(EnNodeTypeModel.getInUse()))) {
             countSql.append(" and enNodeType.inUse = :inUse");

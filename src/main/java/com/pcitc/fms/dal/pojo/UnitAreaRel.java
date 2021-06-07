@@ -90,11 +90,20 @@ public class UnitAreaRel implements Serializable {
     @Column(name = "OFFMS")
     private Integer ofFms;
 
+    @Transient
+    private Long rentId;
+
+    @Transient
+    private String rentCode;
+
     public UnitAreaRel() {
         super();
     }
 
-    public UnitAreaRel(Long unitAreaRelId, Long areaId, String areaCode, String areaName, String areaAlias, Long unitAreaId, String unitAreaCode, String unitAreaName, String unitAreaAlias, Integer dataStatus, String crtUserId, String crtUserName, Date crtDate, String mntUserId, String mntUserName, Date mntDate, Integer sortNum, Integer version, String des, Long bizId, String bizCode, Integer ofFms) {
+    public UnitAreaRel(Long unitAreaRelId, Long areaId, String areaCode, String areaName, String areaAlias, Long unitAreaId,
+                       String unitAreaCode, String unitAreaName, String unitAreaAlias, Integer dataStatus, String crtUserId,
+                       String crtUserName, Date crtDate, String mntUserId, String mntUserName, Date mntDate, Integer sortNum,
+                       Integer version, String des, Long bizId, String bizCode, Integer ofFms,Long rentId,String rentCode) {
         this.unitAreaRelId = unitAreaRelId;
         this.areaId = areaId;
         this.areaCode = areaCode;
@@ -117,6 +126,16 @@ public class UnitAreaRel implements Serializable {
         this.bizId = bizId;
         this.bizCode = bizCode;
         this.ofFms = ofFms;
+        this.rentId = rentId;
+        this.rentCode = rentCode;
+    }
+
+    public Long getRentId() {
+        return rentId;
+    }
+
+    public void setRentId(Long rentId) {
+        this.rentId = rentId;
     }
 
     public Long getUnitAreaRelId() {
@@ -293,5 +312,13 @@ public class UnitAreaRel implements Serializable {
 
     public void setOfFms(Integer ofFms) {
         this.ofFms = ofFms;
+    }
+
+    public String getRentCode() {
+        return rentCode;
+    }
+
+    public void setRentCode(String rentCode) {
+        this.rentCode = rentCode;
     }
 }

@@ -127,6 +127,10 @@ public class EnPipeNet extends BaseResRep implements Serializable {
     private String bizCode;
 
     @ResourceMember(OnlyQuery = true)
+    private Long rentId;
+
+    @CheckField(CheckName = CheckNameType.CODE, AllowNull = true)
+    @ResourceMember(InTemplate = false)
     private String rentCode;
 
     @ResourceMember(InTemplate = false, InQueries = "search", OnlyQuery = true, Name = "$codeList")
@@ -139,6 +143,14 @@ public class EnPipeNet extends BaseResRep implements Serializable {
     @CheckField(CheckName = CheckNameType.PAGEINFO)
     @ResourceMember(InTemplate = false, InQueries = "search,condition", OnlyQuery = true, Name = "$skip")
     private Integer skip = 0;
+
+    public Long getRentId() {
+        return rentId;
+    }
+
+    public void setRentId(Long rentId) {
+        this.rentId = rentId;
+    }
 
     public Long getNetId() {
         return netId;

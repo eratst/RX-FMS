@@ -50,10 +50,12 @@ public class EnNode extends BaseResRep implements Serializable {
     @ResourceMember(InTemplate = false)
     private Long areaId;
 
-    //@CheckField(CheckName = CheckNameType.CODE, StrLength = 50, Explain = "业务装置编码")
+    @CheckField(CheckName = CheckNameType.CODE, StrLength = 50, Explain = "业务装置编码")
     @ResourceMember(InQueries = "condition", Name = "areaCode")
     private String areaCode;
 
+    @CheckField(CheckName = CheckNameType.NAME, StrLength = 200, Explain = "业务装置名称")
+    @ResourceMember(InQueries = "condition", Name = "areaName")
     private String areaName;
 
     @CheckField(CheckName = CheckNameType.NAME, StrLength = 200, Explain = "业务装置简称")
@@ -137,10 +139,23 @@ public class EnNode extends BaseResRep implements Serializable {
     private Integer skip = 0;
 
     @ResourceMember(OnlyQuery = true)
+    private Long rentId;
+
+    @CheckField(CheckName = CheckNameType.CODE)
+    @ResourceMember(OnlyQuery = true)
     private String rentCode;
 
     @CheckField(CheckName = CheckNameType.ENABLED, Explain = "是否是虚拟装置")
     private Integer markOfVirtual;
+
+
+    public Long getRentId() {
+        return rentId;
+    }
+
+    public void setRentId(Long rentId) {
+        this.rentId = rentId;
+    }
 
     public Long getBizId() {
         return bizId;

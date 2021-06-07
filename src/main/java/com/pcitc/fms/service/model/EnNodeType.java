@@ -80,9 +80,21 @@ public class EnNodeType extends BaseResRep implements Serializable {
     private Integer skip = 0;
 
     @ResourceMember(OnlyQuery = true)
+    private Long rentId;
+
+    @CheckField(CheckName = CheckNameType.CODE, AllowNull = true)
+    @ResourceMember(InTemplate = false)
     private String rentCode;
 
-	public Long getEnNodeTypeId() {
+    public Long getRentId() {
+        return rentId;
+    }
+
+    public void setRentId(Long rentId) {
+        this.rentId = rentId;
+    }
+
+    public Long getEnNodeTypeId() {
 		return enNodeTypeId;
 	}
 

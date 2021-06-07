@@ -25,8 +25,8 @@ public class EnPipeNetRepositoryImpl {
     @SuppressWarnings("unchecked")
     public Page<EnPipeNet> findEnPipeNets(com.pcitc.fms.service.model.EnPipeNet EnPipeNetModel, Pageable pageable) {
         String enPipeNetCount = "select count(1) "
-                + " from EnPipeNet enpipenet,Material material,Org org, BizorgMain biz "
-                + " where enpipenet.mtrlId = material.mtrlId and enpipenet.orgId = org.orgId and enpipenet.bizId=biz.bizId ";
+                + " from EnPipeNet enpipenet,Material material,Org org, BizorgMain biz ,Rent rent "
+                + " where enpipenet.mtrlId = material.mtrlId and enpipenet.orgId = org.orgId and enpipenet.bizId=biz.bizId and enpipenet.rentId=rent.rentId ";
 
         StringBuilder dataSql = new StringBuilder();
         dataSql.append(AreaNodeBasicSql.enPipeNet);
@@ -99,17 +99,11 @@ public class EnPipeNetRepositoryImpl {
             parameterMap.put("codeList", EnPipeNetModel.getCodeList());
         }
 
-        /*List<String> orgCodes = new ArrayList<>();
-        if (StringUtils.isNotEmpty(EnPipeNetModel.getRentCode())) {
-            orgCodes = CacheRentInfo.getNewOrgCodes(EnPipeNetModel.getRentCode(), EnPipeNetModel.getBizCode());
-            if (orgCodes != null && !orgCodes.isEmpty()) {
-                countSql.append(" and org.orgCode in :rentOrgCodes");
-                dataSql.append(" and org.orgCode in :rentOrgCodes");
-                parameterMap.put("rentOrgCodes", orgCodes);
-            } else {
-                return new PageImpl(new ArrayList<EnPipeNet>(), null, 0L);
-            }
-        }*/
+        if (null != EnPipeNetModel.getRentCode() && !StringUtils.isEmpty(EnPipeNetModel.getRentCode())) {
+            dataSql.append(" and rent.rentCode = :rentCode");
+            countSql.append(" and rent.rentCode = :rentCode");
+            parameterMap.put("rentCode", EnPipeNetModel.getRentCode());
+        }
 
         dataSql.append(" order by enpipenet.sortNum asc");
         countSql.append(" order by enpipenet.sortNum asc");

@@ -120,6 +120,10 @@ public class UnitArea extends BaseResRep implements Serializable {
     private Integer skip = 0;
 
     @ResourceMember(OnlyQuery = true)
+    private Long rentId;
+
+    @CheckField(CheckName = CheckNameType.CODE, AllowNull = true)
+    @ResourceMember(InTemplate = false)
     private String rentCode;
 
     @CheckField(CheckName = CheckNameType.CODE, StrLength = 50, Explain = "业务域编码")
@@ -128,6 +132,14 @@ public class UnitArea extends BaseResRep implements Serializable {
 
     @ResourceMember(OnlyQuery = true)
     private Long bizId;
+
+    public Long getRentId() {
+        return rentId;
+    }
+
+    public void setRentId(Long rentId) {
+        this.rentId = rentId;
+    }
 
     public Long getBizId() {
         return bizId;

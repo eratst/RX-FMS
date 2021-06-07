@@ -23,8 +23,8 @@ public class EnNodeDaoImpl {
     @SuppressWarnings("unchecked")
     public Page<EnNode> findEnNodes(com.pcitc.fms.service.model.EnNode EnNodeModel, Pageable pageable) {
         String enNodes = "select count(1) "
-                + "from EnNode enNode, EnNodeType enNodeType,  BizorgMain biz "
-                + "where enNode.enNodeTypeId = enNodeType.enNodeTypeId and enNode.bizId = biz.bizId";
+                + "from EnNode enNode, EnNodeType enNodeType,  BizorgMain biz ,Rent rent "
+                + "where enNode.enNodeTypeId = enNodeType.enNodeTypeId and enNode.bizId = biz.bizId and enNodeType.rentId=rent.rentId ";
 
         StringBuilder dataSql = new StringBuilder();
         dataSql.append(AreaNodeBasicSql.enNode);
@@ -60,22 +60,32 @@ public class EnNodeDaoImpl {
             parameterMap.put("enNodeTypeName", "%" + EnNodeModel.getEnNodeTypeName() + "%");
         }
 
-        /*if (null != EnNodeModel.getAreaCode() && !StringUtils.isEmpty(EnNodeModel.getAreaCode())) {
-            countSql.append(" and ywUnit.areaCode like :areaCode");
-            dataSql.append(" and ywUnit.areaCode like :areaCode");
+        if (null != EnNodeModel.getAreaCode() && !StringUtils.isEmpty(EnNodeModel.getAreaCode())) {
+            countSql.append(" and (enNode.areaId in (select areaId from YwUnit ywUnit where ywUnit.areaCode like :areaCode) " +
+                    "or enNode.areaId in (select plantId from Plant unit where unit.plantCode like :areaCode))");
+            dataSql.append(" and (enNode.areaId in (select areaId from YwUnit ywUnit where ywUnit.areaCode like :areaCode) " +
+                    "or enNode.areaId in (select plantId from Plant unit where unit.plantCode like :areaCode))");
             parameterMap.put("areaCode", "%" + EnNodeModel.getAreaCode() + "%");
         }
         if (null != EnNodeModel.getAreaName() && !StringUtils.isEmpty(EnNodeModel.getAreaName())) {
-			countSql.append(" and ywUnit.areaName like :areaName");
-			dataSql.append(" and ywUnit.areaName like :areaName");
-			parameterMap.put("areaName", "%" + EnNodeModel.getAreaName() + "%");
-		}*/
+            countSql.append(" and (enNode.areaId in (select areaId from YwUnit ywUnit where ywUnit.areaName like :areaName) " +
+                    "or enNode.areaId in (select plantId from Plant unit where unit.plantCode in " +
+                    "(select area.areaCode from Area area where area.areaName like :areaName)))");
+            dataSql.append("  and (enNode.areaId in (select areaId from YwUnit ywUnit where ywUnit.areaName like :areaName) " +
+                    "or enNode.areaId in (select plantId from Plant unit where unit.plantCode in " +
+                    "(select area.areaCode from Area area where area.areaName like :areaName)))");
+            parameterMap.put("areaName", "%" + EnNodeModel.getAreaName() + "%");
+        }
 
-        /*if (null != EnNodeModel.getAreaAlias() && !StringUtils.isEmpty(EnNodeModel.getAreaAlias())) {
-            countSql.append(" and (enNode.areaId in (select areaId from YwUnit ywUnit where ywUnit.areaAlias like :areaAlias) or enNode.areaId in (select areaId from Plant unit where unit.areaCode in (select area.areaCode from Area area where area.areaAlias like :areaAlias)))");
-            dataSql.append("  and (enNode.areaId in (select areaId from YwUnit ywUnit where ywUnit.areaAlias like :areaAlias) or enNode.areaId in (select areaId from Plant unit where unit.areaCode in (select area.areaCode from Area area where area.areaAlias like :areaAlias)))");
+        if (null != EnNodeModel.getAreaAlias() && !StringUtils.isEmpty(EnNodeModel.getAreaAlias())) {
+            countSql.append(" and (enNode.areaId in (select areaId from YwUnit ywUnit where ywUnit.areaAlias like :areaAlias) " +
+                    "or enNode.areaId in (select plantId from Plant unit where unit.plantCode in " +
+                    "(select area.areaCode from Area area where area.areaAlias like :areaAlias)))");
+            dataSql.append("  and (enNode.areaId in (select areaId from YwUnit ywUnit where ywUnit.areaAlias like :areaAlias) " +
+                    "or enNode.areaId in (select plantId from Plant unit where unit.plantCode in " +
+                    "(select area.areaCode from Area area where area.areaAlias like :areaAlias)))");
             parameterMap.put("areaAlias", "%" + EnNodeModel.getAreaAlias() + "%");
-        }*/
+        }
 
         if (null != EnNodeModel.getNetCode() && !StringUtils.isEmpty(EnNodeModel.getNetCode())) {
             countSql.append(" and enpipenet.netCode like :netCode");
@@ -96,6 +106,12 @@ public class EnNodeDaoImpl {
             countSql.append(" and enNode.dataStatus = :dataStatus");
             dataSql.append(" and enNode.dataStatus = :dataStatus");
             parameterMap.put("dataStatus", +EnNodeModel.getDataStatus());
+        }
+
+        if (null != EnNodeModel.getRentCode() && !StringUtils.isEmpty(EnNodeModel.getRentCode())) {
+            dataSql.append(" and rent.rentCode = :rentCode");
+            countSql.append(" and rent.rentCode = :rentCode");
+            parameterMap.put("rentCode", EnNodeModel.getRentCode());
         }
 
         dataSql.append(" order by enNode.sortNum asc");

@@ -8,10 +8,6 @@ import javax.persistence.Transient;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * @author yalin.zhao
- * @date 2021/4/21 9:22
- */
 @Entity
 @Table(name = "T_PM_UNITAREA")
 public class UnitArea implements Serializable {
@@ -43,40 +39,22 @@ public class UnitArea implements Serializable {
     @Transient
     private String orgAlias;
 
-    /**
-     * 创建人ID
-     */
-    @Transient
+    @Column(name = "CRTUSER_CODE")
     private String crtUserId;
 
-    /**
-     * 创建人名称
-     */
-    @Transient
+    @Column(name = "CRTUSER_NAME")
     private String crtUserName;
 
-    /**
-     * 创建时间
-     */
-    @Transient
+    @Column(name = "CRTDATE")
     private Date crtDate;
 
-    /**
-     * 最后维护人ID
-     */
-    @Transient
+    @Column(name = "MNTUSER_CODE")
     private String mntUserId;
 
-    /**
-     * 最后维护人名称
-     */
-    @Transient
+    @Column(name = "MNTUSER_NAME")
     private String mntUserName;
 
-    /**
-     * 维护日期
-     */
-    @Transient
+    @Column(name = "MNTDATE")
     private Date mntDate;
 
     @Column(name = "INUSE")
@@ -103,12 +81,21 @@ public class UnitArea implements Serializable {
     @Transient
     private String bizCode;
 
+    @Column(name = "RENT_ID")
+    private Long rentId;
+
+    @Transient
+    private String rentCode;
+
 
     public UnitArea() {
         super();
     }
 
-    public UnitArea(Long unitAreaId, String unitAreaCode, String unitAreaName, String unitAreaAlias, Long orgId, String orgCode, String orgName, String orgAlias, String crtUserId, String crtUserName, Date crtDate, String mntUserId, String mntUserName, Date mntDate, Integer dataStatus, Integer sortNum, String des, Integer version, Long bizId, String bizCode) {
+    public UnitArea(Long unitAreaId, String unitAreaCode, String unitAreaName, String unitAreaAlias,
+                    Long orgId, String orgCode, String orgName, String orgAlias, String crtUserId, String crtUserName,
+                    Date crtDate, String mntUserId, String mntUserName, Date mntDate, Integer dataStatus, Integer sortNum,
+                    String des, Integer version, Long bizId, String bizCode, Long rentId, String rentCode) {
         this.unitAreaId = unitAreaId;
         this.unitAreaCode = unitAreaCode;
         this.unitAreaName = unitAreaName;
@@ -129,6 +116,8 @@ public class UnitArea implements Serializable {
         this.version = version;
         this.bizId = bizId;
         this.bizCode = bizCode;
+        this.rentId = rentId;
+        this.rentCode = rentCode;
     }
 
     public Long getUnitAreaId() {
@@ -291,4 +280,19 @@ public class UnitArea implements Serializable {
         this.bizCode = bizCode;
     }
 
+    public String getRentCode() {
+        return rentCode;
+    }
+
+    public void setRentCode(String rentCode) {
+        this.rentCode = rentCode;
+    }
+
+    public Long getRentId() {
+        return rentId;
+    }
+
+    public void setRentId(Long rentId) {
+        this.rentId = rentId;
+    }
 }

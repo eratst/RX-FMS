@@ -103,6 +103,12 @@ public class YwUnit implements Serializable {
     @Column(name = "VERSION")
     private Integer version;
 
+    @Column(name = "RENT_ID")
+    private Long rentId;
+
+    @Transient
+    private String rentCode;
+
     public YwUnit() {
         super();
     }
@@ -112,7 +118,7 @@ public class YwUnit implements Serializable {
                   String crtUserId, String crtUserName, Date crtDate, String mntUserId, String mntUserName,
                   Date mntDate, Long bizId, String bizCode,
                   Long capacity, BigDecimal initialAssetValue, BigDecimal netAssetValue, Integer dataStatus,
-                  Integer sortNum, String des, Integer version, Long capacityUnitId, String capacityUnitName) {
+                  Integer sortNum, String des, Integer version, Long capacityUnitId, String capacityUnitName, Long rentId, String rentCode) {
         this.areaId = areaId;
         this.areaCode = areaCode;
         this.areaName = areaName;
@@ -133,7 +139,6 @@ public class YwUnit implements Serializable {
         this.mntDate = mntDate;
         this.bizId = bizId;
         this.bizCode = bizCode;
-
         this.capacity = capacity;
         this.initialAssetValue = initialAssetValue;
         this.netAssetValue = netAssetValue;
@@ -143,6 +148,24 @@ public class YwUnit implements Serializable {
         this.version = version;
         this.capacityUnitId = capacityUnitId;
         this.capacityUnitName = capacityUnitName;
+        this.rentId = rentId;
+        this.rentCode = rentCode;
+    }
+
+    public Long getRentId() {
+        return rentId;
+    }
+
+    public void setRentId(Long rentId) {
+        this.rentId = rentId;
+    }
+
+    public String getRentCode() {
+        return rentCode;
+    }
+
+    public void setRentCode(String rentCode) {
+        this.rentCode = rentCode;
     }
 
     public Long getAreaId() {

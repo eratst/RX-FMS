@@ -482,20 +482,20 @@ public interface AreaNodeBasicSql {
 
     //装置界区
     static final String unitarea = "select new UnitArea(unitArea.unitAreaId,unitArea.unitAreaCode,unitArea.unitAreaName,"
-            + "unitArea.unitAreaAlias,unitArea.orgId,org.orgCode,org.orgName,org.orgAlias,org.crtUserId,org.crtUserName,"
-            + "org.crtDate,org.mntUserId,org.mntUserName,org.mntDate,unitArea.dataStatus,unitArea.sortNum,unitArea.des,unitArea.version,"
-            + "unitArea.bizId,biz.bizCode) "
-            + " from UnitArea unitArea,Org org, BizorgMain biz "
-            + " where unitArea.orgId = org.orgId and unitArea.bizId=biz.bizId ";
+            + "unitArea.unitAreaAlias,unitArea.orgId,org.orgCode,org.orgName,org.orgAlias,unitArea.crtUserId,unitArea.crtUserName,"
+            + "unitArea.crtDate,unitArea.mntUserId,unitArea.mntUserName,unitArea.mntDate,unitArea.dataStatus,unitArea.sortNum,unitArea.des,unitArea.version,"
+            + "unitArea.bizId,biz.bizCode,unitArea.rentId,rent.rentCode) "
+            + " from UnitArea unitArea,Org org, BizorgMain biz,Rent rent "
+            + " where unitArea.orgId = org.orgId and unitArea.bizId=biz.bizId and unitArea.rentId=rent.rentId ";
 
     //能源管网
     static final String enPipeNet = "select new EnPipeNet(enpipenet.netId,enpipenet.netCode,enpipenet.netName,"
             + "enpipenet.netAlias,enpipenet.upperNetCode,enpipenet.mtrlId,material.mtrlCode,material.mtrlName,"
-            + "enpipenet.orgId,org.orgCode,org.orgName,org.orgAlias,org.crtUserId,org.crtUserName,org.crtDate,"
-            + "org.mntUserId,org.mntUserName,org.mntDate,enpipenet.dataStatus,enpipenet.sortNum,enpipenet.des,"
-            + "enpipenet.version,enpipenet.bizId,biz.bizCode) "
-            + " from EnPipeNet enpipenet,Material material,Org org, BizorgMain biz "
-            + " where enpipenet.mtrlId = material.mtrlId and enpipenet.orgId = org.orgId and enpipenet.bizId=biz.bizId ";
+            + "enpipenet.orgId,org.orgCode,org.orgName,org.orgAlias,enpipenet.crtUserId,enpipenet.crtUserName,enpipenet.crtDate,"
+            + "enpipenet.mntUserId,enpipenet.mntUserName,enpipenet.mntDate,enpipenet.dataStatus,enpipenet.sortNum,enpipenet.des,"
+            + "enpipenet.version,enpipenet.bizId,biz.bizCode,enpipenet.rentId,rent.rentCode) "
+            + " from EnPipeNet enpipenet,Material material,Org org, BizorgMain biz ,Rent rent "
+            + " where enpipenet.mtrlId = material.mtrlId and enpipenet.orgId = org.orgId and enpipenet.bizId=biz.bizId and enpipenet.rentId=rent.rentId ";
 
     //虚拟装置
     static final String ywUnit = "select new YwUnit(ywUnit.areaId,ywUnit.areaCode,ywUnit.areaName,"
@@ -503,11 +503,12 @@ public interface AreaNodeBasicSql {
             + "ywUnit.orgId,org.orgCode,org.orgName,org.orgAlias,ywUnit.crtUserId,ywUnit.crtUserName,ywUnit.crtDate,"
             + "ywUnit.mntUserId,ywUnit.mntUserName,ywUnit.mntDate,ywUnit.bizId,biz.bizCode,"
             + "ywUnit.capacity,ywUnit.initialAssetValue,ywUnit.netAssetValue,ywUnit.dataStatus,ywUnit.sortNum,ywUnit.des,"
-            + "ywUnit.version,ywUnit.capacityUnitId,case when ywUnit.capacityUnitId is NULL then '' else " +
-            "(select capacityUnit.capacityUnitName from CapacityUnit capacityUnit where ywUnit.capacityUnitId = capacityUnit.capacityUnitId) end) "
-            + " from YwUnit ywUnit,Org org, BizorgMain biz ,UnitType unitType,Technic technic "
+            + "ywUnit.version,ywUnit.capacityUnitId,case when ywUnit.capacityUnitId is NULL then '' else "
+            + "(select capacityUnit.capacityUnitName from CapacityUnit capacityUnit where ywUnit.capacityUnitId = capacityUnit.capacityUnitId) end,"
+            + " ywUnit.rentId,rent.rentCode) "
+            + " from YwUnit ywUnit,Org org, BizorgMain biz ,UnitType unitType,Technic technic,Rent rent  "
             + " where ywUnit.orgId = org.orgId and ywUnit.bizId = biz.bizId and ywUnit.unitTypeId=unitType.unitTypeId "
-            + "and ywUnit.technicId=technic.technicId ";
+            + "and ywUnit.technicId=technic.technicId and ywUnit.rentId=rent.rentId ";
 
     // 装置与装置界区关系
     public static final String unitAreaRel = "select new UnitAreaRel(unitAreaRel.unitAreaRelId, unitAreaRel.areaId, "
@@ -519,9 +520,10 @@ public interface AreaNodeBasicSql {
             + "else ( select area.areaAlias from Plant unit,Area area where unitAreaRel.areaId = unit.plantId and area.areaId = unit.plantId ) end, "
             + "unitAreaRel.unitAreaId, unitArea.unitAreaCode, unitArea.unitAreaName,unitArea.unitAreaAlias,unitAreaRel.dataStatus, "
             + "unitAreaRel.crtUserId,unitAreaRel.crtUserName,unitAreaRel.crtDate,unitAreaRel.mntUserId, unitAreaRel.mntUserName,"
-            + "unitAreaRel.mntDate,unitAreaRel.sortNum, unitAreaRel.version,unitAreaRel.des, unitAreaRel.bizId, biz.bizCode,unitAreaRel.ofFms )"
-            + " from UnitAreaRel unitAreaRel,UnitArea unitArea, BizorgMain biz "
-            + " where unitAreaRel.unitAreaId = unitArea.unitAreaId and unitAreaRel.bizId = biz.bizId";
+            + "unitAreaRel.mntDate,unitAreaRel.sortNum, unitAreaRel.version,unitAreaRel.des, unitAreaRel.bizId, biz.bizCode,unitAreaRel.ofFms ,"
+            + "unitArea.rentId,rent.rentCode)"
+            + " from UnitAreaRel unitAreaRel,UnitArea unitArea, BizorgMain biz,Rent rent "
+            + " where unitAreaRel.unitAreaId = unitArea.unitAreaId and unitAreaRel.bizId = biz.bizId and unitArea.rentId=rent.rentId";
 
     //能源节点
     public static final String enNode = "select new EnNode (enNode.enNodeId, enNode.enNodeCode, enNode.enNodeName, enNode.enNodeAlias, "
@@ -536,15 +538,16 @@ public interface AreaNodeBasicSql {
             + "enNode.mntUserName, enNode.mntDate, enNode.dataStatus, enNode.sortNum, enNode.des, enNode.version,enNode.markOfVirtual, enNode.netId, "
             + "case when enNode.netId is NULL then '' else ( select enpipenet.netCode from EnPipeNet enpipenet where enNode.netId = enpipenet.netId ) end, "
             + "case when enNode.netId is NULL then '' else ( select enpipenet.netName from EnPipeNet enpipenet where enNode.netId = enpipenet.netId ) end, "
-            + "case when enNode.netId is NULL then '' else ( select enpipenet.netAlias from EnPipeNet enpipenet where enNode.netId = enpipenet.netId ) end ) "
-            + "from EnNode enNode, EnNodeType enNodeType,  BizorgMain biz "
-            + "where enNode.enNodeTypeId = enNodeType.enNodeTypeId and enNode.bizId = biz.bizId";
+            + "case when enNode.netId is NULL then '' else ( select enpipenet.netAlias from EnPipeNet enpipenet where enNode.netId = enpipenet.netId ) end,"
+            + " enNodeType.rentId,rent.rentCode) "
+            + "from EnNode enNode, EnNodeType enNodeType,  BizorgMain biz ,Rent rent "
+            + "where enNode.enNodeTypeId = enNodeType.enNodeTypeId and enNode.bizId = biz.bizId and enNodeType.rentId=rent.rentId ";
 
     //能源节点类型
     public static final String enNodeType = "select new EnNodeType (enNodeType.enNodeTypeId, enNodeType.enNodeTypeCode, enNodeType.enNodeTypeName, "
             + "enNodeType.bizId, biz.bizCode, enNodeType.des, enNodeType.sortNum, enNodeType.inUse, enNodeType.version, enNodeType.crtUserId, "
-            + "enNodeType.crtUserName, enNodeType.crtDate, enNodeType.mntUserId, enNodeType.mntUserName, enNodeType.mntDate )"
-            + "from EnNodeType enNodeType, BizorgMain biz "
-            + "where enNodeType.bizId = biz.bizId";
+            + "enNodeType.crtUserName, enNodeType.crtDate, enNodeType.mntUserId, enNodeType.mntUserName, enNodeType.mntDate,enNodeType.rentId,rent.rentCode )"
+            + " from EnNodeType enNodeType, BizorgMain biz ,Rent rent"
+            + " where enNodeType.bizId = biz.bizId and enNodeType.rentId=rent.rentId ";
 
 }

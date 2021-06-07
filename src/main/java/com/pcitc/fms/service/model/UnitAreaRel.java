@@ -136,6 +136,10 @@ public class UnitAreaRel extends BaseResRep implements Serializable {
     private Integer skip = 0;
 
     @ResourceMember(OnlyQuery = true)
+    private Long rentId;
+
+    @CheckField(CheckName = CheckNameType.CODE)
+    @ResourceMember(OnlyQuery = true)
     private String rentCode;
 
     @ResourceMember(InTemplate = false)
@@ -153,6 +157,15 @@ public class UnitAreaRel extends BaseResRep implements Serializable {
 
     public void setUnitAreaRelId(Long unitAreaRelId) {
         this.unitAreaRelId = unitAreaRelId;
+    }
+
+
+    public Long getRentId() {
+        return rentId;
+    }
+
+    public void setRentId(Long rentId) {
+        this.rentId = rentId;
     }
 
     public Long getAreaId() {

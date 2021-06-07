@@ -51,22 +51,22 @@ public class EnPipeNet implements Serializable {
     @Transient
     private String orgAlias;
 
-    @Transient
+    @Column(name = "CRTUSER_CODE")
     private String crtUserId;
 
-    @Transient
+    @Column(name = "CRTUSER_NAME")
     private String crtUserName;
 
-    @Transient
+    @Column(name = "CRTDATE")
     private Date crtDate;
 
-    @Transient
+    @Column(name = "MNTUSER_CODE")
     private String mntUserId;
 
-    @Transient
+    @Column(name = "MNTUSER_NAME")
     private String mntUserName;
 
-    @Transient
+    @Column(name = "MNTDATE")
     private Date mntDate;
 
     @Column(name = "INUSE")
@@ -87,11 +87,21 @@ public class EnPipeNet implements Serializable {
     @Transient
     private String bizCode;
 
+    @Column(name = "RENT_ID")
+    private Long rentId;
+
+    @Transient
+    private String rentCode;
+
     public EnPipeNet() {
         super();
     }
 
-    public EnPipeNet(Long netId, String netCode, String netName, String netAlias, String upperNetCode, Long mtrlId, String mtrlCode, String mtrlName, Long orgId, String orgCode, String orgName, String orgAlias, String crtUserId, String crtUserName, Date crtDate, String mntUserId, String mntUserName, Date mntDate, Integer dataStatus, Integer sortNum, String des, Integer version, Long bizId, String bizCode) {
+    public EnPipeNet(Long netId, String netCode, String netName, String netAlias, String upperNetCode, Long mtrlId,
+                     String mtrlCode, String mtrlName, Long orgId, String orgCode, String orgName, String orgAlias,
+                     String crtUserId, String crtUserName, Date crtDate, String mntUserId, String mntUserName,
+                     Date mntDate, Integer dataStatus, Integer sortNum, String des, Integer version, Long bizId,
+                     String bizCode, Long rentId, String rentCode) {
         this.netId = netId;
         this.netCode = netCode;
         this.netName = netName;
@@ -116,6 +126,24 @@ public class EnPipeNet implements Serializable {
         this.version = version;
         this.bizId = bizId;
         this.bizCode = bizCode;
+        this.rentId = rentId;
+        this.rentCode = rentCode;
+    }
+
+    public Long getRentId() {
+        return rentId;
+    }
+
+    public void setRentId(Long rentId) {
+        this.rentId = rentId;
+    }
+
+    public String getRentCode() {
+        return rentCode;
+    }
+
+    public void setRentCode(String rentCode) {
+        this.rentCode = rentCode;
     }
 
     public Long getNetId() {

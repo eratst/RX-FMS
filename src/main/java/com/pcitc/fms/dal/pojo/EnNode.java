@@ -102,6 +102,12 @@ public class EnNode implements Serializable {
     @Column(name = "MARKOFVIRTUAL")
     private Integer markOfVirtual;
 
+    @Transient
+    private Long rentId;
+
+    @Transient
+    private String rentCode;
+
 
     public EnNode() {
         super();
@@ -111,7 +117,8 @@ public class EnNode implements Serializable {
                   String enNodeTypeCode, String enNodeTypeName, String formula, Long areaId, String areaCode,
                   String areaName, String areaAlias, Long bizId, String bizCode, String crtUserId, String crtUserName,
                   Date crtDate, String mntUserId, String mntUserName, Date mntDate, Integer dataStatus, Integer sortNum,
-                  String des, Integer version, Integer markOfVirtual, Long netId, String netCode, String netName, String netAlias) {
+                  String des, Integer version, Integer markOfVirtual, Long netId, String netCode, String netName,
+                  String netAlias,Long rentId,String rentCode) {
         this.enNodeId = enNodeId;
         this.enNodeCode = enNodeCode;
         this.enNodeName = enNodeName;
@@ -141,7 +148,24 @@ public class EnNode implements Serializable {
         this.netCode = netCode;
         this.netName = netName;
         this.netAlias = netAlias;
+        this.rentId = rentId;
+        this.rentCode = rentCode;
+    }
 
+    public Long getRentId() {
+        return rentId;
+    }
+
+    public void setRentId(Long rentId) {
+        this.rentId = rentId;
+    }
+
+    public String getRentCode() {
+        return rentCode;
+    }
+
+    public void setRentCode(String rentCode) {
+        this.rentCode = rentCode;
     }
 
     public Long getEnNodeId() {

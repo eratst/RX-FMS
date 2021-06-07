@@ -23,9 +23,9 @@ public class YwUnitRepositoryImpl {
     @SuppressWarnings("unchecked")
     public Page<YwUnit> findYwUnits(com.pcitc.fms.service.model.YwUnit YwUnitModel, Pageable pageable) {
         String ywUnitCount = "select count(1) "
-                + " from YwUnit ywUnit,Org org, BizorgMain biz ,UnitType unitType,Technic technic "
+                + " from YwUnit ywUnit,Org org, BizorgMain biz ,UnitType unitType,Technic technic,Rent rent  "
                 + " where ywUnit.orgId = org.orgId and ywUnit.bizId = biz.bizId and ywUnit.unitTypeId=unitType.unitTypeId "
-                + "and ywUnit.technicId=technic.technicId ";
+                + "and ywUnit.technicId=technic.technicId and ywUnit.rentId=rent.rentId ";
 
         StringBuilder dataSql = new StringBuilder();
         dataSql.append(AreaNodeBasicSql.ywUnit);
@@ -97,8 +97,15 @@ public class YwUnitRepositoryImpl {
             parameterMap.put("technicName", "%" + YwUnitModel.getTechnicName() + "%");
         }
 
+        if (null != YwUnitModel.getRentCode() && !StringUtils.isEmpty(YwUnitModel.getRentCode())) {
+            dataSql.append(" and rent.rentCode = :rentCode");
+            countSql.append(" and rent.rentCode = :rentCode");
+            parameterMap.put("rentCode", YwUnitModel.getRentCode());
+        }
+
         dataSql.append(" order by ywUnit.sortNum asc");
         countSql.append(" order by ywUnit.sortNum asc");
+
 
         Query dataQuery = entityManager.createQuery(dataSql.toString());
         Query countQuery = entityManager.createQuery(countSql.toString());
