@@ -416,7 +416,7 @@
 			"type": "number",
 			"hide": true,
 			"required": false,
-			"inOut": false
+			"inOut": true
 		}
 	}
 }

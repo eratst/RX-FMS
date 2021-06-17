@@ -36,7 +36,7 @@ localStorage.setItem('rentServerUrl', '');
  * 本地测试逻辑多租时需要，发版时注释
  */
 //localStorage.setItem('testRent', true); //test
-//localStorage.setItem('testRentUrl', 'fms_rxhg.promace.sinopec.com'); //test em   fms_mtrl  fms_ener
+//localStorage.setItem('testRentUrl', 'fms_rxhg.promace.sinopec.com'); //test em   fms_mtrl  fms_ener  fms_rxhg
 
 //
 // Declare app level module

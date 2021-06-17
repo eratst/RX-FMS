@@ -52,9 +52,9 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			viewGridProvider.init();
 			$scope.userCode = "ssh";
 			//获取用户编码userCode,处理页面权限
-			$scope.authModfiy = true;
-			//			$scope.authModfiy = false;
-			//			initAuthority() ///初始化唯一方法
+//			$scope.authModfiy = true;
+						$scope.authModfiy = false;
+						initAuthority() ///初始化唯一方法
 
 			$scope.measIndex = false;
 			//度量指标按钮
@@ -376,9 +376,9 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 						$scope.rentFlag = false;
 				}, function error(res) {});
 			}
-			initGridOptionsColumnDefs(jsonObj); //仅在初始化调用了一次，其余活动未重复调用
-			initGridOptionsUserA("T_PM_USER.json"); //仅在新增弹框的初始化调用
-			initGridOptionsUserU("T_PM_USER.json"); //仅在编辑弹框的初始化调用
+//			initGridOptionsColumnDefs(jsonObj); //仅在初始化调用了一次，其余活动未重复调用
+//			initGridOptionsUserA("T_PM_USER.json"); //仅在新增弹框的初始化调用
+//			initGridOptionsUserU("T_PM_USER.json"); //仅在编辑弹框的初始化调用
 			/**
 			 * 初始化页面-----封装数据格式和JSON，初始化表格---------仅在刷新页面调用一次
 			 */
@@ -1535,7 +1535,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 					} else if(jsonObj.key == "T_PM_MEASINDEX") {
 						repeatUrl = $scope.measIndex ? viewGridProvider.httpPort() + jsonObj.url + '/' + $scope.mTable.tableValue[
 							i][alterKey] + '?ofMeasindexType=1' : viewGridProvider.httpPort() + jsonObj.url + '/' + $scope.mTable.tableValue[
-							i][alterKey] + '?ofMeasindexType=1';
+							i][alterKey] + '?ofMeasindexType=0';
 					} else {
 						repeatUrl = viewGridProvider.httpPort() + jsonObj.url + '/' + $scope.mTable.tableValue[
 							i][alterKey];
@@ -1891,6 +1891,55 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			/**
 			 * ------------------------------------------------导出结束---------------------------------------------------------
 			 */
+			/**
+			 * ------------------------------------------------同步---------------------------------------------------------
+			 */
+			$scope.main.vfunc.onclick.syncButton= function(){
+				var tableType = $scope.main.vMember.sapc.tableType;
+				let obj = {
+					"busiArea": 'fms_mtrl',
+					"energyMng": 'fms_ener',
+					"operMng": 'fms_ope'
+				}
+				angular.element("#tempresetModel").modal("show")
+				$scope.tempreset = "已执行";
+				var syncUrl;
+				if(tableType.jsonObj.hasOwnProperty("bizType")) {
+					bizUrl = '/bizs/' + obj[tableType.jsonObj.bizType]
+					syncUrl = viewGridProvider.httpPort() + bizUrl + jsonObj.url + '?dataSynchronization=1';
+				} else if(tableType.jsonObj.key == "T_PM_MEASINDEX") {
+					var sUrl = viewGridProvider.httpPort() + jsonObj.url + '?dataSynchronization=1';
+					syncUrl = $scope.measIndex ? sUrl + '&ofMeasindexType=1' : sUrl + '&ofMeasindexType=0';
+				} else {
+					syncUrl = viewGridProvider.httpPort() + jsonObj.url + '?dataSynchronization=1';
+				}
+				if($scope.levelOrg) {
+					syncUrl = syncUrl + '&isRecursive=1';
+				} else if(!$scope.levelOrg) {
+					syncUrl = syncUrl + '&isRecursive=0';
+				}
+				console.log("同步所用url", syncUrl);
+				$scope.error = '';
+				$scope.tempreset = '已执行';
+					viewGridProvider.httpCommit(syncUrl).then(function success(res)  {
+						$scope.tempreset = '已执行';
+						$timeout(function() {
+							angular.element("#tempresetModel").modal("hide")
+						}, 1000);
+					}, function error(res) {
+					$scope.tempreset = "已执行";
+						$timeout(function() {
+							angular.element("#tempresetModel").modal("hide")
+						}, 1000);
+					});
+			}
+			
+			/**
+			 * ------------------------------------------------同步结束---------------------------------------------------------
+			 */
+			
+			
+			
 			/**
 			 * 多业务层次明细表----上级组织机构赋空----4.3.1版本未使用
 			 */
@@ -2272,7 +2321,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				$scope.proStdFlag = proStdFlag;
 				var bizUrl = '';
 				//			if(jsonObj.key = "T_PM_RENT") {
-				//				bizUrl = viewGridProvider.httpPort() + '/orgTrees?isPlatformRent=1';
+
 				//			} else {
 				bizUrl = viewGridProvider.httpPort() + '/orgTrees?isPlatformRent=0';
 				//			}

@@ -19,6 +19,10 @@
 			</a>-->
 		</div>
 		<div>
+			
+			<button type="button" style="background-color:#A7C0E8;" class="btn clude download buuttn" ng-click="main.vfunc.onclick.syncButton()" style="margin: 0 -10px 0 0;">
+		<span class="glyphicon glyphicon-transfer buttn"></span>同步</button>
+			
 			<button type="button" class="btn clude add buuttn" ng-click=main.vfunc.onclick.addButton() data-target="#insertWindow" ng-if="authModfiy&&BntShow&&orgBtnShow&&removeBnt&&rentBtnShow" data-toggle="modal">
       <span class="glyphicon glyphicon-plus buttn "></span>增加</button>
 			<button type="button" class="btn clude delet buuttn" data-target="#deleteWindow" data-toggle="modal" ng-if="authModfiy&&BntShow&&updateShow&&removeBnt&&rentBtnShow" ng-disabled="gridApi.grid.selection.selectedCount<1">

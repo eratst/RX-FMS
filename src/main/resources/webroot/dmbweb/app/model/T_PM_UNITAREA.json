@@ -59,7 +59,6 @@
 			"inOut": true,
 			"class": "left",
 			"width": "130",
-			"dropBiz": true,
 				"proAdd": {
 				"show": true,
 				"edit": false
