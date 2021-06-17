@@ -362,7 +362,12 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 								$scope.authModfiy = true;
 								break;
 							}
-						} else {
+						} else if(jsonObj.key == "T_PM_STATION"){
+							if(authArr[i].value == "FMS_T_PM_TANKAREA") {
+								$scope.authModfiy = true;
+								break;
+							}
+						}else {
 							if(authArr[i].value == "FMS_" + jsonObj.key) {
 								$scope.authModfiy = true;
 								break;
@@ -1557,6 +1562,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			function searchImport(repeatUrl, importJson, index, alterKey, alterValue, nodeA, nodeAValve, nodeB,
 				nodeBValve, nodeC, nodeCValve, nodeD, nodeDValve, nodeM, nodeMValve, nodeS, nodeSValve) {
 				viewGridProvider.httpCommit(repeatUrl).then(function success(res) {
+					console.log("repeatUrl",res)
 					var tableType = $scope.main.vMember.sapc.tableType;
 					let obj = {
 						"busiArea": 'fms_mtrl',
@@ -1566,11 +1572,9 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 					var bizUrl = '/bizs/' + obj[tableType.jsonObj.bizType]
 					var tripleCodeUrl = '?' + tableType.nodeA + '=' + $scope.nodeA + '&' + tableType.nodeB + '=' +
 						$scope.nodeB
-					console.log('ressss', res)
 					if((alterValue || nodeAValve || nodeCValve || nodeSValve) && res.data.collection.items
 						.length == 1) {
 						var putUrl;
-
 						if(jsonObj.key == 'T_PM_ASSOCIATIVE') {
 							putUrl = jsonObj.url + '/' + nodeAValve + '/' + nodeBValve;
 						} else if(jsonObj.key == 'T_PM_BIZORG_DTL') {
