@@ -73,6 +73,13 @@ public class MeasurementDaoImpl {
             dataSql.append(" and m.sourceDataType = :sourceDataType");
             parameterMap.put("sourceDataType", measurement.getSourceDataType());
         }
+
+        if (null != measurement.getIdxTypeCode() && !StringUtils.isEmpty(measurement.getIdxTypeCode())) {
+            countSql.append(" and i.idxTypeCode like :idxTypeCode");
+            dataSql.append(" and i.idxTypeCode like :idxTypeCode");
+            parameterMap.put("idxTypeCode", "%" + measurement.getIdxTypeCode() + "%");
+        }
+
         if (null != measurement.getIdxTypeName() && !StringUtils.isEmpty(measurement.getIdxTypeName())) {
             countSql.append(" and i.idxTypeName like :idxTypeName");
             dataSql.append(" and i.idxTypeName like :idxTypeName");

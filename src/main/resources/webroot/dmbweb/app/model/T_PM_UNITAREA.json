@@ -110,7 +110,7 @@
 			"hide": false,
 			"inOut": true,
 			"class": "center",
-			"width": "70"
+			"width": "80"
 		},
 		"sortNum": {
 			"display": "排序",
@@ -118,7 +118,7 @@
 			"required": true,
 			"hide": false,
 			"inOut": true,
-			"width": "50",
+			"width": "60",
 			"class": "right"
 		},
 		"crtUserId": {
@@ -135,7 +135,7 @@
 			"hide": false,
 			"inOut": false,
 			"class": "left",
-			"width": "70",
+			"width": "80",
 			"proAdd": {
 				"show": false,
 				"edit": false
@@ -176,7 +176,7 @@
 			"hide": false,
 			"inOut": false,
 			"class": "left",
-			"width": "70",
+			"width": "80",
 			"proAdd": {
 				"show": false,
 				"edit": false

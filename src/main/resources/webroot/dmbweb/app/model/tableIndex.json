@@ -328,7 +328,7 @@
 				"tableFormat": "T_IC_CNFG_CLASS_PARA.json",
 				"parent": "none",
 				"isShowSearch": true,
-				"desType": "longDes",
+				"desType": "shortDes",
 				"authPropertyValue": "FMS_DictModify",
 				"url": "/CnfgClassParas"
 			},
@@ -557,8 +557,8 @@
 				"url": "/administrations"
 			},
 			"T_PM_STATION": {
-				"tableName": "3.8 站(房)",
-				"nameAlias": "站(房)",
+				"tableName": "3.8 站(厂)",
+				"nameAlias": "站(厂)",
 				"hide":false,
 				"tableFormat": "T_PM_STATION.json",
 				"parent": "none",

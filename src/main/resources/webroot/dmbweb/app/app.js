@@ -435,6 +435,7 @@ angular.module('myApp', [
 						value.parentType = {};
 						value.parentType = res.data;
 						value.parentType.type = jsonObj.type;
+						value.parentType.jsonObj = jsonObj;
 						var interUrl = '';
 						if(jsonObj.key == 'T_PM_RENT') {
 							interUrl = httpOrgPort
@@ -473,7 +474,7 @@ angular.module('myApp', [
 								}
 							}
 							value.parentValue = resuArr;
-							value.parentType.jsonObj = jsonObj;
+//							value.parentType.jsonObj = jsonObj;
 //							if(value.hasOwnProperty("unitAl")){
 //								var uniturl = httpPort  + '/plants?inUse=1&dataStatus=1';
 //								httpCommit(uniturl).then(function success(ressss) {

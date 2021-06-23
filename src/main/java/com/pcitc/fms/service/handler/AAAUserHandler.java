@@ -3,6 +3,7 @@ package com.pcitc.fms.service.handler;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 
 import com.pcitc.fms.service.model.AAAUser;
@@ -31,6 +32,9 @@ public class AAAUserHandler extends BaseHandler{
 						username = request.getHeader("username");
 						usercode = request.getHeader("userCode");
 						AAAUser aaaUser = new AAAUser();
+						if(StringUtils.isEmpty(username)) {
+                            username = "admin";
+                        }
 						aaaUser.setUsername(username);
 						aaaUser.setUsercode(usercode);
 						List<AAAUser> lists = new ArrayList<>();

@@ -356,7 +356,8 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 								$scope.authModfiy = true;
 								break;
 							}
-						} else if(jsonObj.key == "T_PM_UNITAREA" || jsonObj.key == "T_PM_UNITAREAREL") {
+						} else if(jsonObj.hasOwnProperty("bizType")) {
+//							jsonObj.key == "T_PM_UNITAREA" || jsonObj.key == "T_PM_UNITAREAREL"|| jsonObj.key == "T_PM_ENPIPENET"|| jsonObj.key == "T_PM_ENNODE"
 							//业务模型权限取决于物料表
 							if(authArr[i].value == "FMS_T_PM_MTRL") {
 								$scope.authModfiy = true;
@@ -2059,7 +2060,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 						cnfgClassName = tableType.attribute[key][proWho].data
 					}
 				}
-				var pjsonObj = viewGridProvider.getTableIndexJsonByKey(tableIndex, value.parent); //封装关联表json
+				var pjsonObj = viewGridProvider.getTableIndexJsonByKey(tableIndex, value.parent);//封装关联表json
 				var deffered = $q.defer();
 				var promise = deffered.promise;
 				viewGridProvider.setValueTV($scope.pM.vMember.sapc, pjsonObj, deffered);

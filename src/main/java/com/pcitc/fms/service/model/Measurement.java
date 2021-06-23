@@ -88,6 +88,11 @@ public class Measurement extends BaseResRep implements Serializable {
     @ResourceMember(InTemplate = false)
     private Long idxTypeId;
 
+    @CheckField(CheckName = CheckNameType.CODE, StrLength = 50, Explain = "指标类型编码")
+    @ResourceMember(InQueries = "condition", Name = "idxTypeCode")
+    private String idxTypeCode;
+
+
     /**
      * 指标类型名称
      */
@@ -215,6 +220,14 @@ public class Measurement extends BaseResRep implements Serializable {
         this.skip = skip;
         this.rentCode = rentCode;
         this.bizCode = bizCode;
+    }
+
+    public String getIdxTypeCode() {
+        return idxTypeCode;
+    }
+
+    public void setIdxTypeCode(String idxTypeCode) {
+        this.idxTypeCode = idxTypeCode;
     }
 
     public Long getIdxId() {
