@@ -550,4 +550,13 @@ public interface AreaNodeBasicSql {
             + " from EnNodeType enNodeType, BizorgMain biz ,Rent rent"
             + " where enNodeType.bizId = biz.bizId and enNodeType.rentId=rent.rentId ";
 
+    // 3.8 站/厂
+    static final String stations = "select new Station(org.orgCode,station.areaId, org.orgAlias,  station.areaCode,"
+            + "area.areaName,area.areaAlias, area.areaTypeId, areaType.areaTypeCode, areaType.areaTypeName, area.inUse,"
+            + "org.crtUserId, org.crtUserName, org.crtDate, org.mntUserId, org.mntUserName, org.mntDate,"
+            + "station.sortNum, station.version, area.des, org.orgAltitude, org.orgLongitude, org.orgLatitude)"
+            + " from Station station,Area area,AreaType areaType,Org org "
+            + "where org.orgId = area.orgId and area.areaId = station.areaId and area.areaTypeId = areaType.areaTypeId ";
+
+
 }

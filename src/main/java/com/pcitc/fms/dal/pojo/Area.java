@@ -47,7 +47,7 @@ public class Area implements Serializable {
     @Transient
     private String areaTypeName;
 
-    @Column(name = "DATA_STATUS")
+    @Column(name = "INUSE")
     private Integer inUse;
 
     @Column(name = "SORT_NUM")

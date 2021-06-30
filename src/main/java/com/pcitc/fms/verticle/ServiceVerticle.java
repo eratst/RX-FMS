@@ -1,5 +1,5 @@
 package com.pcitc.fms.verticle;
-import com.pcitc.fms.common.RedisUtil;
+
 import amq.synchronize.service.SyncService;
 import com.pcitc.fms.common.ApplicationContextTool;
 import com.pcitc.fms.common.ClassUtil;
@@ -7,12 +7,118 @@ import com.pcitc.fms.common.DISCMAp;
 import com.pcitc.fms.common.FMSTableAndPrimaryKey;
 import com.pcitc.fms.common.JDBCUtil;
 import com.pcitc.fms.common.MySpringConfiguration;
+import com.pcitc.fms.common.RedisUtil;
 import com.pcitc.fms.common.YLCloseableHttpClient;
 import com.pcitc.fms.exception.BusinessException;
 import com.pcitc.fms.mqtool.LoadMap;
 import com.pcitc.fms.mqtool.StartSyncService;
 import com.pcitc.fms.service.ResourceRegister;
-import com.pcitc.fms.service.handler.*;
+import com.pcitc.fms.service.handler.AAAInfoHandler;
+import com.pcitc.fms.service.handler.AAAUserHandler;
+import com.pcitc.fms.service.handler.AdministrationHandler;
+import com.pcitc.fms.service.handler.AirDenModCoefHandler;
+import com.pcitc.fms.service.handler.AreaDictGatherHandler;
+import com.pcitc.fms.service.handler.AreaDictionaryHandler;
+import com.pcitc.fms.service.handler.AssociativesHandler;
+import com.pcitc.fms.service.handler.BizOrgDTLHandler;
+import com.pcitc.fms.service.handler.CacheRentHandler;
+import com.pcitc.fms.service.handler.CapacityUnitHandler;
+import com.pcitc.fms.service.handler.CnfgTankHandler;
+import com.pcitc.fms.service.handler.CommunityHandler;
+import com.pcitc.fms.service.handler.ConnectionsHandler;
+import com.pcitc.fms.service.handler.DeltcnfgHandler;
+import com.pcitc.fms.service.handler.DepartmentsHandler;
+import com.pcitc.fms.service.handler.DictionaryTableHandler;
+import com.pcitc.fms.service.handler.DimensionHandler;
+import com.pcitc.fms.service.handler.DivisionsHandler;
+import com.pcitc.fms.service.handler.EdgePointHandler;
+import com.pcitc.fms.service.handler.EnNodeHandler;
+import com.pcitc.fms.service.handler.EnNodeTypeHandler;
+import com.pcitc.fms.service.handler.EnPipeNetHandler;
+import com.pcitc.fms.service.handler.EnterprisesHandler;
+import com.pcitc.fms.service.handler.EntityHandler;
+import com.pcitc.fms.service.handler.EquipmentHandler;
+import com.pcitc.fms.service.handler.FMSObjectTreeHandler;
+import com.pcitc.fms.service.handler.FactoryHandler;
+import com.pcitc.fms.service.handler.FltperCuabHandler;
+import com.pcitc.fms.service.handler.GlbCubasHandler;
+import com.pcitc.fms.service.handler.GlbPreCoefHandler;
+import com.pcitc.fms.service.handler.HeadquartersHandler;
+import com.pcitc.fms.service.handler.IcMtrlFormCnfgHandler;
+import com.pcitc.fms.service.handler.IcPipenettankCoefHandler;
+import com.pcitc.fms.service.handler.IcStangasdenHandler;
+import com.pcitc.fms.service.handler.IcVcfHandler;
+import com.pcitc.fms.service.handler.LieCubasHandler;
+import com.pcitc.fms.service.handler.LiqprodCubaTempCoefHandler;
+import com.pcitc.fms.service.handler.LiquidProdCoefHandler;
+import com.pcitc.fms.service.handler.LoadPointHandler;
+import com.pcitc.fms.service.handler.LoadPointTypeHandler;
+import com.pcitc.fms.service.handler.LoadingDockHandler;
+import com.pcitc.fms.service.handler.ManagementMtrlHandler;
+import com.pcitc.fms.service.handler.ManagementTankAreaHandler;
+import com.pcitc.fms.service.handler.ManagementTankHandler;
+import com.pcitc.fms.service.handler.MapSampleNodeHandler;
+import com.pcitc.fms.service.handler.MaterialHandler;
+import com.pcitc.fms.service.handler.MeasurementHandler;
+import com.pcitc.fms.service.handler.MtrlMolarHandler;
+import com.pcitc.fms.service.handler.MtrlVcfHandler;
+import com.pcitc.fms.service.handler.NewTankHandler;
+import com.pcitc.fms.service.handler.NodeAndAreaHandler;
+import com.pcitc.fms.service.handler.NodeDictGatherHandler;
+import com.pcitc.fms.service.handler.NodeDictionaryHandler;
+import com.pcitc.fms.service.handler.NodeIdxTypeHandler;
+import com.pcitc.fms.service.handler.NodeTopDTLHandler;
+import com.pcitc.fms.service.handler.OfficesHandler;
+import com.pcitc.fms.service.handler.Openindexhandler;
+import com.pcitc.fms.service.handler.OrgFindAreaHandler;
+import com.pcitc.fms.service.handler.OrgRelationHandler;
+import com.pcitc.fms.service.handler.OutletHandler;
+import com.pcitc.fms.service.handler.PipeNetworkHandler;
+import com.pcitc.fms.service.handler.PlantHandler;
+import com.pcitc.fms.service.handler.PlateHandler;
+import com.pcitc.fms.service.handler.PositionHandler;
+import com.pcitc.fms.service.handler.PositionOrgHandler;
+import com.pcitc.fms.service.handler.PostionHandler;
+import com.pcitc.fms.service.handler.PrdtcellHandler;
+import com.pcitc.fms.service.handler.PrdtcellMeasindexHandler;
+import com.pcitc.fms.service.handler.ProduceFactoriesHandler;
+import com.pcitc.fms.service.handler.PropertyHandler;
+import com.pcitc.fms.service.handler.RelationsHandler;
+import com.pcitc.fms.service.handler.RentHandler;
+import com.pcitc.fms.service.handler.SamplePointHandler;
+import com.pcitc.fms.service.handler.SideLineHandler;
+import com.pcitc.fms.service.handler.SiloHandler;
+import com.pcitc.fms.service.handler.SpclCuabHandler;
+import com.pcitc.fms.service.handler.StaalgrConfHandler;
+import com.pcitc.fms.service.handler.StaalgrConfitemHandler;
+import com.pcitc.fms.service.handler.StanDenHandler;
+import com.pcitc.fms.service.handler.StationHandler;
+import com.pcitc.fms.service.handler.StdSecHandler;
+import com.pcitc.fms.service.handler.StdcmmmCubasHandler;
+import com.pcitc.fms.service.handler.StddmCuabsHandler;
+import com.pcitc.fms.service.handler.StdpresCoefHandler;
+import com.pcitc.fms.service.handler.StockHandler;
+import com.pcitc.fms.service.handler.TPmOrgHandler;
+import com.pcitc.fms.service.handler.TankAreaHandler;
+import com.pcitc.fms.service.handler.TankBaseInfoHandler;
+import com.pcitc.fms.service.handler.TankCnfgHandler;
+import com.pcitc.fms.service.handler.TankHandler;
+import com.pcitc.fms.service.handler.TeamAndUserHandler;
+import com.pcitc.fms.service.handler.TeamsHandler;
+import com.pcitc.fms.service.handler.TeeHandler;
+import com.pcitc.fms.service.handler.TempcondenHandler;
+import com.pcitc.fms.service.handler.TempdenHandler;
+import com.pcitc.fms.service.handler.TemppredenHandler;
+import com.pcitc.fms.service.handler.TubulationHandler;
+import com.pcitc.fms.service.handler.UnitAlarmHandler;
+import com.pcitc.fms.service.handler.UnitAreaHandler;
+import com.pcitc.fms.service.handler.UnitAreaRelHandler;
+import com.pcitc.fms.service.handler.UserHandler;
+import com.pcitc.fms.service.handler.UserPositionHandler;
+import com.pcitc.fms.service.handler.ValveHandler;
+import com.pcitc.fms.service.handler.WarehouseHandler;
+import com.pcitc.fms.service.handler.WorkshopsHandler;
+import com.pcitc.fms.service.handler.YwUnitHandler;
 import com.pcitc.fms.service.stormHandler.StormTankHandler;
 import com.pcitc.fms.service.stormHandler.StormUnitHandler;
 import io.vertx.core.AbstractVerticle;
@@ -678,6 +784,13 @@ public class ServiceVerticle extends AbstractVerticle {
 
         router.get("/FactoryModelService/workshops/:orgCode/areaDictionaries").handler(areaDictionaryHandler::getAreaDictionaryTables);
 
+        // [模型表]3.8 站（厂）
+        StationHandler stationHandler = (StationHandler) context.getBean("stationHandler");
+        router.get("/FactoryModelService/stations/:areaCode").handler(stationHandler::findAllStation);
+        router.get("/FactoryModelService/stations").handler(stationHandler::findAllStation);
+
+        router.get("/FactoryModelService/rents/:rentCode/stations/:areaCode").handler(stationHandler::findAllStation);
+        router.get("/FactoryModelService/rents/:rentCode/stations").handler(stationHandler::findAllStation);
 
         //节点表
         NodeDictionaryHandler nodeDictionaryHandler = (NodeDictionaryHandler) context.getBean("nodeDictionaryHandler");
@@ -1805,7 +1918,7 @@ public class ServiceVerticle extends AbstractVerticle {
 
         router.get("/FactoryModelService/rents/:rentCode/bizs/:bizCode/unitAreaRels").handler(unitAreaRelHandler::findUnitAreaRels);
         router.get("/FactoryModelService/rents/:rentCode/bizs/:bizCode/unitAreaRels/:areaCode/:unitAreaCode").handler(unitAreaRelHandler::findUnitAreaRels);
-        
+
         // 能源节点类型表
         EnNodeTypeHandler enNodeTypeHandler = (EnNodeTypeHandler) context.getBean("enNodeTypeHandler");
         router.get("/FactoryModelService/bizs/:bizCode/enNodeTypes").handler(enNodeTypeHandler::findEnNodeTypes);
@@ -1821,7 +1934,7 @@ public class ServiceVerticle extends AbstractVerticle {
 
         router.get("/FactoryModelService/rents/:rentCode/bizs/:bizCode/enNodes").handler(enNodeHandler::findEnNodes);
         router.get("/FactoryModelService/rents/:rentCode/bizs/:bizCode/enNodes/:enNodeCode").handler(enNodeHandler::findEnNodes);
-      
+
 
         //		router.post("/FactoryModelService/rents").handler(routingContext -> {
 //			String collectionParam = routingContext.getBodyAsString();
