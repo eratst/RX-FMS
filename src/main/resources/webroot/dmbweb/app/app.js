@@ -264,7 +264,7 @@ angular.module('myApp', [
 				setDefalutValue: function(tableType,which) {
 					let obj = {
 						"busiArea": 'fms_mtrl',
-						"energyMng": 'fms_ener',
+						"energyMng": 'fms_em',
 						"operMng":'fms_ope'
 					}
 					for(var key in tableType.attribute) {
@@ -449,7 +449,7 @@ angular.module('myApp', [
 							let bizUrl;
 							let obj = {
 								"busiArea": 'fms_mtrl',
-								"energyMng": 'fms_ener',
+								"energyMng": 'fms_em',
 								"operMng":'fms_ope'
 							}
 							if(jsonObj.hasOwnProperty("bizType")) {
@@ -606,7 +606,7 @@ angular.module('myApp', [
 					let bizUrl;
 					let obj = {
 						"busiArea": 'fms_mtrl',
-						"energyMng": 'fms_ener',
+						"energyMng": 'fms_em',
 						"operMng":'fms_ope'
 					}
 					if(tableType.jsonObj.hasOwnProperty("bizType")) {

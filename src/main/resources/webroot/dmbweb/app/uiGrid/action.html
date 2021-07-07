@@ -5,10 +5,12 @@
 		<span style="font-size: 16px;">{{main.vMember.sapc.tableType.jsonObj.tableName}}</span>
 		<div style="display:inline-block;height: 40px;line-height: 40px;margin-left:50px;" ng-if="measBtnShow">
 			<span>指标所属类型</span>
-				<input type="radio" ng-model="measIndex" ng-value='true' ng-change="main.vfunc.onclick.selectMeas(true)">
-				<span>区域</span>
-				<input type="radio" ng-model="measIndex" ng-value='false' ng-change="main.vfunc.onclick.selectMeas(false)">
+			<input type="radio" ng-model="measIndex" ng-value='0' ng-change="main.vfunc.onclick.selectMeas(0)">
 				<span>节点</span>
+				<input type="radio" ng-model="measIndex" ng-value='1' ng-change="main.vfunc.onclick.selectMeas(1)">
+				<span>区域</span>
+				<input type="radio" ng-model="measIndex" ng-value='2' ng-change="main.vfunc.onclick.selectMeas(2)">
+				<span>组织结构</span>
 		</div>
 	</div>
 
