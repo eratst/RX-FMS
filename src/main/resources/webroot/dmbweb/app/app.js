@@ -36,7 +36,7 @@ localStorage.setItem('rentServerUrl', '');
  * 本地测试逻辑多租时需要，发版时注释
  */
 //localStorage.setItem('testRent', true); //test
-//localStorage.setItem('testRentUrl', 'fms_rxhg.promace.sinopec.com'); //test em   fms_mtrl  fms_ener  fms_rxhg
+//localStorage.setItem('testRentUrl', 'fms_rxhg.promace.sinopec.com'); //test em   fms_mtrl  fms_em  fms_rxhg
 
 //
 // Declare app level module
@@ -291,16 +291,7 @@ angular.module('myApp', [
 				 */
 				hideCrtMnt: function(tableType) {
 					var obj = {}
-					console.log("\\\\\\\\\\\\", tableType)
-//					if(tableType.jsonObj.key == "T_PM_MEASINDEX"){
-//						for(var key in tableType.attribute){
-//							if((key == "areaAlias"&& !$scope.measIndex)||(key == "areaCode"&& !$scope.measIndex)||(key =="nodeAlias" && $scope.measIndex)||(key =="nodeCode" && $scope.measIndex)){
-//								tableType.attribute[key].hide = true;
-//							}else if((key == "areaAlias"&& $scope.measIndex)||(key == "areaCode"&& $scope.measIndex)||(key =="nodeAlias" && !$scope.measIndex)||(key =="nodeCode" && !$scope.measIndex)){
-//								tableType.attribute[key].hide = false;
-//							}
-//						}
-//					}
+//					console.log("\\\\\\\\\\\\", tableType)
 					for(var key in tableType.attribute) {
 						if(key == 'crtUserId' || key == 'crtUserCode' || key == 'mntUserCode' || key == 'mntUserId' ||
 							key == 'rlsUserId' || key == 'cmtUserId' || key == 'version') {
@@ -454,7 +445,7 @@ angular.module('myApp', [
 							}
 							if(jsonObj.hasOwnProperty("bizType")) {
 								//								bizUrl = '/bizs/fms_mtrl' + jsonObj.url
-								bizUrl = '/bizs/' + obj[jsonObj.bizType] + jsonObj.url //测试能源管理时租户、biz为fms_ener
+								bizUrl = '/bizs/' + obj[jsonObj.bizType] + jsonObj.url //测试能源管理时租户、biz为fms_em
 
 							} else {
 								bizUrl = jsonObj.url
@@ -611,31 +602,30 @@ angular.module('myApp', [
 					}
 					if(tableType.jsonObj.hasOwnProperty("bizType")) {
 						//								bizUrl = '/bizs/fms_mtrl' + jsonObj.url
-						bizUrl = '/bizs/' + obj[tableType.jsonObj.bizType] + jsonObj.url //测试能源管理时租户、biz为fms_ener
+						bizUrl = '/bizs/' + obj[tableType.jsonObj.bizType] + jsonObj.url //测试能源管理时租户、biz为fms_em
 
 					}else {
 						bizUrl = jsonObj.url
 					}
 					var url = this.httpPort() + bizUrl + "?$skip=0&$top=1";
 					if(tableType.jsonObj.key=="T_PM_MEASINDEX"){
-						url =measIndex ? url + "&ofMeasindexType=1" : url + "&ofMeasindexType=0"
+						url =measIndex == 1 ? url + "&ofMeasindexType=1" : measIndex == 2 ? url + '&ofMeasindexType=2' : url + '&ofMeasindexType=3';
 					}
 					this.httpCommit(url).then(function success(res) {
 						for(var i = 0; i < res.data.collection.queries.length; i++) {
 							if(res.data.collection.queries[i].rel == 'condition') {
 								var queriesData = res.data.collection.queries[i].data;
-								console.log('jjjjj====',queriesData)
 							}
 						}
 						for(var key in tableType.attribute) {
 							if(!tableType.attribute[key].hide) {
 								for(var i = 0; i < queriesData.length; i++) {
 									if(queriesData[i].name == key) {
-										if(!tableType.attribute[key].hasOwnProperty("proSearch")) {
+//										if(!tableType.attribute[key].hasOwnProperty("proSearch")) {
 											tableType.attribute[key].proSearch = {};
 											tableType.attribute[key].proSearch.show = true;
 											tableType.searchCount++
-										}
+//										}
 									}
 								}
 							}else{

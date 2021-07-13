@@ -559,7 +559,7 @@
 			"T_PM_STATION": {
 				"tableName": "3.8 站(厂)",
 				"nameAlias": "站(厂)",
-				"hide":false,
+				"hide": false,
 				"tableFormat": "T_PM_STATION.json",
 				"parent": "none",
 				"isShowSearch": true,
@@ -797,7 +797,7 @@
 				"isShowSearch": true,
 				"desType": "shortDes",
 				"bizType": "busiArea",
-				"rentType":"rent",
+				"rentType": "rent",
 				"hide": "true",
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/unitAreas"
@@ -822,7 +822,7 @@
 				"isShowSearch": true,
 				"desType": "shortDes",
 				"bizType": "busiArea",
-				"rentType":"rent",
+				"rentType": "rent",
 				"hide": "true",
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/ywUnits"
@@ -835,7 +835,7 @@
 				"isShowSearch": true,
 				"desType": "shortDes",
 				"bizType": "energyMng",
-				"rentType":"rent",
+				"rentType": "rent",
 				"hide": "true",
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/enPipeNets"
@@ -860,20 +860,33 @@
 				"isShowSearch": true,
 				"desType": "shortDes",
 				"bizType": "energyMng",
-				"rentType":"rent",
+				"rentType": "rent",
 				"hide": "true",
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/enNodeTypes"
 			},
+			"T_PM_ENMEASINDEX": {
+				"tableName": "2.2.4  能源度量指标",
+				"nameAlias": "能源度量指标",
+				"tableFormat": "T_PM_ENMEASINDEX.json",
+				"parent": "none",
+				"isShowSearch": true,
+				"desType": "shortDes",
+				"bizType": "energyMng",
+				"rentType": "rent",
+				"hide": "true",
+				"authPropertyValue": "FMS_ModelModify",
+				"url": "/enMeasurements"
+			},
 			"T_PM_YWUNIT2": {
-				"tableName": "2.2.3  虚拟装置",
+				"tableName": "2.2.5  虚拟装置",
 				"nameAlias": "虚拟装置",
 				"tableFormat": "T_PM_YWUNIT2.json",
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "shortDes",
 				"bizType": "energyMng",
-				"rentType":"rent",
+				"rentType": "rent",
 				"hide": "true",
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/ywUnits"
@@ -1325,7 +1338,7 @@
 								"isShowSearch": true,
 								"desType": "shortDes",
 								"bizType": "busiArea",
-								"rentType":"rent",
+								"rentType": "rent",
 								"authPropertyValue": "FMS_ModelModify",
 								"url": "/unitAreas"
 							},
@@ -1348,7 +1361,7 @@
 								"isShowSearch": true,
 								"desType": "shortDes",
 								"bizType": "busiArea",
-								"rentType":"rent",
+								"rentType": "rent",
 								"authPropertyValue": "FMS_ModelModify",
 								"url": "/ywUnits"
 							},
@@ -1720,7 +1733,7 @@
 								"isShowSearch": true,
 								"desType": "shortDes",
 								"bizType": "energyMng",
-								"rentType":"rent",
+								"rentType": "rent",
 								"authPropertyValue": "FMS_ModelModify",
 								"url": "/enPipeNets"
 							},
@@ -1743,19 +1756,31 @@
 								"isShowSearch": true,
 								"desType": "shortDes",
 								"bizType": "energyMng",
-								"rentType":"rent",
+								"rentType": "rent",
 								"authPropertyValue": "FMS_ModelModify",
 								"url": "/enNodeTypes"
 							},
+							"T_PM_ENMEASINDEX": {
+								"tableName": "2.2.4  能源度量指标",
+								"nameAlias": "能源度量指标",
+								"tableFormat": "T_PM_ENMEASINDEX.json",
+								"parent": "none",
+								"isShowSearch": true,
+								"desType": "shortDes",
+								"bizType": "energyMng",
+								"rentType": "rent",
+								"authPropertyValue": "FMS_ModelModify",
+								"url": "/enMeasurements"
+							},
 							"T_PM_YWUNIT2": {
-								"tableName": "2.2.4  虚拟装置",
+								"tableName": "2.2.5  虚拟装置",
 								"nameAlias": "虚拟装置",
 								"tableFormat": "T_PM_YWUNIT2.json",
 								"parent": "none",
 								"isShowSearch": true,
 								"desType": "shortDes",
 								"bizType": "energyMng",
-								"rentType":"rent",
+								"rentType": "rent",
 								"authPropertyValue": "FMS_ModelModify",
 								"url": "/ywUnits"
 							}
@@ -1763,7 +1788,7 @@
 					},
 					"operMng": {
 						"tableName": "2.3 操作管理",
-						"hide":true,
+						"hide": true,
 						"fourth": {
 							"T_PM_OPERSAMPLE": {
 								"tableName": "2.3.1  样品",

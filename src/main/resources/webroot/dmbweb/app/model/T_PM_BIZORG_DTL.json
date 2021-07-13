@@ -108,6 +108,15 @@
 			"inOut": true,
 			"class": "left"
 		},
+		"parentOrgName": {
+			"display": "上级组织机构名称",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"treeIsUpdate": true,
+			"inOut": true,
+			"class": "left"
+		},
 
 		"dataStatus": {
 			"display": "是否启用",

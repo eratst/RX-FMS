@@ -1,0 +1,587 @@
+{
+	"alterKey": "idxCode",
+	"mainKey": "idxId",
+	"nodeC":"bizCode",
+	"attribute": {
+		"idxId": {
+			"display": "度量指标ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"bizCode": {
+			"display": "业务域",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"dropBiz": true,
+			"proAdd": {
+				"show": true,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": true,
+				"edit": false
+			}
+		},
+		"idxName": {
+			"display": "度量指标名称",
+			"type": "string",
+			"required": true,
+			"inOut": true,
+			"hide": false,
+			"class": "left",
+			"width": "180",
+			"parentModel": "T_PM_MEASINDEX",
+			"linkKeys": {
+				"nodeAlias": "nodeAlias",
+				"areaCode": "areaCode",
+				"orgCode": "orgCode",
+				"orgAlias": "orgAlias",
+				"areaAlias": "areaAlias",
+				"areaName": "areaName",
+				"areaTypeCode": "areaTypeCode",
+				"areaTypeName": "areaTypeName",
+				"nodeId": "nodeId",
+				"nodeCode": "nodeCode",
+				"nodeAlias": "nodeAlias",
+				"orgAlias": "orgAlias",
+				"nodeName": "nodeName",
+				"nodeTypeName": "nodeTypeName",
+				"nodeTypeCode": "nodeTypeCode",
+				"idxCode": "idxCode",
+				"idxName": "idxName",
+				"idxAlias": "idxAlias",
+				"idxTypeId": "idxTypeId",
+				"idxTypeCode": "idxTypeCode",
+				"idxTypeName": "idxTypeName",
+				"idxFormula": "idxFormula",
+				"exchangeRate": "exchangeRate",
+				"dimensionAlias": "dimensionAlias",
+				"sourceDataType": "sourceDataType",
+				"ofMeasindexType": "ofMeasindexType"
+			}
+		},
+		"areaCode": {
+			"display": "区域编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"orgCode": {
+			"display": "组织机构编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true,
+			"width": "130",
+			"class": "left",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"orgAlias": {
+			"display": "组织机构",
+			"type": "string",
+			"required": true,
+			"hide": true,
+			"inOut": true,
+			"width": "130",
+			"treeIsUpdate": false,
+			"class": "left",
+			"chilTree": true
+		},
+		"areaAlias": {
+			"display": "所属区域",
+			"type": "string",
+			"required": true,
+			"hide": true,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"areaName": {
+			"display": "区域名称",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false,
+			"class": "left",
+			"width": "130",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"areaTypeCode": {
+			"display": "区域类型编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false,
+			"class": "left",
+			"width": "130",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"areaTypeName": {
+			"display": "区域类型名称",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false,
+			"class": "left",
+			"width": "130",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"nodeId": {
+			"display": "节点ID",
+			"type": "number",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"nodeCode": {
+			"display": "节点编码",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"nodeAlias": {
+			"display": "所属节点",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"nodeName": {
+			"display": "节点名称",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false,
+			"class": "left",
+			"width": "130",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"nodeTypeName": {
+			"display": "节点类型名称",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"width": "100",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"nodeTypeCode": {
+			"display": "节点类型编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false,
+			"class": "left",
+			"width": "130",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"idxCode": {
+			"display": "度量指标编码",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"proAdd": {
+				"show": true,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": true,
+				"edit": false
+			}
+		},
+		"idxAlias": {
+			"display": "度量指标简称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"proAdd": {
+				"show": true,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": true,
+				"edit": false
+			}
+		},
+		"idxTypeId": {
+			"display": "度量指标类型ID",
+			"type": "number",
+			"required": false,
+			"inOut": false,
+			"hide": true
+		},
+		"idxTypeCode": {
+			"display": "指标类型编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true
+		},
+		"idxTypeName": {
+			"display": "度量指标类型名称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "110",
+			"proAdd": {
+				"show": true,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": true,
+				"edit": false
+			}
+		},
+		"idxFormula": {
+			"display": "度量公式",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "180",
+			"proAdd": {
+				"show": true,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": true,
+				"edit": false
+			}
+		},
+
+		"exchangeRate": {
+			"display": "量纲调整系数",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "90",
+			"proAdd": {
+				"show": true,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": true,
+				"edit": false
+			}
+		},
+		"dimensionAlias": {
+			"display": "量纲简称",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "130",
+			"proAdd": {
+				"show": true,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": true,
+				"edit": false
+			}
+		},
+		"sourceDataType": {
+			"display": "源数据类型",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "80",
+			"proAdd": {
+				"show": true,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": true,
+				"edit": false
+			}
+		},
+		"account": {
+			"display": "核算仪表标识",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "90"
+		},
+		"isVirtual": {
+			"display": "虚实标识",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "90"
+		},
+		"upperLimit": {
+			"display": "量程上限",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "90"
+		},
+		"lowerLimit": {
+			"display": "量程下限",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "90"
+		},
+		"magnification": {
+			"display": "倍率",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "90"
+		},
+		"isReliable": {
+			"display": "数采是否可靠",
+			"type": "boolean",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "right",
+			"width": "90"
+		},
+		"inUse": {
+			"display": "是否启用",
+			"type": "boolean",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "70",
+			"class": "center"
+		},
+		"sortNum": {
+			"display": "排序",
+			"type": "number",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"width": "50",
+			"class": "right"
+		},
+		"crtUserId": {
+			"display": "创建人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"crtUserName": {
+			"display": "创建人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "left",
+			"width": "70",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"crtDate": {
+			"display": "创建时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "center",
+			"width": "150",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntUserId": {
+			"display": "最后维护人ID",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": false
+		},
+		"mntUserName": {
+			"display": "维护人",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "left",
+			"width": "70",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+		"mntDate": {
+			"display": "维护时间",
+			"type": "date",
+			"required": false,
+			"hide": false,
+			"inOut": false,
+			"class": "center",
+			"width": "150",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
+
+		"des": {
+			"display": "描述",
+			"type": "string",
+			"required": false,
+			"inOut": true,
+			"hide": false,
+			"class": "left",
+			"width": "180"
+		},
+
+		"version": {
+			"display": "乐观锁版本",
+			"type": "number",
+			"hide": true,
+			"required": false,
+			"inOut": false
+		},
+		"ofMeasindexType": {
+			"display": "区分",
+			"type": "number",
+			"hide": true,
+			"required": false,
+			"inOut": true
+		}
+	}
+}

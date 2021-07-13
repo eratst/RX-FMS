@@ -53,12 +53,12 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			$scope.userCode = "ssh";
 			//获取用户编码userCode,处理页面权限
 //			$scope.authModfiy = true;
-						$scope.authModfiy = false;
-						initAuthority() ///初始化唯一方法
+									$scope.authModfiy = false;
+									initAuthority() ///初始化唯一方法
 
-			$scope.measIndex = 0;
+			$scope.measIndex = 3;
 			//度量指标按钮
-			$scope.measBtnShow = ($stateParams.id == 'T_PM_MEASINDEX')
+			$scope.measBtnShow = ($stateParams.id == 'T_PM_MEASINDEX') || ($stateParams.id == 'T_PM_ENMEASINDEX')
 			//装置界区详情按钮
 			$scope.detailBtnShow = ($stateParams.id == 'T_PM_UNITAREAREL')
 			//禁止罐量计算配置基础分类，分类参数，公式参数的增删改查导入按钮显示
@@ -357,18 +357,18 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 								break;
 							}
 						} else if(jsonObj.hasOwnProperty("bizType")) {
-//							jsonObj.key == "T_PM_UNITAREA" || jsonObj.key == "T_PM_UNITAREAREL"|| jsonObj.key == "T_PM_ENPIPENET"|| jsonObj.key == "T_PM_ENNODE"
+							//							jsonObj.key == "T_PM_UNITAREA" || jsonObj.key == "T_PM_UNITAREAREL"|| jsonObj.key == "T_PM_ENPIPENET"|| jsonObj.key == "T_PM_ENNODE"
 							//业务模型权限取决于物料表
 							if(authArr[i].value == "FMS_T_PM_MTRL") {
 								$scope.authModfiy = true;
 								break;
 							}
-						} else if(jsonObj.key == "T_PM_STATION"){
+						} else if(jsonObj.key == "T_PM_STATION") {
 							if(authArr[i].value == "FMS_T_PM_TANKAREA") {
 								$scope.authModfiy = true;
 								break;
 							}
-						}else {
+						} else {
 							if(authArr[i].value == "FMS_" + jsonObj.key) {
 								$scope.authModfiy = true;
 								break;
@@ -447,13 +447,12 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				} else if(!$scope.levelOrg) {
 					interUrl = interUrl + '&isRecursive=0';
 				}
-				if(tableType.jsonObj.key == "T_PM_MEASINDEX") {
-					//度量指标     节点0     区域1      组织机构类型2
-					console.log("度量类型",$scope.measIndex)
-					interUrl = $scope.measIndex == 0 ? interUrl + '&ofMeasindexType=0' : $scope.measIndex == 1 ? interUrl + '&ofMeasindexType=1' : interUrl + '&ofMeasindexType=2';
+				if(tableType.jsonObj.key == "T_PM_MEASINDEX" || tableType.jsonObj.key == "T_PM_ENMEASINDEX") {
+					//度量指标        区域1      组织机构类型2  节点3 
+					interUrl = $scope.measIndex == 1 ? interUrl + '&ofMeasindexType=1' : $scope.measIndex == 2 ? interUrl + '&ofMeasindexType=2' : interUrl + '&ofMeasindexType=3';
 				}
 
-				console.log("查询当前表数据所用url", interUrl);
+//				console.log("查询当前表数据所用url", interUrl);
 				viewGridProvider.httpCommit(interUrl).then(function success(res) {
 					for(var i = 0; i < res.data.collection.page.data.length; i++) {
 						if(res.data.collection.page.data[i].name == "recordCount" ||
@@ -462,7 +461,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 						}
 					}
 					$scope.gridOptions.data = cj.Parse(res.data, true);
-					console.log('当前页数据', $scope.gridOptions.data);
+//					console.log('当前页数据', $scope.gridOptions.data);
 					viewGridProvider.changeBooleanToCh($scope.main.vMember.sapc.tableType, $scope
 						.gridOptions.data);
 					$scope.gridApi.selection.clearSelectedRows();
@@ -501,17 +500,17 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 							tableType.attribute[key].proAdd.show = false;
 						}
 					}
-				} else if(tableType.jsonObj.key == "T_PM_MEASINDEX") {
+				} else if(tableType.jsonObj.key == "T_PM_MEASINDEX" || tableType.jsonObj.key == "T_PM_ENMEASINDEX") {
 					for(var key in tableType.attribute) {
-//						if((key == "areaAlias" && $scope.measIndex) || (key == "nodeAlias" && !$scope.measIndex)) {
-//							tableType.attribute[key].proAdd.show = true;
-//						} else if((key == "areaAlias" && !$scope.measIndex) || (key == "nodeAlias" && $scope.measIndex)) {
-//							tableType.attribute[key].proAdd.show = false;
-//						}
+						//						if((key == "areaAlias" && $scope.measIndex) || (key == "nodeAlias" && !$scope.measIndex)) {
+						//							tableType.attribute[key].proAdd.show = true;
+						//						} else if((key == "areaAlias" && !$scope.measIndex) || (key == "nodeAlias" && $scope.measIndex)) {
+						//							tableType.attribute[key].proAdd.show = false;
+						//						}
 						//先判断新增是否显示，再消除之前的影响
-						if((key == "nodeAlias" && $scope.measIndex ==0) || (key == "areaAlias" && $scope.measIndex ==1) || (key == "orgAlias" && $scope.measIndex ==2)) {
+						if((key == "nodeAlias" && $scope.measIndex == 3) || (key == "areaAlias" && $scope.measIndex == 1) || (key == "orgAlias" && $scope.measIndex == 2)) {
 							tableType.attribute[key].proAdd.show = true;
-						} else if((key == "nodeAlias" && $scope.measIndex !=0) || (key == "areaAlias" && $scope.measIndex !=1) || (key == "orgAlias" && $scope.measIndex !=2)) {
+						} else if((key == "nodeAlias" && $scope.measIndex != 3) || (key == "areaAlias" && $scope.measIndex != 1) || (key == "orgAlias" && $scope.measIndex != 2)) {
 							tableType.attribute[key].proAdd.show = false;
 						}
 
@@ -571,7 +570,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 					} else if(key == 'bizCode') {
 						localStorage.setItem('bizCode', tableType.attribute[key].proAdd.data);
 					} else if(key == 'ofMeasindexType') {
-//						tableType.attribute[key].proAdd.data = $scope.measIndex ? 1 : 0;
+						//						tableType.attribute[key].proAdd.data = $scope.measIndex ? 1 : 0;
 						tableType.attribute[key].proAdd.data = $scope.measIndex;
 					} else if(key == 'userCode') {
 						tableType.attribute[key].proAdd.show = true;
@@ -589,6 +588,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 						$scope.selectUserARelation[i].orgCode = tableType.attribute['orgCode'].proAdd.data;
 						$scope.selectUserARelation[i].orgId = tableType.attribute['orgId'].proAdd.data;
 						$scope.selectUserARelation[i].inUse = tableType.attribute['inUse'].proAdd.data;
+						$scope.selectUserARelation[i].inUse = tableType.attribute['isReliable'].proAdd.data;
 						$scope.selectUserARelation[i].sortNum = 1;
 						$scope.selectUserARelation[i].crtUserCode = $scope.userCode;
 						$scope.selectUserARelation[i].crtUserName = $scope.userCode;
@@ -605,9 +605,12 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				var alterUrl;
 				if(tableType.jsonObj.hasOwnProperty("bizType")) {
 					alterUrl = '/bizs/' + tableType.attribute['bizCode'].proAdd.data + jsonObj.url
+					if(tableType.jsonObj.key == "T_PM_ENMEASINDEX") {
+						alterUrl = $scope.measIndex == 1 ? alterUrl + '?ofMeasindexType=1' : $scope.measIndex == 2 ? alterUrl + '?ofMeasindexType=2' : alterUrl + '?ofMeasindexType=3';
+					}
 				} else if(tableType.jsonObj.key == "T_PM_MEASINDEX") {
-//					alterUrl = $scope.measIndex ? jsonObj.url + '?ofMeasindexType=1' : jsonObj.url + '?ofMeasindexType=0';
-					alterUrl = $scope.measIndex == 0 ? jsonObj.url + '?ofMeasindexType=0' : $scope.measIndex == 1 ? jsonObj.url + '?ofMeasindexType=1' : jsonObj.url + '?ofMeasindexType=2';
+					//					alterUrl = $scope.measIndex ? jsonObj.url + '?ofMeasindexType=1' : jsonObj.url + '?ofMeasindexType=0';
+					alterUrl = $scope.measIndex == 1 ? jsonObj.url + '?ofMeasindexType=1' : $scope.measIndex == 2 ? jsonObj.url + '?ofMeasindexType=2' : jsonObj.url + '?ofMeasindexType=3';
 				} else {
 					alterUrl = jsonObj.url
 				}
@@ -955,13 +958,16 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 						upUrl = bizUrl + jsonObj.url + singleBizUrl
 					} else {
 						upUrl = bizUrl + jsonObj.url + singleCodeUrl
+						if(tableType.jsonObj.key == "T_PM_ENMEASINDEX") {
+							upUrl = $scope.measIndex == 1 ? upUrl  + '?ofMeasindexType=1' : $scope.measIndex == 2 ? upUrl + '?ofMeasindexType=2' : upUrl  + '?ofMeasindexType=3';
+						}
 					}
 
 				} else if(tableType.jsonObj.key == "T_SYSTEM_MESSAGECONFIG") {
 					upUrl = jsonObj.url + tripleCodeUrl
 				} else if(tableType.jsonObj.key == "T_PM_MEASINDEX") {
-//					upUrl = $scope.measIndex ? jsonObj.url + singleCodeUrl + '?ofMeasindexType=1' : jsonObj.url + singleCodeUrl + '?ofMeasindexType=0';
-					upUrl = $scope.measIndex == 0 ? jsonObj.url + singleCodeUrl + '?ofMeasindexType=0' : $scope.measIndex == 1 ? jsonObj.url + singleCodeUrl + '?ofMeasindexType=1' : jsonObj.url + singleCodeUrl + '?ofMeasindexType=2';
+					//					upUrl = $scope.measIndex ? jsonObj.url + singleCodeUrl + '?ofMeasindexType=1' : jsonObj.url + singleCodeUrl + '?ofMeasindexType=0';
+					upUrl = $scope.measIndex == 1 ? jsonObj.url + singleCodeUrl + '?ofMeasindexType=1' : $scope.measIndex == 2 ? jsonObj.url + singleCodeUrl + '?ofMeasindexType=2' : jsonObj.url + singleCodeUrl + '?ofMeasindexType=3';
 				} else {
 					upUrl = jsonObj.url + singleCodeUrl
 				}
@@ -1010,7 +1016,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				$scope.nodeA = row.entity[nodeA]
 				$scope.nodeB = row.entity[nodeB]
 				$scope.nodeC = row.entity[nodeC]
-				//			console.log("当前行数据", row);
+							console.log("当前行数据", row);
 				for(let key in row.entity) {
 					if(key == 'startTime' || key == 'birthday') {
 						if(row.entity[key]) {
@@ -1045,12 +1051,12 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 					var url = viewGridProvider.getTableIndexJsonByKey(tableIndex, "T_PM_USER").url;
 					var userUrl = localStorage.getItem('serverUrl') + url + '?' + 'orgAlias=' + orgAlias;
 					setUserName(userUrl);
-				} else if(tableType.jsonObj.key == "T_PM_MEASINDEX") {
+				} else if(tableType.jsonObj.key == "T_PM_MEASINDEX" || tableType.jsonObj.key == "T_PM_ENMEASINDEX") {
 					for(var key in tableType.attribute) {
 						//判断修改是否显示，再消除之前影响
-						if((key == "nodeAlias" && $scope.measIndex ==0) || (key == "areaAlias" && $scope.measIndex ==1) || (key == "orgAlias" && $scope.measIndex ==2)) {
+						if((key == "nodeAlias" && $scope.measIndex == 3) || (key == "areaAlias" && $scope.measIndex == 1) || (key == "orgAlias" && $scope.measIndex == 2)) {
 							tableType.attribute[key].proUpdate.show = true;
-						} else if((key == "nodeAlias" && $scope.measIndex !=0) || (key == "areaAlias" && $scope.measIndex !=1) || (key == "orgAlias" && $scope.measIndex !=2)) {
+						} else if((key == "nodeAlias" && $scope.measIndex != 3) || (key == "areaAlias" && $scope.measIndex != 1) || (key == "orgAlias" && $scope.measIndex != 2)) {
 							tableType.attribute[key].proUpdate.show = false;
 						}
 					}
@@ -1085,8 +1091,8 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 						tableType.attribute[key].proUpdate.data = $scope.userCode;
 					} else if(key == 'bizCode') {
 						localStorage.setItem('bizCode', tableType.attribute[key].proUpdate.data);
-					}else if((tableType.jsonObj.key == 'T_PM_UNITAREAREL'||tableType.jsonObj.key == 'T_PM_ENNODE')&&key=='rentCode'){
-						tableType.attribute[key].proUpdate.data=localStorage.getItem('rentCode')
+					} else if((tableType.jsonObj.key == 'T_PM_UNITAREAREL' || tableType.jsonObj.key == 'T_PM_ENNODE') && key == 'rentCode') {
+						tableType.attribute[key].proUpdate.data = localStorage.getItem('rentCode')
 					}
 				}
 				//获取修改数据
@@ -1112,12 +1118,15 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 						alterUrl = bizUrl + jsonObj.url + tripleCodeUrl
 					} else {
 						alterUrl = bizUrl + jsonObj.url + singleCodeUrl
+						if(tableType.jsonObj.key == "T_PM_ENMEASINDEX") {
+							alterUrl = $scope.measIndex == 1 ? alterUrl + '?ofMeasindexType=1' : $scope.measIndex == 2 ? alterUrl + '?ofMeasindexType=2' : alterUrl + '?ofMeasindexType=3';
+						}
 					}
 				} else if(tableType.jsonObj.key == "T_SYSTEM_MESSAGECONFIG") {
 					alterUrl = jsonObj.url + tripleCodeUrl
 				} else if(tableType.jsonObj.key == "T_PM_MEASINDEX") {
-//					alterUrl = $scope.measIndex ? jsonObj.url + singleCodeUrl + '?ofMeasindexType=1' : jsonObj.url + singleCodeUrl + '?ofMeasindexType=0';
-					alterUrl = $scope.measIndex == 0 ? jsonObj.url + singleCodeUrl + '?ofMeasindexType=0' : $scope.measIndex == 1 ? jsonObj.url + singleCodeUrl + '?ofMeasindexType=1' : jsonObj.url + singleCodeUrl + '?ofMeasindexType=2';
+					//					alterUrl = $scope.measIndex ? jsonObj.url + singleCodeUrl + '?ofMeasindexType=1' : jsonObj.url + singleCodeUrl + '?ofMeasindexType=0';
+					alterUrl = $scope.measIndex == 1 ? jsonObj.url + singleCodeUrl + '?ofMeasindexType=1' : $scope.measIndex == 2 ? jsonObj.url + singleCodeUrl + '?ofMeasindexType=2' : jsonObj.url + singleCodeUrl + '?ofMeasindexType=3';
 				} else {
 					alterUrl = jsonObj.url + singleCodeUrl
 				}
@@ -1213,11 +1222,11 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			//					setUserName(userUrl);
 			//				}else if(tableType.jsonObj.key == "T_PM_MEASINDEX"){
 			//					for(var key in tableType.attribute){
-//									if((key == "nodeAlias" && $scope.measIndex ==0) || (key == "areaAlias" && $scope.measIndex ==1) || (key == "orgAlias" && $scope.measIndex ==2)) {
-//										tableType.attribute[key].proUpdate.show = true;
-//									} else if((key == "nodeAlias" && $scope.measIndex !=0) || (key == "areaAlias" && $scope.measIndex !=1) || (key == "orgAlias" && $scope.measIndex !=2)) {
-//										tableType.attribute[key].proUpdate.show = false;
-//									}
+			//									if((key == "nodeAlias" && $scope.measIndex ==3) || (key == "areaAlias" && $scope.measIndex ==1) || (key == "orgAlias" && $scope.measIndex ==2)) {
+			//										tableType.attribute[key].proUpdate.show = true;
+			//									} else if((key == "nodeAlias" && $scope.measIndex !=3) || (key == "areaAlias" && $scope.measIndex !=1) || (key == "orgAlias" && $scope.measIndex !=2)) {
+			//										tableType.attribute[key].proUpdate.show = false;
+			//									}
 			//					}
 			//				}
 			//				viewGridProvider.setUpdateData($scope.gridApi.selection.getSelectedRows()[0], $scope.main
@@ -1266,27 +1275,31 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			}
 			$scope.main.vfunc.onclick.selectMeas = function(measIndex) {
 				let tableType = $scope.main.vMember.sapc.tableType;
-				if(measIndex == 0){
-					tableType.attribute["nodeCode"].hide = tableType.attribute["nodeAlias"].hide = tableType.attribute["nodeTypeName"].hide = false
-					tableType.attribute["areaCode"].hide = tableType.attribute["areaAlias"].hide = true
-					tableType.attribute["orgCode"].hide = tableType.attribute["orgAlias"].hide = true
-				}else if (measIndex == 1){
-					tableType.attribute["nodeCode"].hide = tableType.attribute["nodeAlias"].hide = tableType.attribute["nodeTypeName"].hide = true
-					tableType.attribute["areaCode"].hide = tableType.attribute["areaAlias"].hide = false
-					tableType.attribute["orgCode"].hide = tableType.attribute["orgAlias"].hide = true
-				}else if(measIndex == 2){
-					tableType.attribute["nodeCode"].hide = tableType.attribute["nodeAlias"].hide = tableType.attribute["nodeTypeName"].hide = true
-					tableType.attribute["areaCode"].hide = tableType.attribute["areaAlias"].hide = true
-					tableType.attribute["orgCode"].hide = tableType.attribute["orgAlias"].hide = false
-				}
-			
-//				tableType.attribute["areaCode"].hide = tableType.attribute["areaAlias"].hide = !measIndex
-//				tableType.attribute["nodeCode"].hide = tableType.attribute["nodeAlias"].hide = tableType.attribute["nodeTypeName"].hide = measIndex
+				showHide(tableType,measIndex)
+				
+
+				//				tableType.attribute["areaCode"].hide = tableType.attribute["areaAlias"].hide = !measIndex
+				//				tableType.attribute["nodeCode"].hide = tableType.attribute["nodeAlias"].hide = tableType.attribute["nodeTypeName"].hide = measIndex
 				$scope.measIndex = measIndex
 				initGridOptionsData(1, $scope.gridOptions.paginationPageSize);
 				$scope.gridOptions.columnDefs = viewGridProvider.formatGridOptionsColumnDefs(tableType
 					.attribute, $scope.BntShow, $scope.updateShow, $scope.removeBnt, $scope
 					.orgBtnShow, $scope.authModfiy, $scope.rentBtnShow);
+			}
+			function showHide(tableType,measIndex){
+				if(measIndex == 3) {
+					tableType.attribute["nodeCode"].hide = tableType.attribute["nodeAlias"].hide = tableType.attribute["nodeTypeName"].hide = false
+					tableType.attribute["areaCode"].hide = tableType.attribute["areaAlias"].hide = true
+					tableType.attribute["orgCode"].hide = tableType.attribute["orgAlias"].hide = true
+				} else if(measIndex == 1) {
+					tableType.attribute["nodeCode"].hide = tableType.attribute["nodeAlias"].hide = tableType.attribute["nodeTypeName"].hide = true
+					tableType.attribute["areaCode"].hide = tableType.attribute["areaAlias"].hide = false
+					tableType.attribute["orgCode"].hide = tableType.attribute["orgAlias"].hide = true
+				} else if(measIndex == 2) {
+					tableType.attribute["nodeCode"].hide = tableType.attribute["nodeAlias"].hide = tableType.attribute["nodeTypeName"].hide = true
+					tableType.attribute["areaCode"].hide = tableType.attribute["areaAlias"].hide = true
+					tableType.attribute["orgCode"].hide = tableType.attribute["orgAlias"].hide = false
+				}
 			}
 			$scope.main.vfunc.onclick.selectLevel = function(levelOrg) {
 				$scope.levelOrg = levelOrg
@@ -1331,7 +1344,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 
 						}
 					} else if(item == 'bizCode') {
-						tableType.attribute['bizCode'].hasOwnProperty("proSearch")&&localStorage.setItem('bizCode', tableType.attribute['bizCode'].proSearch.data);
+						tableType.attribute['bizCode'].hasOwnProperty("proSearch") && localStorage.setItem('bizCode', tableType.attribute['bizCode'].proSearch.data);
 					}
 				}
 			}
@@ -1358,12 +1371,15 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 					str = viewGridProvider.httpPort() + bizUrl + jsonObj.url + '?$skip=' + ($scope.gridOptions.paginationCurrentPage - 1) * $scope.gridOptions
 						.paginationPageSize +
 						'&$top=' + $scope.gridOptions.paginationPageSize + str;
+					if(tableType.jsonObj.key == "T_PM_ENMEASINDEX") {
+						str = $scope.measIndex == 1 ? str + '&ofMeasindexType=1' : $scope.measIndex == 2 ? str + '&ofMeasindexType=2' : str + '&ofMeasindexType=3';
+					}
 				} else if(tableType.jsonObj.key == "T_PM_MEASINDEX") {
 					var sUrl = viewGridProvider.httpPort() + jsonObj.url +
 						'?$skip=' + ($scope.gridOptions.paginationCurrentPage - 1) * $scope.gridOptions
 						.paginationPageSize + '&$top=' + $scope.gridOptions.paginationPageSize + str;
-//					str = $scope.measIndex ? sUrl + '&ofMeasindexType=1' : sUrl + '&ofMeasindexType=0';
-					str = $scope.measIndex == 0 ? sUrl + '&ofMeasindexType=0' : $scope.measIndex == 1 ? sUrl + '&ofMeasindexType=1' : sUrl + '&ofMeasindexType=2';
+					//					str = $scope.measIndex ? sUrl + '&ofMeasindexType=1' : sUrl + '&ofMeasindexType=0';
+					str = $scope.measIndex == 1 ? sUrl + '&ofMeasindexType=1' : $scope.measIndex == 2 ? sUrl + '&ofMeasindexType=2' : sUrl + '&ofMeasindexType=3';
 				} else {
 					str = viewGridProvider.httpPort() + jsonObj.url +
 						'?$skip=' + ($scope.gridOptions.paginationCurrentPage - 1) * $scope.gridOptions
@@ -1540,7 +1556,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 							'isInnerOp' ||
 							key == 'monFlag' || key == 'ptrlFlag' || key == 'htPretTank' || key ==
 							'dataStatus' ||
-							key == 'tankIdt' || key == 'isUseFormula') {
+							key == 'tankIdt' || key == 'isUseFormula' || key == 'isReliable') {
 							tableValue[key] = tableValue[key] == "是" ? '1' : '0';
 						}
 					}
@@ -1566,14 +1582,17 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 						} else {
 							repeatUrl = viewGridProvider.httpPort() + bizUrl + jsonObj.url + '/' + $scope.mTable.tableValue[
 								i][alterKey];
+							if(jsonObj.key == "T_PM_ENMEASINDEX") {
+								repeatUrl = $scope.measIndex == 1 ? repeatUrl + '?ofMeasindexType=1' : $scope.measIndex == 2 ? repeatUrl + '?ofMeasindexType=2' : repeatUrl + '?ofMeasindexType=3';
+							}
 						}
 					} else if(jsonObj.key == "T_PM_MEASINDEX") {
-//						repeatUrl = $scope.measIndex ? viewGridProvider.httpPort() + jsonObj.url + '/' + $scope.mTable.tableValue[
-//							i][alterKey] + '?ofMeasindexType=1' : viewGridProvider.httpPort() + jsonObj.url + '/' + $scope.mTable.tableValue[
-//							i][alterKey] + '?ofMeasindexType=0';
+						//						repeatUrl = $scope.measIndex ? viewGridProvider.httpPort() + jsonObj.url + '/' + $scope.mTable.tableValue[
+						//							i][alterKey] + '?ofMeasindexType=1' : viewGridProvider.httpPort() + jsonObj.url + '/' + $scope.mTable.tableValue[
+						//							i][alterKey] + '?ofMeasindexType=0';
 						var reapeatStr = viewGridProvider.httpPort() + jsonObj.url + '/' + $scope.mTable.tableValue[
-							i][alterKey] 
-						repeatUrl = $scope.measIndex == 0 ? reapeatStr + '?ofMeasindexType=0' : $scope.measIndex == 1 ? reapeatStr + '?ofMeasindexType=1' : reapeatStr + '?ofMeasindexType=2';
+							i][alterKey]
+						repeatUrl = $scope.measIndex == 1 ? reapeatStr + '?ofMeasindexType=1' : $scope.measIndex == 2 ? reapeatStr + '?ofMeasindexType=2' : reapeatStr + '?ofMeasindexType=3';
 					} else {
 						repeatUrl = viewGridProvider.httpPort() + jsonObj.url + '/' + $scope.mTable.tableValue[
 							i][alterKey];
@@ -1595,7 +1614,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			function searchImport(repeatUrl, importJson, index, alterKey, alterValue, nodeA, nodeAValve, nodeB,
 				nodeBValve, nodeC, nodeCValve, nodeD, nodeDValve, nodeM, nodeMValve, nodeS, nodeSValve) {
 				viewGridProvider.httpCommit(repeatUrl).then(function success(res) {
-					console.log("repeatUrl",res)
+					console.log("repeatUrl", res)
 					var tableType = $scope.main.vMember.sapc.tableType;
 					let obj = {
 						"busiArea": 'fms_mtrl',
@@ -1619,10 +1638,13 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 								putUrl = bizUrl + jsonObj.url + tripleCodeUrl
 							} else {
 								putUrl = bizUrl + jsonObj.url + '/' + alterValue
+								if(tableType.jsonObj.key == "T_PM_ENMEASINDEX") {
+									putUrl = $scope.measIndex == 1 ? putUrl + '?ofMeasindexType=1' : $scope.measIndex == 2 ? putUrl + '?ofMeasindexType=2' : putUrl + '?ofMeasindexType=3';
+								}
 							}
 						} else if(tableType.jsonObj.key == "T_PM_MEASINDEX") {
-//							putUrl = $scope.measIndex ? jsonObj.url + '/' + alterValue + '?ofMeasindexType=1' : jsonObj.url + '/' + alterValue + '?ofMeasindexType=0';
-					putUrl = $scope.measIndex == 0 ? jsonObj.url + '/' + alterValue + '?ofMeasindexType=0' : $scope.measIndex == 1 ? jsonObj.url + '/' + alterValue + '?ofMeasindexType=1' : jsonObj.url + '/' + alterValue + '?ofMeasindexType=2';
+							//							putUrl = $scope.measIndex ? jsonObj.url + '/' + alterValue + '?ofMeasindexType=1' : jsonObj.url + '/' + alterValue + '?ofMeasindexType=0';
+							putUrl = $scope.measIndex == 1 ? jsonObj.url + '/' + alterValue + '?ofMeasindexType=1' : $scope.measIndex == 2 ? jsonObj.url + '/' + alterValue + '?ofMeasindexType=2' : jsonObj.url + '/' + alterValue + '?ofMeasindexType=3';
 						} else if(tableType.jsonObj.key == "T_SYSTEM_MESSAGECONFIG") {
 							putUrl = jsonObj.url + '?' + tableType.nodeA + '=' + nodeAValve + '&' + tableType.nodeB + '=' + nodeBValve
 						} else {
@@ -1633,9 +1655,12 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 						var postUrl
 						if(tableType.jsonObj.hasOwnProperty("bizType")) {
 							postUrl = bizUrl + jsonObj.url
+							if(tableType.jsonObj.key == "T_PM_ENMEASINDEX") {
+								postUrl = $scope.measIndex == 1 ? postUrl + '?ofMeasindexType=1' : $scope.measIndex == 2 ? postUrl + '?ofMeasindexType=2' : postUrl + '?ofMeasindexType=3';
+							}
 						} else if(tableType.jsonObj.key == "T_PM_MEASINDEX") {
-//							postUrl = $scope.measIndex ? jsonObj.url + '?ofMeasindexType=1' : jsonObj.url + '?ofMeasindexType=0';
-					postUrl = $scope.measIndex == 0 ? jsonObj.url + '?ofMeasindexType=0' : $scope.measIndex == 1 ? jsonObj.url + '?ofMeasindexType=1' : jsonObj.url + '?ofMeasindexType=2';
+							//							postUrl = $scope.measIndex ? jsonObj.url + '?ofMeasindexType=1' : jsonObj.url + '?ofMeasindexType=0';
+							postUrl = $scope.measIndex == 1 ? jsonObj.url + '?ofMeasindexType=1' : $scope.measIndex == 2 ? jsonObj.url + '?ofMeasindexType=2' : jsonObj.url + '?ofMeasindexType=3';
 						} else {
 							postUrl = jsonObj.url;
 						}
@@ -1767,10 +1792,15 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 					if(tableType.jsonObj.hasOwnProperty("bizType")) {
 						bizUrl = '/bizs/' + obj[tableType.jsonObj.bizType]
 						interUrl = viewGridProvider.httpPort() + bizUrl + jsonObj.url + strDown;
+
+						if(tableType.jsonObj.key == "T_PM_ENMEASINDEX") {
+							interUrl = $scope.measIndex == 1 ? interUrl + '?ofMeasindexType=1' : $scope.measIndex == 2 ? interUrl + '?ofMeasindexType=2' : interUrl + '?ofMeasindexType=3';
+						}
+
 					} else if(tableType.jsonObj.key == "T_PM_MEASINDEX") {
-//						interUrl = $scope.measIndex ? viewGridProvider.httpPort() + jsonObj.url + strDown + '?ofMeasindexType=1' : viewGridProvider.httpPort() + jsonObj.url + strDown + '?ofMeasindexType=0';
-					var inteStr = viewGridProvider.httpPort() + jsonObj.url + strDown 
-					interUrl = $scope.measIndex == 0 ? inteStr + '?ofMeasindexType=0' : $scope.measIndex == 1 ? inteStr + '?ofMeasindexType=1' : inteStr + '?ofMeasindexType=2';
+						//						interUrl = $scope.measIndex ? viewGridProvider.httpPort() + jsonObj.url + strDown + '?ofMeasindexType=1' : viewGridProvider.httpPort() + jsonObj.url + strDown + '?ofMeasindexType=0';
+						var inteStr = viewGridProvider.httpPort() + jsonObj.url + strDown
+						interUrl = $scope.measIndex == 1 ? inteStr + '?ofMeasindexType=1' : $scope.measIndex == 2 ? inteStr + '?ofMeasindexType=2' : inteStr + '?ofMeasindexType=3';
 					} else {
 						interUrl = viewGridProvider.httpPort() + jsonObj.url + strDown;
 					}
@@ -1779,10 +1809,13 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 					if(tableType.jsonObj.hasOwnProperty("bizType")) {
 						bizUrl = '/bizs/' + obj[tableType.jsonObj.bizType]
 						interUrl = viewGridProvider.httpPort() + bizUrl + jsonObj.url + pagination + str
+						if(tableType.jsonObj.key == "T_PM_ENMEASINDEX") {
+							interUrl = $scope.measIndex == 1 ? interUrl + '?ofMeasindexType=1' : $scope.measIndex == 2 ? interUrl + '?ofMeasindexType=2' : interUrl + '?ofMeasindexType=3';
+						}
 					} else if(tableType.jsonObj.key == "T_PM_MEASINDEX") {
-//						interUrl = $scope.measIndex ? viewGridProvider.httpPort() + jsonObj.url + pagination + str + '?ofMeasindexType=1' : viewGridProvider.httpPort() + jsonObj.url + pagination + str + '?ofMeasindexType=0';
-					var interStr = viewGridProvider.httpPort() + jsonObj.url + pagination + str
-					interUrl = $scope.measIndex == 0 ? interStr + '?ofMeasindexType=0' : $scope.measIndex == 1 ? interStr + '?ofMeasindexType=1' : interStr + '?ofMeasindexType=2';
+						//						interUrl = $scope.measIndex ? viewGridProvider.httpPort() + jsonObj.url + pagination + str + '?ofMeasindexType=1' : viewGridProvider.httpPort() + jsonObj.url + pagination + str + '?ofMeasindexType=0';
+						var interStr = viewGridProvider.httpPort() + jsonObj.url + pagination + str
+						interUrl = $scope.measIndex == 1 ? interStr + '?ofMeasindexType=1' : $scope.measIndex == 2 ? interStr + '?ofMeasindexType=2' : interStr + '?ofMeasindexType=3';
 					} else {
 						interUrl = viewGridProvider.httpPort() + jsonObj.url + pagination + str
 					}
@@ -1937,7 +1970,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			/**
 			 * ------------------------------------------------同步---------------------------------------------------------
 			 */
-			$scope.main.vfunc.onclick.syncButton= function(){
+			$scope.main.vfunc.onclick.syncButton = function() {
 				var tableType = $scope.main.vMember.sapc.tableType;
 				let obj = {
 					"busiArea": 'fms_mtrl',
@@ -1950,10 +1983,13 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				if(tableType.jsonObj.hasOwnProperty("bizType")) {
 					bizUrl = '/bizs/' + obj[tableType.jsonObj.bizType]
 					syncUrl = viewGridProvider.httpPort() + bizUrl + jsonObj.url + '?dataSynchronization=1';
+					if(tableType.jsonObj.key == "T_PM_ENMEASINDEX") {
+						syncUrl = $scope.measIndex == 1 ? syncUrl + '&ofMeasindexType=1' : $scope.measIndex == 2 ? syncUrl + '&ofMeasindexType=2' : syncUrl + '&ofMeasindexType=3';
+					}
 				} else if(tableType.jsonObj.key == "T_PM_MEASINDEX") {
 					var sUrl = viewGridProvider.httpPort() + jsonObj.url + '?dataSynchronization=1';
-//					syncUrl = $scope.measIndex ? sUrl + '&ofMeasindexType=1' : sUrl + '&ofMeasindexType=0';
-					syncUrl = $scope.measIndex == 0 ? sUrl + '&ofMeasindexType=0' : $scope.measIndex == 1 ? sUrl + '&ofMeasindexType=1' : sUrl + '&ofMeasindexType=2';
+					//					syncUrl = $scope.measIndex ? sUrl + '&ofMeasindexType=1' : sUrl + '&ofMeasindexType=0';
+					syncUrl = $scope.measIndex == 1 ? sUrl + '&ofMeasindexType=1' : $scope.measIndex == 2 ? sUrl + '&ofMeasindexType=2' : sUrl + '&ofMeasindexType=3';
 				} else {
 					syncUrl = viewGridProvider.httpPort() + jsonObj.url + '?dataSynchronization=1';
 				}
@@ -1965,25 +2001,23 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				console.log("同步所用url", syncUrl);
 				$scope.error = '';
 				$scope.tempreset = '已执行';
-					viewGridProvider.httpCommit(syncUrl).then(function success(res)  {
-						$scope.tempreset = '已执行';
-						$timeout(function() {
-							angular.element("#tempresetModel").modal("hide")
-						}, 1000);
-					}, function error(res) {
+				viewGridProvider.httpCommit(syncUrl).then(function success(res) {
+					$scope.tempreset = '已执行';
+					$timeout(function() {
+						angular.element("#tempresetModel").modal("hide")
+					}, 1000);
+				}, function error(res) {
 					$scope.tempreset = "已执行";
-						$timeout(function() {
-							angular.element("#tempresetModel").modal("hide")
-						}, 1000);
-					});
+					$timeout(function() {
+						angular.element("#tempresetModel").modal("hide")
+					}, 1000);
+				});
 			}
-			
+
 			/**
 			 * ------------------------------------------------同步结束---------------------------------------------------------
 			 */
-			
-			
-			
+
 			/**
 			 * 多业务层次明细表----上级组织机构赋空----4.3.1版本未使用
 			 */
@@ -2099,12 +2133,15 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 						cnfgClassName = tableType.attribute[key][proWho].data
 					}
 				}
-				var pjsonObj = viewGridProvider.getTableIndexJsonByKey(tableIndex, value.parent);//封装关联表json
+				var pjsonObj = viewGridProvider.getTableIndexJsonByKey(tableIndex, value.parent); //封装关联表json
 				var deffered = $q.defer();
 				var promise = deffered.promise;
 				viewGridProvider.setValueTV($scope.pM.vMember.sapc, pjsonObj, deffered);
 				promise.then(function() {
 					viewGridProvider.initParentTable($scope.pM.vMember.sapc.parentType, tableIndex);
+					let pmTableType = $scope.pM.vMember.sapc.parentType
+					showHide(pmTableType,$scope.measIndex)
+					console.log('-------------------------------------',$scope.pM.vMember.sapc)
 					//		将新增页面上的数据赋给查询模态框
 					var searchTableType = $scope.pM.vMember.sapc.parentType;
 					for(var key in searchTableType.attribute) {
@@ -2213,7 +2250,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 
 				} else if(tableName == 'T_PM_ENPIPENET' || tableName == 'T_PM_ENNODE') {
 					//					表的搜索模态框不止一个,所以分情况
-					if($scope.pM.vMember.sapc.parentType.jsonObj.url == '/enPipeNets'||$scope.pM.vMember.sapc.parentType.jsonObj.url == '/enNodeTypes') {
+					if($scope.pM.vMember.sapc.parentType.jsonObj.url == '/enPipeNets' || $scope.pM.vMember.sapc.parentType.jsonObj.url == '/enNodeTypes') {
 						var searchUrl = viewGridProvider.httpPort() + '/bizs/fms_em' + $scope.pM.vMember.sapc
 							.parentType.jsonObj.url + '?$skip=' + ($scope.selPage - 1) * $scope.pageSize +
 							'&$top=' + $scope.pageSize + '&inUse=1&dataStatus=1';
@@ -2222,6 +2259,11 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 							.url + '?$skip=' + ($scope.selPage - 1) * $scope.pageSize + '&$top=' + $scope
 							.pageSize + '&inUse=1&dataStatus=1';
 					}
+				} else if(tableName == 'T_PM_ENMEASINDEX') {
+					var searchUrl = viewGridProvider.httpPort() + $scope.pM.vMember.sapc.parentType.jsonObj
+						.url + '?$skip=' + ($scope.selPage - 1) * $scope.pageSize + '&$top=' + $scope
+						.pageSize + '&inUse=1&dataStatus=1';
+					searchUrl = $scope.measIndex == 1 ? searchUrl + '&ofMeasindexType=1' : $scope.measIndex == 2 ? searchUrl + '&ofMeasindexType=2' : searchUrl + '&ofMeasindexType=3';
 				} else if(tableName == 'T_PM_OPERCOMPONENT') {
 					if($scope.pM.vMember.sapc.parentType.jsonObj.url == '/operSamples') {
 						var searchUrl = viewGridProvider.httpPort() + '/bizs/fms_ope' + $scope.pM.vMember.sapc
@@ -2260,7 +2302,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 					$scope.items = $scope.pM.vMember.sapc.parentValue.slice(0, $scope.pageSize);
 					for(let i = 0; i < $scope.items.length; i++) {
 						for(let key in $scope.items[i]) {
-							if(key == 'dataStatus' || key == 'inUse') {
+							if(key == 'dataStatus' || key == 'inUse' || key == 'isReliable') {
 								$scope.items[i][key] = $scope.items[i][key] == 1 ? '是' : '否';
 							}
 						}
@@ -2761,7 +2803,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 					},
 					{
 						typeName: "虚拟装置",
-						url: '/bizs/'+ obj[tableType.jsonObj.bizType] + '/ywUnits',
+						url: '/bizs/' + obj[tableType.jsonObj.bizType] + '/ywUnits',
 						value: []
 					}
 				];
@@ -2773,18 +2815,18 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 					}, function errorCallback(response) {});
 				})
 			}
-			$scope.main.vfunc.onclick.unitSelected = function(proWhich, typeName, areaAlias, areaCode,areaName) {
+			$scope.main.vfunc.onclick.unitSelected = function(proWhich, typeName, areaAlias, areaCode, areaName) {
 				var tableType = $scope.main.vMember.sapc.tableType;
 				for(var key in tableType.attribute) {
 					if(key == 'areaAlias') {
 						tableType.attribute[key][proWhich].data = areaAlias;
 					} else if(key == 'areaCode') {
 						tableType.attribute[key][proWhich].data = areaCode;
-					}else if(key == 'areaName') {
+					} else if(key == 'areaName') {
 						tableType.attribute[key][proWhich].data = areaName;
 					} else if(key == 'markOfVirtual') {
 						tableType.attribute[key][proWhich].data = typeName == "虚拟装置" ? 1 : 0
-					}else if(key == 'ofFms') {
+					} else if(key == 'ofFms') {
 						tableType.attribute[key][proWhich].data = typeName == "虚拟装置" ? 0 : 1
 					}
 				}

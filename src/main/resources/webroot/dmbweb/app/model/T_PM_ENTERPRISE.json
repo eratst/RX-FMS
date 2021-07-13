@@ -53,6 +53,24 @@
 				"edit": false
 			}
 		},
+		"upperOrgName": {
+			"display": "上级组织机构名称",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"treeIsUpdate": true,
+			"inOut": true,
+			"width": "130",
+			"class": "left",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
 		"upperOrgAlias": {
 			"display": "上级组织机构",
 			"type": "string",
