@@ -311,10 +311,6 @@
 			"inOut": true,
 			"class": "left",
 			"width": "80",
-			"proUpdate": {
-				"show": true,
-				"edit": false
-			},
 			"valueShowData": {
 				"SG8000": "SG8000",
 				"RTDB": "RTDB",
