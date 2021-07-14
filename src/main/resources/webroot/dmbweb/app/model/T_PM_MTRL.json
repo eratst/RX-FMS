@@ -43,6 +43,13 @@
 			"inOut": false,
 			"hide": true
 		},
+		"mtrlTypeCode": {
+			"display": "物料类型编码",
+			"type": "string",
+			"required": false,
+			"inOut": false,
+			"hide": true
+		},
 		"mtrlTypeName": {
 			"display": "物料类型名称",
 			"type": "string",
@@ -53,6 +60,24 @@
 			"width": "90",
 			"parent": "T_PM_MTRL_TYPE"
 		},
+		"upperMtrlName": {
+			"display": "上级物料名称",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true,
+			"class": "left",
+			"width": "130"
+		},
+		"upperMtrlAlias": {
+			"display": "上级物料简称",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true,
+			"class": "left",
+			"width": "130"
+		},
 		"upperMtrlCode": {
 			"display": "上级物料编码",
 			"type": "string",
@@ -62,7 +87,9 @@
 			"class": "left",
 			"width": "130",
 			"linkKeys": {
-				"upperMtrlCode": "mtrlCode"
+				"upperMtrlCode": "mtrlCode",
+				"upperMtrlName":"mtrlName",
+				"upperMtrlAlias":"mtrlAlias"
 			},
 			"parentModel": "T_PM_MTRL"
 		},

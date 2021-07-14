@@ -1006,6 +1006,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			 */
 			$scope.alterValue = '';
 			$scope.main.vfunc.onclick.updateButton = function(row) {
+				console.log('row修改+++',row)
 				row.isSelected = true;
 				var tableType = $scope.main.vMember.sapc.tableType;
 				var alterKey = tableType.alterKey;
