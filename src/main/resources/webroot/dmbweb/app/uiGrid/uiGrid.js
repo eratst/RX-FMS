@@ -483,7 +483,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				var tableType = $scope.main.vMember.sapc.tableType;
 				viewGridProvider.setPartFlag($scope.main.vMember.sapc.tableType, $scope.measIndex);
 				viewGridProvider.initParentTable($scope.main.vMember.sapc.tableType, tableIndex);
-				viewGridProvider.setDefalutValue($scope.main.vMember.sapc.tableType, 'proAdd');
+				viewGridProvider.setDefalutValue($scope.main.vMember.sapc.tableType, 'proAdd',$scope.measIndex);
 				console.log('$scope.main.vMember.sapc.tableType', $scope.main.vMember.sapc.tableType)
 				$scope.areaAlias = [];
 				$scope.flagIsFamula = true;
@@ -585,6 +585,9 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 							.data;
 						$scope.selectUserARelation[i].positionCode = tableType.attribute['positionCode'].proAdd
 							.data;
+							
+//						$scope.selectUserARelation[i].orgName = tableType.attribute['orgName'].proAdd.data;
+							
 						$scope.selectUserARelation[i].orgCode = tableType.attribute['orgCode'].proAdd.data;
 						$scope.selectUserARelation[i].orgId = tableType.attribute['orgId'].proAdd.data;
 						$scope.selectUserARelation[i].inUse = tableType.attribute['inUse'].proAdd.data;
@@ -2416,6 +2419,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 					$scope.stdTreeList = []
 					$scope.stdTreeRes = $.ET.toObjectArr(res.data)
 					for(let i = 0; i < $scope.stdTreeRes.length; i++) {
+						//为根节点
 						if($scope.stdTreeRes[i].upperOrgId == '' || $scope.stdTreeRes[i].upperOrgId ==
 							0) {
 							let obj = {}
@@ -2439,7 +2443,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				}, function errorCallback(response) {});
 
 			}
-
+			//子节点
 			function treeStdChi(obj) {
 				for(let i = 0; i < $scope.stdTreeRes.length; i++) {
 					if($scope.stdTreeRes[i].upperOrgId === obj.orgId) {
@@ -2466,6 +2470,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			 * ----------------------------------------------选中某组织机构并返回结果----------------------------------------
 			 */
 			$scope.main.vfunc.onclick.orgStdOnClick = function(orgStd) {
+				console.log("zuzhijigou名字",orgStd)
 				//			$scope.levelOrg=false;
 				for(let item in $scope.main.vMember.sapc.tableType.attribute) {
 					if((item == 'upperOrgCode' || item == 'parentOrgCode') && $scope.treeFlag == 'parTree') {
@@ -2488,6 +2493,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 									orgStd.orgTypeName;
 							}
 						} else {
+							console.log("$scope.proStdFlag+++",$scope.proStdFlag)
 							$scope.main.vMember.sapc.tableType.attribute[item][$scope.proStdFlag].data = orgStd
 								.orgCode;
 							if($scope.main.vMember.sapc.tableType.jsonObj.key == "T_PM_BIZORG_DTL") {
@@ -2500,7 +2506,9 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 									.data = orgStd.upperOrgCode;
 							}
 						}
-					} else if(item == 'userOrgCodes' && $scope.treeFlag == 'chilUserTree') {
+					} else if(item == 'orgName' && $scope.treeFlag == 'chilTree'){
+							$scope.main.vMember.sapc.tableType.attribute[item][$scope.proStdFlag].data = orgStd.orgName;
+					}else if(item == 'userOrgCodes' && $scope.treeFlag == 'chilUserTree') {
 						if($scope.proStdFlag == 'proSearch') {
 							$scope.main.vMember.sapc.tableType.attribute[item].proSearch = {};
 							$scope.main.vMember.sapc.tableType.attribute[item].proSearch.data = orgStd.orgCode;
@@ -2598,7 +2606,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 			 * 选中某组织机构并返回结果
 			 */
 			$scope.main.vfunc.onclick.orgOnClick = function(forthElem) {
-				//console.log('选中组织机构', forthElem);
+				console.log('选中组织机构', forthElem);
 				for(let item in $scope.main.vMember.sapc.tableType.attribute) {
 					if(item == 'orgCode' && $scope.main.vMember.sapc.tableType.jsonObj.nameAlias != "用户" &&
 						$scope.main.vMember.sapc.tableType.jsonObj.nameAlias != "班组用户关联") {
@@ -2759,13 +2767,18 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 							if($scope.areaType == $scope.areaAlias[j].tableName) {
 								$scope.areaAlias[j].value.push({
 									areaAlias: resultArr[i].areaAlias,
-									orgCode: resultArr[i].orgCode
+									orgCode: resultArr[i].orgCode,
+									areaCode: resultArr[i].areaCode,
+									areaName: resultArr[i].areaName
 								})
 							} else if($scope.areaType == "T_PM_AREA") {
 								if(resultArr[i].areaTypeCode == $scope.areaAlias[j].areaTypeCode) {
 									$scope.areaAlias[j].value.push({
 										areaAlias: resultArr[i].areaAlias,
-										orgCode: resultArr[i].orgCode
+										orgCode: resultArr[i].orgCode,
+									areaCode: resultArr[i].areaCode,
+									areaName: resultArr[i].areaName
+									
 									})
 								}
 							}
@@ -2773,11 +2786,15 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 					}
 				}, function errorCallback(response) {});
 			}
-			$scope.main.vfunc.onclick.areaSelected = function(proWhich, areaAlias, orgCode) {
+			$scope.main.vfunc.onclick.areaSelected = function(proWhich, areaAlias, areaCode,areaName,orgCode) {
 				var tableType = $scope.main.vMember.sapc.tableType;
 				for(var key in tableType.attribute) {
 					if(key == 'areaAlias') {
 						tableType.attribute[key][proWhich].data = areaAlias;
+					} else if(key == 'areaCode') {
+						tableType.attribute[key][proWhich].data = areaCode;
+					} else if(key == 'areaName') {
+						tableType.attribute[key][proWhich].data = areaName;
 					} else if(key == 'orgCode') {
 						tableType.attribute[key][proWhich].data = orgCode;
 					}

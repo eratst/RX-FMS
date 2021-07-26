@@ -43,7 +43,7 @@ public class Measurement implements Serializable {
     private String areaTypeCode;
 
     /**
-     * 节点类型编码
+     * 区域类型名称
      */
     @Transient
     private String areaTypeName;
@@ -70,7 +70,7 @@ public class Measurement implements Serializable {
     private String nodeTypeCode;
 
     /**
-     * 节点类型编码
+     * 节点类型名称
      */
     @Transient
     private String nodeTypeName;
@@ -111,17 +111,24 @@ public class Measurement implements Serializable {
     @Column(name = "DIMENSION_ID")
     private Long dimensionId;
 
-    /**
-     * 量纲调整系数
-     */
-    @Column(name = "EXCHANGE_RATE")
-    private String exchangeRate;
+    @Transient
+    private String dimensionCode;
+
+    @Transient
+    private String dimensionName;
 
     /**
      * 量纲简称
      */
     @Transient
     private String dimensionAlias;
+
+    /**
+     * 量纲调整系数
+     */
+    @Column(name = "EXCHANGE_RATE")
+    private String exchangeRate;
+
 
     /**
      * 度量公式
@@ -198,73 +205,39 @@ public class Measurement implements Serializable {
     @Column(name = "OF_MEASINDEX_TYPE")
     private Integer ofMeasindexType;
 
+    @Column(name = "ORG_ID")
+    private Long orgId;// 新增需要
+
+    @Transient
+    private String orgAlias;
+
+    @Transient
+    private String orgCode;
+
+    @Transient
+    private String orgName;
+
+    @Transient
+    private String orgTypeCode;
+
+    /**
+     * 节点类型编码
+     */
+    @Transient
+    private String orgTypeName;
+
     public Measurement() {
         super();
     }
 
-    public Measurement(Long idxId, Long nodeId, String nodeAlias, String nodeCode, String nodeName, String nodeTypeCode, String nodeTypeName, String idxCode, String idxName, String idxAlias, Long idxTypeId, String idxTypeName, Long dimensionId, String exchangeRate, String dimensionAlias, String idxFormula, String sourceDataType, Integer inUse, String crtUserId, String crtUserName, Date crtDate, String mntUserId, String mntUserName, Date mntDate, String des, Integer sortNum, Integer version, Integer ofMeasindexType) {
-        this.idxId = idxId;
-        this.nodeId = nodeId;
-        this.nodeAlias = nodeAlias;
-        this.nodeCode = nodeCode;
-        this.nodeName = nodeName;
-        this.nodeTypeCode = nodeTypeCode;
-        this.nodeTypeName = nodeTypeName;
-        this.idxCode = idxCode;
-        this.idxName = idxName;
-        this.idxAlias = idxAlias;
-        this.idxTypeId = idxTypeId;
-        this.idxTypeName = idxTypeName;
-        this.dimensionId = dimensionId;
-        this.exchangeRate = exchangeRate;
-        this.dimensionAlias = dimensionAlias;
-        this.idxFormula = idxFormula;
-        this.sourceDataType = sourceDataType;
-        this.inUse = inUse;
-        this.crtUserId = crtUserId;
-        this.crtUserName = crtUserName;
-        this.crtDate = crtDate;
-        this.mntUserId = mntUserId;
-        this.mntUserName = mntUserName;
-        this.mntDate = mntDate;
-        this.des = des;
-        this.sortNum = sortNum;
-        this.version = version;
-        this.ofMeasindexType = ofMeasindexType;
-    }
-
-    public Measurement(Long idxId, String areaAlias, Long areaId, String areaCode, String areaName, String areaTypeCode, String areaTypeName, String idxCode, String idxName, String idxAlias, Long idxTypeId, String idxTypeName, Long dimensionId, String exchangeRate, String dimensionAlias, String idxFormula, String sourceDataType, Integer inUse, String crtUserId, String crtUserName, Date crtDate, String mntUserId, String mntUserName, Date mntDate, String des, Integer sortNum, Integer version, Integer ofMeasindexType) {
-        this.idxId = idxId;
-        this.areaAlias = areaAlias;
-        this.areaId = areaId;
-        this.areaCode = areaCode;
-        this.areaName = areaName;
-        this.areaTypeCode = areaTypeCode;
-        this.areaTypeName = areaTypeName;
-        this.idxCode = idxCode;
-        this.idxName = idxName;
-        this.idxAlias = idxAlias;
-        this.idxTypeId = idxTypeId;
-        this.idxTypeName = idxTypeName;
-        this.dimensionId = dimensionId;
-        this.exchangeRate = exchangeRate;
-        this.dimensionAlias = dimensionAlias;
-        this.idxFormula = idxFormula;
-        this.sourceDataType = sourceDataType;
-        this.inUse = inUse;
-        this.crtUserId = crtUserId;
-        this.crtUserName = crtUserName;
-        this.crtDate = crtDate;
-        this.mntUserId = mntUserId;
-        this.mntUserName = mntUserName;
-        this.mntDate = mntDate;
-        this.des = des;
-        this.sortNum = sortNum;
-        this.version = version;
-        this.ofMeasindexType = ofMeasindexType;
-    }
-
-    public Measurement(Long idxId, Long nodeId, String nodeAlias, String nodeCode, String nodeName, String nodeTypeCode, String nodeTypeName, Long areaId, String areaAlias, String areaCode, String areaName, String areaTypeCode, String areaTypeName, String idxCode, String idxName, String idxAlias, Long idxTypeId, String idxTypeName, Long dimensionId, String exchangeRate, String dimensionAlias, String idxFormula, String sourceDataType, Integer inUse, String crtUserId, String crtUserName, Date crtDate, String mntUserId, String mntUserName, Date mntDate, String des, Integer sortNum, Integer version, Integer ofMeasindexType) {
+    public Measurement(Long idxId, Long nodeId, String nodeAlias, String nodeCode, String nodeName, String nodeTypeCode,
+                       String nodeTypeName, Long areaId, String areaAlias, String areaCode, String areaName,
+                       String areaTypeCode, String areaTypeName, String idxCode, String idxName, String idxAlias,
+                       Long idxTypeId, String idxTypeName, Long dimensionId, String dimensionCode,String dimensionName, String dimensionAlias, String exchangeRate,
+                       String idxFormula, String sourceDataType, Integer inUse, String crtUserId, String crtUserName,
+                       Date crtDate, String mntUserId, String mntUserName, Date mntDate, String des, Integer sortNum,
+                       Integer version, Integer ofMeasindexType, Long orgId, String orgAlias, String orgCode, String orgName,
+                       String orgTypeCode, String orgTypeName) {
         this.idxId = idxId;
         this.nodeId = nodeId;
         this.nodeAlias = nodeAlias;
@@ -284,8 +257,11 @@ public class Measurement implements Serializable {
         this.idxTypeId = idxTypeId;
         this.idxTypeName = idxTypeName;
         this.dimensionId = dimensionId;
-        this.exchangeRate = exchangeRate;
+        this.dimensionCode = dimensionCode;
+        this.dimensionName = dimensionName;
         this.dimensionAlias = dimensionAlias;
+        this.exchangeRate = exchangeRate;
+        this.exchangeRate = exchangeRate;
         this.idxFormula = idxFormula;
         this.sourceDataType = sourceDataType;
         this.inUse = inUse;
@@ -299,6 +275,76 @@ public class Measurement implements Serializable {
         this.sortNum = sortNum;
         this.version = version;
         this.ofMeasindexType = ofMeasindexType;
+        this.orgId = orgId;
+        this.orgAlias = orgAlias;
+        this.orgCode = orgCode;
+        this.orgName = orgName;
+        this.orgTypeCode = orgTypeCode;
+        this.orgTypeName = orgTypeName;
+    }
+
+    public String getDimensionCode() {
+        return dimensionCode;
+    }
+
+    public void setDimensionCode(String dimensionCode) {
+        this.dimensionCode = dimensionCode;
+    }
+
+    public String getDimensionName() {
+        return dimensionName;
+    }
+
+    public void setDimensionName(String dimensionName) {
+        this.dimensionName = dimensionName;
+    }
+
+    public Long getOrgId() {
+        return orgId;
+    }
+
+    public void setOrgId(Long orgId) {
+        this.orgId = orgId;
+    }
+
+    public String getOrgAlias() {
+        return orgAlias;
+    }
+
+    public void setOrgAlias(String orgAlias) {
+        this.orgAlias = orgAlias;
+    }
+
+    public String getOrgCode() {
+        return orgCode;
+    }
+
+    public void setOrgCode(String orgCode) {
+        this.orgCode = orgCode;
+    }
+
+    public String getOrgName() {
+        return orgName;
+    }
+
+    public void setOrgName(String orgName) {
+        this.orgName = orgName;
+    }
+
+    public String getOrgTypeCode() {
+        return orgTypeCode;
+    }
+
+    public void setOrgTypeCode(String orgTypeCode) {
+        this.orgTypeCode = orgTypeCode;
+    }
+
+    public String getOrgTypeName() {
+        return orgTypeName;
+    }
+
+    public void setOrgTypeName(String orgTypeName) {
+        this.orgTypeName = orgTypeName;
     }
 
     public String getNodeAlias() {

@@ -486,6 +486,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "longDes",
+				"areasTc":"plants",
+				"areasTn":"装置",
 				"tree": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/plants"
@@ -497,6 +499,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "shortDes",
+				"areasTc":"tankAreas",
+				"areasTn":"罐区",
 				"tree": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/tankAreas"
@@ -508,6 +512,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "shortDes",
+				"areasTc":"warehouses",
+				"areasTn":"仓库",
 				"tree": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/warehouses"
@@ -519,6 +525,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "middleDes",
+				"areasTc":"loadingDocks",
+				"areasTn":"装卸台",
 				"tree": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/loadingDocks"
@@ -530,6 +538,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "middleDes",
+				"areasTc":"pipeNetworks",
+				"areasTn":"管网",
 				"tree": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/pipeNetworks"
@@ -541,6 +551,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "longDes",
+				"areasTc":"communities",
+				"areasTn":"生活区",
 				"tree": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/communities"
@@ -552,6 +564,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "longDes",
+				"areasTc":"administrations",
+				"areasTn":"办公区",
 				"tree": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/administrations"
@@ -564,6 +578,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "longDes",
+				"areasTc":"stations",
+				"areasTn":"站(厂)",
 				"tree": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/stations"
@@ -586,6 +602,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "longDes",
+				"nodesTc": "1",
+				"nodesTn": "侧线",
 				"tree": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/sideLines"
@@ -597,6 +615,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "longDes",
+				"nodesTc": "2",
+				"nodesTn": "罐",
 				"tree": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/tanks"
@@ -608,6 +628,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "longDes",
+				"nodesTc": "8",
+				"nodesTn": "设备",
 				"tree": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/equipments"
@@ -619,6 +641,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "middleDes",
+				"nodesTc": "5",
+				"nodesTn": "进出厂点",
 				"tree": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/shipments"
@@ -630,6 +654,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "shortDes",
+				"nodesTc": "3",
+				"nodesTn": "料仓",
 				"tree": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/silos"
@@ -641,6 +667,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "shortDes",
+				"nodesTc": "4",
+				"nodesTn": "库位",
 				"tree": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/stocks"
@@ -652,6 +680,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "shortDes",
+				"nodesTc": "6",
+				"nodesTn": "采样点",
 				"tree": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/samplePoints"
@@ -663,6 +693,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "shortDes",
+				"nodesTc": "7",
+				"nodesTn": "排放口",
 				"tree": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/outlets"
@@ -674,6 +706,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "middleDes",
+				"nodesTc": "9",
+				"nodesTn": "管段",
 				"tree": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/tubulations"
@@ -685,6 +719,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "middleDes",
+				"nodesTc": "10",
+				"nodesTn": "阀门",
 				"tree": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/valves"
@@ -696,6 +732,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "longDes",
+				"nodesTc": "11",
+				"nodesTn": "盲板",
 				"tree": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/plates"
@@ -707,6 +745,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "middleDes",
+				"nodesTc": "12",
+				"nodesTn": "三通",
 				"tree": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/tees"
@@ -718,6 +758,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "middleDes",
+				"nodesTc": "13",
+				"nodesTn": "装卸点",
 				"tree": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/loadPoints"

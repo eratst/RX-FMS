@@ -9,8 +9,32 @@
 			"hide": true,
 			"inOut": false
 		},
+		"areaTypeCode": {
+			"display": "区域类型编码",
+			"type": "string",
+			"required": true,
+			"hide": true,
+			"inOut": true,
+			"class": "left"
+		},
+		"areaTypeName": {
+			"display": "区域类型名称",
+			"type": "string",
+			"required": true,
+			"hide": true,
+			"inOut": true,
+			"class": "left"
+		},
 		"orgCode": {
 			"display": "组织机构编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true,
+			"class": "left"
+		},
+		"orgName": {
+			"display": "组织机构名称",
 			"type": "string",
 			"required": false,
 			"hide": true,

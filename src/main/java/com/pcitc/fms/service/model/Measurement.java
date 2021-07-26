@@ -31,14 +31,14 @@ public class Measurement extends BaseResRep implements Serializable {
     private Long areaId;
 
     @CheckField(CheckName = CheckNameType.NAMEMAYBENULL, StrLength = 80, Explain = "区域简称")
-    @ResourceMember(InQueries = "condition", Name = "areaAlias")
+    //@ResourceMember(InQueries = "condition", Name = "areaAlias")
     private String areaAlias;
 
     @CheckField(CheckName = CheckNameType.CODEMAYBENULL, StrLength = 50, Explain = "区域编码", AllowNull = true)
     @ResourceMember(InQueries = "condition", Name = "areaCode")
     private String areaCode;
 
-    @CheckField(CheckName = CheckNameType.NAMEMAYBENULL, StrLength = 200, Explain = "节点名称", AllowNull = true)
+    @CheckField(CheckName = CheckNameType.NAMEMAYBENULL, StrLength = 200, Explain = "区域名称", AllowNull = true)
     @ResourceMember(InQueries = "condition", Name = "areaName")
     private String areaName;
 
@@ -51,7 +51,7 @@ public class Measurement extends BaseResRep implements Serializable {
     private String areaTypeName;
 
     @CheckField(CheckName = CheckNameType.NAMEMAYBENULL, StrLength = 80, Explain = "节点简称")
-    @ResourceMember(InQueries = "condition", Name = "nodeAlias")
+    //@ResourceMember(InQueries = "condition", Name = "nodeAlias")
     private String nodeAlias;
 
     @CheckField(CheckName = CheckNameType.CODEMAYBENULL, StrLength = 50, Explain = "节点编码", AllowNull = true)
@@ -66,7 +66,7 @@ public class Measurement extends BaseResRep implements Serializable {
     //@ResourceMember(InQueries = "condition", Name = "nodeTypeCode")
     private String nodeTypeCode;
 
-    @CheckField(CheckName = CheckNameType.CODEMAYBENULL, StrLength = 200, Explain = "节点类型名称")
+    @CheckField(CheckName = CheckNameType.NAMEMAYBENULL, StrLength = 200, Explain = "节点类型名称")
     /*@ResourceMember(InQueries = "condition", Name = "nodeTypeName")*/
     private String nodeTypeName;
 
@@ -79,7 +79,7 @@ public class Measurement extends BaseResRep implements Serializable {
     private String idxName;
 
     @CheckField(CheckName = CheckNameType.NAME, StrLength = 200, Explain = "度量指标简称")
-    @ResourceMember(InQueries = "condition", Name = "idxAlias")
+    //@ResourceMember(InQueries = "condition", Name = "idxAlias")
     private String idxAlias;
 
     /**
@@ -88,10 +88,9 @@ public class Measurement extends BaseResRep implements Serializable {
     @ResourceMember(InTemplate = false)
     private Long idxTypeId;
 
-    @CheckField(CheckName = CheckNameType.CODE, StrLength = 50, Explain = "指标类型编码")
-    @ResourceMember(InQueries = "condition", Name = "idxTypeCode")
+    //@CheckField(CheckName = CheckNameType.CODE, StrLength = 50, Explain = "指标类型编码")
+    //@ResourceMember(InQueries = "condition", Name = "idxTypeCode")
     private String idxTypeCode;
-
 
     /**
      * 指标类型名称
@@ -106,35 +105,43 @@ public class Measurement extends BaseResRep implements Serializable {
     @ResourceMember(InTemplate = false)
     private Long dimensionId;
 
+    @CheckField(CheckName = CheckNameType.CODEMAYBENULL, StrLength = 50, Explain = "量纲编码")
+    private String dimensionCode;
+
     /**
      * 量纲调整系数
      */
-//	@CheckField(CheckName = CheckNameType.DECIMALNOTNULL, Explain = "量纲调整系数")
-    private String exchangeRate;
+    //@CheckField(CheckName = CheckNameType.DECIMALNOTNULL, Explain = "量纲调整系数")
+    private Double exchangeRate;
 
+    @ResourceMember(InTemplate = false)
+    private String dimensionName;
     /**
      * 量纲简称
      */
-    @CheckField(CheckName = CheckNameType.NAME, StrLength = 80, Explain = "量纲简称")
-    /*@ResourceMember(InQueries = "condition", Name = "dimensionAlias")*/
+    /*@CheckField(CheckName = CheckNameType.NAME, StrLength = 80, Explain = "量纲简称")
+    @ResourceMember(InQueries = "condition", Name = "dimensionAlias")*/
     private String dimensionAlias;
 
     /**
      * 度量公式
      */
     @CheckField(CheckName = CheckNameType.SOURCEDATATYPE, Explain = "度量公式")
+    //@ResourceMember(InQueries = "condition", Name = "idxFormula")
     private String idxFormula;
 
     /**
      * 源数据类型 SG8000,RTDB
      */
+    /*@CheckField(CheckName = CheckNameType.CODE, StrLength = 80, Explain = "源数据类型")
+    @ResourceMember(InQueries = "condition", Name = "sourceDataType")*/
     private String sourceDataType;
 
     @CheckField(CheckName = CheckNameType.ENABLED, Explain = "是否启用")
     @ResourceMember(InQueries = "condition", Name = "inUse")
     private Integer inUse;
 
-    @CheckField(CheckName = CheckNameType.CODE, StrLength = 50, Explain = "创建人Id")
+    @CheckField(CheckName = CheckNameType.ID, StrLength = 50, Explain = "创建人Id")
     private String crtUserId;
 
     @CheckField(CheckName = CheckNameType.CREATOR, StrLength = 80, Explain = "创建人名称")
@@ -143,7 +150,7 @@ public class Measurement extends BaseResRep implements Serializable {
     @CheckField(CheckName = CheckNameType.CREATETIME, Explain = "创建时间")
     private Date crtDate;
 
-    @CheckField(CheckName = CheckNameType.CODE, StrLength = 50, Explain = "最后维护人Id")
+    @CheckField(CheckName = CheckNameType.ID, StrLength = 50, Explain = "最后维护人Id")
     private String mntUserId;
 
     @CheckField(CheckName = CheckNameType.EDITOR, StrLength = 80, Explain = "最后维护人名称")
@@ -161,7 +168,8 @@ public class Measurement extends BaseResRep implements Serializable {
     @CheckField(CheckName = CheckNameType.ID, Explain = "乐观锁版本")
     private Integer version;
 
-    @CheckField(CheckName = CheckNameType.ENABLED, Explain = "度量指标所属单元类型")
+    //度量指标所属单元类型:区域为1,组织机构为2,节点为3
+    @CheckField(CheckName = CheckNameType.ID, Explain = "度量指标所属单元类型")
     @ResourceMember(InQueries = "condition", Name = "ofMeasindexType")
     private Integer ofMeasindexType;
 
@@ -182,44 +190,91 @@ public class Measurement extends BaseResRep implements Serializable {
     @ResourceMember(OnlyQuery = true)
     private String bizCode;
 
-    public Measurement() {
-        super();
+    @ResourceMember(InTemplate = false)
+    private Long orgId;
+
+    @CheckField(CheckName = CheckNameType.NAMEMAYBENULL, StrLength = 80, Explain = "组织机构简称")
+    //@ResourceMember(InQueries = "condition", Name = "orgAlias")
+    private String orgAlias;
+
+    @CheckField(CheckName = CheckNameType.CODEMAYBENULL, StrLength = 50, Explain = "组织机构编码", AllowNull = true)
+    //@ResourceMember(InQueries = "condition", Name = "orgCode")
+    private String orgCode;
+
+    @CheckField(CheckName = CheckNameType.NAMEMAYBENULL, StrLength = 200, Explain = "组织机构名称", AllowNull = true)
+    @ResourceMember(InQueries = "condition", Name = "orgName")
+    private String orgName;
+
+    @CheckField(CheckName = CheckNameType.CODEMAYBENULL, StrLength = 80, Explain = "组织机构类型编码")
+    @ResourceMember(InQueries = "condition", Name = "orgTypeCode")
+    private String orgTypeCode;
+
+    @CheckField(CheckName = CheckNameType.NAMEMAYBENULL, StrLength = 200, Explain = "组织机构类型名称")
+    //@ResourceMember(InQueries = "condition", Name = "orgTypeName")
+    private String orgTypeName;
+
+    public String getDimensionCode() {
+        return dimensionCode;
     }
 
-    public Measurement(Long idxId, Long nodeId, String nodeAlias, String nodeCode, String nodeName, String nodeTypeCode, String nodeTypeName, String idxCode, String idxName, String idxAlias, Long idxTypeId, String idxTypeName, Long dimensionId, String exchangeRate, String dimensionAlias, String idxFormula, String sourceDataType, Integer inUse, String crtUserId, String crtUserName, Date crtDate, String mntUserId, String mntUserName, Date mntDate, String des, Integer sortNum, Integer version, Integer ofMeasindexType, List<String> codeList, Integer top, Integer skip, String rentCode, String bizCode) {
-        this.idxId = idxId;
-        this.nodeId = nodeId;
-        this.nodeAlias = nodeAlias;
-        this.nodeCode = nodeCode;
-        this.nodeName = nodeName;
-        this.nodeTypeCode = nodeTypeCode;
-        this.nodeTypeName = nodeTypeName;
-        this.idxCode = idxCode;
-        this.idxName = idxName;
-        this.idxAlias = idxAlias;
-        this.idxTypeId = idxTypeId;
-        this.idxTypeName = idxTypeName;
-        this.dimensionId = dimensionId;
-        this.exchangeRate = exchangeRate;
-        this.dimensionAlias = dimensionAlias;
-        this.idxFormula = idxFormula;
-        this.sourceDataType = sourceDataType;
-        this.inUse = inUse;
-        this.crtUserId = crtUserId;
-        this.crtUserName = crtUserName;
-        this.crtDate = crtDate;
-        this.mntUserId = mntUserId;
-        this.mntUserName = mntUserName;
-        this.mntDate = mntDate;
-        this.des = des;
-        this.sortNum = sortNum;
-        this.version = version;
-        this.ofMeasindexType = ofMeasindexType;
-        this.codeList = codeList;
-        this.top = top;
-        this.skip = skip;
-        this.rentCode = rentCode;
-        this.bizCode = bizCode;
+    public void setDimensionCode(String dimensionCode) {
+        this.dimensionCode = dimensionCode;
+    }
+
+    public String getDimensionName() {
+        return dimensionName;
+    }
+
+    public void setDimensionName(String dimensionName) {
+        this.dimensionName = dimensionName;
+    }
+
+    public Long getOrgId() {
+        return orgId;
+    }
+
+    public void setOrgId(Long orgId) {
+        this.orgId = orgId;
+    }
+
+    public String getOrgAlias() {
+        return orgAlias;
+    }
+
+    public void setOrgAlias(String orgAlias) {
+        this.orgAlias = orgAlias;
+    }
+
+    public String getOrgCode() {
+        return orgCode;
+    }
+
+    public void setOrgCode(String orgCode) {
+        this.orgCode = orgCode;
+    }
+
+    public String getOrgName() {
+        return orgName;
+    }
+
+    public void setOrgName(String orgName) {
+        this.orgName = orgName;
+    }
+
+    public String getOrgTypeCode() {
+        return orgTypeCode;
+    }
+
+    public void setOrgTypeCode(String orgTypeCode) {
+        this.orgTypeCode = orgTypeCode;
+    }
+
+    public String getOrgTypeName() {
+        return orgTypeName;
+    }
+
+    public void setOrgTypeName(String orgTypeName) {
+        this.orgTypeName = orgTypeName;
     }
 
     public String getIdxTypeCode() {
@@ -334,11 +389,11 @@ public class Measurement extends BaseResRep implements Serializable {
         this.dimensionId = dimensionId;
     }
 
-    public String getExchangeRate() {
+    public Double getExchangeRate() {
         return exchangeRate;
     }
 
-    public void setExchangeRate(String exchangeRate) {
+    public void setExchangeRate(Double exchangeRate) {
         this.exchangeRate = exchangeRate;
     }
 

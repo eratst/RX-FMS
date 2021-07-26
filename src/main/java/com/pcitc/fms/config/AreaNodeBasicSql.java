@@ -87,11 +87,21 @@ public interface AreaNodeBasicSql {
             + "case when m.areaId is NULL then '' else ( select area.areaName from Area area where m.areaId = area.areaId ) end,"
             + "case when m.areaId is NULL then '' else ( select areat.areaTypeCode from Area area,AreaType areat where m.areaId = area.areaId and area.areaTypeId = areat.areaTypeId ) end,"
             + "case when m.areaId is NULL then '' else ( select areat.areaTypeName from Area area,AreaType areat where m.areaId = area.areaId and area.areaTypeId = areat.areaTypeId ) end,"
-            + "m.idxCode,m.idxName,m.idxAlias,m.idxTypeId,i.idxTypeName,m.dimensionId,m.exchangeRate,d.dimensionAlias,"
-            + "m.idxFormula,m.sourceDataType,m.inUse,m.crtUserId,m.crtUserName,m.crtDate,m.mntUserId,m.mntUserName,"
-            + "m.mntDate,m.des,m.sortNum,m.version,m.ofMeasindexType)"
-            + "from Measurement m,IdxType i,Dimension d"
-            + " where m.idxTypeId = i.idxTypeId and m.dimensionId = d.dimensionId ";
+            + "m.idxCode,m.idxName,m.idxAlias,m.idxTypeId,i.idxTypeName,"
+            + "m.dimensionId,"
+            + "case when m.dimensionId is NULL then '' else ( select d.dimensionCode from Dimension d where m.dimensionId = d.dimensionId ) end,"
+            + "case when m.dimensionId is NULL then '' else ( select d.dimensionName from Dimension d where m.dimensionId = d.dimensionId ) end,"
+            + "case when m.dimensionId is NULL then '' else ( select d.dimensionAlias from Dimension d where m.dimensionId = d.dimensionId ) end,"
+            + "m.exchangeRate,m.idxFormula,m.sourceDataType,m.inUse,m.crtUserId,m.crtUserName,m.crtDate,m.mntUserId,m.mntUserName,"
+            + "m.mntDate,m.des,m.sortNum,m.version,m.ofMeasindexType,m.orgId, "
+            + "case when m.orgId is NULL then '' else ( select org.orgAlias from Org org where m.orgId = org.orgId ) end,"
+            + "case when m.orgId is NULL then '' else ( select org.orgCode from Org org where m.orgId = org.orgId ) end,"
+            + "case when m.orgId is NULL then '' else ( select org.orgName from Org org where m.orgId = org.orgId ) end,"
+            + "case when m.orgId is NULL then '' else ( select orgType.orgTypeCode from Org org,OrgType orgType where m.orgId = org.orgId and org.orgTypeId=orgType.orgTypeId ) end,"
+            + "case when m.orgId is NULL then '' else ( select orgType.orgTypeName from Org org,OrgType orgType where m.orgId = org.orgId and org.orgTypeId=orgType.orgTypeId ) end)"
+            + "from Measurement m,IdxType i "
+            + " where m.idxTypeId = i.idxTypeId ";
+
 //	//物料 停用
 //	static final String materials = "select new Material(a.mtrlId,a.mtrlCode,a.mtrlName,a.mtrlAlias,a.upperMtrlCode,a.vcfType,a.mtrlTypeId,a.dec,a.dimensionId,a.tankIdt,a.dataStatus,a.crtUserId,a.crtUserName,a.crtDate,a.mntUserId,a.mntUserName,a.mntDate,a.des,a.nodeId,c.vcfTypeName,b.mtrlTypeName,e.nodeTypeName)" +
 //			" from Material a,MtrlType b,VcfType c,NodeDictionary d,NodeType e  where "
@@ -557,6 +567,33 @@ public interface AreaNodeBasicSql {
             + "station.sortNum, station.version, area.des, org.orgAltitude, org.orgLongitude, org.orgLatitude)"
             + " from Station station,Area area,AreaType areaType,Org org "
             + "where org.orgId = area.orgId and area.areaId = station.areaId and area.areaTypeId = areaType.areaTypeId ";
+
+    //能源度量指标
+    public static final String enMeasurements = "select new EnMeasurement (enm.enMeasindexId,enm.idxId,enm.magnification,"
+            + "enm.account,enm.isVirtual,enm.upperLimit,enm.lowerLimit,enm.isReliable,m.idxCode,m.idxName,m.idxAlias, "
+            + "m.nodeId,"
+            + "case when m.nodeId is NULL then '' else ( select n.nodeCode from Measurement m,Node n where enm.idxId=m.idxId and m.nodeId = n.nodeId ) end,"
+            + "case when m.nodeId is NULL then '' else ( select n.nodeName from Measurement m,Node n where enm.idxId=m.idxId and m.nodeId = n.nodeId ) end,"
+            + "case when m.nodeId is NULL then '' else ( select n.nodeAlias from Measurement m,Node n where enm.idxId=m.idxId and m.nodeId = n.nodeId ) end,"
+            + "case when m.nodeId is NULL then '' else ( select nt.nodeTypeCode from Measurement m,Node n,NodeType nt where enm.idxId=m.idxId and m.nodeId = n.nodeId and n.nodeTypeId=nt.nodeTypeId ) end,"
+            + "case when m.nodeId is NULL then '' else ( select nt.nodeTypeName from Measurement m,Node n,NodeType nt where enm.idxId=m.idxId and m.nodeId = n.nodeId and n.nodeTypeId=nt.nodeTypeId ) end,"
+            + "m.areaId,"
+            + "case when m.areaId is NULL then '' else ( select area.areaCode from Measurement m,Area area where enm.idxId=m.idxId and m.areaId = area.areaId ) end,"
+            + "case when m.areaId is NULL then '' else ( select area.areaName from Measurement m,Area area where enm.idxId=m.idxId and m.areaId = area.areaId ) end,"
+            + "case when m.areaId is NULL then '' else ( select area.areaAlias from Measurement m,Area area where enm.idxId=m.idxId and m.areaId = area.areaId ) end,"
+            + "case when m.areaId is NULL then '' else ( select areat.areaTypeCode from Measurement m,Area area,AreaType areat where enm.idxId=m.idxId and m.areaId = area.areaId and area.areaTypeId = areat.areaTypeId ) end,"
+            + "case when m.areaId is NULL then '' else ( select areat.areaTypeName from Measurement m,Area area,AreaType areat where enm.idxId=m.idxId and m.areaId = area.areaId and area.areaTypeId = areat.areaTypeId ) end,"
+            + "m.orgId,"
+            + "case when m.orgId is NULL then '' else ( select org.orgCode from Measurement m,Org org where enm.idxId=m.idxId and m.orgId = org.orgId ) end,"
+            + "case when m.orgId is NULL then '' else ( select org.orgName from Measurement m,Org org where enm.idxId=m.idxId and m.orgId = org.orgId ) end,"
+            + "case when m.orgId is NULL then '' else ( select org.orgAlias from Measurement m,Org org where enm.idxId=m.idxId and m.orgId = org.orgId ) end,"
+            + "case when m.orgId is NULL then '' else ( select orgType.orgTypeCode from Measurement m,Org org,OrgType orgType where enm.idxId=m.idxId and m.orgId = org.orgId and org.orgTypeId=orgType.orgTypeId ) end,"
+            + "case when m.orgId is NULL then '' else ( select orgType.orgTypeName from Measurement m,Org org,OrgType orgType where enm.idxId=m.idxId and m.orgId = org.orgId and org.orgTypeId=orgType.orgTypeId ) end,"
+            + "i.idxTypeCode,i.idxTypeName,m.exchangeRate,d.dimensionAlias,m.idxFormula,m.sourceDataType,m.inUse,"
+            + "m.crtUserId,m.crtUserName,m.crtDate,m.mntUserId,m.mntUserName,"
+            + "m.mntDate,m.des,m.sortNum,m.version,m.ofMeasindexType,enm.bizId,biz.bizCode) "
+            + "from EnMeasurement enm, Measurement m,IdxType i,Dimension d, BizorgMain biz"
+            + " where enm.idxId=m.idxId and m.idxTypeId = i.idxTypeId and m.dimensionId = d.dimensionId and enm.bizId=biz.bizId";
 
 
 }

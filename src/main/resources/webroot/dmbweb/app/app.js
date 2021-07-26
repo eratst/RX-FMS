@@ -261,7 +261,7 @@ angular.module('myApp', [
 				/**
 				 * 配置默认值
 				 */
-				setDefalutValue: function(tableType,which) {
+				setDefalutValue: function(tableType,which,measIndex) {
 					let obj = {
 						"busiArea": 'fms_mtrl',
 						"energyMng": 'fms_em',
@@ -284,7 +284,27 @@ angular.module('myApp', [
 						if(tableType.jsonObj.hasOwnProperty("rentType") && key == 'rentCode'&&which=="proAdd") {
 							tableType.attribute[key][which].data = localStorage.getItem('rentCode');
 						}
+					
 					}
+						//度量指标新增时传区域类型编码、组织机构类型编码、节点类型编码
+//						if(measIndex == 1){
+//							tableType.attribute['areaTypeCode']['proAdd'].data = ;
+//						}else if(measIndex == 2){
+//							tableType.attribute['orgTypeCode']['proAdd'].data = ;
+//						}else if(measIndex == 3){
+//							tableType.attribute['nodeTypeCode']['proAdd'].data = ;
+//						}
+						//区域层新增时传区域类型编码和名称
+						if(tableType.jsonObj.hasOwnProperty("areasTc")){
+							tableType.attribute['areaTypeCode']['proAdd'].data = tableType.jsonObj.areasTc;
+							tableType.attribute['areaTypeName']['proAdd'].data = tableType.jsonObj.areasTn;
+						}
+							//节点层新增时传节点类型编码和名称
+						if(tableType.jsonObj.hasOwnProperty("nodesTc")){
+							tableType.attribute['nodeTypeCode']['proAdd'].data = tableType.jsonObj.nodesTc;
+							tableType.attribute['nodeTypeName']['proAdd'].data = tableType.jsonObj.nodesTn;
+						}
+					
 				},
 				/**
 				 * 隐藏属性
@@ -383,6 +403,12 @@ angular.module('myApp', [
 					for(var key in tableType.attribute) {
 						tableType.attribute[key].proUpdate.data = data[key];
 					}
+					//节点层修改时传节点类型编码和名称
+//						if(tableType.jsonObj.hasOwnProperty("nodesTc")){
+//							tableType.attribute['nodeTypeCode']['proUpdate'].data = tableType.jsonObj.nodesTc;
+//							tableType.attribute['nodeTypeName']['proUpdate'].data = tableType.jsonObj.nodesTn;
+//						}
+					
 				},
 				/**
 				 * 新增，修改模态框，初始化获取关联表json及数据

@@ -36,31 +36,31 @@
 			"class": "left",
 			"width": "130"
 		},
-		"mtrlTypeId": {
-			"display": "物料类型ID",
-			"type": "number",
-			"required": false,
-			"inOut": false,
-			"hide": true
-		},
-		"mtrlTypeCode": {
+    "mtrlTypeId": {
+      "display": "物料类型ID",
+      "type": "number",
+      "required": false,
+      "inOut": false,
+      "hide": true
+    },
+    "mtrlTypeCode": {
 			"display": "物料类型编码",
 			"type": "string",
 			"required": false,
 			"inOut": false,
 			"hide": true
 		},
-		"mtrlTypeName": {
-			"display": "物料类型名称",
-			"type": "string",
-			"required": true,
-			"hide": false,
-			"inOut": true,
-			"class": "left",
-			"width": "90",
-			"parent": "T_PM_MTRL_TYPE"
-		},
-		"upperMtrlName": {
+    "mtrlTypeName": {
+      "display": "物料类型名称",
+      "type": "string",
+      "required": true,
+      "hide": false,
+      "inOut": true,
+      "class": "left",
+      "width": "90",
+      "parent": "T_PM_MTRL_TYPE"
+    },
+    		"upperMtrlName": {
 			"display": "上级物料名称",
 			"type": "string",
 			"required": false,

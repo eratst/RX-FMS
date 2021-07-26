@@ -32,6 +32,7 @@ import com.pcitc.fms.service.handler.DictionaryTableHandler;
 import com.pcitc.fms.service.handler.DimensionHandler;
 import com.pcitc.fms.service.handler.DivisionsHandler;
 import com.pcitc.fms.service.handler.EdgePointHandler;
+import com.pcitc.fms.service.handler.EnMeasurementHandler;
 import com.pcitc.fms.service.handler.EnNodeHandler;
 import com.pcitc.fms.service.handler.EnNodeTypeHandler;
 import com.pcitc.fms.service.handler.EnPipeNetHandler;
@@ -1926,6 +1927,16 @@ public class ServiceVerticle extends AbstractVerticle {
 
         router.get("/FactoryModelService/rents/:rentCode/bizs/:bizCode/enNodeTypes").handler(enNodeTypeHandler::findEnNodeTypes);
         router.get("/FactoryModelService/rents/:rentCode/bizs/:bizCode/enNodeTypes/:enNodeTypeCode").handler(enNodeTypeHandler::findEnNodeTypes);
+
+
+        // [模型表]5 能源度量指标*
+        EnMeasurementHandler enMeasurementHandler = (EnMeasurementHandler) context.getBean("enMeasurementHandler");
+        router.get("/FactoryModelService/bizs/:bizCode/enMeasurements/:idxCode").handler(enMeasurementHandler::findEnMeasurements);
+        router.get("/FactoryModelService/bizs/:bizCode/enMeasurements").handler(enMeasurementHandler::findEnMeasurements);
+
+        router.get("/FactoryModelService/rents/:rentCode/bizs/:bizCode/enMeasurements/:idxCode").handler(enMeasurementHandler::findEnMeasurements);
+        router.get("/FactoryModelService/rents/:rentCode/bizs/:bizCode/enMeasurements").handler(enMeasurementHandler::findEnMeasurements);
+
 
         // 能源节点表
         EnNodeHandler enNodeHandler = (EnNodeHandler) context.getBean("enNodeHandler");

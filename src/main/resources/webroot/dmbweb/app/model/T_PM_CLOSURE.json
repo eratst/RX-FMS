@@ -23,19 +23,35 @@
 			"inOut": true,
 			"class": "left"
 		},
+		"orgName": {
+			"display": "组织机构名称",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true,
+			"class": "left"
+		},
 		"orgAlias": {
 			"display": "组织机构",
 			"type": "string",
 			"required": true,
 			"hide": false,
 			"inOut": true,
-			"width": "130",
 			"treeIsUpdate": true,
+			"width": "130",
 			"class": "left",
 			"chilTree": true
 		},
-		"orgCode": {
-			"display": "组织机构编码",
+			"areaCode": {
+			"display": "区域编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true,
+			"class": "left"
+		},
+		"areaName": {
+			"display": "区域名称",
 			"type": "string",
 			"required": false,
 			"hide": true,
@@ -43,7 +59,7 @@
 			"class": "left"
 		},
 		"areaAlias": {
-			"display": "所属区域",
+			"display": "所属罐区",
 			"type": "string",
 			"required": true,
 			"hide": false,
@@ -51,6 +67,22 @@
 			"width": "130",
 			"class": "left",
 			"orgTree": true
+		},
+		"nodeTypeCode": {
+			"display": "节点类型编码",
+			"type": "string",
+			"required": true,
+			"hide": true,
+			"inOut": true,
+			"class": "left"
+		},
+		"nodeTypeName": {
+			"display": "节点类型名称",
+			"type": "string",
+			"required": true,
+			"hide": true,
+			"inOut": true,
+			"class": "left"
 		},
 		"nodeCode": {
 			"display": "编码",

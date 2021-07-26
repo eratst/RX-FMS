@@ -36,10 +36,19 @@
 									<input type="number" class="form-control" ng-model="value.proUpdate.data" ng-disabled="key==main.vMember.sapc.tableType.alterKey||key==main.vMember.sapc.tableType.mainKey">
 								</div>
 								<!--搜索文本框-->
-								<div ng-if="value.parentType.type=='Model'||value.parentType.type=='Res'||value.parentType.type=='Msr'||(value.parentType.type=='Use'&&value.display!='用户名称')||value.display=='计算方法'||(value.parentType.type=='Rel'&&(value.display=='班组名称'||value.display=='岗位名称'||value.display=='装置界区编码'||value.display=='能源节点类型'||value.display=='上级能源管网编码'||value.display=='区域编码'||value.display=='能源管网编码'))" id="parentModel" class="input-group">
+								<div ng-if="(value.parentType.type=='Model'&&value.display !='量纲简称')||value.parentType.type=='Res'||value.parentType.type=='Msr'||(value.parentType.type=='Use'&&value.display!='用户名称')||value.display=='计算方法'||(value.parentType.type=='Rel'&&(value.display=='班组名称'||value.display=='岗位名称'||value.display=='装置界区编码'||value.display=='能源节点类型'||value.display=='上级能源管网编码'||value.display=='区域编码'||value.display=='能源管网编码'))" id="parentModel" class="input-group">
 									<input type="text" class="form-control" ng-model="value.proUpdate.data" ng-disabled="true" ng-click="main.vfunc.onclick.parentModelSearchOnClick(value)">
 									<div class="input-group-btn">
 										<button type="button" class="btn clude search-btn" aria-expanded="false" ng-disabled="value.display=='采样点编码'" data-target="#parentSearchModel" data-toggle="modal" ng-click="main.vfunc.onclick.setTemLinkemKey(key,value,'proUpdate')"><span class="glyphicon glyphicon-search buttn"></span>
+										</button>
+									</div>
+									<span ng-click="removeParentOrg('proUpdate')" class="glyphicon glyphicon-remove removeOrg" ng-if="value.display=='上级组织机构简称'"></span>
+								</div>
+								<!-- 量纲简称   搜索文本框-->
+								<div ng-if="value.display=='量纲简称'" id="parentModel" class="input-group">
+									<input type="text" class="form-control" ng-model="value.proUpdate.data"  ng-click="main.vfunc.onclick.parentModelSearchOnClick(value)">
+									<div class="input-group-btn">
+										<button type="button" class="btn clude search-btn" aria-expanded="false"  data-target="#parentSearchModel" data-toggle="modal" ng-click="main.vfunc.onclick.setTemLinkemKey(key,value,'proUpdate')"><span class="glyphicon glyphicon-search buttn"></span>
 										</button>
 									</div>
 									<span ng-click="removeParentOrg('proUpdate')" class="glyphicon glyphicon-remove removeOrg" ng-if="value.display=='上级组织机构简称'"></span>
@@ -295,7 +304,7 @@
 												<a tabindex="-1" href="javascript:;">{{pData['typeName']}}</a>
 												<ul class="dropdown-menu menu-overflow">
 													<li ng-repeat="pcData in pData.value">
-														<a ng-click="main.vfunc.onclick.areaSelected('proUpdate',pcData['areaAlias'],pcData['orgCode'])">{{pcData['orgCode']+'--'+pcData['areaAlias']}}</a>
+														<a ng-click="main.vfunc.onclick.areaSelected('proUpdate',pcData['areaAlias'],pcData['areaCode'],pcData['areaName'],pcData['orgCode'])">{{pcData['orgCode']+'--'+pcData['areaAlias']}}</a>
 														<!--<a ng-click="value.proUpdate.data=pcData['areaAlias']">{{pcData['areaAlias']}}</a>-->
 													</li>
 												</ul>

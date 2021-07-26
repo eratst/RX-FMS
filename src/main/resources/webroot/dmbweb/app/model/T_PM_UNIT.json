@@ -17,6 +17,14 @@
 			"inOut": true,
 			"class": "left"
 		},
+		"orgName": {
+			"display": "组织机构名称",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true,
+			"class": "left"
+		},
 		"orgAlias": {
 			"display": "组织机构",
 			"type": "string",
@@ -36,6 +44,22 @@
 			"inOut": true,
 			"class": "left",
 			"width": "130"
+		},
+		"areaTypeCode": {
+			"display": "区域类型编码",
+			"type": "string",
+			"required": true,
+			"hide": true,
+			"inOut": true,
+			"class": "left"
+		},
+		"areaTypeName": {
+			"display": "区域类型名称",
+			"type": "string",
+			"required": true,
+			"hide": true,
+			"inOut": true,
+			"class": "left"
 		},
 		"areaName": {
 			"display": "装置名称",
@@ -92,13 +116,6 @@
 			"required": false,
 			"hide": true,
 			"inOut": true
-		},
-		"technicId": {
-			"display": "装置类型ID",
-			"type": "number",
-			"required": false,
-			"inOut": false,
-			"hide": true
 		},
 		"technicCode": {
 			"display": "装置工艺类型编码",

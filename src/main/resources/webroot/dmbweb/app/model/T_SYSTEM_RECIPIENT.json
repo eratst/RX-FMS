@@ -10,7 +10,7 @@
 			"class": "left",
 			"proUpdate": {
 				"show": true,
-				"edit": false
+				"edit": true
 			}
 		},
 		"recipientName": {

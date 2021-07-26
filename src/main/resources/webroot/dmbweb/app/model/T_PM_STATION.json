@@ -8,8 +8,32 @@
 			"hide": true,
 			"inOut": false
 		},
+			"areaTypeCode": {
+			"display": "区域类型编码",
+			"type": "string",
+			"required": true,
+			"hide": true,
+			"inOut": true,
+			"class": "left"
+		},
+		"areaTypeName": {
+			"display": "区域类型名称",
+			"type": "string",
+			"required": true,
+			"hide": true,
+			"inOut": true,
+			"class": "left"
+		},
 		"orgCode": {
 			"display": "组织机构编码",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true,
+			"class": "left"
+		},
+		"orgName": {
+			"display": "组织机构名称",
 			"type": "string",
 			"required": false,
 			"hide": true,
@@ -28,7 +52,7 @@
 			"chilTree": true
 		},
 		"areaCode": {
-			"display": "站/房编码",
+			"display": "站(厂)编码",
 			"type": "string",
 			"required": true,
 			"hide": false,
@@ -37,7 +61,7 @@
 			"width": "130"
 		},
 		"areaName": {
-			"display": "站/房名称",
+			"display": "站(厂)名称",
 			"type": "string",
 			"required": true,
 			"hide": false,
@@ -46,7 +70,7 @@
 			"width": "180"
 		},
 		"areaAlias": {
-			"display": "站/房简称",
+			"display": "站(厂)简称",
 			"type": "string",
 			"required": true,
 			"hide": false,

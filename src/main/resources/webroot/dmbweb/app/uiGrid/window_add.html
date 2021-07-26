@@ -314,7 +314,7 @@
 												<ul class="dropdown-menu menu-overflow">
 													<li ng-repeat="pcData in pData.value">
 														<!--<a ng-click="value.proAdd.data=pcData['areaAlias']">{{pcData['orgCode']+pcData['areaAlias']}}</a>-->
-														<a ng-click="main.vfunc.onclick.areaSelected('proAdd',pcData['areaAlias'],pcData['orgCode'])">{{pcData['orgCode']+'--'+pcData['areaAlias']}}</a>
+														<a ng-click="main.vfunc.onclick.areaSelected('proAdd',pcData['areaAlias'],pcData['areaCode'],pcData['areaName'],pcData['orgCode'])">{{pcData['orgCode']+'--'+pcData['areaAlias']}}</a>
 													</li>
 												</ul>
 											</li>

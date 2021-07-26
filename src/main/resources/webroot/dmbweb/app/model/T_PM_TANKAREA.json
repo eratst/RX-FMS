@@ -10,6 +10,14 @@
 			"inOut": true,
 			"class": "left"
 		},
+		"orgName": {
+			"display": "组织机构名称",
+			"type": "string",
+			"required": false,
+			"hide": true,
+			"inOut": true,
+			"class": "left"
+		},
 		"orgAlias": {
 			"display": "组织机构",
 			"type": "string",
@@ -27,6 +35,22 @@
 			"required": false,
 			"hide": true,
 			"inOut": false
+		},
+		"areaTypeCode": {
+			"display": "区域类型编码",
+			"type": "string",
+			"required": true,
+			"hide": true,
+			"inOut": true,
+			"class": "left"
+		},
+		"areaTypeName": {
+			"display": "区域类型名称",
+			"type": "string",
+			"required": true,
+			"hide": true,
+			"inOut": true,
+			"class": "left"
 		},
 		"areaCode": {
 			"display": "罐区编码",
@@ -78,20 +102,6 @@
 			"class": "left",
 			"width": "110",
 			"parent": "T_PM_TANKAREATYPE"
-		},
-		"technicId": {
-			"display": "罐区工艺类型ID",
-			"type": "number",
-			"required": false,
-			"hide": true,
-			"inOut": false
-		},
-		"technicCode": {
-			"display": "罐区工艺类型编码",
-			"type": "string",
-			"required": false,
-			"hide": true,
-			"inOut": true
 		},
 		"technicId": {
 			"display": "罐区工艺类型ID",
