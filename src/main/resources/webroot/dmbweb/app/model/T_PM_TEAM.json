@@ -32,6 +32,40 @@
 			"inOut": true,
 			"class": "left"
 		},
+		"orgTypeCode": {
+			"display": "组织机构类型编码",
+			"type": "string",
+			"required": true,
+			"hide": true,
+			"inOut": true,
+			"class": "left"
+		},
+		"orgTypeName": {
+			"display": "组织机构类型名称",
+			"type": "string",
+			"required": true,
+			"hide": true,
+			"inOut": true,
+			"class": "left"
+		},
+			"upperOrgName": {
+			"display": "上级组织机构名称",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"treeIsUpdate": true,
+			"inOut": true,
+			"width": "130",
+			"class": "left",
+			"proAdd": {
+				"show": false,
+				"edit": false
+			},
+			"proUpdate": {
+				"show": false,
+				"edit": false
+			}
+		},
 		"upperOrgCode": {
 			"display": "上级组织机构编码",
 			"type": "string",

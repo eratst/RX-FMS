@@ -2481,7 +2481,16 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 							$scope.main.vMember.sapc.tableType.attribute[item][$scope.proStdFlag].data = orgStd
 								.orgCode;
 						}
-					} else if(item == 'orgCode' && $scope.treeFlag == 'chilTree') {
+					} else if((item == 'upperOrgName' || item == 'parentOrgName') && $scope.treeFlag == 'parTree') {
+						if($scope.proStdFlag == 'proSearch') {
+							$scope.main.vMember.sapc.tableType.attribute[item].proSearch = {};
+							$scope.main.vMember.sapc.tableType.attribute[item].proSearch.data = orgStd.orgName;
+						} else {
+							$scope.main.vMember.sapc.tableType.attribute[item][$scope.proStdFlag].data = orgStd
+								.orgName;
+						}
+					} 
+					else if(item == 'orgCode' && $scope.treeFlag == 'chilTree') {
 						if($scope.proStdFlag == 'proSearch') {
 							$scope.main.vMember.sapc.tableType.attribute[item].proSearch = {};
 							$scope.main.vMember.sapc.tableType.attribute[item].proSearch.data = orgStd.orgCode;

@@ -96,8 +96,8 @@ public class NodeDictionaryDaoImpl {
         }
         Integer skip = null;
 
-//		long count = dataQuery.getResultList().size();
-        long count = 0L;
+		long count = dataQuery.getResultList().size();
+        //     long count = 0L;
         if (null != pageable) {
             skip = model.getSkip();
             dataQuery = em.createQuery(dataSql);

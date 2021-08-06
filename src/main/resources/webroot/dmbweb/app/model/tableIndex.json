@@ -364,6 +364,8 @@
 				"tableFormat": "T_PM_HEADQUARTERS.json",
 				"parent": "none",
 				"desType": "longDes",
+				"orgsTc":"1001",
+				"orgsTn":"总部",
 				"isShowSearch": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/headquarters"
@@ -375,6 +377,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "longDes",
+				"orgsTc":"1002",
+				"orgsTn":"事业部",
 				"insertData": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/divisions"
@@ -386,6 +390,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "middleDes",
+				"orgsTc":"1003",
+				"orgsTn":"企业（分、子公司）",
 				"insertData": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/enterprises"
@@ -397,6 +403,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "longDes",
+				"orgsTc":"1004",
+				"orgsTn":"公司处室",
 				"insertData": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/offices"
@@ -408,6 +416,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "shortDes",
+				"orgsTc":"1005",
+				"orgsTn":"生产工厂（分厂）",
 				"insertData": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/productFactories"
@@ -419,6 +429,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "longDes",
+				"orgsTc":"1006",
+				"orgsTn":"科室",
 				"insertData": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/departments"
@@ -430,6 +442,8 @@
 				"parent": "none",
 				"isShowSearch": true,
 				"desType": "longDes",
+				"orgsTc":"1007",
+				"orgsTn":"车间",
 				"insertData": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/workshops"
@@ -442,6 +456,8 @@
 				"isShowSearch": true,
 				"hide": false,
 				"desType": "longDes",
+				"orgsTc":"1008",
+				"orgsTn":"班组",
 				"insertData": true,
 				"authPropertyValue": "FMS_ModelModify",
 				"url": "/teams"

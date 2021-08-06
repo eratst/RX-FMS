@@ -21,9 +21,18 @@ localStorage.setItem('promaceDomian', '.promace.sinopec.com'); //服务应用配
 localStorage.setItem('UserCodeUrl', '/FactoryModelService/aaaUser'); //测试环境相对路径，【权限】
 
 //生产环境配置
+/**
+ * 租户租户编码datamainsvc.platform.   域名：promace.sinopec.com
+ * **/
 //localStorage.setItem('serverUrl', 'http://datamainsvc.platform.promace.sinopec.com/DMBService'); //test
 //localStorage.setItem('promaceDomian', '.promace.sinopec.com');//服务应用配置发版域名
 //localStorage.setItem('UserCodeUrl', '/aaaUser'); //正式环境相对路径，【权限】
+
+//荣信生产环境配置
+//localStorage.setItem('serverUrl', 'http://10.20.12.46:8081/DMBService'); 
+//localStorage.setItem('promaceDomian', '.snrx.com');//服务应用配置发版域名
+//localStorage.setItem('UserCodeUrl', '/aaaUser'); //正式环境相对路径，【权限】
+
 
 localStorage.setItem('indexHtmlUrl', 'dmbweb/app/index.html'); //服务应用配置发版首页相对路径
 
@@ -294,6 +303,11 @@ angular.module('myApp', [
 //						}else if(measIndex == 3){
 //							tableType.attribute['nodeTypeCode']['proAdd'].data = ;
 //						}
+						//组织机构层新增时传组织机构类型编码和名称
+						if(tableType.jsonObj.hasOwnProperty("orgsTc")){
+							tableType.attribute['orgTypeCode']['proAdd'].data = tableType.jsonObj.orgsTc;
+							tableType.attribute['orgTypeName']['proAdd'].data = tableType.jsonObj.orgsTn;
+						}
 						//区域层新增时传区域类型编码和名称
 						if(tableType.jsonObj.hasOwnProperty("areasTc")){
 							tableType.attribute['areaTypeCode']['proAdd'].data = tableType.jsonObj.areasTc;

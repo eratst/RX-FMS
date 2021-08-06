@@ -145,7 +145,7 @@ public class NodeDictionaryServiceImpl implements NodeDictionaryService {
 		    nodeDictionaryTablePager.setNumberOfElements(nodeDictionaryTablePojoPageList.getNumberOfElements());
 		    nodeDictionaryTablePager.setSize(nodeDictionaryTablePojoPageList.getSize());
 		    nodeDictionaryTablePager.setSort(nodeDictionaryTablePojoPageList.getSort());
-		    nodeDictionaryTablePager.setTotalElements((long)nodeDictionaryTablePojoPageList.getContent().size());
+		    nodeDictionaryTablePager.setTotalElements((long)nodeDictionaryTablePojoPageList.getCount());
 		    nodeDictionaryTablePager.setTotalPages(nodeDictionaryTablePojoPageList.getTotalPages());
 		}catch(Exception e){
 			throw  new BusinessException("","",e.getMessage());
