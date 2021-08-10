@@ -240,7 +240,7 @@ public class AreaDictionaryDaoImpl {
             dataQuery.setFirstResult(skip);
             dataQuery.setMaxResults(pageable.getPageSize());
         }
-        List<com.pcitc.fms.dal.pojo.Material> resultList = dataQuery.getResultList();
+        List<com.pcitc.fms.dal.pojo.AreaDictionary> resultList = dataQuery.getResultList();
         MyPageImpl myPageImpl = new MyPageImpl(resultList, pageable, count);
         myPageImpl.setCount(count);
         return myPageImpl;
