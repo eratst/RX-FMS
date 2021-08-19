@@ -68,6 +68,8 @@ public class TPmOrgServiceImpl implements TPmOrgService {
 			tPmOrg.setOrgTypeId(Long.valueOf(objs[8].toString()));
 			tPmOrg.setOrgTypeCode((String) objs[9]);
 			tPmOrg.setOrgTypeName((String) objs[10]);
+            tPmOrg.setInUse(Integer.valueOf(objs[11].toString()));
+            tPmOrg.setDes((String) objs[12]);
 
 			tPmOrgLists.add(tPmOrg);
 		}

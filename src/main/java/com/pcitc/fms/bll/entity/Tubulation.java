@@ -1,253 +1,264 @@
 package com.pcitc.fms.bll.entity;
 
+import cc.aicode.e2e.annotation.ExcelEntity;
+
 import java.io.Serializable;
 import java.util.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Transient;
-
-import com.pcitc.fms.common.annotation.CheckField;
-import com.pcitc.fms.common.annotation.CheckNameType;
-
-import cc.aicode.e2e.annotation.ExcelEntity;
-import cc.aicode.e2e.annotation.ExcelProperty;
 
 @ExcelEntity
 public class Tubulation implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
-	// 节点id
-	private Long nodeId;
-	// 节点编码
-	private String nodeCode;
-	// 创建人ID
-	private String crtUserCode;
-	// 创建人名称
-	private String crtUserName;
-	// 创建时间
-	private Date crtDate;
-	// 最后维护人ID
-	private String mntUserCode;
-	// 最后维护人名称
-	private String mntUserName;
-	// 维护日期
-	private Date mntDate;
-	// 描述
-	private String des;
-	// 区域ID
-	private Long areaId;
-	// 位置经度
-	private String nodeLongitude;
-	// 位置纬度
-	private String nodeLatitude;
-	// 节点类型 含： 1侧线;2罐;3料仓;4库位;5进出厂点;6采样点;7排放口;8设备;9管段;10阀门;11盲板;12三通;
-	private Long nodeTypeId;
-	// 状态
-	private Integer inUse;
-	// 位置海拔
-	private String nodeAltitude;
-	// 节点名称
-	private String nodeName;
-	// 节点简称
-	private String nodeAlias;
-	// 节点类型（用于显示）
-	private String nodeTypeName;
-	// 区域编码（用于查询）
-	private String areaCode;
-	 //物料ID
-	private Long mtrlId;
-	private String areaName;
-	private String areaAlias;
-	private Integer sortNum;
+    // 节点id
+    private Long nodeId;
+    // 节点编码
+    private String nodeCode;
+    // 创建人ID
+    private String crtUserCode;
+    // 创建人名称
+    private String crtUserName;
+    // 创建时间
+    private Date crtDate;
+    // 最后维护人ID
+    private String mntUserCode;
+    // 最后维护人名称
+    private String mntUserName;
+    // 维护日期
+    private Date mntDate;
+    // 描述
+    private String des;
+    // 区域ID
+    private Long areaId;
+    // 位置经度
+    private String nodeLongitude;
+    // 位置纬度
+    private String nodeLatitude;
+    // 节点类型 含： 1侧线;2罐;3料仓;4库位;5进出厂点;6采样点;7排放口;8设备;9管段;10阀门;11盲板;12三通;
+    private Long nodeTypeId;
+    // 状态
+    private Integer inUse;
+    // 位置海拔
+    private String nodeAltitude;
+    // 节点名称
+    private String nodeName;
+    // 节点简称
+    private String nodeAlias;
+    // 节点类型（用于显示）
+    private String nodeTypeName;
+    // 区域编码（用于查询）
+    private String areaCode;
+    //物料ID
+    private Long mtrlId;
+    private String areaName;
+    private String areaAlias;
+    private Integer sortNum;
 
-	
-	
-	public Long getNodeId() {
-		return nodeId;
-	}
+    private String nodeLevel;
 
-	public void setNodeId(Long nodeId) {
-		this.nodeId = nodeId;
-	}
+    private String nodeModel;
 
-	public Long getAreaId() {
-		return areaId;
-	}
+    public String getNodeLevel() {
+        return nodeLevel;
+    }
 
-	public void setAreaId(Long areaId) {
-		this.areaId = areaId;
-	}
+    public void setNodeLevel(String nodeLevel) {
+        this.nodeLevel = nodeLevel;
+    }
 
-	public Long getNodeTypeId() {
-		return nodeTypeId;
-	}
+    public String getNodeModel() {
+        return nodeModel;
+    }
 
-	public void setNodeTypeId(Long nodeTypeId) {
-		this.nodeTypeId = nodeTypeId;
-	}
+    public void setNodeModel(String nodeModel) {
+        this.nodeModel = nodeModel;
+    }
 
-	public Long getMtrlId() {
-		return mtrlId;
-	}
+    public Long getNodeId() {
+        return nodeId;
+    }
 
-	public void setMtrlId(Long mtrlId) {
-		this.mtrlId = mtrlId;
-	}
+    public void setNodeId(Long nodeId) {
+        this.nodeId = nodeId;
+    }
 
-	public String getAreaName() {
-		return areaName;
-	}
+    public Long getAreaId() {
+        return areaId;
+    }
 
-	public void setAreaName(String areaName) {
-		this.areaName = areaName;
-	}
+    public void setAreaId(Long areaId) {
+        this.areaId = areaId;
+    }
 
-	public String getAreaAlias() {
-		return areaAlias;
-	}
+    public Long getNodeTypeId() {
+        return nodeTypeId;
+    }
 
-	public void setAreaAlias(String areaAlias) {
-		this.areaAlias = areaAlias;
-	}
+    public void setNodeTypeId(Long nodeTypeId) {
+        this.nodeTypeId = nodeTypeId;
+    }
 
-	public Integer getSortNum() {
-		return sortNum;
-	}
+    public Long getMtrlId() {
+        return mtrlId;
+    }
 
-	public void setSortNum(Integer sortNum) {
-		this.sortNum = sortNum;
-	}
+    public void setMtrlId(Long mtrlId) {
+        this.mtrlId = mtrlId;
+    }
 
-	public String getAreaCode() {
-		return areaCode;
-	}
+    public String getAreaName() {
+        return areaName;
+    }
 
-	public void setAreaCode(String areaCode) {
-		this.areaCode = areaCode;
-	}
+    public void setAreaName(String areaName) {
+        this.areaName = areaName;
+    }
 
-	public String getNodeTypeName() {
-		return nodeTypeName;
-	}
+    public String getAreaAlias() {
+        return areaAlias;
+    }
 
-	public void setNodeTypeName(String nodeTypeName) {
-		this.nodeTypeName = nodeTypeName;
-	}
+    public void setAreaAlias(String areaAlias) {
+        this.areaAlias = areaAlias;
+    }
 
-	public String getNodeLongitude() {
-		return nodeLongitude;
-	}
+    public Integer getSortNum() {
+        return sortNum;
+    }
 
-	public void setNodeLongitude(String nodeLongitude) {
-		this.nodeLongitude = nodeLongitude;
-	}
+    public void setSortNum(Integer sortNum) {
+        this.sortNum = sortNum;
+    }
 
-	public String getNodeLatitude() {
-		return nodeLatitude;
-	}
+    public String getAreaCode() {
+        return areaCode;
+    }
 
-	public void setNodeLatitude(String nodeLatitude) {
-		this.nodeLatitude = nodeLatitude;
-	}
+    public void setAreaCode(String areaCode) {
+        this.areaCode = areaCode;
+    }
 
-	public Integer getInUse() {
-		return inUse;
-	}
+    public String getNodeTypeName() {
+        return nodeTypeName;
+    }
 
-	public void setInUse(Integer inUse) {
-		this.inUse = inUse;
-	}
+    public void setNodeTypeName(String nodeTypeName) {
+        this.nodeTypeName = nodeTypeName;
+    }
 
-	public String getNodeAltitude() {
-		return nodeAltitude;
-	}
+    public String getNodeLongitude() {
+        return nodeLongitude;
+    }
 
-	public void setNodeAltitude(String nodeAltitude) {
-		this.nodeAltitude = nodeAltitude;
-	}
+    public void setNodeLongitude(String nodeLongitude) {
+        this.nodeLongitude = nodeLongitude;
+    }
 
-	public String getNodeName() {
-		return nodeName;
-	}
+    public String getNodeLatitude() {
+        return nodeLatitude;
+    }
 
-	public void setNodeName(String nodeName) {
-		this.nodeName = nodeName;
-	}
+    public void setNodeLatitude(String nodeLatitude) {
+        this.nodeLatitude = nodeLatitude;
+    }
 
-	public String getNodeAlias() {
-		return nodeAlias;
-	}
+    public Integer getInUse() {
+        return inUse;
+    }
 
-	public void setNodeAlias(String nodeAlias) {
-		this.nodeAlias = nodeAlias;
-	}
+    public void setInUse(Integer inUse) {
+        this.inUse = inUse;
+    }
 
-	public String getNodeCode() {
-		return nodeCode;
-	}
+    public String getNodeAltitude() {
+        return nodeAltitude;
+    }
 
-	public void setNodeCode(String nodeCode) {
-		this.nodeCode = nodeCode;
-	}
+    public void setNodeAltitude(String nodeAltitude) {
+        this.nodeAltitude = nodeAltitude;
+    }
 
-	public String getCrtUserCode() {
-		return crtUserCode;
-	}
+    public String getNodeName() {
+        return nodeName;
+    }
 
-	public void setCrtUserCode(String crtUserCode) {
-		this.crtUserCode = crtUserCode;
-	}
+    public void setNodeName(String nodeName) {
+        this.nodeName = nodeName;
+    }
 
-	public String getMntUserCode() {
-		return mntUserCode;
-	}
+    public String getNodeAlias() {
+        return nodeAlias;
+    }
 
-	public void setMntUserCode(String mntUserCode) {
-		this.mntUserCode = mntUserCode;
-	}
+    public void setNodeAlias(String nodeAlias) {
+        this.nodeAlias = nodeAlias;
+    }
 
-	public String getCrtUserName() {
-		return crtUserName;
-	}
+    public String getNodeCode() {
+        return nodeCode;
+    }
 
-	public void setCrtUserName(String crtUserName) {
-		this.crtUserName = crtUserName;
-	}
+    public void setNodeCode(String nodeCode) {
+        this.nodeCode = nodeCode;
+    }
 
-	public Date getCrtDate() {
-		return crtDate;
-	}
+    public String getCrtUserCode() {
+        return crtUserCode;
+    }
 
-	public void setCrtDate(Date crtDate) {
-		this.crtDate = crtDate;
-	}
+    public void setCrtUserCode(String crtUserCode) {
+        this.crtUserCode = crtUserCode;
+    }
 
-	public String getMntUserName() {
-		return mntUserName;
-	}
+    public String getMntUserCode() {
+        return mntUserCode;
+    }
 
-	public void setMntUserName(String mntUserName) {
-		this.mntUserName = mntUserName;
-	}
+    public void setMntUserCode(String mntUserCode) {
+        this.mntUserCode = mntUserCode;
+    }
 
-	public Date getMntDate() {
-		return mntDate;
-	}
+    public String getCrtUserName() {
+        return crtUserName;
+    }
 
-	public void setMntDate(Date mntDate) {
-		this.mntDate = mntDate;
-	}
+    public void setCrtUserName(String crtUserName) {
+        this.crtUserName = crtUserName;
+    }
 
-	public String getDes() {
-		return des;
-	}
+    public Date getCrtDate() {
+        return crtDate;
+    }
 
-	public void setDes(String des) {
-		this.des = des;
-	}
+    public void setCrtDate(Date crtDate) {
+        this.crtDate = crtDate;
+    }
+
+    public String getMntUserName() {
+        return mntUserName;
+    }
+
+    public void setMntUserName(String mntUserName) {
+        this.mntUserName = mntUserName;
+    }
+
+    public Date getMntDate() {
+        return mntDate;
+    }
+
+    public void setMntDate(Date mntDate) {
+        this.mntDate = mntDate;
+    }
+
+    public String getDes() {
+        return des;
+    }
+
+    public void setDes(String des) {
+        this.des = des;
+    }
 
 }

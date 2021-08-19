@@ -8,339 +8,345 @@ import javax.persistence.Transient;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * Title: Node
- * Description: 节点对象
- * @author lei.y
- * @date 2018年1月10日
- * @version 1.0
- */
-
-/**
- * @author guobin.chen
- * @since 2018-03-17
- */
 @Entity
 @Table(name = "T_PM_NODE")
-public class Node implements Serializable{
+public class Node implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	@Id
+    private static final long serialVersionUID = 1L;
+
+    @Id
     @Column(name = "NODE_ID")
-	private Long nodeId;
-	
-	@Column(name = "NODE_CODE")
-	private String nodeCode;
-	
-	@Column(name = "NODE_NAME")
-	private String nodeName;
-	
-	@Column(name = "NODE_ALIAS")
-	private String nodeAlias;
-	
-	@Column(name = "AREA_ID")
-	private Long areaId;
-	
-	@Column(name = "NODE_LONGITUDE")
-	private String nodeLongitude;
-	
-	@Column(name = "NODE_LATITUDE")
-	private String nodeLatitude;
-	
-	@Column(name = "NODETYPE_ID")
-	private Long nodeTypeId;
-	
-	@Column(name = "INUSE")
-	private Integer inUse;
-	
-	@Column(name = "DES")
-	private String des;
-	
-	@Column(name = "SORT_NUM")
-	private Integer sortNum;
-	
-	@Column(name = "VERSION")
-	private Integer version;
-	
-	@Column(name = "NODE_ALTITUDE")
-	private String nodeAltitude;
-	
-	@Column(name = "CRTUSER_CODE")
-	private String crtUserId;
-	
-	@Column(name = "CRTUSER_NAME")
-	private String crtUserName;
-	
-	@Column(name = "CRTDATE")
-	private Date crtDate;
-	
-	@Column(name = "MNTUSER_CODE")
-	private String mntUserId;
-	
-	@Column(name = "MNTUSER_NAME")
-	private String mntUserName;
-	
-	@Column(name = "MNTDATE")
-	private Date mntDate;
-	
-	@Transient
-	private String nodeTypeCode;
-	
-	@Transient
-	private String nodeTypeName;
-	
-	@Transient
-	private String areaCode;
-	
-	@Transient
-	private String areaName;
+    private Long nodeId;
 
-	@Transient
-	private String areaAlias;
-	
-	@Transient
-	private String orgAlias;
+    @Column(name = "NODE_CODE")
+    private String nodeCode;
 
-	
-	public String getOrgAlias() {
-		return orgAlias;
-	}
+    @Column(name = "NODE_NAME")
+    private String nodeName;
 
-	public void setOrgAlias(String orgAlias) {
-		this.orgAlias = orgAlias;
-	}
+    @Column(name = "NODE_ALIAS")
+    private String nodeAlias;
 
-	public Long getNodeId() {
-		return nodeId;
-	}
+    @Column(name = "AREA_ID")
+    private Long areaId;
 
-	public void setNodeId(Long nodeId) {
-		this.nodeId = nodeId;
-	}
+    @Column(name = "NODE_LONGITUDE")
+    private String nodeLongitude;
 
-	public String getNodeCode() {
-		return nodeCode;
-	}
+    @Column(name = "NODE_LATITUDE")
+    private String nodeLatitude;
 
-	public void setNodeCode(String nodeCode) {
-		this.nodeCode = nodeCode;
-	}
+    @Column(name = "NODETYPE_ID")
+    private Long nodeTypeId;
 
-	public String getNodeName() {
-		return nodeName;
-	}
+    @Column(name = "INUSE")
+    private Integer inUse;
 
-	public void setNodeName(String nodeName) {
-		this.nodeName = nodeName;
-	}
+    @Column(name = "DES")
+    private String des;
 
-	public String getNodeAlias() {
-		return nodeAlias;
-	}
+    @Column(name = "SORT_NUM")
+    private Integer sortNum;
 
-	public void setNodeAlias(String nodeAlias) {
-		this.nodeAlias = nodeAlias;
-	}
+    @Column(name = "VERSION")
+    private Integer version;
 
-	public Long getAreaId() {
-		return areaId;
-	}
+    @Column(name = "NODE_ALTITUDE")
+    private String nodeAltitude;
 
-	public void setAreaId(Long areaId) {
-		this.areaId = areaId;
-	}
+    @Column(name = "CRTUSER_CODE")
+    private String crtUserId;
 
-	public String getCrtUserId() {
-		return crtUserId;
-	}
+    @Column(name = "CRTUSER_NAME")
+    private String crtUserName;
 
-	public void setCrtUserId(String crtUserId) {
-		this.crtUserId = crtUserId;
-	}
+    @Column(name = "CRTDATE")
+    private Date crtDate;
 
-	public String getCrtUserName() {
-		return crtUserName;
-	}
+    @Column(name = "MNTUSER_CODE")
+    private String mntUserId;
 
-	public void setCrtUserName(String crtUserName) {
-		this.crtUserName = crtUserName;
-	}
+    @Column(name = "MNTUSER_NAME")
+    private String mntUserName;
 
-	public Date getCrtDate() {
-		return crtDate;
-	}
+    @Column(name = "MNTDATE")
+    private Date mntDate;
 
-	public void setCrtDate(Date crtDate) {
-		this.crtDate = crtDate;
-	}
+    @Transient
+    private String nodeTypeCode;
 
-	public String getMntUserId() {
-		return mntUserId;
-	}
+    @Transient
+    private String nodeTypeName;
 
-	public void setMntUserId(String mntUserId) {
-		this.mntUserId = mntUserId;
-	}
+    @Transient
+    private String areaCode;
 
-	public String getMntUserName() {
-		return mntUserName;
-	}
+    @Transient
+    private String areaName;
 
-	public void setMntUserName(String mntUserName) {
-		this.mntUserName = mntUserName;
-	}
+    @Transient
+    private String areaAlias;
 
-	public Date getMntDate() {
-		return mntDate;
-	}
+    @Transient
+    private String orgAlias;
 
-	public void setMntDate(Date mntDate) {
-		this.mntDate = mntDate;
-	}
+    @Column(name = "NODE_LEVEL")
+    private String nodeLevel;
 
-	public String getNodeLongitude() {
-		return nodeLongitude;
-	}
+    @Column(name = "NODE_MODEL")
+    private String nodeModel;
 
-	public void setNodeLongitude(String nodeLongitude) {
-		this.nodeLongitude = nodeLongitude;
-	}
+    public String getNodeLevel() {
+        return nodeLevel;
+    }
 
-	public String getNodeLatitude() {
-		return nodeLatitude;
-	}
+    public void setNodeLevel(String nodeLevel) {
+        this.nodeLevel = nodeLevel;
+    }
 
-	public void setNodeLatitude(String nodeLatitude) {
-		this.nodeLatitude = nodeLatitude;
-	}
+    public String getNodeModel() {
+        return nodeModel;
+    }
+
+    public void setNodeModel(String nodeModel) {
+        this.nodeModel = nodeModel;
+    }
+
+    public String getOrgAlias() {
+        return orgAlias;
+    }
+
+    public void setOrgAlias(String orgAlias) {
+        this.orgAlias = orgAlias;
+    }
+
+    public Long getNodeId() {
+        return nodeId;
+    }
+
+    public void setNodeId(Long nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    public String getNodeCode() {
+        return nodeCode;
+    }
+
+    public void setNodeCode(String nodeCode) {
+        this.nodeCode = nodeCode;
+    }
+
+    public String getNodeName() {
+        return nodeName;
+    }
+
+    public void setNodeName(String nodeName) {
+        this.nodeName = nodeName;
+    }
+
+    public String getNodeAlias() {
+        return nodeAlias;
+    }
+
+    public void setNodeAlias(String nodeAlias) {
+        this.nodeAlias = nodeAlias;
+    }
+
+    public Long getAreaId() {
+        return areaId;
+    }
+
+    public void setAreaId(Long areaId) {
+        this.areaId = areaId;
+    }
+
+    public String getCrtUserId() {
+        return crtUserId;
+    }
+
+    public void setCrtUserId(String crtUserId) {
+        this.crtUserId = crtUserId;
+    }
+
+    public String getCrtUserName() {
+        return crtUserName;
+    }
+
+    public void setCrtUserName(String crtUserName) {
+        this.crtUserName = crtUserName;
+    }
+
+    public Date getCrtDate() {
+        return crtDate;
+    }
+
+    public void setCrtDate(Date crtDate) {
+        this.crtDate = crtDate;
+    }
+
+    public String getMntUserId() {
+        return mntUserId;
+    }
+
+    public void setMntUserId(String mntUserId) {
+        this.mntUserId = mntUserId;
+    }
+
+    public String getMntUserName() {
+        return mntUserName;
+    }
+
+    public void setMntUserName(String mntUserName) {
+        this.mntUserName = mntUserName;
+    }
+
+    public Date getMntDate() {
+        return mntDate;
+    }
+
+    public void setMntDate(Date mntDate) {
+        this.mntDate = mntDate;
+    }
+
+    public String getNodeLongitude() {
+        return nodeLongitude;
+    }
+
+    public void setNodeLongitude(String nodeLongitude) {
+        this.nodeLongitude = nodeLongitude;
+    }
+
+    public String getNodeLatitude() {
+        return nodeLatitude;
+    }
+
+    public void setNodeLatitude(String nodeLatitude) {
+        this.nodeLatitude = nodeLatitude;
+    }
 
 
-	public Long getNodeTypeId() {
-		return nodeTypeId;
-	}
+    public Long getNodeTypeId() {
+        return nodeTypeId;
+    }
 
-	public void setNodeTypeId(Long nodeTypeId) {
-		this.nodeTypeId = nodeTypeId;
-	}
+    public void setNodeTypeId(Long nodeTypeId) {
+        this.nodeTypeId = nodeTypeId;
+    }
 
-	public Integer getInUse() {
-		return inUse;
-	}
+    public Integer getInUse() {
+        return inUse;
+    }
 
-	public void setInUse(Integer inUse) {
-		this.inUse = inUse;
-	}
+    public void setInUse(Integer inUse) {
+        this.inUse = inUse;
+    }
 
-	public String getDes() {
-		return des;
-	}
+    public String getDes() {
+        return des;
+    }
 
-	public void setDes(String des) {
-		this.des = des;
-	}
+    public void setDes(String des) {
+        this.des = des;
+    }
 
-	public Integer getSortNum() {
-		return sortNum;
-	}
+    public Integer getSortNum() {
+        return sortNum;
+    }
 
-	public void setSortNum(Integer sortNum) {
-		this.sortNum = sortNum;
-	}
+    public void setSortNum(Integer sortNum) {
+        this.sortNum = sortNum;
+    }
 
-	public Integer getVersion() {
-		return version;
-	}
+    public Integer getVersion() {
+        return version;
+    }
 
-	public void setVersion(Integer version) {
-		this.version = version;
-	}
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
 
-	public String getNodeAltitude() {
-		return nodeAltitude;
-	}
+    public String getNodeAltitude() {
+        return nodeAltitude;
+    }
 
-	public void setNodeAltitude(String nodeAltitude) {
-		this.nodeAltitude = nodeAltitude;
-	}
-	
-	public String getNodeTypeCode() {
-		return nodeTypeCode;
-	}
+    public void setNodeAltitude(String nodeAltitude) {
+        this.nodeAltitude = nodeAltitude;
+    }
 
-	public void setNodeTypeCode(String nodeTypeCode) {
-		this.nodeTypeCode = nodeTypeCode;
-	}
+    public String getNodeTypeCode() {
+        return nodeTypeCode;
+    }
 
-	public String getNodeTypeName() {
-		return nodeTypeName;
-	}
+    public void setNodeTypeCode(String nodeTypeCode) {
+        this.nodeTypeCode = nodeTypeCode;
+    }
 
-	public void setNodeTypeName(String nodeTypeName) {
-		this.nodeTypeName = nodeTypeName;
-	}
+    public String getNodeTypeName() {
+        return nodeTypeName;
+    }
 
-	public String getAreaCode() {
-		return areaCode;
-	}
+    public void setNodeTypeName(String nodeTypeName) {
+        this.nodeTypeName = nodeTypeName;
+    }
 
-	public void setAreaCode(String areaCode) {
-		this.areaCode = areaCode;
-	}
+    public String getAreaCode() {
+        return areaCode;
+    }
 
-	public String getAreaName() {
-		return areaName;
-	}
+    public void setAreaCode(String areaCode) {
+        this.areaCode = areaCode;
+    }
 
-	public void setAreaName(String areaName) {
-		this.areaName = areaName;
-	}
+    public String getAreaName() {
+        return areaName;
+    }
 
-	public String getAreaAlias() {
-		return areaAlias;
-	}
+    public void setAreaName(String areaName) {
+        this.areaName = areaName;
+    }
 
-	public void setAreaAlias(String areaAlias) {
-		this.areaAlias = areaAlias;
-	}
+    public String getAreaAlias() {
+        return areaAlias;
+    }
 
-	public Node() {
-		super();
-	}
+    public void setAreaAlias(String areaAlias) {
+        this.areaAlias = areaAlias;
+    }
 
-	public Node(Long nodeId, String nodeCode, String nodeName, String nodeAlias, Long areaId,
+    public Node() {
+        super();
+    }
+
+    public Node(Long nodeId, String nodeCode, String nodeName, String nodeAlias, Long areaId,
                 String nodeLongitude, String nodeLatitude, Long nodeTypeId, Integer inUse, String des,
                 Integer sortNum, Integer version, String nodeAltitude, String nodeTypeCode, String nodeTypeName,
                 String areaCode, String areaName, String areaAlias, String crtUserId, String crtUserName,
                 Date crtDate, String mntUserId, String mntUserName, Date mntDate, String orgAlias) {
-		super();
-		this.nodeId = nodeId;
-		this.nodeCode = nodeCode;
-		this.nodeName = nodeName;
-		this.nodeAlias = nodeAlias;
-		this.areaId = areaId;
-		this.nodeLongitude = nodeLongitude;
-		this.nodeLatitude = nodeLatitude;
-		this.nodeTypeId = nodeTypeId;
-		this.inUse = inUse;
-		this.des = des;
-		this.sortNum = sortNum;
-		this.version = version;
-		this.nodeAltitude = nodeAltitude;
-		this.nodeTypeCode = nodeTypeCode;
-		this.nodeTypeName = nodeTypeName;
-		this.areaCode = areaCode;
-		this.areaName = areaName;
-		this.areaAlias = areaAlias;
-		this.crtUserId = crtUserId;
-		this.crtUserName = crtUserName;
-		this.crtDate = crtDate;
-		this.mntUserId = mntUserId;
-		this.mntUserName = mntUserName;
-		this.mntDate = mntDate;
-		this.orgAlias = orgAlias;
-	}
+        super();
+        this.nodeId = nodeId;
+        this.nodeCode = nodeCode;
+        this.nodeName = nodeName;
+        this.nodeAlias = nodeAlias;
+        this.areaId = areaId;
+        this.nodeLongitude = nodeLongitude;
+        this.nodeLatitude = nodeLatitude;
+        this.nodeTypeId = nodeTypeId;
+        this.inUse = inUse;
+        this.des = des;
+        this.sortNum = sortNum;
+        this.version = version;
+        this.nodeAltitude = nodeAltitude;
+        this.nodeTypeCode = nodeTypeCode;
+        this.nodeTypeName = nodeTypeName;
+        this.areaCode = areaCode;
+        this.areaName = areaName;
+        this.areaAlias = areaAlias;
+        this.crtUserId = crtUserId;
+        this.crtUserName = crtUserName;
+        this.crtDate = crtDate;
+        this.mntUserId = mntUserId;
+        this.mntUserName = mntUserName;
+        this.mntDate = mntDate;
+        this.orgAlias = orgAlias;
+    }
 }

@@ -123,6 +123,29 @@
 			"width": "70",
 			"parent": "T_PM_TANKTYPE"
 		},
+		"nodeLevel": {
+			"display": "设备等级",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "110",
+			"valueShowLevel": {
+				"A": "A关键设备",
+				"B": "B主要设备",
+				"C": "C一般设备"
+			}
+		},
+		"nodeModel": {
+			"display": "设备型号",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "110"
+		},
 		"tankHgt": {
 			"display": "罐高(m)",
 			"type": "string",

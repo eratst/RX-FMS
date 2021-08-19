@@ -23,13 +23,15 @@ public interface AreaNodeBasicSql {
             + " a.nodeCode = b.nodeCode and b.nodeTypeId = c.nodeTypeId and a.sidelineTypeId = d.sidelineTypeId and a.slineMtrlTypeId = e.sideMtrlTypeId and b.areaId = f.areaDictionaryId and f.factoryId=org.orgId";
     //罐
     static final String Tank = "select new Tank(a.nodeId,a.nodeCode,b.nodeName,b.nodeAlias,a.tankTypeId,d.tankTypeCode,d.tankTypeName,e.areaCode,e.name,e.shortName,a.tankHgt,a.tankTotlCuba,a.fltPlatWgt,a.fltPlatPerhgt,a.fltTipLst,a.maxTankHgt,a.minTankHgt,a.maxTankStoarge,a.minTankStoarge,a.htPretTank,b.nodeLongitude,b.nodeLatitude,b.nodeAltitude"
-            + ",b.crtUserCode, b.crtUserName, b.crtDate, b.mntUserCode, b.mntUserName, b.mntDate,b.dataStatus,a.sortNum,b.des,b.nodeTypeId,org.orgCode,b.areaId) "
+            + ",b.crtUserCode, b.crtUserName, b.crtDate, b.mntUserCode, b.mntUserName, b.mntDate,b.dataStatus,a.sortNum,b.des,b.nodeTypeId,org.orgCode,b.areaId,b.nodeLevel,b.nodeModel) "
             + "from Tank a,NodeDictionary b,TankArea c,TankType d,AreaDictionary e, TPmOrg org where"
             + " a.nodeCode = b.nodeCode and a.tankTypeId = d.tankTypeId and b.areaId = e.areaDictionaryId and e.areaDictionaryId=c.tankAreaId and org.orgId=e.factoryId ";
 
     //节点
-    static final String NodeDictionary = "select new NodeDictionary(a.nodeId, a.nodeCode, a.nodeName,a.nodeAlias, a.areaId, a.nodeLongitude,a.nodeLatitude, a.nodeTypeId,a.dataStatus,a.nodeAltitude, "
-            + "a.des,b.nodeTypeCode,b.nodeTypeName,ad.areaCode,ad.name,ad.shortName,a.sortNum,a.crtUserCode, a.crtUserName, a.crtDate, a.mntUserCode, a.mntUserName, a.mntDate) "
+    static final String NodeDictionary = "select new NodeDictionary(a.nodeId, a.nodeCode, a.nodeName,a.nodeAlias, "
+            + "a.areaId, a.nodeLongitude,a.nodeLatitude, a.nodeTypeId,a.dataStatus,a.nodeAltitude, "
+            + "a.des,b.nodeTypeCode,b.nodeTypeName,ad.areaCode,ad.name,ad.shortName,a.sortNum,"
+            + "a.crtUserCode, a.crtUserName, a.crtDate, a.mntUserCode, a.mntUserName, a.mntDate,a.nodeLevel,a.nodeModel) "
             + "from NodeDictionary a,AreaDictionary ad,TPmOrg org,NodeType b "
             + "where a.areaId=ad.areaDictionaryId and a.nodeTypeId=b.nodeTypeId and ad.factoryId=org.orgId";
 
@@ -38,9 +40,10 @@ public interface AreaNodeBasicSql {
             + "b.crtUserCode, b.crtUserName, b.crtDate, b.mntUserCode, b.mntUserName, "
             + "b.mntDate,b.des,b.areaId,b.nodeLongitude,b.nodeLatitude,b.nodeTypeId"
             + ",b.dataStatus,b.nodeAltitude,b.nodeName,b.nodeAlias,c.nodeTypeName,"
-            + "d.technicName,a.sortNum,e.name,e.shortName,d.technicCode,org.orgCode,e.areaCode) "
+            + "d.technicName,a.sortNum,e.name,e.shortName,d.technicCode,org.orgCode,e.areaCode,b.nodeLevel,b.nodeModel) "
             + "from Equipment a,NodeDictionary b,NodeType c,EquTechnic d,AreaDictionary e,TPmOrg org where "
             + " a.nodeCode = b.nodeCode and b.nodeTypeId = c.nodeTypeId and a.technicId = d.technicId and b.areaId = e.areaDictionaryId and org.orgId=e.factoryId ";
+
     //料仓
 //	static final String Silo = "select new Silo(a.nodeId,a.nodeCode,a.siloTypeId,a.cubage,a.siloHgt,a.maxSiloHgt,a.minSiloHgt,a.maxSiloStoarge,a.minSiloStoarge,a.crtUserId,a.crtUserName,a.crtDate,a.mntUserId,a.mntUserName,a.mntDate,b.des,b.areaId,b.nodeLongitude,b.nodeLatitude,b.nodeTypeId,b.dataStatus,b.nodeAltitude,b.nodeName,b.nodeAlias,c.nodeTypeName,d.siloTypeName) from Silo a,NodeDictionary b,NodeType c,SiloType d,AreaDictionary e  where "
 //						     + " a.nodeCode = b.nodeCode and b.nodeTypeId = c.nodeTypeId and a.siloTypeId = d.siloTypeId and b.areaId = e.areaDictionaryId ";
@@ -205,7 +208,7 @@ public interface AreaNodeBasicSql {
     static final String plant = "select new PlantArea(a.plantId, a.plantCode, ad.areaTypeId, ad.name, ad.shortName," +
             "ad.factoryId, ad.crtUserCode, ad.crtUserName, ad.crtDate, ad.mntUserCode," +
             "ad.mntUserName, ad.mntDate, ad.sortNum, ad.des, ad.version, ad.enabled," +
-            "u.unitTyprName, t.technicName, a.capacity,a.initialAssetValue, a.netAssetValue, ar.areaTypeName,org.orgCode"
+            "u.unitTypeName, t.technicName, a.capacity,a.initialAssetValue, a.netAssetValue, ar.areaTypeName,org.orgCode"
             + ",org.orgName,org.orgAlias,u.unitTypeId,u.unitTypeCode,t.technicId,t.technicCode,ad.areaLatitude,ad.areaAltitude,ad.areaLongitude, a.capacityUnitId,"
             + "case when a.capacityUnitId is NULL then '' else (select capacityUnit.capacityUnitName from CapacityUnit capacityUnit where a.capacityUnitId = capacityUnit.capacityUnitId) end ) from "
             + "PlantArea a,AreaDictionary ad,Technic t,UnitType u, AreaType ar,TPmOrg org "
@@ -302,7 +305,7 @@ public interface AreaNodeBasicSql {
 
     static final String managementTankAreas = "select distinct new ManagementTankArea(mt.areaId, mt.areaCode, a.name, a.shortName, tt.tankAreaTypeId, tat.technicId, mt.sortNum, a.enabled, org.orgCode, org.orgName, org.orgAlias, tt.tankAreaTypeCode, tt.tankAreaTyprName,tat.technicCode, tat.technicName) from ManagementTankArea mt, AreaDictionary a, TankAreaType tt, TankAreaTechnic tat, TPmOrg org, TPmBizOrgDTL bizDtl,TPmBizOrgMain bizMain where bizMain.bizId = bizDtl.bizId and org.orgId=a.factoryId and org.orgId=bizDtl.orgId and mt.areaId = a.areaDictionaryId and mt.tankAreaTypeId = tt.tankAreaTypeId and mt.technicId = tat.technicId ";
 
-    static final String managementTank = "select new ManagementTank(tank.nodeId, tank.nodeCode, node.nodeName, node.nodeAlias, tankType.tankTypeCode, tankType.tankTypeName, tank.tankHgt, area.areaCode, area.name, area.shortName, tank.maxTankHgt, tank.minTankHgt, tank.maxTankStorage, tank.minTankStorage, tank.tankTotlCuba, tank.sortNum, tank.fltPlatWgt, tank.fltPlatPerhgt, tank.fltTipLst, tank.htPretTank, node.nodeLongitude, node.nodeLatitude, node.nodeAltitude, node.dataStatus) from ManagementTank tank, AreaDictionary area, TankArea tankArea, TankType tankType, NodeDictionary node, TPmOrg org, TPmBizOrgDTL bizDtl ,TPmBizOrgMain bizMain where bizMain.bizId = bizDtl.bizId and bizDtl.orgId = org.orgId and org.orgId = area.factoryId and area.areaDictionaryId = tankArea.tankAreaId and area.areaDictionaryId = node.areaId and tankType.tankTypeId = tank.tankTypeId and tank.nodeId = node.nodeId ";
+    static final String managementTank = "select new ManagementTank(tank.nodeId, tank.nodeCode, node.nodeName, node.nodeAlias, tankType.tankTypeCode, tankType.tankTypeName, tank.tankHgt, area.areaCode, area.name, area.shortName, tank.maxTankHgt, tank.minTankHgt, tank.maxTankStorage, tank.minTankStorage, tank.tankTotlCuba, tank.sortNum, tank.fltPlatWgt, tank.fltPlatPerhgt, tank.fltTipLst, tank.htPretTank, node.nodeLongitude, node.nodeLatitude, node.nodeAltitude, node.dataStatus,node.nodeLevel,node.nodeModel) from ManagementTank tank, AreaDictionary area, TankArea tankArea, TankType tankType, NodeDictionary node, TPmOrg org, TPmBizOrgDTL bizDtl ,TPmBizOrgMain bizMain where bizMain.bizId = bizDtl.bizId and bizDtl.orgId = org.orgId and org.orgId = area.factoryId and area.areaDictionaryId = tankArea.tankAreaId and area.areaDictionaryId = node.areaId and tankType.tankTypeId = tank.tankTypeId and tank.nodeId = node.nodeId ";
 
     //立罐浮前罐容
     static final String fltperCuab = "select new FltperCuab(f.dataId,f.nodeId,f.fltPerHgt,f.fltPerCuba,f.dispSeqNbr,t.nodeCode,f.crtUserCode,f.crtUserName,f.crtDate,f.mntUserCode,f.mntUserName,f.mntDate,f.des,f.inUse,f.sortNum) from FltperCuab f,Tank t,NodeDictionary n,AreaDictionary a,TPmOrg org where f.nodeId= t.nodeId and t.nodeId=n.nodeId and a.areaDictionaryId=n.areaId and a.factoryId=org.orgId  ";

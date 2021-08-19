@@ -62,10 +62,28 @@ public class Equipment implements Serializable {
 	private String technicCode;
 	
 	private String areaTypeCode;
-	
-	
-	
-	public Long getNodeId() {
+
+    private String nodeLevel;
+
+    private String nodeModel;
+
+    public String getNodeLevel() {
+        return nodeLevel;
+    }
+
+    public void setNodeLevel(String nodeLevel) {
+        this.nodeLevel = nodeLevel;
+    }
+
+    public String getNodeModel() {
+        return nodeModel;
+    }
+
+    public void setNodeModel(String nodeModel) {
+        this.nodeModel = nodeModel;
+    }
+
+    public Long getNodeId() {
 		return nodeId;
 	}
 

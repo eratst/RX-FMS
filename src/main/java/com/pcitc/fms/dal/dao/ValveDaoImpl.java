@@ -65,7 +65,7 @@ public class ValveDaoImpl {
 	public MyPageImpl getValves(com.pcitc.fms.service.model.Valve valveModel,
 			Pageable pageable) throws BusiException {
 		Map<String, Object> mapParameter = new HashMap<String, Object>();
-		String Valve = "select new Valve(a.nodeId,a.nodeCode,b.crtUserCode, b.crtUserName, b.crtDate, b.mntUserCode, b.mntUserName, b.mntDate,b.des,b.areaId,b.nodeLongitude,b.nodeLatitude,b.nodeTypeId,b.dataStatus,b.nodeAltitude,b.nodeName,b.nodeAlias,c.nodeTypeName,a.sortNum,d.areaCode,d.name,d.shortName) from Valve a,NodeDictionary b,NodeType c,AreaDictionary d,TPmOrg e  where "
+		String Valve = "select new Valve(a.nodeId,a.nodeCode,b.crtUserCode, b.crtUserName, b.crtDate, b.mntUserCode, b.mntUserName, b.mntDate,b.des,b.areaId,b.nodeLongitude,b.nodeLatitude,b.nodeTypeId,b.dataStatus,b.nodeAltitude,b.nodeName,b.nodeAlias,c.nodeTypeName,a.sortNum,d.areaCode,d.name,d.shortName,b.nodeLevel,b.nodeModel) from Valve a,NodeDictionary b,NodeType c,AreaDictionary d,TPmOrg e  where "
 				  + " a.nodeCode = b.nodeCode and b.nodeTypeId = c.nodeTypeId and b.areaId = d.areaDictionaryId and d.factoryId=e.orgId ";
 		StringBuilder dataSql = new StringBuilder();
 		dataSql.append(Valve);

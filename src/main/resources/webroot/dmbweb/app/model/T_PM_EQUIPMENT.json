@@ -119,15 +119,6 @@
 			"inOut": false,
 			"hide": true
 		},
-		"equMgrCode": {
-			"display": "设备管理码",
-			"type": "string",
-			"required": false,
-			"hide": false,
-			"inOut": true,
-			"class": "left",
-			"width": "80"
-		},
 		"technicId": {
 			"display": "设备工艺类型ID",
 			"type": "number",
@@ -151,6 +142,38 @@
 			"class": "left",
 			"width": "110",
 			"parent": "T_PM_EQUTECHNIC"
+		},
+		"nodeLevel": {
+			"display": "设备等级",
+			"type": "string",
+			"required": true,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "110",
+			"valueShowLevel": {
+				"A": "A关键设备",
+				"B": "B主要设备",
+				"C": "C一般设备"
+			}
+		},
+		"nodeModel": {
+			"display": "设备型号",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "110"
+		},
+		"equMgrCode": {
+			"display": "设备管理码",
+			"type": "string",
+			"required": false,
+			"hide": false,
+			"inOut": true,
+			"class": "left",
+			"width": "80"
 		},
 		"nodeLongitude": {
 			"display": "位置经度(°)",

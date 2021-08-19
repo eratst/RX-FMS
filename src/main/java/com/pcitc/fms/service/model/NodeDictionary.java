@@ -1,25 +1,16 @@
 package com.pcitc.fms.service.model;
 
-import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Id;
-
-import oracle.sql.DATE;
-
 import com.pcitc.fms.common.annotation.BuildLink;
 import com.pcitc.fms.common.annotation.CheckField;
 import com.pcitc.fms.common.annotation.CheckNameType;
-import com.pcitc.fms.common.annotation.RegionMember;
-
-import cc.aicode.e2e.annotation.ExcelEntity;
-import cc.aicode.e2e.annotation.ExcelProperty;
 import pcitc.imp.common.ettool.Annotaion.QueryContract;
 import pcitc.imp.common.ettool.Annotaion.ResourceContract;
 import pcitc.imp.common.ettool.Annotaion.ResourceMember;
 import pcitc.imp.common.ettool.baseresrep.BaseResRep;
+
+import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
 @ResourceContract(ReadOnly = false)
 @QueryContract(href = "", rel = "search", prompt = "列表查询")
@@ -39,10 +30,10 @@ public class NodeDictionary extends BaseResRep implements Serializable {
     private String nodeCode;
     // 节点名称
     @CheckField(CheckName = CheckNameType.NAME, StrLength = 50)
-    @ResourceMember(InQueries = "condition",  Name = "nodeName")
+    @ResourceMember(InQueries = "condition", Name = "nodeName")
     private String nodeName;
     // 节点简称
-    @ResourceMember(InQueries = "condition",  Name = "nodeAlias")
+    @ResourceMember(InQueries = "condition", Name = "nodeAlias")
     @CheckField(CheckName = CheckNameType.NAME, StrLength = 50)
     private String nodeAlias;
     // 区域ID
@@ -56,13 +47,13 @@ public class NodeDictionary extends BaseResRep implements Serializable {
     @ResourceMember(OnlyQuery = true)
     private Long nodeTypeId;
     // 状态
-    @ResourceMember(InQueries = "condition",  Name = "inUse")
+    @ResourceMember(InQueries = "condition", Name = "inUse")
     @CheckField(CheckName = CheckNameType.ENABLED, StrLength = 50)
     private Integer inUse;
     // 位置海拔
     private String nodeAltitude;
 
-    @ResourceMember(InQueries = "condition",  Name = "nodeTypeCode")
+    @ResourceMember(InQueries = "condition", Name = "nodeTypeCode")
     @CheckField(CheckName = CheckNameType.CODE, StrLength = 50)
     private String nodeTypeCode;
 
@@ -121,6 +112,26 @@ public class NodeDictionary extends BaseResRep implements Serializable {
     @ResourceMember(OnlyQuery = true)
     @CheckField(CheckName = CheckNameType.CODE)
     private String bizCode;
+
+    private String nodeLevel;
+
+    private String nodeModel;
+
+    public String getNodeLevel() {
+        return nodeLevel;
+    }
+
+    public void setNodeLevel(String nodeLevel) {
+        this.nodeLevel = nodeLevel;
+    }
+
+    public String getNodeModel() {
+        return nodeModel;
+    }
+
+    public void setNodeModel(String nodeModel) {
+        this.nodeModel = nodeModel;
+    }
 
     public Integer getSortNum() {
         return sortNum;

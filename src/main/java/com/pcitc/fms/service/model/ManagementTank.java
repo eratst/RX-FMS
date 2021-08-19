@@ -79,6 +79,10 @@ public class ManagementTank extends BaseResRep implements Serializable {
 
 	@ResourceMember(InTemplate = false, InQueries = "search,condition", OnlyQuery = true, Name = "$skip")
 	private Integer skip;
+
+    private String nodeLevel;
+
+    private String nodeModel;
 	
 	public ManagementTank() {
 		super();
@@ -95,7 +99,23 @@ public class ManagementTank extends BaseResRep implements Serializable {
 		this.inUse = inUse;
 	}
 
-	public String getNodeCode() {
+    public String getNodeLevel() {
+        return nodeLevel;
+    }
+
+    public void setNodeLevel(String nodeLevel) {
+        this.nodeLevel = nodeLevel;
+    }
+
+    public String getNodeModel() {
+        return nodeModel;
+    }
+
+    public void setNodeModel(String nodeModel) {
+        this.nodeModel = nodeModel;
+    }
+
+    public String getNodeCode() {
 		return nodeCode;
 	}
 

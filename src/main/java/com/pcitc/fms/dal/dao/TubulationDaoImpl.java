@@ -56,8 +56,11 @@ public class TubulationDaoImpl {
 	public MyPageImpl getTeesByModel(com.pcitc.fms.service.model.Tubulation tubulationModel,Pageable pageable) throws BusiException{
 		Map<String ,Object> mapParameter = new HashedMap();
 		
-		final String Tubulation = "select new Tubulation(a.nodeId,a.nodeCode,b.crtUserCode, b.crtUserName, b.crtDate, b.mntUserCode, b.mntUserName, b.mntDate,b.des,b.areaId,b.nodeLongitude,b.nodeLatitude,b.nodeTypeId,b.dataStatus,b.nodeAltitude,b.nodeName,b.nodeAlias,c.nodeTypeName,d.areaCode,d.name,d.shortName,a.sortNum) from Tubulation a,NodeDictionary b,NodeType c,AreaDictionary d,TPmOrg e   where "
-				   + " a.nodeCode = b.nodeCode and b.nodeTypeId = c.nodeTypeId and b.areaId = d.areaDictionaryId and e.orgId = d.factoryId ";
+		final String Tubulation = "select new Tubulation(a.nodeId,a.nodeCode,b.crtUserCode, b.crtUserName, b.crtDate, "
+                + "b.mntUserCode, b.mntUserName, b.mntDate,b.des,b.areaId,b.nodeLongitude,b.nodeLatitude,b.nodeTypeId,"
+                + "b.dataStatus,b.nodeAltitude,b.nodeName,b.nodeAlias,c.nodeTypeName,d.areaCode,d.name,d.shortName,a.sortNum,b.nodeLevel,b.nodeModel) " +
+                "from Tubulation a,NodeDictionary b,NodeType c,AreaDictionary d,TPmOrg e   "
+                + "where a.nodeCode = b.nodeCode and b.nodeTypeId = c.nodeTypeId and b.areaId = d.areaDictionaryId and e.orgId = d.factoryId ";
 		String tuba_count = "select count(1) from Tubulation a,NodeDictionary b,NodeType c,AreaDictionary d  ,TPmOrg e  where "
 				+ " a.nodeCode = b.nodeCode and b.nodeTypeId = c.nodeTypeId and b.areaId = d.areaDictionaryId and e.orgId = d.factoryId ";
 		StringBuilder dataSql = new StringBuilder();

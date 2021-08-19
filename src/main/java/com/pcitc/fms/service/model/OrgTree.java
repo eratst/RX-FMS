@@ -30,7 +30,27 @@ public class OrgTree extends BaseResRep implements Serializable{
 
 	private String upperOrgAlias;
 
-	public Long getOrgId() {
+    private Integer inUse;
+
+    private String des;
+
+    public Integer getInUse() {
+        return inUse;
+    }
+
+    public void setInUse(Integer inUse) {
+        this.inUse = inUse;
+    }
+
+    public String getDes() {
+        return des;
+    }
+
+    public void setDes(String des) {
+        this.des = des;
+    }
+
+    public Long getOrgId() {
 		return orgId;
 	}
 

@@ -17,7 +17,7 @@
 							</div>
 							<!--名称及数据-->
 							<div class="col-xs-6">
-								<div ng-if="!value.parentType&&value.type!='number'&&value.type!='boolean'&&!value.valueShowCh&&!value.valueShowLine&&!value.valueShowChLoad&&!value.valueShowSt&&!value.valueShowSex&&!value.valueShowTank&&!value.valueShowData&&value.display!='组织机构'&&value.display!='计算方法'&&value.parTree!=true&&value.chilTree!=true&&value.unitAll!=true&&value.display!='用户所属机构'&&value.orgTree!=true&&value.display!='公式'&&value.display!='是否自定义公式'&&value.display!='描述'&&value.display!='起效时间'&&value.display!='出生日期'">
+								<div ng-if="!value.parentType&&value.type!='number'&&value.type!='boolean'&&!value.valueShowCh&&!value.valueShowLine&&!value.valueShowChLoad&&!value.valueShowSt&&!value.valueShowSex&&!value.valueShowTank&&!value.valueShowData&&!value.valueShowLevel&&value.display!='组织机构'&&value.display!='计算方法'&&value.parTree!=true&&value.chilTree!=true&&value.unitAll!=true&&value.display!='用户所属机构'&&value.orgTree!=true&&value.display!='公式'&&value.display!='是否自定义公式'&&value.display!='描述'&&value.display!='起效时间'&&value.display!='出生日期'">
 									<input type="text" class="form-control" ng-model="value.proUpdate.data" ng-disabled="value.proUpdate.edit==false">
 								</div>
 								<div ng-if="value.display=='起效时间'||value.display=='出生日期'">
@@ -260,6 +260,28 @@
 										</ul>
 									</div>
 								</div>
+								<!--设备的设备等级-->
+								<div ng-if="value.valueShowLevel" class="input-group">
+									<input type="text" class="form-control" ng-disabled="true" value="A关键设备" ng-if="value.proUpdate.data=='A'">
+									<input type="text" class="form-control" ng-disabled="true" value="B主要设备" ng-if="value.proUpdate.data==='B'">
+									<input type="text" class="form-control" ng-disabled="true" value="C一般设备" ng-if="value.proUpdate.data==='C'">
+									<input type="text" class="form-control" ng-disabled="true" ng-model="value.proUpdate.data" ng-if="value.proUpdate.data!='A'&&value.proUpdate.data!=='B'&&value.proUpdate.data!=='C'">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" style="padding: 2px 10px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+										<ul class="dropdown-menu dropdown-menu-right menu-overflow">
+											<li>
+												<a ng-click="value.proUpdate.data='A'">A关键设备</a>
+											</li>
+											<li>
+												<a ng-click="value.proUpdate.data='B'">B主要设备</a>
+											</li>
+											<li>
+												<a ng-click="value.proUpdate.data='C'">C一般设备</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								
 								<!--<div ng-if="(value.display=='组织机构'&&value.parTree!=true&&value.chilTree!=true)||value.display=='用户所属机构'" class="input-group">
 									<input type="text" class="form-control" ng-model="value.proUpdate.data" ng-disabled="value.treeIsUpdate">
 									<div class="input-group-btn">

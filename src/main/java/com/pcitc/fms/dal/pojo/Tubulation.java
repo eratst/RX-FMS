@@ -1,280 +1,349 @@
 package com.pcitc.fms.dal.pojo;
 
-import java.io.Serializable;
-import java.util.Date;
+import com.pcitc.fms.common.annotation.SpecialResource;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SecondaryTable;
-import javax.persistence.SecondaryTables;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-
-import com.pcitc.fms.common.annotation.RegionMember;
-import com.pcitc.fms.common.annotation.SpecialResource;
+import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Table(name = "T_PM_TUBULATION")
 @SequenceGenerator(name = "mseq", sequenceName = "SEQ_TUBULATION", allocationSize = 1)
 public class Tubulation implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	// 节点id
-	@Id
-	@Column(name = "NODE_ID")
-	@SpecialResource(name="a.nodeId")
-	private Long nodeId;
-	// 节点编码
-	@Column(name = "NODE_CODE")
-	@SpecialResource(name="a.nodeCode")
-	private String nodeCode;
-	
-	@Transient
-	private String crtUserCode; // 创建人ID
+    private static final long serialVersionUID = 1L;
+    // 节点id
+    @Id
+    @Column(name = "NODE_ID")
+    @SpecialResource(name = "a.nodeId")
+    private Long nodeId;
+    // 节点编码
+    @Column(name = "NODE_CODE")
+    @SpecialResource(name = "a.nodeCode")
+    private String nodeCode;
 
-	@Transient
-	private String crtUserName;// 创建人名称
+    @Transient
+    private String crtUserCode; // 创建人ID
 
-	@Transient
-	private Date crtDate;// 创建时间
+    @Transient
+    private String crtUserName;// 创建人名称
 
-	@Transient
-	private String mntUserCode;// 最后维护人ID
+    @Transient
+    private Date crtDate;// 创建时间
 
-	@Transient
-	private String mntUserName;// 最后维护人名称
+    @Transient
+    private String mntUserCode;// 最后维护人ID
 
-	@Transient
-	private Date mntDate;//维护时间
-	
-   //物料ID
-	@Column(name = "MTRL_ID")
-	private Long mtrlId;
+    @Transient
+    private String mntUserName;// 最后维护人名称
 
-	// 描述
-	@Transient
-	private String des;
-	// 区域ID
-	@Transient
-	@SpecialResource(name="b.areaId")
-	private Long areaId;
-	// 位置经度
-	@Transient
-	@SpecialResource(name="b.nodeLongitude")
-	private String nodeLongitude;
-	// 位置纬度
-	@Transient
-	@SpecialResource(name="b.nodeLatitude")
-	private String nodeLatitude;
-	// 节点类型 含： 1侧线;2罐;3料仓;4库位;5进出厂点;6采样点;7排放口;8设备;9管段;10阀门;11盲板;12三通;
-	@Transient
-	@SpecialResource(name="b.nodeTypeId")
-	private Long nodeTypeId;
-	// 状态
-	@Transient
-	@SpecialResource(name="b.dataStatus")
-	private Integer inUse;
-	// 位置海拔
-	@Transient
-	@SpecialResource(name="b.nodeAltitude")
-	private String nodeAltitude;
-	// 节点名称
-	@Transient
-	@SpecialResource(name="b.nodeName")
-	private String nodeName;
-	// 节点简称
-	@Transient
-	@SpecialResource(name="b.nodeAlias")
-	private String nodeAlias;
-	// 节点类型（用于显示）
-	@Transient
-	@SpecialResource(name="c.nodeTypeName")
-	private String nodeTypeName;
-	// 区域编码（用于查询）
-	@Transient
-	@SpecialResource(name="d.areaCode")
-	private String areaCode;
-	@Transient
-	@SpecialResource(name="d.name")
-	private String areaName;
-	@Transient
-	@SpecialResource(name="d.shortName")
-	private String areaAlias;
-	@Column(name = "SORT_NUM")
-	private Integer sortNum;
-	public Tubulation() {
-		// TODO Auto-generated constructor stub
-	}
-	public Tubulation(Long nodeId, String nodeCode, String crtUserCode,
-			String crtUserName, Date crtDate, String mntUserCode,
-			String mntUserName, Date mntDate, String des, Long areaId,
-			String nodeLongitude, String nodeLatitude, Long nodeTypeId,
-			Integer inUse, String nodeAltitude, String nodeName,
-			String nodeAlias, String nodeTypeName,String areaCode,String areaName,String areaAlias,Integer sortNum) {
-		super();
-		this.nodeId = nodeId;
-		this.nodeCode = nodeCode;
-		this.crtUserCode = crtUserCode;
-		this.crtUserName = crtUserName;
-		this.crtDate = crtDate;
-		this.mntUserCode = mntUserCode;
-		this.mntUserName = mntUserName;
-		this.mntDate = mntDate;
-		this.des = des;
-		this.areaId = areaId;
-		this.nodeLongitude = nodeLongitude;
-		this.nodeLatitude = nodeLatitude;
-		this.nodeTypeId = nodeTypeId;
-		this.inUse = inUse;
-		this.nodeAltitude = nodeAltitude;
-		this.nodeName = nodeName;
-		this.nodeAlias = nodeAlias;
-		this.nodeTypeName = nodeTypeName;
-		this.areaCode = areaCode;
-		this.areaName = areaName;
-		this.areaAlias = areaAlias;
-	}
+    @Transient
+    private Date mntDate;//维护时间
 
-	
-	public String getAreaName() {
-		return areaName;
-	}
+    //物料ID
+    @Column(name = "MTRL_ID")
+    private Long mtrlId;
 
-	public void setAreaName(String areaName) {
-		this.areaName = areaName;
-	}
+    // 描述
+    @Transient
+    private String des;
+    // 区域ID
+    @Transient
+    @SpecialResource(name = "b.areaId")
+    private Long areaId;
+    // 位置经度
+    @Transient
+    @SpecialResource(name = "b.nodeLongitude")
+    private String nodeLongitude;
+    // 位置纬度
+    @Transient
+    @SpecialResource(name = "b.nodeLatitude")
+    private String nodeLatitude;
+    // 节点类型 含： 1侧线;2罐;3料仓;4库位;5进出厂点;6采样点;7排放口;8设备;9管段;10阀门;11盲板;12三通;
+    @Transient
+    @SpecialResource(name = "b.nodeTypeId")
+    private Long nodeTypeId;
+    // 状态
+    @Transient
+    @SpecialResource(name = "b.dataStatus")
+    private Integer inUse;
+    // 位置海拔
+    @Transient
+    @SpecialResource(name = "b.nodeAltitude")
+    private String nodeAltitude;
+    // 节点名称
+    @Transient
+    @SpecialResource(name = "b.nodeName")
+    private String nodeName;
+    // 节点简称
+    @Transient
+    @SpecialResource(name = "b.nodeAlias")
+    private String nodeAlias;
+    // 节点类型（用于显示）
+    @Transient
+    @SpecialResource(name = "c.nodeTypeName")
+    private String nodeTypeName;
+    // 区域编码（用于查询）
+    @Transient
+    @SpecialResource(name = "d.areaCode")
+    private String areaCode;
+    @Transient
+    @SpecialResource(name = "d.name")
+    private String areaName;
+    @Transient
+    @SpecialResource(name = "d.shortName")
+    private String areaAlias;
+    @Column(name = "SORT_NUM")
+    private Integer sortNum;
 
-	public String getAreaAlias() {
-		return areaAlias;
-	}
+    @Transient
+    private String nodeLevel;
 
-	public void setAreaAlias(String areaAlias) {
-		this.areaAlias = areaAlias;
-	}
+    @Transient
+    private String nodeModel;
 
-	public Integer getSortNum() {
-		return sortNum;
-	}
+    public Tubulation() {
+        // TODO Auto-generated constructor stub
+    }
 
-	public void setSortNum(Integer sortNum) {
-		this.sortNum = sortNum;
-	}
+    public Tubulation(Long nodeId, String nodeCode, String crtUserCode,
+                      String crtUserName, Date crtDate, String mntUserCode,
+                      String mntUserName, Date mntDate, String des, Long areaId,
+                      String nodeLongitude, String nodeLatitude, Long nodeTypeId,
+                      Integer inUse, String nodeAltitude, String nodeName,
+                      String nodeAlias, String nodeTypeName, String areaCode, String areaName,
+                      String areaAlias, Integer sortNum, String nodeLevel, String nodeModel) {
+        super();
+        this.nodeId = nodeId;
+        this.nodeCode = nodeCode;
+        this.crtUserCode = crtUserCode;
+        this.crtUserName = crtUserName;
+        this.crtDate = crtDate;
+        this.mntUserCode = mntUserCode;
+        this.mntUserName = mntUserName;
+        this.mntDate = mntDate;
+        this.des = des;
+        this.areaId = areaId;
+        this.nodeLongitude = nodeLongitude;
+        this.nodeLatitude = nodeLatitude;
+        this.nodeTypeId = nodeTypeId;
+        this.inUse = inUse;
+        this.nodeAltitude = nodeAltitude;
+        this.nodeName = nodeName;
+        this.nodeAlias = nodeAlias;
+        this.nodeTypeName = nodeTypeName;
+        this.areaCode = areaCode;
+        this.areaName = areaName;
+        this.areaAlias = areaAlias;
+        this.sortNum = sortNum;
+        this.nodeLevel = nodeLevel;
+        this.nodeModel = nodeModel;
+    }
 
-	public String getAreaCode() {
-		return areaCode;
-	}
+    public Long getNodeId() {
+        return nodeId;
+    }
 
-	public void setAreaCode(String areaCode) {
-		this.areaCode = areaCode;
-	}
+    public void setNodeId(Long nodeId) {
+        this.nodeId = nodeId;
+    }
 
-	public String getNodeTypeName() {
-		return nodeTypeName;
-	}
+    public String getCrtUserCode() {
+        return crtUserCode;
+    }
 
-	public void setNodeTypeName(String nodeTypeName) {
-		this.nodeTypeName = nodeTypeName;
-	}
+    public void setCrtUserCode(String crtUserCode) {
+        this.crtUserCode = crtUserCode;
+    }
 
-	public String getNodeLongitude() {
-		return nodeLongitude;
-	}
+    public String getMntUserCode() {
+        return mntUserCode;
+    }
 
-	public void setNodeLongitude(String nodeLongitude) {
-		this.nodeLongitude = nodeLongitude;
-	}
+    public void setMntUserCode(String mntUserCode) {
+        this.mntUserCode = mntUserCode;
+    }
 
-	public String getNodeLatitude() {
-		return nodeLatitude;
-	}
+    public Long getMtrlId() {
+        return mtrlId;
+    }
 
-	public void setNodeLatitude(String nodeLatitude) {
-		this.nodeLatitude = nodeLatitude;
-	}
+    public void setMtrlId(Long mtrlId) {
+        this.mtrlId = mtrlId;
+    }
+
+    public Long getAreaId() {
+        return areaId;
+    }
+
+    public void setAreaId(Long areaId) {
+        this.areaId = areaId;
+    }
+
+    public Long getNodeTypeId() {
+        return nodeTypeId;
+    }
+
+    public void setNodeTypeId(Long nodeTypeId) {
+        this.nodeTypeId = nodeTypeId;
+    }
+
+    public String getNodeLevel() {
+        return nodeLevel;
+    }
+
+    public void setNodeLevel(String nodeLevel) {
+        this.nodeLevel = nodeLevel;
+    }
+
+    public String getNodeModel() {
+        return nodeModel;
+    }
+
+    public void setNodeModel(String nodeModel) {
+        this.nodeModel = nodeModel;
+    }
+
+    public String getAreaName() {
+        return areaName;
+    }
+
+    public void setAreaName(String areaName) {
+        this.areaName = areaName;
+    }
+
+    public String getAreaAlias() {
+        return areaAlias;
+    }
+
+    public void setAreaAlias(String areaAlias) {
+        this.areaAlias = areaAlias;
+    }
+
+    public Integer getSortNum() {
+        return sortNum;
+    }
+
+    public void setSortNum(Integer sortNum) {
+        this.sortNum = sortNum;
+    }
+
+    public String getAreaCode() {
+        return areaCode;
+    }
+
+    public void setAreaCode(String areaCode) {
+        this.areaCode = areaCode;
+    }
+
+    public String getNodeTypeName() {
+        return nodeTypeName;
+    }
+
+    public void setNodeTypeName(String nodeTypeName) {
+        this.nodeTypeName = nodeTypeName;
+    }
+
+    public String getNodeLongitude() {
+        return nodeLongitude;
+    }
+
+    public void setNodeLongitude(String nodeLongitude) {
+        this.nodeLongitude = nodeLongitude;
+    }
+
+    public String getNodeLatitude() {
+        return nodeLatitude;
+    }
+
+    public void setNodeLatitude(String nodeLatitude) {
+        this.nodeLatitude = nodeLatitude;
+    }
 
 
-	public Integer getInUse() {
-		return inUse;
-	}
+    public Integer getInUse() {
+        return inUse;
+    }
 
-	public void setInUse(Integer inUse) {
-		this.inUse = inUse;
-	}
+    public void setInUse(Integer inUse) {
+        this.inUse = inUse;
+    }
 
-	public String getNodeAltitude() {
-		return nodeAltitude;
-	}
+    public String getNodeAltitude() {
+        return nodeAltitude;
+    }
 
-	public void setNodeAltitude(String nodeAltitude) {
-		this.nodeAltitude = nodeAltitude;
-	}
+    public void setNodeAltitude(String nodeAltitude) {
+        this.nodeAltitude = nodeAltitude;
+    }
 
-	public String getNodeName() {
-		return nodeName;
-	}
+    public String getNodeName() {
+        return nodeName;
+    }
 
-	public void setNodeName(String nodeName) {
-		this.nodeName = nodeName;
-	}
+    public void setNodeName(String nodeName) {
+        this.nodeName = nodeName;
+    }
 
-	public String getNodeAlias() {
-		return nodeAlias;
-	}
+    public String getNodeAlias() {
+        return nodeAlias;
+    }
 
-	public void setNodeAlias(String nodeAlias) {
-		this.nodeAlias = nodeAlias;
-	}
+    public void setNodeAlias(String nodeAlias) {
+        this.nodeAlias = nodeAlias;
+    }
 
-	public String getNodeCode() {
-		return nodeCode;
-	}
+    public String getNodeCode() {
+        return nodeCode;
+    }
 
-	public void setNodeCode(String nodeCode) {
-		this.nodeCode = nodeCode;
-	}
+    public void setNodeCode(String nodeCode) {
+        this.nodeCode = nodeCode;
+    }
 
-	public String getCrtUserName() {
-		return crtUserName;
-	}
+    public String getCrtUserName() {
+        return crtUserName;
+    }
 
-	public void setCrtUserName(String crtUserName) {
-		this.crtUserName = crtUserName;
-	}
+    public void setCrtUserName(String crtUserName) {
+        this.crtUserName = crtUserName;
+    }
 
-	public Date getCrtDate() {
-		return crtDate;
-	}
+    public Date getCrtDate() {
+        return crtDate;
+    }
 
-	public void setCrtDate(Date crtDate) {
-		this.crtDate = crtDate;
-	}
+    public void setCrtDate(Date crtDate) {
+        this.crtDate = crtDate;
+    }
 
-	public String getMntUserName() {
-		return mntUserName;
-	}
+    public String getMntUserName() {
+        return mntUserName;
+    }
 
-	public void setMntUserName(String mntUserName) {
-		this.mntUserName = mntUserName;
-	}
+    public void setMntUserName(String mntUserName) {
+        this.mntUserName = mntUserName;
+    }
 
-	public Date getMntDate() {
-		return mntDate;
-	}
+    public Date getMntDate() {
+        return mntDate;
+    }
 
-	public void setMntDate(Date mntDate) {
-		this.mntDate = mntDate;
-	}
+    public void setMntDate(Date mntDate) {
+        this.mntDate = mntDate;
+    }
 
-	public String getDes() {
-		return des;
-	}
+    public String getDes() {
+        return des;
+    }
 
-	public void setDes(String des) {
-		this.des = des;
-	}
+    public void setDes(String des) {
+        this.des = des;
+    }
 
 }

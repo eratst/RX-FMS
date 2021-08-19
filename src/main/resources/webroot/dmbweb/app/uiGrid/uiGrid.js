@@ -943,16 +943,14 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 
 			function deleteData(i) {
 				var tableType = $scope.main.vMember.sapc.tableType
-				var singleCodeUrl = '/' + $scope.gridApi.selection.getSelectedRows()[i][tableType.alterKey]
-				var singleBizUrl = '/' + $scope.gridApi.selection.getSelectedRows()[i][
-					tableType.nodeA
-				]
+				var singleCodeUrl = '/' + encodeURIComponent($scope.gridApi.selection.getSelectedRows()[i][tableType.alterKey])
+				var singleBizUrl = '/' + encodeURIComponent($scope.gridApi.selection.getSelectedRows()[i][
+					tableType.nodeA])
 				var doubleCodeUrl = '/' + tableType.nodeA + '/' + $scope.gridApi.selection.getSelectedRows()[i][
 					tableType.nodeA
 				] + '/' + tableType.nodeB + '/' + $scope.gridApi.selection.getSelectedRows()[i][tableType.nodeB]
 				var tripleCodeUrl = '?' + tableType.nodeA + '=' + $scope.gridApi.selection.getSelectedRows()[i][
-					tableType.nodeA
-				] + '&' + tableType.nodeB + '=' + $scope.gridApi.selection.getSelectedRows()[i][tableType.nodeB]
+					tableType.nodeA] + '&' + tableType.nodeB + '=' + $scope.gridApi.selection.getSelectedRows()[i][tableType.nodeB]
 				var bizUrl = '/bizs/' + $scope.gridApi.selection.getSelectedRows()[i][tableType.nodeC]
 				var upUrl
 				if(tableType.jsonObj.hasOwnProperty("bizType")) {
@@ -1108,11 +1106,11 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				}
 				var json = viewGridProvider.getHttpData('proUpdate', $scope.main.vMember.sapc.tableType);
 				console.info("修改所用restful-->", JSON.stringify(json));
-				var singleCodeUrl = '/' + $scope.alterValue
+				var singleCodeUrl = '/' + encodeURIComponent($scope.alterValue)
 				var doubleCodeUrl = '/' + tableType.nodeA + '/' + $scope.nodeA + '/' + tableType.nodeB + '/' +
 					$scope.nodeB
-				var tripleCodeUrl = '?' + tableType.nodeA + '=' + $scope.nodeA + '&' + tableType.nodeB + '=' +
-					$scope.nodeB
+				var tripleCodeUrl = '?' + tableType.nodeA + '=' + encodeURIComponent($scope.nodeA) + '&' + tableType.nodeB + '=' +
+					encodeURIComponent($scope.nodeB)
 				var bizUrl = '/bizs/' + $scope.nodeC
 				var alterUrl
 
@@ -1598,8 +1596,8 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 							i][alterKey]
 						repeatUrl = $scope.measIndex == 1 ? reapeatStr + '?ofMeasindexType=1' : $scope.measIndex == 2 ? reapeatStr + '?ofMeasindexType=2' : reapeatStr + '?ofMeasindexType=3';
 					} else {
-						repeatUrl = viewGridProvider.httpPort() + jsonObj.url + '/' + $scope.mTable.tableValue[
-							i][alterKey];
+						repeatUrl = viewGridProvider.httpPort() + jsonObj.url + '/' + encodeURIComponent($scope.mTable.tableValue[
+							i][alterKey]);
 					}
 					console.log('repeatUrl', repeatUrl)
 					if(jsonObj.type == "Dict" || jsonObj.type == "Msr") {
@@ -1652,7 +1650,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 						} else if(tableType.jsonObj.key == "T_SYSTEM_MESSAGECONFIG") {
 							putUrl = jsonObj.url + '?' + tableType.nodeA + '=' + nodeAValve + '&' + tableType.nodeB + '=' + nodeBValve
 						} else {
-							putUrl = jsonObj.url + '/' + alterValue;
+							putUrl = jsonObj.url + '/' + encodeURIComponent(alterValue);
 						}
 						importPutData(index, importJson, putUrl)
 					} else {

@@ -56,7 +56,27 @@ public class ManagementTank implements Serializable {
 	
 	private Integer inUse;
 
-	public Integer getNodeId() {
+    private String nodeLevel;
+
+    private String nodeModel;
+
+    public String getNodeLevel() {
+        return nodeLevel;
+    }
+
+    public void setNodeLevel(String nodeLevel) {
+        this.nodeLevel = nodeLevel;
+    }
+
+    public String getNodeModel() {
+        return nodeModel;
+    }
+
+    public void setNodeModel(String nodeModel) {
+        this.nodeModel = nodeModel;
+    }
+
+    public Integer getNodeId() {
 		return nodeId;
 	}
 
