@@ -39,7 +39,7 @@ public class UnitArea extends BaseResRep implements Serializable {
     @CheckField(CheckName = CheckNameType.CODE, StrLength = 50, Explain = "组织机构编码")
     private String orgCode;
 
-    @ResourceMember(InQueries = "condition", Name = "orgName")
+    //@ResourceMember(InQueries = "condition", Name = "orgName")
     private String orgName;
     /**
      * 组织机构简称

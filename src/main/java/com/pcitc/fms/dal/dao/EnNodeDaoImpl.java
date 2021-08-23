@@ -98,9 +98,9 @@ public class EnNodeDaoImpl {
             parameterMap.put("netName", "%" + EnNodeModel.getNetName() + "%");
         }
         if (null != EnNodeModel.getBizCode() && !StringUtils.isEmpty(EnNodeModel.getBizCode())) {
-            countSql.append(" and biz.bizCode like :bizCode");
-            dataSql.append(" and biz.bizCode like :bizCode");
-            parameterMap.put("bizCode", "%" + EnNodeModel.getBizCode() + "%");
+            countSql.append(" and biz.bizCode = :bizCode");
+            dataSql.append(" and biz.bizCode = :bizCode");
+            parameterMap.put("bizCode", EnNodeModel.getBizCode());
         }
         if (EnNodeModel.getDataStatus() != null) {
             countSql.append(" and enNode.dataStatus = :dataStatus");

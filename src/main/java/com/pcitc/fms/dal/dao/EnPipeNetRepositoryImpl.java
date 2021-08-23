@@ -1,6 +1,5 @@
 package com.pcitc.fms.dal.dao;
 
-import com.pcitc.fms.common.CacheRentInfo;
 import com.pcitc.fms.config.AreaNodeBasicSql;
 import com.pcitc.fms.dal.pojo.EnPipeNet;
 import org.apache.commons.lang3.StringUtils;
@@ -12,10 +11,9 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+
 @Service
 public class EnPipeNetRepositoryImpl {
 
@@ -41,9 +39,9 @@ public class EnPipeNetRepositoryImpl {
         }
 
         if (null != EnPipeNetModel.getBizCode() && !StringUtils.isEmpty(EnPipeNetModel.getBizCode())) {
-            countSql.append(" and biz.bizCode like :bizCode");
-            dataSql.append(" and biz.bizCode like :bizCode");
-            parameterMap.put("bizCode", "%" + EnPipeNetModel.getBizCode() + "%");
+            countSql.append(" and biz.bizCode = :bizCode");
+            dataSql.append(" and biz.bizCode = :bizCode");
+            parameterMap.put("bizCode", EnPipeNetModel.getBizCode());
         }
 
         if (null != EnPipeNetModel.getMtrlCode() && !StringUtils.isEmpty(EnPipeNetModel.getMtrlCode())) {

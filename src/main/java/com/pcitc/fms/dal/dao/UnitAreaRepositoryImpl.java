@@ -43,9 +43,9 @@ public class UnitAreaRepositoryImpl {
         }
 
         if (null != UnitAreaModel.getBizCode() && !StringUtils.isEmpty(UnitAreaModel.getBizCode())) {
-            countSql.append(" and biz.bizCode like :bizCode");
-            dataSql.append(" and biz.bizCode like :bizCode");
-            parameterMap.put("bizCode", "%" + UnitAreaModel.getBizCode() + "%");
+            countSql.append(" and biz.bizCode = :bizCode");
+            dataSql.append(" and biz.bizCode = :bizCode");
+            parameterMap.put("bizCode", UnitAreaModel.getBizCode());
         }
 
         if (null != UnitAreaModel.getOrgCode() && !StringUtils.isEmpty(UnitAreaModel.getOrgCode())) {

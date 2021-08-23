@@ -34,9 +34,9 @@ public class EnNodeTypeDaoImpl {
         Map<String, Object> parameterMap = new HashMap<>();
 
         if (null != EnNodeTypeModel.getBizCode() && !StringUtils.isEmpty(EnNodeTypeModel.getBizCode())) {
-            countSql.append(" and biz.bizCode like :bizCode");
-            dataSql.append(" and biz.bizCode like :bizCode");
-            parameterMap.put("bizCode", "%" + EnNodeTypeModel.getBizCode() + "%");
+            countSql.append(" and biz.bizCode = :bizCode");
+            dataSql.append(" and biz.bizCode = :bizCode");
+            parameterMap.put("bizCode", EnNodeTypeModel.getBizCode());
         }
 
         if (null != EnNodeTypeModel.getEnNodeTypeCode() && !StringUtils.isEmpty(EnNodeTypeModel.getEnNodeTypeCode())) {

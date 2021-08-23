@@ -85,9 +85,9 @@ public class UnitAreaRelDaoImpl {
         }
 
         if (null != UnitAreaRelModel.getBizCode() && !StringUtils.isEmpty(UnitAreaRelModel.getBizCode())) {
-            countSql.append(" and biz.bizCode like :bizCode");
-            dataSql.append(" and biz.bizCode like :bizCode");
-            parameterMap.put("bizCode", "%" + UnitAreaRelModel.getBizCode() + "%");
+            countSql.append(" and biz.bizCode = :bizCode");
+            dataSql.append(" and biz.bizCode = :bizCode");
+            parameterMap.put("bizCode", UnitAreaRelModel.getBizCode());
         }
 
         if (UnitAreaRelModel.getDataStatus() != null) {

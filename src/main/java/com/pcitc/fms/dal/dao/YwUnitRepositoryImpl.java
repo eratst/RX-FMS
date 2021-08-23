@@ -40,9 +40,9 @@ public class YwUnitRepositoryImpl {
         }
 
         if (null != YwUnitModel.getBizCode() && !StringUtils.isEmpty(YwUnitModel.getBizCode())) {
-            countSql.append(" and biz.bizCode like :bizCode");
-            dataSql.append(" and biz.bizCode like :bizCode");
-            parameterMap.put("bizCode", "%" + YwUnitModel.getBizCode() + "%");
+            countSql.append(" and biz.bizCode = :bizCode");
+            dataSql.append(" and biz.bizCode = :bizCode");
+            parameterMap.put("bizCode", YwUnitModel.getBizCode());
         }
 
         if (null != YwUnitModel.getOrgName() && !StringUtils.isEmpty(YwUnitModel.getOrgName())) {
