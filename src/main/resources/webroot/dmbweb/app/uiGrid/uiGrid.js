@@ -943,15 +943,15 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 
 			function deleteData(i) {
 				var tableType = $scope.main.vMember.sapc.tableType
-				var singleCodeUrl = '/' + encodeURIComponent($scope.gridApi.selection.getSelectedRows()[i][tableType.alterKey])
-				var singleBizUrl = '/' + encodeURIComponent($scope.gridApi.selection.getSelectedRows()[i][
-					tableType.nodeA])
-				var doubleCodeUrl = '/' + tableType.nodeA + '/' + $scope.gridApi.selection.getSelectedRows()[i][
-					tableType.nodeA
-				] + '/' + tableType.nodeB + '/' + $scope.gridApi.selection.getSelectedRows()[i][tableType.nodeB]
-				var tripleCodeUrl = '?' + tableType.nodeA + '=' + $scope.gridApi.selection.getSelectedRows()[i][
-					tableType.nodeA] + '&' + tableType.nodeB + '=' + $scope.gridApi.selection.getSelectedRows()[i][tableType.nodeB]
-				var bizUrl = '/bizs/' + $scope.gridApi.selection.getSelectedRows()[i][tableType.nodeC]
+				var alterKeyDel = encodeURIComponent($scope.gridApi.selection.getSelectedRows()[i][tableType.alterKey])
+				var nodeADel = encodeURIComponent($scope.gridApi.selection.getSelectedRows()[i][tableType.nodeA])
+				var nodeBDel = encodeURIComponent($scope.gridApi.selection.getSelectedRows()[i][tableType.nodeB])
+				var nodeCDel = encodeURIComponent($scope.gridApi.selection.getSelectedRows()[i][tableType.nodeC])
+				var singleCodeUrl = '/' + alterKeyDel
+				var singleBizUrl = '/' + nodeADel
+				var doubleCodeUrl = '/' + tableType.nodeA + '/' + nodeADel + '/' + tableType.nodeB + '/' + nodeBDel
+				var tripleCodeUrl = '?' + tableType.nodeA + '=' + nodeADel + '&' + tableType.nodeB + '=' + nodeBDel
+				var bizUrl = '/bizs/' + nodeCDel
 				var upUrl
 				if(tableType.jsonObj.hasOwnProperty("bizType")) {
 					if(tableType.jsonObj.key == "T_PM_UNITAREAREL") {
@@ -1014,10 +1014,10 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				var nodeA = tableType.nodeA;
 				var nodeB = tableType.nodeB;
 				var nodeC = tableType.nodeC;
-				$scope.alterValue = row.entity[alterKey]
-				$scope.nodeA = row.entity[nodeA]
-				$scope.nodeB = row.entity[nodeB]
-				$scope.nodeC = row.entity[nodeC]
+				$scope.alterValue = encodeURIComponent(row.entity[alterKey])
+				$scope.nodeA = encodeURIComponent(row.entity[nodeA])
+				$scope.nodeB = encodeURIComponent(row.entity[nodeB])
+				$scope.nodeC = encodeURIComponent(row.entity[nodeC])
 							console.log("当前行数据", row);
 				for(let key in row.entity) {
 					if(key == 'startTime' || key == 'birthday') {
@@ -1106,11 +1106,11 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 				}
 				var json = viewGridProvider.getHttpData('proUpdate', $scope.main.vMember.sapc.tableType);
 				console.info("修改所用restful-->", JSON.stringify(json));
-				var singleCodeUrl = '/' + encodeURIComponent($scope.alterValue)
+				var singleCodeUrl = '/' + $scope.alterValue
 				var doubleCodeUrl = '/' + tableType.nodeA + '/' + $scope.nodeA + '/' + tableType.nodeB + '/' +
 					$scope.nodeB
-				var tripleCodeUrl = '?' + tableType.nodeA + '=' + encodeURIComponent($scope.nodeA) + '&' + tableType.nodeB + '=' +
-					encodeURIComponent($scope.nodeB)
+				var tripleCodeUrl = '?' + tableType.nodeA + '=' + $scope.nodeA + '&' + tableType.nodeB + '=' +
+					$scope.nodeB
 				var bizUrl = '/bizs/' + $scope.nodeC
 				var alterUrl
 
@@ -1568,22 +1568,22 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 
 					//导入先查数据，数据库有数据走修改接口，无走新增
 					if(jsonObj.key == 'T_PM_ASSOCIATIVE' || jsonObj.key == "T_SYSTEM_MESSAGECONFIG") {
-						repeatUrl = viewGridProvider.httpPort() + jsonObj.url + '/' + $scope.mTable.tableValue[
-							i][nodeA] + '/' + $scope.mTable.tableValue[i][nodeB];
+						repeatUrl = viewGridProvider.httpPort() + jsonObj.url + '/' + encodeURIComponent($scope.mTable.tableValue[
+							i][nodeA]) + '/' + encodeURIComponent($scope.mTable.tableValue[i][nodeB]);
 					} else if(jsonObj.key == 'T_PM_BIZORG_DTL') {
-						repeatUrl = viewGridProvider.httpPort() + jsonObj.url + '/' + $scope.mTable.tableValue[
-							i][nodeC] + '/' + $scope.mTable.tableValue[i][nodeD];
+						repeatUrl = viewGridProvider.httpPort() + jsonObj.url + '/' + encodeURIComponent($scope.mTable.tableValue[
+							i][nodeC]) + '/' + encodeURIComponent($scope.mTable.tableValue[i][nodeD]);
 					} else if(jsonObj.key == 'T_IC_SIMPLE_NODE_MAP') {
-						repeatUrl = viewGridProvider.httpPort() + jsonObj.url + '/' + $scope.mTable.tableValue[
-							i][nodeS] + '/' + $scope.mTable.tableValue[i][nodeM];
+						repeatUrl = viewGridProvider.httpPort() + jsonObj.url + '/' + encodeURIComponent($scope.mTable.tableValue[
+							i][nodeS]) + '/' + encodeURIComponent($scope.mTable.tableValue[i][nodeM]);
 					} else if(tableType.jsonObj.hasOwnProperty("bizType")) {
 						bizUrl = '/bizs/' + obj[tableType.jsonObj.bizType]
 						if(tableType.jsonObj.key == "T_PM_UNITAREAREL") {
-							repeatUrl = viewGridProvider.httpPort() + bizUrl + jsonObj.url + '/' + $scope.mTable.tableValue[
-								i][nodeA] + '/' + $scope.mTable.tableValue[i][nodeB];
+							repeatUrl = viewGridProvider.httpPort() + bizUrl + jsonObj.url + '/' + encodeURIComponent($scope.mTable.tableValue[
+								i][nodeA]) + '/' + encodeURIComponent($scope.mTable.tableValue[i][nodeB]);
 						} else {
-							repeatUrl = viewGridProvider.httpPort() + bizUrl + jsonObj.url + '/' + $scope.mTable.tableValue[
-								i][alterKey];
+							repeatUrl = viewGridProvider.httpPort() + bizUrl + jsonObj.url + '/' + encodeURIComponent($scope.mTable.tableValue[
+								i][alterKey]);
 							if(jsonObj.key == "T_PM_ENMEASINDEX") {
 								repeatUrl = $scope.measIndex == 1 ? repeatUrl + '?ofMeasindexType=1' : $scope.measIndex == 2 ? repeatUrl + '?ofMeasindexType=2' : repeatUrl + '?ofMeasindexType=3';
 							}
@@ -1592,8 +1592,8 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 						//						repeatUrl = $scope.measIndex ? viewGridProvider.httpPort() + jsonObj.url + '/' + $scope.mTable.tableValue[
 						//							i][alterKey] + '?ofMeasindexType=1' : viewGridProvider.httpPort() + jsonObj.url + '/' + $scope.mTable.tableValue[
 						//							i][alterKey] + '?ofMeasindexType=0';
-						var reapeatStr = viewGridProvider.httpPort() + jsonObj.url + '/' + $scope.mTable.tableValue[
-							i][alterKey]
+						var reapeatStr = viewGridProvider.httpPort() + jsonObj.url + '/' + encodeURIComponent($scope.mTable.tableValue[
+							i][alterKey])
 						repeatUrl = $scope.measIndex == 1 ? reapeatStr + '?ofMeasindexType=1' : $scope.measIndex == 2 ? reapeatStr + '?ofMeasindexType=2' : reapeatStr + '?ofMeasindexType=3';
 					} else {
 						repeatUrl = viewGridProvider.httpPort() + jsonObj.url + '/' + encodeURIComponent($scope.mTable.tableValue[
@@ -1603,12 +1603,11 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 					if(jsonObj.type == "Dict" || jsonObj.type == "Msr") {
 						importPostData(i, importJson, jsonObj.url)
 					} else {
-						searchImport(repeatUrl, importJson, i, alterKey, $scope.mTable.tableValue[i][alterKey],
-							nodeA, $scope.mTable.tableValue[i][nodeA], nodeB, $scope.mTable.tableValue[i][
-								nodeB
-							], nodeC, $scope.mTable.tableValue[i][nodeC], nodeD, $scope.mTable.tableValue[i]
-							[nodeD], nodeM, $scope.mTable.tableValue[i][nodeM], nodeS, $scope.mTable
-							.tableValue[i][nodeS])
+						searchImport(repeatUrl, importJson, i, alterKey, encodeURIComponent($scope.mTable.tableValue[i][alterKey]),
+							nodeA, encodeURIComponent($scope.mTable.tableValue[i][nodeA]), nodeB, 
+							encodeURIComponent($scope.mTable.tableValue[i][nodeB]), nodeC, encodeURIComponent($scope.mTable.tableValue[i][nodeC]), nodeD, 
+							encodeURIComponent($scope.mTable.tableValue[i][nodeD]), nodeM, encodeURIComponent($scope.mTable.tableValue[i][nodeM]), nodeS, 
+							encodeURIComponent($scope.mTable.tableValue[i][nodeS]))
 					}
 				};
 			}
@@ -1624,8 +1623,8 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 						"operMng": 'fms_ope'
 					}
 					var bizUrl = '/bizs/' + obj[tableType.jsonObj.bizType]
-					var tripleCodeUrl = '?' + tableType.nodeA + '=' + $scope.nodeA + '&' + tableType.nodeB + '=' +
-						$scope.nodeB
+					var tripleCodeUrl = '?' + tableType.nodeA + '=' + encodeURIComponent($scope.nodeA) + '&' + tableType.nodeB + '=' +
+						encodeURIComponent($scope.nodeB)
 					if((alterValue || nodeAValve || nodeCValve || nodeSValve) && res.data.collection.items
 						.length == 1) {
 						var putUrl;
@@ -1650,7 +1649,7 @@ var appUiGrid = angular.module('myApp.uiGrid', ['ui.router', 'ui.grid', 'ui.grid
 						} else if(tableType.jsonObj.key == "T_SYSTEM_MESSAGECONFIG") {
 							putUrl = jsonObj.url + '?' + tableType.nodeA + '=' + nodeAValve + '&' + tableType.nodeB + '=' + nodeBValve
 						} else {
-							putUrl = jsonObj.url + '/' + encodeURIComponent(alterValue);
+							putUrl = jsonObj.url + '/' + alterValue;
 						}
 						importPutData(index, importJson, putUrl)
 					} else {
