@@ -20,7 +20,7 @@ public interface TPmOrgDao extends JpaSpecificationExecutor<TPmOrg>, JpaReposito
 		   +" (select innert.org_code from T_PM_ORG innert where innert.org_id=t.upper_org_id) as upper_org_code, "
 		   +" (select innert.org_name from T_PM_ORG innert where innert.org_id=t.upper_org_id) as upper_org_name, "
 		   +" (select innert.org_alias from T_PM_ORG innert where innert.org_id=t.upper_org_id) as upper_org_alias, "
-		   +" t.org_code,  t.org_name, t.org_alias, t.orgtype_id,ty.orgtype_code,ty.orgtype_name ,t.inUse,t.des "
+		   +" t.org_code,  t.org_name, t.org_alias, t.orgtype_id,ty.orgtype_code,ty.orgtype_name ,t.inUse,t.des,t.sort_num "
 		   +" from T_PM_ORG t, T_PM_ORGTYPE ty  "
 		   +" where t.orgtype_id = ty.orgtype_id and FIND_IN_SET(t.ORG_ID,getOrgChildById(:orgId))", nativeQuery = true)
 	public List<Object> getAllTrees(@Param("orgId") Long orgId);
@@ -31,7 +31,7 @@ public interface TPmOrgDao extends JpaSpecificationExecutor<TPmOrg>, JpaReposito
 			+" (select innert.org_name from T_PM_ORG innert where innert.org_id=t.upper_org_id) as upper_org_name, "
 			+" (select innert.org_alias from T_PM_ORG innert where innert.org_id=t.upper_org_id) as upper_org_alias, "
 			+" t.org_code, t.org_name, t.org_alias, t.orgtype_id, ty.orgtype_code,"
-			+" ty.orgtype_name,t.inUse,t.des from T_PM_ORG t, T_PM_ORGTYPE ty where t.orgtype_id = ty.orgtype_id "
+			+" ty.orgtype_name,t.inUse,t.des,t.sort_num from T_PM_ORG t, T_PM_ORGTYPE ty where t.orgtype_id = ty.orgtype_id "
 			+" and FIND_IN_SET(t.ORG_ID,getOrgParentById(:orgId))", nativeQuery = true)
 	public List<Object> getBranchTrees(@Param("orgId") Long orgId);
 

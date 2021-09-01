@@ -34,6 +34,16 @@ public class OrgTree extends BaseResRep implements Serializable{
 
     private String des;
 
+    private Integer sortNum;
+
+    public Integer getSortNum() {
+        return sortNum;
+    }
+
+    public void setSortNum(Integer sortNum) {
+        this.sortNum = sortNum;
+    }
+
     public Integer getInUse() {
         return inUse;
     }

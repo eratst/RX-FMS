@@ -70,6 +70,7 @@ public class TPmOrgServiceImpl implements TPmOrgService {
 			tPmOrg.setOrgTypeName((String) objs[10]);
             tPmOrg.setInUse(Integer.valueOf(objs[11].toString()));
             tPmOrg.setDes((String) objs[12]);
+            tPmOrg.setSortNum(Integer.valueOf(objs[13].toString()));
 
 			tPmOrgLists.add(tPmOrg);
 		}
